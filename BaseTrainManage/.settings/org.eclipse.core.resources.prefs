@@ -1,0 +1,19 @@
+#Thu Apr 21 10:34:50 CST 2016
+eclipse.preferences.version=1
+encoding//WebRoot/index.jsp=UTF-8
+encoding//WebRoot/js/adminLogin.js=UTF-8
+encoding//WebRoot/js/menu.js=UTF-8
+encoding//WebRoot/jsp/adminLogin.jsp=UTF-8
+encoding//src/com/hhit/basetrain/entity/Admin.java=UTF-8
+encoding//src/com/hhit/basetrain/entity/Base.java=UTF-8
+encoding//src/com/hhit/basetrain/entity/BaseAdmin.java=UTF-8
+encoding//src/com/hhit/basetrain/entity/BaseTeacher.java=UTF-8
+encoding//src/com/hhit/basetrain/entity/CollegeTeacher.java=UTF-8
+encoding//src/com/hhit/basetrain/entity/Placard.java=UTF-8
+encoding//src/com/hhit/basetrain/entity/Result.java=UTF-8
+encoding//src/com/hhit/basetrain/entity/Student.java=UTF-8
+encoding//src/com/hhit/basetrain/entity/TrainCourse.java=UTF-8
+encoding//src/com/hhit/basetrain/entity/TrainStudent.java=UTF-8
+encoding//src/com/hhit/basetrain/entity/User.java=UTF-8
+encoding//src/com/hhit/basetrain/serviceImpl/UserServiceImpl.java=UTF-8
+encoding/<project>=UTF-8
