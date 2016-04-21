@@ -4,22 +4,32 @@
  
 <mapper namespace="com.hhit.basetrain.dao.UserDao">
 
-	<select id="findByName" parameterType="string"
-		resultType="com.hhit.basetrain.entity.User">
+	<!-- 根据用户名查找用户 -->
+	<select id="findByName" parameterType="string" resultType="com.hhit.basetrain.entity.User">
 		select * from user where Uno = #{name}
 	</select>
 	
+	<!-- 添加用户 -->
 	<insert id="save" parameterType="com.hhit.basetrain.entity.User">
 		insert into user(Uno,Upwd,Uidentity)
 		values
 		(#{Uno},#{Upwd},#{Uidentity})
 	</insert>
 	
+	<!-- 删除用户 -->
 	<delete id="delete" parameterType="string">
 		delete from user where Uno = #{Uno}
 	</delete>
 	
+	<!-- 修改密码 -->
 	<update id="mofifyPwd" parameterMap="java.util.Map">
+		update user
+		set Upwd = #{newPwd}
+		where Uno = #{Uno}
+	</update>
+	
+	<!-- 密码重置 -->
+	<update id="resetPwd" parameterMap="string">
 		update user
 		set Upwd = '000000'
 		where Uno = #{Uno}

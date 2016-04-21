@@ -40,15 +40,10 @@ public class UserServiceImpl implements UserService{
 			result.setMsg("用户名或密码错误！");
 			result.setStatus(0);
 			
-		}else if(!user.getUidentity().equals(identity)){//权限问题
-			
-			result.setMsg("对不起，您没有权限登录该系统！");
-			result.setStatus(0);
-
 		}else{//登陆成功
 			
-			result.setMsg("");
-			result.setStatus(2);
+			result.setMsg("登陆成功！");
+			result.setStatus(1);
 			result.setData(user);
 		}
 		
