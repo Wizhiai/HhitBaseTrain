@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <html>
   <head>
-  	<title>淮海工学院计算机工程学院实训教务在线</title>
+  	<title>淮海工学院计算机工程学院实训教务在线hlj</title>
   	<link rel="stylesheet" href="css/index.css"/>
   	<script type="text/javascript" src="../js/jquery.min.js"></script>
   	<script type="text/javascript" src="../js/adminLogin.js"></script>
