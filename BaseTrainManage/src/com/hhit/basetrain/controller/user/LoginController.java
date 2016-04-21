@@ -15,7 +15,7 @@ import com.hhit.basetrain.service.UserService;
 /**
  * @author Jiya
  * @date 2016-4-17下午01:35:10
- * TODO
+ * 
  */
 @Controller
 public class LoginController {
