@@ -18,16 +18,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				window.location.href="jsp/adminLogin.jsp";
   			});
   			$("#baseAdminLogin").click(function(){
-  				window.location.href="baseAdminLogin.jsp";
+  				window.location.href="jsp/baseAdminLogin.jsp";
   			});
   			$("#baseInformLogin").click(function(){
-  				window.location.href="baseInformLogin.jsp";
+  				window.location.href="jsp/baseInformLogin.jsp";
   			});
   			$("#baseTrainLogin").click(function(){
-  				window.location.href="baseTrainLogin.jsp";
+  				window.location.href="jsp/baseTrainLogin.jsp";
   			});
   			$("#baseValueLogin").click(function(){
-  				window.location.href="baseValueLogin.jsp";
+  				window.location.href="jsp/baseValueLogin.jsp";
   			});
   		})
   	</script>
