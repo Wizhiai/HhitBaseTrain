@@ -1,4 +1,4 @@
-/*body{//门户网站网页部分
+/*body{
 	
 	width:75%;
 	margin:0 auto;
@@ -9,7 +9,7 @@ div{
 	margin:0 auto;	
 	border:1px solid black;
 }
-.Index_nav{/*门户网站：导航区域*/
+.Index_nav{/*瀵艰埅*/
 	border:1px solid black;
 	/*width:50%;*/
 	height:100px;
@@ -18,7 +18,7 @@ div{
 	background-repeat: no-repeat;
 	background-position: center;
 }
-.Index_content table{/*门户网站：网站内容居中*/
+.Index_content table{/*棣栭〉鍐呭*/
 	width:95%;
 	margin:0 auto;	
 }

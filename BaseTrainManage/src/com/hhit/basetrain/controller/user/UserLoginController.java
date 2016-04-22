@@ -18,16 +18,16 @@ import com.hhit.basetrain.service.UserService;
  * 
  */
 @Controller
-public class LoginController {
+public class UserLoginController {
 
 	@Resource
 	private UserService userService;
 	
 	@RequestMapping("/login")
 	@ResponseBody
-	public Result execute(String username,String password,String identity){
+	public Result execute(String username,String password){
 		
-		Result result = userService.ckeckLogIn(username, password, identity);
+		Result result = userService.ckeckLogIn(username, password);
 		return result;
 		
 	}

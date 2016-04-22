@@ -15,7 +15,6 @@ import com.hhit.basetrain.service.UserService;
 /**
  * @author Jiya
  * @date 2016-4-17t下午01:40:24
- * TODO
  */
 @Service
 public class UserServiceImpl implements UserService{
@@ -23,10 +22,9 @@ public class UserServiceImpl implements UserService{
 	private UserDao userDao;
 
 	/* (non-Javadoc)
-	 * @see com.hhit.basetrain.service.UserService#ckeckLogIn(java.lang.String, java.lang.String, java.lang.String)
+	 * @see com.hhit.basetrain.service.UserService#ckeckLogIn(java.lang.String, java.lang.String)
 	 */
-	public Result ckeckLogIn(String username, String password, String identity) {
-		
+	public Result ckeckLogIn(String username, String password) {
 		Result result = new Result();
 		User user = userDao.findByName(username);
 		
