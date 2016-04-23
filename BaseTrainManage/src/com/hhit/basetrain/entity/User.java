@@ -5,39 +5,45 @@ package com.hhit.basetrain.entity;
 
 /**
  * @author Jiya
- * @date 2016-4-18下午03:15:52 
- * 用户实体类
+ * @date 2016-4-18下午03:15:52 用户实体类
  */
 public class User {
 
-	/** 用户名*/
-	private String Uno;
+	/** 用户名 */
+	private String username;
 	/** 密码 */
-	private String Upwd;
-	/** 身份*/
-	private String Uidentity;
-	public String getUno() {
-		return Uno;
+	private String password;
+	/** 身份 */
+	private String identity;
+
+	public String getUsername() {
+		return username;
 	}
-	public void setUid(String uno) {
-		Uno = uno;
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	public String getUpwd() {
-		return Upwd;
+
+	public String getPassword() {
+		return password;
 	}
-	public void setUpwd(String upwd) {
-		Upwd = upwd;
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	public String getUidentity() {
-		return Uidentity;
+
+	public String getIdentity() {
+		return identity;
 	}
-	public void setUidentity(String uidentity) {
-		Uidentity = uidentity;
+
+	public void setIdentity(String identity) {
+		this.identity = identity;
 	}
+
 	@Override
 	public String toString() {
-		return "User [Uno=" + Uno + ", Uidentity=" + Uidentity + ", Upwd="
-				+ Upwd + "]";
+		return "User [identity=" + identity + ", password=" + password
+				+ ", username=" + username + "]";
 	}
 
 }

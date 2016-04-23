@@ -1,10 +1,9 @@
-/*body{
-	
-	width:75%;
-	margin:0 auto;
-	border:1px solid black;
-}*/
-div{
+/**门户网站设计开始*/
+body{
+	background-color:;
+	background-image: url("../images/background.png");
+}
+.Index_nav,.Index_content,.Index_foot{//首页屏幕居中显示
 	width:75%;
 	margin:0 auto;	
 	border:1px solid black;
@@ -22,14 +21,57 @@ div{
 	width:95%;
 	margin:0 auto;	
 }
-table .left_content{
+table .left_content{/*首页特别提醒内容*/
 	width:25%;	
 }
-table .middle_content{
+table .middle_content{/*首页公告内容*/
 	width:50%;	
 }
-table .right_content{
+table .right_content{/*首页系统登录*/
 	width:25%;	
 }
+/**门户网站设计结束*/
+#tree li{
+	font-family:微软雅黑,宋体;
+	font-size:10px;
+	color:black;
+}
+div .index_topright{
+	border:1px solid red;
+	width:100%;
+	height:20px;
+}
+/**学生设计开始*/
+.StudentIndex_nav{/*学生首页导航*/
+	border:1px solid black;
+	width:100%;
+	height:10%;
+	/*background-image: url("../images/indexTop.jpg");*/
+}
 
+.StudentIndex_content{/*学生首页内容区域*/
+	border:1px solid black;
+	width：100%;
+}
+.StudentIndex_foot{/*学生首页网页末尾*/
+	border:1px solid black;
+	width：100%;
+	height：5%;
+}
+.StudentIndex_content #tree li{
+	list-style: none;	
+	line-height: 20px;
+}
+.up{
+	background-image: url("../images/upmenu.png");	
+	background-repeat: no-repeat;
+	padding-left:12px;
+}
+.down{
+	background-image: url("../images/downmenu.png");	
+	background-repeat: no-repeat;
+	padding-left:12px;
+}
+
+/**学生设计结束*/
 
