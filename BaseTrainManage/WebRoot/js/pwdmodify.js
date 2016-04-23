@@ -14,7 +14,7 @@ $(function(){
 				alert(result.status+result.msg);
 			},
 			error:function(){
-				alert("程序出错！");
+				alert("程序出错！!");
 			}
 	});
 	});
