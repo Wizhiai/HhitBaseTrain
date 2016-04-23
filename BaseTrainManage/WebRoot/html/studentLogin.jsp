@@ -65,11 +65,11 @@
           <div id="input">
             <div id="input1">
               <label for="username">用&nbsp;户&nbsp;名:&nbsp;</label>
-              <input type="text" name="user.userName"/><br/>
+              <input type="text" id="username"/><br/>
             </div>
             <div id="input2">
               <label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;</label>
-              <input type="password" name="user.password"/>
+              <input type="password" id="password"/>
             </div>
             <div id="input2">
               <label for="code">验&nbsp;证&nbsp;码:&nbsp;</label>

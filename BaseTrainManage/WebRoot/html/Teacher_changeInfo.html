@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta  content="text/html; charset=UTF-8">
+<title>高校实训学生管理系统</title>
+ <link rel="stylesheet" type="text/css" href="../css/input.css">
+ <style type="text/css">
+ 	
+	   #id3{
+	   float:left;
+	   margin-left:38px;
+	   }
+	   #id31{
+	   float:left;
+	   margin-left:50px;
+	   text-align:right;
+	   }
+	   #id4{
+	   position:absolute;
+	   text-align:center;
+	   top:240px;
+	   left:175px;
+	   }
+	   #id5{
+	   position:absolute;
+	   text-align:center;
+	   top:140px;
+	   left:175px;
+	   }
+	   #id6{
+	   position:absolute;
+	   text-align:center;
+	   top:350px;
+	   left:175px;
+	   }
+	   #id7{
+	   position:absolute;
+	   text-align:center;
+	   top:350px;
+	   left:610px;
+	   }
+	   #test{
+	     width:728px;
+	     height:500px;
+	     margin-top:25px;
+	   }
+	   form{
+	   padding-top:50px;
+	   padding-left:50px;
+	    background-image:url(../image/back1.jpg); 
+	   }
+ 
+ </style>
+ </head>
+<body>
+	<div id="head1"><img  src="../image/info.png"/></div>
+    <div id="head2">当前位置：首页&nbsp;>>&nbsp;个人信息管理&nbsp;>>&nbsp;<b>修改个人信息</b></div>
+    <div id="person"><img  src="../image/person.png"/></div>
+   <div id="welcome">您好：<b id="name"></b>,欢迎登录外实训学生管理系统--学校教师管理子系统</div>
+   <div id="time"><img  src="../image/time.png"/>
+    <script language="JavaScript" type="text/javascript"> 
+var today=new Date(); 
+var strDate=(" "+today.getFullYear()+"年"+(today.getMonth()+1)+"月"+today.getDate()+"日"); 
+var n_day=today.getDay(); 
+switch(n_day){ 
+case 0: 
+{strDate=strDate+" 星期日 "}break; 
+case 1: 
+{strDate=strDate+" 星期一 "}break; 
+case 2: 
+{strDate=strDate+" 星期二 "}break; 
+case 3: 
+{strDate=strDate+" 星期三 "}break; 
+case 4: 
+{strDate=strDate+" 星期四 "}break; 
+case 5: 
+{strDate=strDate+" 星期五 "}break; 
+case 6: 
+{strDate=strDate+" 星期六 "}break; 
+case 7: 
+{strDate=strDate+" 星期日 "}break; 
+} 
+document.write(strDate); 
+</script> 
+ </div>
+</body>
+<form action="" method="post">
+  <div id="test">
+	<div id="id4">
+	   <div id="id3">年&nbsp;&nbsp;龄&nbsp;<input name="jdTeacher.Tage" type="text" value=""/></div>
+	   <div id="id3">电&nbsp;&nbsp;&nbsp;&nbsp;话&nbsp;<input name="jdTeacher.Tcontact" type="text"  value=""/></div>        	  	   
+	</div>
+	<div id="id5">
+         <div id="id3">工&nbsp;&nbsp;号&nbsp;<input  name="jdTeacher.Tno" type="text" disabled="disabled" value="" /></div>
+	     <div id="id3">姓&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;<input  name="Teacher.Tname" type="text" value=""/></div>
+	</div>
+	<div id="id6"> 
+	   <div id="id3">职&nbsp;&nbsp;称&nbsp;
+	      <select name="jdTeacher.Tposition">  
+             <option value ="工程师">工程师</option>  
+             <option value ="讲师">讲师</option>  
+             <option value="教授">教授</option>  
+             <option value="副教授">副教授</option> 
+           </select>
+	    </div>
+	   <div id="id3">学院
+           <input  name="jdTeacher.Tunit" type="text" value=""/>
+	   </div>
+	</div>
+	<div id="id7"> 
+	   <input name="Scontact2" type="submit" value="修改信息"/>
+	</div>
+  </div>
+</form>
+</html>
