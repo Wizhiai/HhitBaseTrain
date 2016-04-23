@@ -8,43 +8,33 @@
  	body{
  	 position:relative;
  	}
- 	#id1{
- 	 	margin-top:10px;
- 	 	margin-left:8px;
- 	 	float:left;
- 	 	width:20%;
+ 	.condition{
+ 		float:left;
+ 		margin-left:20px;
  	}
- 	#course{
- 	    margin-top:10px;
- 	 	float:left;
- 	 	width:20%;
- 	
+ 	.condition input{
+ 	  width:120px;
  	}
- 	#course select{
- 		width:80px;
+ 	.search{
+ 	   float:left;
+       margin-left:35px;
  	}
- 	 #id4{
-	    position:absolute;
-        top:180px; 
-        left:140px; 
-	  }
-	  .search{
-	     margin-top:10px;
- 	 	 float:left;
- 	 	 width:10%;
-	  }
-	 a{
-	  text-decoration: none;
-	  color:#000;
-	  }
-
+ 	.search input{
+ 		width:50px;
+ 	}
+ 	#id4{
+ 		position:absolute;
+ 		margin-top:160px;
+ 		margin-left:80px;
+ 	}
+   
  </style>
 </head>
 <body>
 	<div id="head1"><img  src="../image/info.png"/></div>
-    <div id="head2">当前位置：首页&nbsp;>>&nbsp;实训成绩管理&nbsp;>>&nbsp;<b>实训成绩统计</b></div>
+    <div id="head2">当前位置：首页&nbsp;>>&nbsp;学生实训信息管理&nbsp;>>&nbsp;<b>实训信息查询</b></div>
     <div id="person"><img  src="../image/person.png"/></div>
-   <div id="welcome">您好：<b id="name"></b>,欢迎登录外实训学生管理系统--基地教师管理子系统</div>
+   <div id="welcome">您好：<b id="name"></b>,欢迎登录外实训学生管理系统--学校教师管理子系统</div>
    <div id="time"><img  src="../image/time.png"/>
     <script language="JavaScript" type="text/javascript"> 
 var today=new Date(); 
@@ -73,23 +63,20 @@ document.write(strDate);
  </div>
     <div id="information">
     	<form action="" method="post">
-    		<div id="id1">学&nbsp;&nbsp;号&nbsp;<input type="text" name="sno"/></div>
-    		<div id="course">课&nbsp;程&nbsp;号&nbsp;
-    		   <select name=" ">  
-                 <option value ="1111101">1111101</option>  
-                 <option value ="1111102">1111102</option>  
-                 <option value="1111103">1111103</option>  
-		         <option value="1111104">1111104</option>
-		         <option value="1111105">1111105</option>
-		         <option value="1111106">1111106</option>
-		        <option value="1111107">1111107</option>
-		   <option value="1111108">1111108</option>
-		   <option value="1111109">1111109</option>
-		   <option value="11111010">1111110</option>
-         </select>  
+    	<div id="choose">
+    		<div class="condition">学&nbsp;&nbsp;号&nbsp;<input type="text" name="sno"/></div>
+    		<div class="condition">班&nbsp;级&nbsp;<input type="text" name="sclass"/></div>
+	<div class="condition">
+	     专&nbsp;业&nbsp;
+	     <select>
+	        <option value ="1">计算机科学与技术</option>  
+            <option value ="2">软件工程</option>  
+            <option value="3">网络工程</option>  
+		    <option value="4">软嵌工程</option>
+	     </select>
 	  </div>
 	  <div class="search"><input type="submit" value="查询"/></div>
-	   <div class="search"><label><a href="JDT_countAllGradeInfo.html">统计</a></label></div>
+	  </div>
     	</form>
      
     
@@ -98,16 +85,18 @@ document.write(strDate);
     <form name="form2">
      <table width="950px" border="0" cellpadding="0" cellspacing="0" bgcolor="b5d6e6" align="center">
       <tr>
-         <td height="24"  colspan="6" align="left"><b>学生成绩信息</b></td>
+         <td height="24"  colspan="8" align="left"><b>学生实训信息</b></td>
       </tr>
 	   
        <tr align="center" bgcolor="#E7FDFE" height="22">
 	      <th width="10%"><b>学号</b></th>
 	      <th width="10%"><b>姓名</b></th>
+	      <th width="10%"><b>学校班级</b></th>
+	      <th width="10%"><b>专业</b></th>
 	      <th width="15%"><b>实训单位</b></th>
 	      <th width="10%"><b>课程号</b></th>
 	      <th width="10%"><b>课程名</b></th>
-		  <th width="25%"><b>基本操作</b></th>
+	      <th width="10%"><b>周期</b></th>
        </tr>
 
        <tr align='center' bgcolor="#FFFFFF" height="22" onMouseMove="javascript:this.bgColor='#E7FDFE';" onMouseOut="javascript:this.bgColor='#FFFFFF';">    
@@ -119,13 +108,10 @@ document.write(strDate);
 	      <td></td>
 	      <td></td>
 	       <td></td>
-	      <td>
-	          <a href="JDT_countGradeInfoBymonth.html"> 统计</a>
-	      </td>
         </tr>
 		
       <tr>
-         <td height="24" colspan="6" align="right">
+         <td height="24"  colspan="8" align="right">
                                           总共&nbsp;<b>0</b>条记录</td>
      </tr>
   </table>

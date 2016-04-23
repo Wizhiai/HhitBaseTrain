@@ -1,6 +1,15 @@
-#Thu Apr 21 14:58:50 CST 2016
+#Sat Apr 23 11:11:59 CST 2016
 eclipse.preferences.version=1
+encoding//WebRoot/html/JDT_modifyInfo.html=UTF-8
+encoding//WebRoot/html/JDT_studyplan.html=UTF-8
+encoding//WebRoot/html/JDT_uploadStudyplan.html=UTF-8
+encoding//WebRoot/html/Student_modifyInfo.html=UTF-8
+encoding//WebRoot/html/Teacher_changeInfo.html=UTF-8
+encoding//WebRoot/html/Teacher_study.html=UTF-8
 encoding//WebRoot/html/jdteachermain.html=UTF-8
+encoding//WebRoot/html/studentmain.html=UTF-8
+encoding//WebRoot/html/teachermain.html=UTF-8
+encoding//WebRoot/html/welcome.html=UTF-8
 encoding//WebRoot/index.jsp=UTF-8
 encoding//WebRoot/js/adminLogin.js=UTF-8
 encoding//WebRoot/js/menu.js=UTF-8
