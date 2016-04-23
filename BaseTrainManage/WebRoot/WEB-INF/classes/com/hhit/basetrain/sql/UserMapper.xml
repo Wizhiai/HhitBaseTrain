@@ -6,33 +6,38 @@
 
 	<!-- 根据用户名查找用户 -->
 	<select id="findByName" parameterType="string" resultType="com.hhit.basetrain.entity.User">
-		select * from user where Uno = #{name}
+		select username,password,identity from user where username = #{name}
 	</select>
 	
 	<!-- 添加用户 -->
 	<insert id="save" parameterType="com.hhit.basetrain.entity.User">
-		insert into user(Uno,Upwd,Uidentity)
+		insert into user(username,password,identity)
 		values
-		(#{Uno},#{Upwd},#{Uidentity})
+		(#{username},#{password},#{identity})
 	</insert>
 	
 	<!-- 删除用户 -->
 	<delete id="delete" parameterType="string">
-		delete from user where Uno = #{Uno}
+		delete from user where username = #{username}
 	</delete>
 	
+	<!-- 查询密码-->
+	<select id="searchPwd" parameterType="string" resultType="string">
+		select password where username = #{username}
+	</select>
+	
 	<!-- 修改密码 -->
-	<update id="mofifyPwd" parameterMap="java.util.Map">
+	<update id="mofifyPwd" parameterType="java.util.Map">
 		update user
-		set Upwd = #{newPwd}
-		where Uno = #{Uno}
+		set password = #{newPwd}
+		where username = #{username}
 	</update>
 	
 	<!-- 密码重置 -->
-	<update id="resetPwd" parameterMap="string">
+	<update id="resetPwd" parameterType="string">
 		update user
 		set Upwd = '000000'
-		where Uno = #{Uno}
+		where username = #{username}
 	</update>
 	
 </mapper>

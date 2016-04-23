@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService{
 			result.setMsg("用户名或密码错误！");
 			result.setStatus(0);
 			
-		}else if(!user.getUpwd().equals(password)){//密码错误
+		}else if(!user.getPassword().equals(password)){//密码错误
 			
 			result.setMsg("用户名或密码错误！");
 			result.setStatus(0);

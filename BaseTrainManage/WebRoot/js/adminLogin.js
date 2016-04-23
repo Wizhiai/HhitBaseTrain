@@ -14,7 +14,6 @@ $(function(){
 				data:{"username":username,"password":password},
 				dataType:"json",
 				success:function(result){
-					alert(result.msg);
 					$("#msg").html(result.msg);
 				},
 				error:function(){
