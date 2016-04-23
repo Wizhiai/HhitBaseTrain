@@ -15,6 +15,10 @@ $(function(){
 				dataType:"json",
 				success:function(result){
 					$("#msg").html(result.msg);
+					addCookie("username",result.data.username,2);
+					/*$.session.set("username",result.data.username);*/
+					window.location.href="../jsp/adminIndex.jsp";
+					
 				},
 				error:function(){
 					alert("程序出错");

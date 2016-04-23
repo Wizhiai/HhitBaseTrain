@@ -5,6 +5,7 @@
   	<link rel="stylesheet" href="css/index.css"/>
   	<script type="text/javascript" src="../js/jquery.min.js"></script>
   	<script type="text/javascript" src="../js/adminLogin.js"></script>
+  	<script type="text/javascript" src="../js/cookie_util.js"></script>
   </head>
   <center>
   <body>

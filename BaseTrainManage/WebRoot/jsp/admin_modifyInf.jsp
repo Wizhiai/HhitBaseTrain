@@ -8,13 +8,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <title>My JSP 'admin_modifyInf.jsp' starting page</title>
-		<link rel="stylesheet" type="text/css" href="styles.css">
-
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/cookie_util.js"></script>
+		<!--<link rel="stylesheet" type="text/css" href="../css/index.css">-->
+	<script type="text/javascript">
+		$(function(){
+			var username = getCookie("username");
+			alert(username);
+			$("#name").val(username);
+		});
+	</script>
   </head>
   <body>
     	姓名：<input type="text" id="name"/>
     	联系方式：<input type="text" id="telephone"/>
-    	<input class="modify" type="button" value="修改">
-    	<input class="back" type="button" value="返回">
+    	<input class="modify" type="button" value="修改" id="modify">
+    	<input class="back" type="button" value="返回" id="back">
   </body>
 </html>

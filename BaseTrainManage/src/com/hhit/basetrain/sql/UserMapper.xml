@@ -23,11 +23,11 @@
 	
 	<!-- 查询密码-->
 	<select id="searchPwd" parameterType="string" resultType="string">
-		select password where username = #{username}
+		select password from user where username = #{username}
 	</select>
 	
 	<!-- 修改密码 -->
-	<update id="mofifyPwd" parameterType="java.util.Map">
+	<update id="modifyPwd" parameterType="java.util.Map">
 		update user
 		set password = #{newPwd}
 		where username = #{username}

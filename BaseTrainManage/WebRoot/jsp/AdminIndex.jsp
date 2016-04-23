@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     					<a onclick="upDownMenu(this)">个人信息管理</a>
     						<ul>
     							<li><a href="admin_modifyInf.jsp" target="businessfrm">修改个人信息</a></li>
-    							<li><a>修改密码</a></li>
+    							<li><a href="pwdmodify.jsp" target="businessfrm">修改密码</a></li>
     						</ul>
     					</li>
     					<li class="up">
