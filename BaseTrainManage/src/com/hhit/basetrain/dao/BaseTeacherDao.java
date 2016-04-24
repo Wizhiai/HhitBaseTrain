@@ -9,10 +9,5 @@ package com.hhit.basetrain.dao;
  * TODO
  */
 public interface BaseTeacherDao {
-	/**
-	 * 根据用户名查到baserelation表中的基地管理员
-	 * @param id
-	 * @return
-	 */
-	public String findManagerNoByTno(String id);
+
 }

@@ -11,11 +11,5 @@ import com.hhit.basetrain.entity.Result;
  * TODO
  */
 public interface BaseTeacherService {
-	/**
-	 * 通过基地教师Id获取基地管理员
-	 * @param id
-	 * @return
-	 */
-	public String gainBaseManager(String id);
 	
 }

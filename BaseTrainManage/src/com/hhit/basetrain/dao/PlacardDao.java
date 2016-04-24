@@ -19,5 +19,10 @@ public interface PlacardDao {
 	 * @param manager_no
 	 * @return
 	 */
-	public List<Map> findByAuthorName(String manager_no);
+	public List<Map> findById(String id);
+	/**
+	 * 查询学校公告
+	 * @return
+	 */
+	public List<Map> findByType();
 }

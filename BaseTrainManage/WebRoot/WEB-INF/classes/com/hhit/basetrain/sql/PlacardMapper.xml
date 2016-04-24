@@ -3,8 +3,14 @@
  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 <mapper namespace="com.hhit.basetrain.dao.PlacardDao">
 	<!-- 根据发布名查找公告 -->
-	<select id="findByAuthorName" parameterType="string" resultType="map">
-		select placard_title,placard_content,publish_time from placard where publish_author = #{manager_no}
+	<select id="findById" parameterType="string" resultType="map">
+		select placard_title,placard_content,publish_time from placard where publish_author = (select manager_no from baserelation where base_no=(select base_no from baseteacher where t_no=#{id}))
+		order by publish_time desc
+	</select>
+	
+	<!-- 查询学校公告 -->
+	<select id="findByType" resultType='map'>
+	  select placard_title,placard_content,publish_time from placard where placard_type='2' 
 	</select>
 
 </mapper>
