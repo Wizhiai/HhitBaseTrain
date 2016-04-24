@@ -42,7 +42,7 @@
     
     }
     #btn{
-      margin-top:9px;
+      margin-top:15px;
       margin-left:20px;
     }
    #btn1{
@@ -57,11 +57,14 @@
      
     }
     </style>
+    <script type="text/javascript" src="../js/cookie_util.js"></script>
+     <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="../js/login.js"> </script>
   </head>
   <body>
   <div id="container" align="center">
       <div id="login" align="center">
-        <form action="mlogin" method="post" >
+        <form>
           <div id="input">
             <div id="input1">
               <label for="username">用&nbsp;户&nbsp;名:&nbsp;</label>
@@ -69,16 +72,12 @@
             </div>
             <div id="input2">
               <label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;</label>
-              <input type="password" id="password"/>
-            </div>
-            <div id="input2">
-              <label for="code">验&nbsp;证&nbsp;码:&nbsp;</label>
-              <input type="text" id="code"/>
+              <input type="password" id="password"/><br/>
             </div>
           </div>
           <div id="btn">
             <span id="btn1">
-              <input type="submit" value="登录">
+              <input type="button" value="登录" id="login1">
             </span>
             <span id="btn2">
               <input type="button" value="退出" onclick="window.close();">
