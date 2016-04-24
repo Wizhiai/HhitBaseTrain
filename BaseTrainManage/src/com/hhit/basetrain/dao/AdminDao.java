@@ -15,5 +15,6 @@ import com.hhit.basetrain.entity.Admin;
 public interface AdminDao {
 
 	public Admin findByNo(String no);
-	public int modifyInf(Map map);
+	public String findNameByNo(String ct_no);
+	public int modifyInf(Map<String,Object> map);
 }

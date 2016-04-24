@@ -4,7 +4,6 @@ $(function(){
 		var username = $("#username").val();
 		var password = $("#password").val();
 		
-		alert(username+","+ password);
 		if(username == "" || password == ""){
 			alert("用户名或密码不能为空");
 		}else{
@@ -17,12 +16,14 @@ $(function(){
 					if(result.status == 1){
 						
 						if(result.data.identity == "1"){
-							$("#msg").html(result.msg);
 							addCookie("username",result.data.username,2);
+							addCookie("identity",result.data.identity,2);
 							window.location.href="../jsp/baseadminIndex.jsp";
 						}else{
 							alert("您没有权限进入系统！");
 						}
+					}else{
+						alert(result.msg);
 					}
 				},
 				error:function(){

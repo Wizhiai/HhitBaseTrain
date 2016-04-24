@@ -19,7 +19,7 @@ public class Student {
 	/** 班级 */
 	private String stu_class;
 	/** 专业 */
-	private String marjor;
+	private String major;
 	/** 联系方式 */
 	private String phone;
 	/** 入学年份 */
@@ -61,12 +61,12 @@ public class Student {
 		stu_class = stuClass;
 	}
 
-	public String getMarjor() {
-		return marjor;
+	public String getMajor() {
+		return major;
 	}
 
-	public void setMarjor(String marjor) {
-		this.marjor = marjor;
+	public void setMajor(String major) {
+		this.major = major;
 	}
 
 	public String getPhone() {
@@ -104,7 +104,7 @@ public class Student {
 	@Override
 	public String toString() {
 		return "Student [address=" + address + ", birthday=" + birthday
-				+ ", enter_year=" + enter_year + ", marjor=" + marjor
+				+ ", enter_year=" + enter_year + ", major=" + major
 				+ ", phone=" + phone + ", stu_class=" + stu_class
 				+ ", stu_name=" + stu_name + ", stu_sex=" + stu_sex
 				+ ", stuno=" + stuno + "]";
