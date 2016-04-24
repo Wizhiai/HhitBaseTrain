@@ -6,6 +6,7 @@
     
     <link rel="stylesheet" type="text/css" href="../css/main.css">
    <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="../js/cookie_util.js"></script>
    <script type="text/javascript" src="../js/menu.js"></script>
    <script type="text/javascript">
    function startup() {
@@ -18,8 +19,8 @@
   <body>
   <div id="header">
   	<div id="logo"><img src="../image/head.png"/></div>
-    <div id="front"><a href="../jsp/jdteachermain.html">首&nbsp;页</a></div>
-  	<div id="flush"><a href="../jsp/studentLogin.jsp">登&nbsp;录</a></div>
+    <div id="front"><a href="../html/jdteachermain.html">首&nbsp;页</a></div>
+  	<div id="flush"><a href="../html/studentLogin.jsp">登&nbsp;录</a></div>
   	<div id="end" onclick="window.close();">退&nbsp;出</div>
   	
   </div>
@@ -50,11 +51,30 @@
 											<TR>
 												<TD class=portrait><IMG
 													src="../image/portrait_s.gif"></TD>
-												<TD><B>UI2</B>&nbsp;先生/女生,您好!</TD>
+												<TD><b><script type="text/javascript">
+												   	var Id=getCookie("userId");
+												   	document.write(Id);
+												
+												</script></b>&nbsp;先生/女生,您好!</TD>
 											</TR>
 											<TR>
-												<TD class=loginInfo colSpan=2>您上次登录时间:<A
-													>2014-06-26 13:26</A><BR></TD>
+												<TD class=loginInfo colSpan=2>您本次登录时间:<A>
+												<script type="text/javascript">
+													var currentdate=new Date();
+													var hour=currentdate.getHours();//获取事件
+													var min=currentdate.getMinutes();//获取分钟
+													var mm=currentdate.getSeconds();//获取秒
+													if(min>0&&min<10){
+														min+='0'
+													}
+													if(mm>0&&mm<10){
+														mm+='0'
+													}
+													document.writeln(hour+":"+min+":"+mm);
+												
+												</script>
+												
+												</A><BR></TD>
 											</TR>
 										</TBODY>
 									</TABLE>

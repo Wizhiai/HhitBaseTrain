@@ -51,6 +51,7 @@ public class UserServiceImpl implements UserService{
 		return result;
 	}
 
+
 	/* (non-Javadoc)
 	 * @see com.hhit.basetrain.service.UserService#modifyPwd(java.lang.String, java.lang.String, java.lang.String)
 	 */
