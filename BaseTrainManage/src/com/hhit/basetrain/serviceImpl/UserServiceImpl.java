@@ -3,6 +3,9 @@
  */
 package com.hhit.basetrain.serviceImpl;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -47,4 +50,28 @@ public class UserServiceImpl implements UserService{
 		
 		return result;
 	}
+
+
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.UserService#modifyPwd(java.lang.String, java.lang.String, java.lang.String)
+	 */
+	public Result modifyPwd(String username, String oldPwd, String newPwd) {
+		
+		Result result = new Result();
+		
+		if(!userDao.searchPwd(username).equals(oldPwd)){
+			result.setStatus(0);
+			result.setMsg("原密码输入错误！");
+		}else{
+			
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("newPwd", newPwd);
+			map.put("username", username);
+			
+			result.setStatus(userDao.modifyPwd(map));
+			result.setMsg("修改成功!");
+		}
+		return result;
+	}
+
 }
