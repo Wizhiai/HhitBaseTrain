@@ -15,10 +15,14 @@ $(function(){
 				dataType:"json",
 				success:function(result){
 					if(result.status == 1){
-						if(result.data.identity == "0"){
+						if(result.data.identity == "2"){
 							$("#msg").html(result.msg);
 							addCookie("username",result.data.username,2);
-							window.location.href="../jsp/adminIndex.jsp";
+							window.location.href="../jsp/collegeTeacherIndex.jsp";
+						}else if(result.data.identity == "4"){
+							$("#msg").html(result.msg);
+							addCookie("username",result.data.username,2);
+							window.location.href="../jsp/stuedntIndex.jsp";
 						}else{
 							alert("您没有权限进入系统！");
 						}

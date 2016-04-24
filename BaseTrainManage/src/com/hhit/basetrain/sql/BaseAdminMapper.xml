@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ 
+<mapper namespace="com.hhit.basetrain.dao.BaseAdminDao">
+
+	<!-- 根据用户名查找信息 -->
+	<select id="findByNo" parameterType="string" resultType="com.hhit.basetrain.entity.BaseAdmin">
+		select manager_no,manager_name,manager_phone from baseadmin where manager_no = #{manager_no}
+	</select>
+	
+	<!-- 修改信息 -->
+	<update id="modifyInf" parameterType="java.util.Map">
+		update baseadmin
+		set manager_name = #{manager_name},manager_phone = #{manager_phone}
+		where manager_no = #{manager_no}
+	</update>
+	
+</mapper>
