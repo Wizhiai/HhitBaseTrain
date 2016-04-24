@@ -11,5 +11,19 @@ import com.hhit.basetrain.entity.Result;
  */
 public interface UserService {
 
+	/**
+	 * 用户登录检查
+	 * @param username
+	 * @param password
+	 * @return
+	 */
 	public Result ckeckLogIn(String username,String password);
+	/**
+	 * 密码修改
+	 * @param username
+	 * @param oldPwd
+	 * @param newPwd
+	 * @return
+	 */
+	public Result modifyPwd(String username,String oldPwd,String newPwd);
 }

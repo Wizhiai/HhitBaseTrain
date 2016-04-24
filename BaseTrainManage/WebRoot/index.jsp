@@ -17,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				window.location.href="jsp/adminLogin.jsp";
   			});
   			$("#baseAdminLogin").click(function(){
-  				window.location.href="jsp/baseAdminLogin.jsp";
+  				window.location.href="jsp/baseadminLogin.jsp";
   			});
   			$("#baseInformLogin").click(function(){
   				window.location.href="jsp/baseInformLogin.jsp";

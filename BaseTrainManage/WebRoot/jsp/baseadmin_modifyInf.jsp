@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script type="text/javascript" src="../js/cookie_util.js"></script>
 		<!--<link rel="stylesheet" type="text/css" href="../css/index.css">-->
-		<script type="text/javascript" src="../js/admin_modifyInf.js"></script>
+		<script type="text/javascript" src="../js/baseadmin_modifyInf.js"></script>
   </head>
   <body>
     	姓名：<input type="text" id="name"/>

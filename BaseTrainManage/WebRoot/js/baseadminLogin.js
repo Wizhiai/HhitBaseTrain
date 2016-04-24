@@ -15,10 +15,11 @@ $(function(){
 				dataType:"json",
 				success:function(result){
 					if(result.status == 1){
-						if(result.data.identity == "0"){
+						
+						if(result.data.identity == "1"){
 							$("#msg").html(result.msg);
 							addCookie("username",result.data.username,2);
-							window.location.href="../jsp/adminIndex.jsp";
+							window.location.href="../jsp/baseadminIndex.jsp";
 						}else{
 							alert("您没有权限进入系统！");
 						}
