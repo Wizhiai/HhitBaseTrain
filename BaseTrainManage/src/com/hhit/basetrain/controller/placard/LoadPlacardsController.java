@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.hhit.basetrain.controller.user;
+package com.hhit.basetrain.controller.placard;
 
 import javax.annotation.Resource;
 
@@ -29,6 +29,13 @@ public class LoadPlacardsController {
 		System.out.println(1);
 		return result;
 		
+	}
+	@RequestMapping("/loadschoolPlacard")
+	@ResponseBody
+	public Result execute1(){
+		Result result=placardService.loadSchoolPlacard();
+		System.out.println(1);
+		return result;
 	}
 	
 

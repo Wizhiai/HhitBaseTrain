@@ -15,5 +15,9 @@ public interface PlacardService {
 	 * 通过基地管理员获取公告信息
 	 */
 	public Result loadPlacard (String id);
+	/**
+	 * 查询学校公告
+	 */
+	public Result loadSchoolPlacard();
 
 }

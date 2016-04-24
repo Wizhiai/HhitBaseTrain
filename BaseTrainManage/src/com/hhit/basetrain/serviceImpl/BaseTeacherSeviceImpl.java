@@ -18,20 +18,6 @@ import com.hhit.basetrain.service.BaseTeacherService;
  */
 @Service
 public class BaseTeacherSeviceImpl implements BaseTeacherService{
-	@Resource
-	private BaseTeacherDao baseTeacherDao;
 
-	/* (non-Javadoc)
-	 * @see com.hhit.basetrain.service.BaseTeacherService#gainBaseManager(java.lang.String)
-	 */
-	public 	String gainBaseManager(String id) {
-		String manager_no=baseTeacherDao.findManagerNoByTno(id);
-		if(manager_no ==null){
-			return null;
-		}
-			
-		return manager_no;
-		
-	}
 
 }

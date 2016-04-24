@@ -37,7 +37,9 @@
 				        
 				    	var userId=user.username;
 				    	
+			    		var iden=user.identity;
 			    		addCookie("userId",userId,2);
+			    		addCookie("identity",iden,2);
 			    		window.location.href="teachermain.html";
 			    	}else if(result.status==1 && user.identity =="3"){
 			    		var userId=user.username;
