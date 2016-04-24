@@ -9,6 +9,11 @@
 		select no,name,phone from admin where no = #{no}
 	</select>
 	
+	<!-- 根据用户名查找姓名 -->
+	<select id="findNameByNo" parameterType="string" resultType="string">
+		select name from admin where no = #{no}
+	</select>
+	
 	<!-- 修改信息 -->
 	<update id="modifyInf" parameterType="java.util.Map">
 		update admin

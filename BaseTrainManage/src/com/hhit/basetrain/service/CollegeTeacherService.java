@@ -19,6 +19,12 @@ public interface CollegeTeacherService {
 	 */
 	public Result showInf(String ct_no);
 	/**
+	 * 查找姓名
+	 * @param no
+	 * @return
+	 */
+	public Result showName(String ct_no);
+	/**
 	 * 修改个人信息
 	 * @return
 	 */

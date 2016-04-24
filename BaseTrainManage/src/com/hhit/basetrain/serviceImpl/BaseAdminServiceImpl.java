@@ -32,7 +32,6 @@ public class BaseAdminServiceImpl implements BaseAdminService{
 		
 		Result result = new Result();
 		
-		System.out.println(manager_no);
 		if(baseAdminDao.findByNo(manager_no)==null){
 			
 			result.setStatus(0);
@@ -60,6 +59,27 @@ public class BaseAdminServiceImpl implements BaseAdminService{
 
 		result.setStatus(baseAdminDao.modifyInf(map));
 		result.setMsg("修改成功");
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.BaseAdminService#showName(java.lang.String)
+	 */
+	public Result showName(String managerNo) {
+		
+		Result result = new Result();
+		
+		if(baseAdminDao.findByNo(managerNo)==null){
+			
+			result.setStatus(0);
+			result.setMsg("姓名显示失败！");
+			
+		}else{
+			
+			result.setStatus(1);
+			result.setMsg("查询成功");
+			result.setData(baseAdminDao.findNameByNo(managerNo));
+		}
 		return result;
 	}
 

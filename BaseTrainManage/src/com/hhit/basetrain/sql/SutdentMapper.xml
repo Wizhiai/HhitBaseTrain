@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ 
+<mapper namespace="com.hhit.basetrain.dao.StudentDao">
+
+	<!-- 根据用户名查找用户 -->
+	<select id="findByNo" parameterType="string" resultType="com.hhit.basetrain.entity.Student">
+		select stuno,stu_name,stu_sex,stu_class,major,phone,enter_year,
+			date_format(birthday,'%Y-%m-%d') as birthday,address 
+		from student 
+		where stuno = #{stuno}
+	</select>
+	
+	<!-- 根据用户名查找姓名 -->
+	<select id="findNameByNo" parameterType="string" resultType="string">
+		select stu_name from student where stuno = #{stuno}
+	</select>
+	
+	<!-- 修改信息 -->
+	<update id="modifyInf" parameterType="com.hhit.basetrain.entity.Student">
+		update student
+		set stu_name = #{stu_name},stu_sex = #{stu_sex},stu_class = #{stu_class},
+			major = #{major},phone = #{phone},enter_year = #{enter_year},
+			birthday = str_to_date(#{birthday},'%Y-%m-%d'),address = #{address}
+		where stuno = #{stuno}
+	</update>
+	
+</mapper>

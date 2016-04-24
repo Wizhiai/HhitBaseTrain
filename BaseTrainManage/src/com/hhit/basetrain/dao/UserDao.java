@@ -43,7 +43,7 @@ public interface UserDao {
 	 * @param map
 	 * @return
 	 */
-	public int modifyPwd(Map map);
+	public int modifyPwd(Map<String,Object> map);
 	/**
 	 * 密码重置
 	 * @param username

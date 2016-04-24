@@ -9,6 +9,11 @@
 		select manager_no,manager_name,manager_phone from baseadmin where manager_no = #{manager_no}
 	</select>
 	
+	<!-- 根据用户名查找姓名 -->
+	<select id="findNameByNo" parameterType="string" resultType="string">
+		select manager_name from baseadmin where manager_no = #{manager_no}
+	</select>
+	
 	<!-- 修改信息 -->
 	<update id="modifyInf" parameterType="java.util.Map">
 		update baseadmin

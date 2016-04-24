@@ -19,6 +19,12 @@ public interface BaseAdminService {
 	 */
 	public Result showInf(String manager_no);
 	/**
+	 * 查找姓名
+	 * @param no
+	 * @return
+	 */
+	public Result showName(String manager_no);
+	/**
 	 * 修改个人信息
 	 * @return
 	 */

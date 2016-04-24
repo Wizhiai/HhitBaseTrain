@@ -7,9 +7,11 @@
 		<link rel="stylesheet" type="text/css" href="../css/index.css">
 		<script type="text/javascript" src="../js/jquery.min.js"></script>
 		<script type="text/javascript" src="../js/menuchoose.js"></script>
+		<script type="text/javascript" src="../js/cookie_util.js"></script>
 		<script type="text/javascript">
 			$(function(){
 				$("#tree li").children("ul").hide();
+				promptName();
 			})
 		</script>
 
@@ -30,7 +32,7 @@
     					<a onclick="upDownMenu(this)">个人信息管理</a>
     						<ul>
     							<li><a href="admin_modifyInf.jsp" target="businessfrm">修改个人信息</a></li>
-    							<li><a href="pwdmodify.jsp" target="businessfrm">修改密码</a></li>
+    							<li><a href="pwdModify.jsp" target="businessfrm">修改密码</a></li>
     						</ul>
     					</li>
     					<li class="up">
@@ -76,7 +78,10 @@
     			</td>
     			<!-- 内容选择区域 -->
     			<td class="content_display">
-    				<div class="index_topright"></div>
+    				<div class="index_topright">
+    					<div class="progress" style="float:left;"><lable id="progress"></lable></div>
+    					<div class="inform_show" style="float:right;"><lable id="name_show"></lable></div>
+    				</div>
     				<iframe id="businessfrm" src=""
 						frameborder="0" width="100%" name="businessfrm" scrolling="no";height="510px";></iframe>
     			</td>
