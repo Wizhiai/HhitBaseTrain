@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ 
+<mapper namespace="com.hhit.basetrain.dao.CollegeTeacherDao">
+
+	<!-- 根据用户名查找用户 -->
+	<select id="findByNo" parameterType="string" resultType="com.hhit.basetrain.entity.CollegeTeacher">
+		select ct_no,ct_name,date_format(ct_birthday,'%Y-%m-%d') as ct_birthday,ct_sex,academy_no,ct_phone,ct_profession from collegeteacher where ct_no = #{ct_no}
+	</select>
+	
+	<!-- 修改信息 -->
+	<update id="modifyInf" parameterType="com.hhit.basetrain.entity.CollegeTeacher">
+		update collegeteacher
+		set ct_name = #{ct_name},ct_birthday = str_to_date(#{ct_birthday},'%Y-%m-%d'),ct_sex = #{ct_sex},
+		academy_no = #{academy_no},ct_phone = #{ct_phone},ct_profession = #{ct_profession}
+		where ct_no = #{ct_no}
+	</update>
+	
+</mapper>

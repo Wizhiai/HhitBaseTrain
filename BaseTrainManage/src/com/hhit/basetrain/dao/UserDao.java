@@ -33,6 +33,12 @@ public interface UserDao {
 	 */
 	public int delect(String username);
 	/**
+	 * 查询密码
+	 * @param map
+	 * @return
+	 */
+	public String searchPwd(String username);
+	/**
 	 * 修改密码
 	 * @param map
 	 * @return
