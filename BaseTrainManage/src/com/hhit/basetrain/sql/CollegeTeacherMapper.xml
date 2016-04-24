@@ -9,6 +9,11 @@
 		select ct_no,ct_name,date_format(ct_birthday,'%Y-%m-%d') as ct_birthday,ct_sex,academy_no,ct_phone,ct_profession from collegeteacher where ct_no = #{ct_no}
 	</select>
 	
+	<!-- 根据用户名查找姓名 -->
+	<select id="findNameByNo" parameterType="string" resultType="string">
+		select ct_name from collegeteacher where ct_no = #{ct_no}
+	</select>
+	
 	<!-- 修改信息 -->
 	<update id="modifyInf" parameterType="com.hhit.basetrain.entity.CollegeTeacher">
 		update collegeteacher

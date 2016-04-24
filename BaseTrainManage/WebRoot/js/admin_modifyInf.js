@@ -1,13 +1,11 @@
 $(function(){
 	var no = getCookie("username");
-	alert(no);
 	$.ajax({
 		url:"http://localhost:8080/BaseTrainManage/admin/loadSelfInf.do",
 		type:"post",
 		data:{"no":no},
 		dataType:"json",
 		success:function(result){
-			alert(result.status);
 			if(result.status==1){
 				$("#name").val(result.data.name);
 				$("#telephone").val(result.data.phone);

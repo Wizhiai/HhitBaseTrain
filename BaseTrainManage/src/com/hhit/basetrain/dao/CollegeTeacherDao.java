@@ -13,5 +13,6 @@ import com.hhit.basetrain.entity.CollegeTeacher;
 public interface CollegeTeacherDao {
 
 	public CollegeTeacher findByNo(String ct_no);
+	public String findNameByNo(String ct_no);
 	public int modifyInf(CollegeTeacher teacher);
 }

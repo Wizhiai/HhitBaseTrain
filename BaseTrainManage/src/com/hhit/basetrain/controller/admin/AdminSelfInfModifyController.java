@@ -23,14 +23,6 @@ public class AdminSelfInfModifyController {
 	@Resource
 	private AdminService adminService;
 	
-	@RequestMapping("/admin/loadSelfInf")
-	@ResponseBody
-	public Result execute(String no){
-		
-		Result result = adminService.showInf(no);
-		return result;
-	}
-	
 	@RequestMapping("/admin/modifySelfInf")
 	@ResponseBody
 	public Result execute(String no,String name,String phone){

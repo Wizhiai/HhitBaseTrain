@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService{
 		Result result = new Result();
 		
 		if(!userDao.searchPwd(username).equals(oldPwd)){
-			result.setStatus(0);
+			result.setStatus(-1);
 			result.setMsg("原密码输入错误！");
 		}else{
 			

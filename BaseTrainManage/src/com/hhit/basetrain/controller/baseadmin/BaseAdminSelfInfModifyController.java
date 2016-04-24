@@ -23,14 +23,6 @@ public class BaseAdminSelfInfModifyController {
 	@Resource
 	private BaseAdminService baseAdminService;
 	
-	@RequestMapping("/baseadmin/loadSelfInf")
-	@ResponseBody
-	public Result execute(String manager_no){
-		
-		Result result = baseAdminService.showInf(manager_no);
-		return result;
-	}
-	
 	@RequestMapping("/baseadmin/modifySelfInf")
 	@ResponseBody
 	public Result execute(String manager_no,String manager_name,String manager_phone){
