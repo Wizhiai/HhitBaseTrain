@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 <mapper namespace="com.hhit.basetrain.dao.PlacardDao">
-	<!-- 根据发布名查找公告 -->
+	<!-- 根据发布名查找基地公告 -->
 	<select id="findById" parameterType="string" resultType="map">
 		select placard_title,placard_content,publish_time from placard where publish_author = (select manager_no from baserelation where base_no=(select base_no from baseteacher where t_no=#{id}))
 		order by publish_time desc
@@ -11,6 +11,12 @@
 	<!-- 查询学校公告 -->
 	<select id="findByType" resultType='map'>
 	  select placard_title,placard_content,publish_time from placard where placard_type='2' 
+	</select>
+	
+	<!-- 根据发布名查找基地公告 -->
+	<select id="findplacardById" parameterType="string" resultType="map">
+		select placard_title,placard_content,publish_time from placard where publish_author = (select manager_no from baserelation where base_no=(select base_no from trainstudent where stuno=#{id}))
+		order by publish_time desc
 	</select>
 
 </mapper>

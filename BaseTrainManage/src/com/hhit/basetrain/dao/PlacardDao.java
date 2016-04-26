@@ -15,7 +15,7 @@ import com.hhit.basetrain.entity.Placard;
  */
 public interface PlacardDao {
 	/**
-	 * 通过基地管理员no查找公告
+	 * 通过基地管理员no查找公告(基地教师)
 	 * @param manager_no
 	 * @return
 	 */
@@ -25,4 +25,10 @@ public interface PlacardDao {
 	 * @return
 	 */
 	public List<Map> findByType();
+	/**
+	 * 通过基地管理员no查找公告（学生）
+	 * @param id
+	 * @return
+	 */
+	public List<Map> findplacardById(String id);
 }

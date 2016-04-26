@@ -44,8 +44,19 @@ public class PlacardServiceImpl implements PlacardService{
 	public Result loadSchoolPlacard() {
 		Result result=new Result();
 		List<Map> schoolPlacards=placardDao.findByType();
-		System.out.println(2);
 		result.setData(schoolPlacards);
+		result.setStatus(0);
+		result.setMsg("加载成功");
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.PlacardService#loadstudentPlacard(java.lang.String)
+	 */
+	public Result loadstudentPlacard(String id) {
+		Result result=new Result();
+		List<Map> Placards=placardDao.findplacardById(id);
+		result.setData(Placards);
 		result.setStatus(0);
 		result.setMsg("加载成功");
 		return result;

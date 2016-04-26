@@ -4,6 +4,7 @@
 package com.hhit.basetrain.service;
 
 import com.hhit.basetrain.entity.Result;
+import com.hhit.basetrain.entity.Student;
 
 /**
  * @author Jiya
@@ -29,4 +30,12 @@ public interface StudentService {
 	 * @return
 	 */
 	public Result modifySelfInf(String stuno,String stu_name,String stu_sex,String stu_class,String marjor,String phone,int enter_year,String birthday,String address);
+	
+	/**
+	 * 修改部分个人信息
+	 * @return
+	 */
+	public Result modifySelfInfo(String stuno,String stu_name,String stu_sex,String stu_class,String major,String phone,String birthday,String address);
+	
+	
 }

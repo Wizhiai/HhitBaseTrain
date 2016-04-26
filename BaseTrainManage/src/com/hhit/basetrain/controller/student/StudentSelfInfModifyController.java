@@ -31,4 +31,14 @@ public class StudentSelfInfModifyController {
 		return result;
 	}
 	
+	@RequestMapping("/student/modifySelfInfo")
+	@ResponseBody
+	public Result execute1(String stuno,String stu_name,String stu_sex,String stu_class,String major,String phone,String birthday,String address){
+		
+		Result result = studentService.modifySelfInfo(stuno,stu_name,stu_sex,stu_class,major,phone,birthday,address);
+		return result;
+	}
+	
+	
+	
 }

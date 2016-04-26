@@ -9,10 +9,11 @@
    <script type="text/javascript" src="../js/menu.js"></script>
     <script type="text/javascript" src="../js/cookie_util.js"></script>
    <script type="text/javascript">
+  
    function startup() {
 		$("#user_show").show();
 	}
-   	
+  
    </script>
   </head>
   
@@ -53,10 +54,9 @@
 												<TD class=portrait><IMG
 													src="../image/portrait_s.gif"></TD>
 												<TD><b><script type="text/javascript">
-												   	var Id=getCookie("userId");
-												   	document.write(Id);
-												
-												</script></b>&nbsp;先生/女生,您好!</TD>
+												 var Id=getCookie("username");
+												   document.write(Id);
+												</script></b>&nbsp;学生,您好!</TD>
 											</TR>
 											<TR>
 												<TD class=loginInfo colSpan=2>您本次登录时间:<A>
@@ -66,10 +66,10 @@
 													var min=currentdate.getMinutes();//获取分钟
 													var mm=currentdate.getSeconds();//获取秒
 													if(min>0&&min<10){
-														min+='0'
+														min='0'+min;
 													}
 													if(mm>0&&mm<10){
-														mm+='0'
+														mm='0'+mm;
 													}
 													document.writeln(hour+":"+min+":"+mm);
 												

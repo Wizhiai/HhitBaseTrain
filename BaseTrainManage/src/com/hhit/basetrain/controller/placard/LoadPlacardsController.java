@@ -38,5 +38,12 @@ public class LoadPlacardsController {
 		return result;
 	}
 	
+	@RequestMapping("/loadstudentPlacard")
+	@ResponseBody
+	public Result execute2(String id){
+		Result result=placardService.loadstudentPlacard(id);
+		return result;
+	}
+	
 
 }

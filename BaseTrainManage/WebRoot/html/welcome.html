@@ -34,94 +34,14 @@
 	 }
 	 .card{
 	 	margin-top:10px;
+	 	color:#000;
+	 	font-size:14px;
 	 }
-	 .card a{
-	  color:#000;
-	  text-decoration: none;
-	  font-size:16px;
-	 
-	 }
- 
     </style>
       <script type="text/javascript" src="../js/cookie_util.js"></script>
        <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+       <script type="text/javascript" src="../js/loadPlacards.js"></script>
      <script type="text/javascript">
-      var id=getCookie("userId");
-      var iden=getCookie("identity");
-      $(function(){
-      if(iden==3){
-      	$.ajax({
-   	   type:"post",
-   	   url:"http://localhost:8080/BaseTrainManage/load.do",
-   	   data:{"id":id},
-   	   dataType:"json",
-   	   success:function(result){//回调函数
-   	   if(result.status==0){
-   	   	var placards=result.data;
-   	   	for(var i=0;i<placards.length;i++){
-   	   		var placardsTitle=placards[i].placard_title;
-   	   		var placardContent=placards[i].placard_content;
-   	   		var li='<li class="card" href=><a>'+placardsTitle+'</a></li>';
-   	   		$li=$(li);
-   	   		$("#palard_list").append($li);
-   	   	}
-   	   }
-   	   
-   	   },
-   	    error:function(){
-   	   	alert("程序出错");
-   	   }   
-   	
-   	});	
-      
-     }
-     if(iden==2){
-     	$.ajax({
-   	   type:"post",
-   	   url:"http://localhost:8080/BaseTrainManage/loadschoolPlacard.do",
-   	   dataType:"json",
-   	   success:function(result){//回调函数
-   	   if(result.status==0){
-   	   	var placards=result.data;
-   	   	for(var i=0;i<=placards.length-1;i++){
-   	   		var placardsTitle=placards[i].placard_title;
-   	   		var placardContent=placards[i].placard_content;
-   	   		var li='<li class="card"><a>'+placardsTitle+'</a></li>';
-   	   		$li=$(li);
-   	   		$li.data("placardContent",placardContent);
-   	   		$("#palard_list").append($li);
-   	   	}
-   	   }
-   	   
-   	   },
-   	    error:function(){
-   	   	alert("程序出错");
-   	   }   
-   	
-   	});	
-     }
-  	if(iden==5){
-  	}
-  	
-  
-  	
-   });
-   	 $(".card a").mouseover(function(){
-   	  
- 		$(".card").css("color","red"); 
- 	});
- 	 $(".card a").mouseout(function(){
- 		$(".card").css("font-size","12px");  
- 	});
- 	$(".card").click(function(){
- 		var content=$(this).data("placardContent");
- 		alert(content);
- 	});
- 	
-   
-   
-   
-  
    </script>
   </head>
       <table style="cellpadding:0;cellspacing:0;width:100%;height:500px;">

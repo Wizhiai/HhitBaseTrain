@@ -26,4 +26,13 @@
 		where stuno = #{stuno}
 	</update>
 	
+	<!-- 修改信息 -->
+	<update id="modifyInfo" parameterType="com.hhit.basetrain.entity.Student">
+		update student
+		set stu_name = #{stu_name},stu_sex = #{stu_sex},stu_class = #{stu_class},
+			major = #{major},phone = #{phone},
+			birthday = str_to_date(#{birthday},'%Y-%m-%d'),address = #{address}
+		where stuno = #{stuno}
+	</update>
+	
 </mapper>

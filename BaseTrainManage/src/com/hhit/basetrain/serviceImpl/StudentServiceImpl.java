@@ -8,8 +8,10 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.hhit.basetrain.dao.StudentDao;
+import com.hhit.basetrain.dao.TrainStudentDao;
 import com.hhit.basetrain.entity.Result;
 import com.hhit.basetrain.entity.Student;
+import com.hhit.basetrain.entity.TrainStudent;
 import com.hhit.basetrain.service.StudentService;
 
 /**
@@ -22,6 +24,9 @@ public class StudentServiceImpl implements StudentService{
 
 	@Resource
 	private StudentDao studentDao;
+	
+	@Resource
+    private TrainStudentDao trainstudentDao;
 	
 	/* (non-Javadoc)
 	 * @see com.hhit.basetrain.service.AdminService#showInf(java.lang.String)
@@ -88,5 +93,35 @@ public class StudentServiceImpl implements StudentService{
 		}
 		return result;
 	}
+
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.StudentService#modifySelfInfo(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+	 */
+	public Result modifySelfInfo(String stuno, String stuName, String stuSex,
+			String stuClass, String major, String phone, String birthday,
+			String address) {
+		Result result=new Result();
+		Student stu=new Student();
+		stu.setStuno(stuno);
+		stu.setAddress(address);
+		stu.setBirthday(birthday);
+		stu.setMajor(major);
+		stu.setPhone(phone);
+		stu.setStu_class(stuClass);
+		stu.setStu_name(stuName);
+		stu.setStu_sex(stuSex);
+		studentDao.modifyInfo(stu);
+		trainstudentDao.modifyInfo(stu);
+		
+		result.setStatus(0);
+		result.setMsg("修改成功");
+		
+		
+		
+		
+		return result;
+	}
+
+	
 
 }
