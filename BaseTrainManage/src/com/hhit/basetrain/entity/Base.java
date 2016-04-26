@@ -13,6 +13,8 @@ public class Base {
 	private Integer base_no;
 	/** 基地名称 */
 	private String base_name;
+	/** 基地地址 */
+	private String base_address;
 	/** 成立时间 */
 	private String establish_time;
 	/** 基地性质 */
@@ -212,6 +214,14 @@ public class Base {
 
 	public void setBase_name(String baseName) {
 		base_name = baseName;
+	}
+
+	public String getBase_address() {
+		return base_address;
+	}
+
+	public void setBase_address(String baseAddress) {
+		base_address = baseAddress;
 	}
 
 	public String getEstablish_time() {
@@ -955,10 +965,10 @@ public class Base {
 	public String toString() {
 		return "Base [actual_employment_num=" + actual_employment_num
 				+ ", aid_num=" + aid_num + ", aveage_assets=" + aveage_assets
-				+ ", base_advantage=" + base_advantage + ", base_area="
-				+ base_area + ", base_name=" + base_name + ", base_no="
-				+ base_no + ", base_property=" + base_property
-				+ ", base_qualification=" + base_qualification
+				+ ", base_address=" + base_address + ", base_advantage="
+				+ base_advantage + ", base_area=" + base_area + ", base_name="
+				+ base_name + ", base_no=" + base_no + ", base_property="
+				+ base_property + ", base_qualification=" + base_qualification
 				+ ", base_recommend=" + base_recommend + ", base_station="
 				+ base_station + ", bed_num=" + bed_num + ", canteen_area="
 				+ canteen_area + ", canteen_belong=" + canteen_belong

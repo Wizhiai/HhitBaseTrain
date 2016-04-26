@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ 
+<mapper namespace="com.hhit.basetrain.dao.BaseDao">
+
+	<!-- 根据基地名模糊查找 -->
+	<select id="findByName" parameterType="string" resultType="com.hhit.basetrain.entity.BaseBean">
+		select base_no,base_name,base_address,date_format(establish_time,'%Y-%m-%d') as establish_time from base where base_name like #{base_name}
+	</select>
+	
+	<!-- 根据基地地址模糊查找 -->
+	<select id="findByAddress" parameterType="string" resultType="com.hhit.basetrain.entity.BaseBean">
+		select base_no,base_name,base_address,date_format(establish_time,'%Y-%m-%d') as establish_time from base where base_address like #{base_address}
+	</select>
+	
+	<!-- 根据实训课程模糊查找基地 -->
+	<select id="findByCourse" parameterType="string" resultType="com.hhit.basetrain.entity.BaseBean">
+		select a.base_no as base_no,a.base_name as base_name,a.base_address as base_address,date_format(a.establish_time,'%Y-%m-%d') as establish_time from base a,traincourse b
+		 where b.cname like #{cname} and b.base_no = a.base_no
+	</select>
+	
+	<!-- 全部基地信息浏览 -->
+	<select id="findAllBaseInf" resultType="com.hhit.basetrain.entity.BaseBean">
+		select base_no,base_name,base_address,date_format(establish_time,'%Y-%m-%d') as establish_time from base 
+	</select>
+	
+	<!-- 全部基地名显示 -->
+	<select id="findAllBaseName" resultType="com.hhit.basetrain.entity.BaseNameBean">
+		select base_no,base_name from base 
+	</select>
+	
+</mapper>

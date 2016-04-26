@@ -64,7 +64,7 @@
     					<li class="up">
     						<a onclick=upDownMenu(this)>公告管理</a>
     						<ul>
-    							<li><a>发布公告</a></li>
+    							<li><a href="addPlacard.jsp" target="businessfrm">发布公告</a></li>
     							<li><a>修改公告</a></li>
     							<li><a>删除公告</a></li>
     							<li><a>查询公告</a></li>

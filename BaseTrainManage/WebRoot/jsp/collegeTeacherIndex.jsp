@@ -42,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     					<li class="up">
     					<a onclick=upDownMenu(this)>信息查询</a>
     						<ul>
-    							<li><a>查询基地信息</a></li>
+    							<li><a href="baseInfromList.jsp" target="businessfrm">查询基地信息</a></li>
     							<li><a>查询常见问题信息</a></li>
     						</ul>
     					</li>
