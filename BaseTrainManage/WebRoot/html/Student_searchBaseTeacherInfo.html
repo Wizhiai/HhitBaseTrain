@@ -29,10 +29,61 @@
  	}
    
  </style>
+ <script type="text/javascript" src="../js/cookie_util.js"></script>
+ <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+ <script type="text/javascript">
+
+ $(function(){
+ var stuno=getCookie("username");
+ $("#query").click(function(){
+     $("#teacher tbody").html("");
+ 	 var t_name=$("#tname").val();
+ 	 t_name='%'+t_name+'%';
+ 	 
+ $.ajax({
+ 	url:"http://localhost:8080/BaseTrainManage/baseteacher/search.do",
+ 	type:"post",
+ 	data:{"t_name":t_name,"stuno":stuno},
+ 	dataType:"json",
+ 	success:function(result){
+ 		if(result.status==1){
+ 			var datas=result.data;
+ 			for(var i=0;i<datas.length;i++){
+ 				var tr='<tr align="center" bgcolor="#FFFFFF" height="22"><td>'+datas[i].t_no+'</td>';
+ 				tr+='<td>'+datas[i].t_name+'</td>';
+ 				tr+='<td>'+datas[i].t_sex+'</td>';
+ 				tr+='<td>'+datas[i].t_phone+'</td>';
+ 				tr+='<td>'+datas[i].t_profession+'</td></tr>';
+ 				$tr=$(tr);
+ 				$("#teacher tbody").append($tr); 
+ 			}
+ 			$("tfoot td b").html(datas.length);
+ 		}else{
+ 			alert(result.msg);
+ 		}
+ 	},
+ 	error:function(){
+ 		alert("程序出错");
+ 	}
+ 
+ });
+ });
+    $("#teacher tbody").on("mouseover","tr",function(){
+	       $(this).css("background-color","#E7FDFE");
+	   })
+	    $("#teacher tbody").on("mouseout","tr",function(){
+	       $(this).css("background-color","#fff");
+	   })
+ 	
+ 
+ });
+ 
+ </script>
+
 </head>
 <body>
 	<div id="head1"><img  src="../image/info.png"/></div>
-    <div id="head2">当前位置：首页&nbsp;>>&nbsp;查询信息&nbsp;>>&nbsp;<b>实训信息查询</b></div>
+    <div id="head2">当前位置：首页&nbsp;>>&nbsp;查询信息&nbsp;>>&nbsp;<b>基地教师信息查询</b></div>
     <div id="person"><img  src="../image/person.png"/></div>
    <div id="welcome">您好：<b id="name"></b>,欢迎登录外实训学生管理系统--学生管理子系统</div>
    <div id="time"><img  src="../image/time.png"/>
@@ -62,10 +113,10 @@ document.write(strDate);
 </script> 
  </div>
     <div id="information">
-    	<form action="" method="post">
+    	<form>
     	<div id="choose">
-    		<div class="condition">基&nbsp;&nbsp;地&nbsp;&nbsp;号&nbsp;<input type="text" name="sno"/></div>
-	  <div class="search"><input type="submit" value="查询"/></div>
+    		<div class="condition">基&nbsp;&nbsp;地&nbsp;&nbsp;教&nbsp;&nbsp;师&nbsp;&nbsp;名<input type="text" name="tname" id="tname"/></div>
+	  <div class="search"><input type="button" value="查询" id="query"/></div>
 	  </div>
     	</form>
      
@@ -73,7 +124,8 @@ document.write(strDate);
     </div>
     <div id="id4">
     <form name="form2">
-     <table width="950px" border="0" cellpadding="0" cellspacing="0" bgcolor="b5d6e6" align="center">
+     <table width="950px" border="0" cellpadding="0" cellspacing="0" bgcolor="b5d6e6" align="center" id="teacher">
+     	<thead>
       <tr>
          <td height="24"  colspan="5" align="left"><b>基地教师信息</b></td>
       </tr>
@@ -85,7 +137,8 @@ document.write(strDate);
 	      <th width="20%"><b>联系方式</b></th>
 	      <th width="10%"><b>职称</b></th>
        </tr>
-
+      </thead>
+      <tbody><!--
        <tr align='center' bgcolor="#FFFFFF" height="22" onMouseMove="javascript:this.bgColor='#E7FDFE';" onMouseOut="javascript:this.bgColor='#FFFFFF';">    
 	      <td></td>
 	      <td></td>
@@ -94,11 +147,13 @@ document.write(strDate);
 	      <td></td>
 	     
         </tr>
-		
+        --></tbody>
+		<tfoot>
       <tr>
          <td height="24"  colspan="5" align="right">
                                           总共&nbsp;<b>0</b>条记录</td>
      </tr>
+     </tfoot>
   </table>
  </form>
  </div>

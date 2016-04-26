@@ -27,8 +27,32 @@
  		margin-top:160px;
  		margin-left:80px;
  	}
+ 	.back{
+ 		background-color:"#E7FDFE";
+ 	}
    
  </style>
+ <script type="text/javascript" src="../js/cookie_util.js"></script>
+ <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+ <script type="text/javascript" src="../js/searchTrainInfo.js"></script>
+  <script type="text/javascript">
+  var stuno=getCookie("username");
+ $(function(){
+ 
+ 	
+ 	searchTrainInfo();
+ 	
+	   $("#info tbody").on("mouseover","tr",function(){
+	       $(this).css("background-color","#E7FDFE");
+	   })
+	    $("#info tbody").on("mouseout","tr",function(){
+	       $(this).css("background-color","#fff");
+	   })
+	   
+   });
+ 	
+ 
+ </script>
 </head>
 <body>
 	<div id="head1"><img  src="../image/info.png"/></div>
@@ -62,11 +86,10 @@ document.write(strDate);
 </script> 
  </div>
     <div id="information">
-    	<form action="" method="post">
+    	<form>
     	<div id="choose">
-    		<div class="condition">学&nbsp;&nbsp;号&nbsp;<input type="text" name="sno"/></div>
-    		<div class="condition">班&nbsp;级&nbsp;<input type="text" name="sclass"/></div>
-	  <div class="search"><input type="submit" value="查询"/></div>
+    		<div class="condition">学&nbsp;&nbsp;号&nbsp;<input type="text" name="sno" id="xuehao"/></div>
+	  <div class="search"><input type="button" value="查询" id="query"/></div>
 	  </div>
     	</form>
      
@@ -74,42 +97,24 @@ document.write(strDate);
     </div>
     <div id="id4">
     <form name="form2">
-     <table width="950px" border="0" cellpadding="0" cellspacing="0" bgcolor="b5d6e6" align="center">
-      <tr>
-         <td height="24"  colspan="10" align="left"><b>学生实训信息</b></td>
-      </tr>
-	   
-       <tr align="center" bgcolor="#E7FDFE" height="22">
-	      <th width="10%"><b>学号</b></th>
-	      <th width="10%"><b>姓名</b></th>
-	      <th width="10%"><b>学校班级</b></th>
-	      <th width="10%"><b>专业</b></th>
-	      <th width="10%"><b>实训单位</b></th>
-	       <th width="10%"><b>学校班级</b></th>
-	      <th width="10%"><b>课程号</b></th>
-	      <th width="10%"><b>课程名</b></th>
-	      <th width="10%"><b>周期</b></th>
-	       <th width="10%"><b>教师名</b></th>
-       </tr>
-
-       <tr align='center' bgcolor="#FFFFFF" height="22" onMouseMove="javascript:this.bgColor='#E7FDFE';" onMouseOut="javascript:this.bgColor='#FFFFFF';">    
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	       <td></td>
-	        <td></td>
-	       <td></td>
-        </tr>
-		
-      <tr>
-         <td height="24"  colspan="10" align="right">
-                                          总共&nbsp;<b>0</b>条记录</td>
-     </tr>
-  </table>
+     <table width="950px" border="0" cellpadding="0" cellspacing="0" bgcolor="b5d6e6" align="center" id="info">
+     <thead>
+     	<tr><td height="24"  colspan="10" align="left"><b>学生实训信息</b></td> </tr>
+ 			<tr align="center" bgcolor="#E7FDFE" height="22"> 
+ 			<th width="10%"><b>学号</b></th>
+ 			<th width="10%"><b>姓名</b></th><th width="10%"><b>学校班级</b></th>
+ 			<th width="10%"><b>专业</b></th><th width="10%"><b>实训单位</b></th>
+ 			<th width="10%"><b>实训班级</b></th><th width="10%"><b>课程号</b></th>
+ 			<th width="10%"><b>课程名</b></th><th width="10%"><b>周期</b></th>
+ 			<th width="10%"><b>教师名</b></th></tr>
+ 			</thead>
+ 			<tbody>
+ 			
+ 			</tbody>
+ 			<tfoot>
+ 				<tr><td height="24"  colspan="10" align="right">总共&nbsp;<b>0</b>条记录</td> </tr>
+ 			</tfoot>
+    </table>
  </form>
  </div>
  </body>

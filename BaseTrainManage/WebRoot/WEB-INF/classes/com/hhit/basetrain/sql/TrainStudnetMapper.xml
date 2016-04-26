@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ 
+<mapper namespace="com.hhit.basetrain.dao.TrainStudentDao">
+	<!-- 修改信息 -->
+	<update id="modifyInfo" parameterType="com.hhit.basetrain.entity.Student">
+		update Trainstudent
+		set stu_name = #{stu_name},stu_sex = #{stu_sex},stu_class = #{stu_class},
+			major = #{major},phone = #{phone},
+			birthday = str_to_date(#{birthday},'%Y-%m-%d'),address = #{address}
+		where stuno = #{stuno}
+	</update>
+ <!-- 查找信息 -->
+ 
+ <select id="findInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.TrainStudent">
+ 	select stu_name,stu_sex,stu_class,major,phone,date_format(birthday,'%y-%c-%d') as birthday,
+ 	address,base_no,base_class,cno,date_format(train_date,'%y-%c-%d') as train_date
+ 	 from trainstudent where stuno=#{stuno}
+ 
+ </select>
+ 
+ <!-- 查找实训单位 -->
+ <select id="findBaseNameByNo" parameterType="string" resultType="string">
+ 	select base_name from baserelation where base_no=(select base_no from trainstudent where stuno=#{stuno})
+ 
+ </select>
+
+<!-- 查询实训学生信息 -->
+	<select id="findInfo" parameterType="java.util.HashMap" resultType="map">
+		SELECT s.stuno,s.stu_name,s.stu_class,s.major,s.base_class,tc.cno,r.base_name,
+tc.cname,tc.term,t.t_name,r.base_name from traincourse tc,trainstudent s,teaching e,baseteacher t,
+baserelation r
+where s.cno=tc.cno and s.base_no=r.base_no and s.base_class=e.base_class and e.t_no=t.t_no  and s.stuno like #{stno} and 
+s.base_no=(select base_no from trainstudent  where stuno=#{stuno})
+	
+	</select>
+</mapper>

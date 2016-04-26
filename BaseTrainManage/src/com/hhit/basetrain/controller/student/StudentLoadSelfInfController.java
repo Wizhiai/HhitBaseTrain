@@ -34,6 +34,7 @@ public class StudentLoadSelfInfController {
 	@ResponseBody
 	public Result searchName(String stuno){
 		Result result = studentService.showName(stuno);
+		System.out.println(1);
 		return result;
 	}
 	

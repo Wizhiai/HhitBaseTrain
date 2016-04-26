@@ -18,7 +18,7 @@ public class TrainStudent {
 	/** 班级 */
 	private String stu_class;
 	/** 专业 */
-	private String marjor;
+	private String major;
 	/** 联系方式 */
 	private String phone;
 	/** 入学年份 */
@@ -68,12 +68,12 @@ public class TrainStudent {
 		stu_class = stuClass;
 	}
 
-	public String getMarjor() {
-		return marjor;
+	public String getMajor() {
+		return major;
 	}
 
-	public void setMarjor(String marjor) {
-		this.marjor = marjor;
+	public void setMarjor(String major) {
+		this.major = major;
 	}
 
 	public String getPhone() {
@@ -145,7 +145,7 @@ public class TrainStudent {
 		return "TrainStudent [address=" + address + ", base_class="
 				+ base_class + ", base_no=" + base_no + ", birthday="
 				+ birthday + ", cno=" + cno + ", enter_year=" + enter_year
-				+ ", marjor=" + marjor + ", phone=" + phone + ", stu_class="
+				+ ", marjor=" + major + ", phone=" + phone + ", stu_class="
 				+ stu_class + ", stu_name=" + stu_name + ", stu_sex=" + stu_sex
 				+ ", stuno=" + stuno + ", train_date=" + train_date + "]";
 	}

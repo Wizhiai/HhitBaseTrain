@@ -15,4 +15,5 @@ public interface StudentDao {
 	public Student findByNo(String stuno);
 	public String findNameByNo(String stuno);
 	public int modifyInf(Student stu);
+	public int modifyInfo(Student stu);
 }

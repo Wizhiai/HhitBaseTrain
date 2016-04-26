@@ -3,6 +3,8 @@
  */
 package com.hhit.basetrain.service;
 
+import java.util.Map;
+
 import com.hhit.basetrain.entity.Result;
 
 /**
@@ -11,5 +13,6 @@ import com.hhit.basetrain.entity.Result;
  * TODO
  */
 public interface BaseTeacherService {
+	public Result loadTeacherInfo(String t_name,String stuno);
 	
 }

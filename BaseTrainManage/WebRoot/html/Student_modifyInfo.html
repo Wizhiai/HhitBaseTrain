@@ -37,7 +37,7 @@
 	   position:absolute;
 	   text-align:center;
 	   top:350px;
-	   left:710px;
+	   left:950px;
 	   }
 	   #test{
 	     width:728px;
@@ -51,12 +51,27 @@
 	   }
  
  </style>
+ <script type="text/javascript" src="../js/cookie_util.js"></script>
+ <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="../js/modifyStudentInfo.js"></script>
+  <script type="text/javascript" src="../js/loadTrainstudentInfo.js"></script>
+ <script type="text/javascript">
+     var stuno=getCookie("username");
+ 	$(function(){
+ 	
+       $("#no").val(stuno);
+      loadTrainStudentSelfInfo();
+       loadTrainStudentBaseName();
+ 		modifySelfInfo();
+ 	
+ 	});
+ </script>
  </head>
 <body>
 	<div id="head1"><img  src="../image/info.png"/></div>
     <div id="head2">当前位置：首页&nbsp;>>&nbsp;个人信息管理&nbsp;>>&nbsp;<b>修改个人信息</b></div>
     <div id="person"><img  src="../image/person.png"/></div>
-   <div id="welcome">您好：<b id="name"></b>,欢迎登录外实训学生管理系统--学校教师管理子系统</div>
+   <div id="welcome">您好：<b id="name"></b>,欢迎登录外实训学生管理系统--学生管理子系统</div>
    <div id="time"><img  src="../image/time.png"/>
     <script language="JavaScript" type="text/javascript"> 
 var today=new Date(); 
@@ -84,25 +99,32 @@ document.write(strDate);
 </script> 
  </div>
 </body>
-<form action="" method="post">
+<form>
   <div id="test">
 	<div id="id4">
-	   <div id="id3">年&nbsp;&nbsp;龄&nbsp;<input name="jdTeacher.Tage" type="text" value=""/></div>
-	   <div id="id3">电&nbsp;&nbsp;&nbsp;&nbsp;话&nbsp;<input name="jdTeacher.Tcontact" type="text"  value=""/></div>        	  	   
+	   
+	   <div id="id3">电&nbsp;&nbsp;&nbsp;&nbsp;话&nbsp;<input id="contact" type="text"  value=""/></div> 
+	   <div id="id3">生&nbsp;&nbsp;日&nbsp;<input id="age" type="text" value=""/></div> 
+	   <div id="id3">专&nbsp;&nbsp;&nbsp;&nbsp;业&nbsp;
+           <input  id="major" type="text" value=""/>
+	   </div>      	  	   
 	</div>
 	<div id="id5">
-         <div id="id3">学&nbsp;&nbsp;号&nbsp;<input  name="jdTeacher.Tno" type="text" disabled="disabled" value="" /></div>
-	     <div id="id3">姓&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;<input  name="Teacher.Tname" type="text" value=""/></div>
+         <div id="id3">学&nbsp;&nbsp;号&nbsp;<input  id="no" type="text" disabled="disabled" /></div>
+	     <div id="id3">姓&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;<input id="stuname" type="text" /></div>
+	     <div id="id3">性&nbsp;&nbsp;&nbsp;&nbsp;别&nbsp;<input  id="sex" type="text"/></div>
 	</div>
 	<div id="id6"> 
-	   <div id="id3">班&nbsp;&nbsp;级&nbsp;<input name="jdTeacher.Tno" type="text" disabled="disabled" value="" />
+	   <div id="id3">班&nbsp;&nbsp;级&nbsp;<input id="class" type="text" />
+	    </div>
+	     <div id="id3">地&nbsp;&nbsp;址&nbsp;<input id="address" type="text"/>
 	    </div>
 	   <div id="id3">实训单位
-           <input  name="jdTeacher.Tunit" type="text" value=""/>
+           <input  id="danwei" type="text" disabled="disabled"/>
 	   </div>
 	</div>
 	<div id="id7"> 
-	   <input name="Scontact2" type="submit" value="修改信息"/>
+	   <input name="Scontact2" type="button" value="修改信息" id="modify"/>
 	</div>
   </div>
 </form>
