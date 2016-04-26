@@ -12,8 +12,19 @@ import com.hhit.basetrain.entity.Result;
  */
 public interface PlacardService {
 	/**
-	 * 通过基地管理员获取公告信息
+	 * 通过基地管理员获取公告信息(基地教师)
 	 */
 	public Result loadPlacard (String id);
+	/**
+	 * 查询学校公告
+	 */
+	public Result loadSchoolPlacard();
+	/**
+	 * 通过基地管理员获取公告信息(学生)
+	 * @param id
+	 * @return
+	 */
+	public Result loadstudentPlacard (String id);
+	
 
 }

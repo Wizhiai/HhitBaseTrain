@@ -30,19 +30,22 @@
 			        	alert(result.msg);
 			        }else if(result.status==1 && user.identity =="5"){
 				    		var userId=user.username;
-				    		
-				    		addCookie("userId",userId,2);
+				    		var iden=user.identity;
+				    		addCookie("username",userId,2);
+				    		addCookie("identity",iden,2);
 				    		window.location.href="studentmain.html";
 				    }else if(result.status==1 && user.identity =="2"){
 				        
 				    	var userId=user.username;
 				    	
-			    		addCookie("userId",userId,2);
+			    		var iden=user.identity;
+			    		addCookie("username",userId,2);
+			    		addCookie("identity",iden,2);
 			    		window.location.href="teachermain.html";
 			    	}else if(result.status==1 && user.identity =="3"){
 			    		var userId=user.username;
 			    		var iden=user.identity;
-			    		addCookie("userId",userId,2);
+			    		addCookie("username",userId,2);
 			    		addCookie("identity",iden,2);
 			    		window.location.href="jdteachermain.html";
 			    	}else{

@@ -3,6 +3,12 @@
  */
 package com.hhit.basetrain.service;
 
+<<<<<<< HEAD
+=======
+import java.util.Map;
+
+import com.hhit.basetrain.entity.Result;
+>>>>>>> 5a857da9cd498017f0d9541f8ae813e0d070f0ab
 
 /**
  * @author Mayu
@@ -10,11 +16,6 @@ package com.hhit.basetrain.service;
  * TODO
  */
 public interface BaseTeacherService {
-	/**
-	 * 通过基地教师Id获取基地管理员
-	 * @param id
-	 * @return
-	 */
-	public String gainBaseManager(String id);
+	public Result loadTeacherInfo(String t_name,String stuno);
 	
 }

@@ -10,10 +10,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.hhit.basetrain.dao.BaseTeacherDao;
 import com.hhit.basetrain.dao.PlacardDao;
-import com.hhit.basetrain.entity.Placard;
 import com.hhit.basetrain.entity.Result;
-import com.hhit.basetrain.service.BaseTeacherService;
 import com.hhit.basetrain.service.PlacardService;
 
 /**
@@ -25,22 +24,42 @@ import com.hhit.basetrain.service.PlacardService;
 public class PlacardServiceImpl implements PlacardService{
 	@Resource
 	private PlacardDao placardDao;
-	@Resource
-	private BaseTeacherService baseTeacherService;
 
 	/* (non-Javadoc)
 	 * @see com.hhit.basetrain.service.PlacardService#gainPlacard(java.lang.String)
 	 */
 	public Result loadPlacard(String id) {
 		Result result=new Result();
-		String managerNo;
-		managerNo=baseTeacherService.gainBaseManager(id);
-		List<Map> placards=placardDao.findByAuthorName(managerNo);
+		List<Map> placards=placardDao.findById(id);
 		result.setData(placards);
 		result.setStatus(0);
 		result.setMsg("加载成功");
 		return result;
 		
+	}
+
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.PlacardService#loadSchoolPlacard()
+	 */
+	public Result loadSchoolPlacard() {
+		Result result=new Result();
+		List<Map> schoolPlacards=placardDao.findByType();
+		result.setData(schoolPlacards);
+		result.setStatus(0);
+		result.setMsg("加载成功");
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.PlacardService#loadstudentPlacard(java.lang.String)
+	 */
+	public Result loadstudentPlacard(String id) {
+		Result result=new Result();
+		List<Map> Placards=placardDao.findplacardById(id);
+		result.setData(Placards);
+		result.setStatus(0);
+		result.setMsg("加载成功");
+		return result;
 	}
 
 }

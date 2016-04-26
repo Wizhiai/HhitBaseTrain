@@ -13,9 +13,20 @@ import java.util.Map;
  */
 public interface PlacardDao {
 	/**
-	 * 通过基地管理员no查找公告
+	 * 通过基地管理员no查找公告(基地教师)
 	 * @param manager_no
 	 * @return
 	 */
-	public List<Map> findByAuthorName(String manager_no);
+	public List<Map> findById(String id);
+	/**
+	 * 查询学校公告
+	 * @return
+	 */
+	public List<Map> findByType();
+	/**
+	 * 通过基地管理员no查找公告（学生）
+	 * @param id
+	 * @return
+	 */
+	public List<Map> findplacardById(String id);
 }
