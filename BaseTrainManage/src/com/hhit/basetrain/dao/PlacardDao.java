@@ -6,8 +6,6 @@ package com.hhit.basetrain.dao;
 import java.util.List;
 import java.util.Map;
 
-import com.hhit.basetrain.entity.Placard;
-
 /**
  * @author Mayu
  * @date 2016-4-23t下午08:43:57

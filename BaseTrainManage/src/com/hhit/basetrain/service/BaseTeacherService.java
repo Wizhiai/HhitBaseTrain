@@ -3,7 +3,6 @@
  */
 package com.hhit.basetrain.service;
 
-import com.hhit.basetrain.entity.Result;
 
 /**
  * @author Mayu

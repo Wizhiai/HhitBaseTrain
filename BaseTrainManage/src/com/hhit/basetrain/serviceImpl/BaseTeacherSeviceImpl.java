@@ -8,7 +8,6 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.hhit.basetrain.dao.BaseTeacherDao;
-import com.hhit.basetrain.entity.Result;
 import com.hhit.basetrain.service.BaseTeacherService;
 
 /**

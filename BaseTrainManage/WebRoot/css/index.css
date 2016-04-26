@@ -45,18 +45,23 @@ div .index_topright{
 .StudentIndex_nav{/*学生首页导航*/
 	border:1px solid black;
 	width:100%;
-	height:10%;
+	height:80px;
 	/*background-image: url("../images/indexTop.jpg");*/
 }
 
 .StudentIndex_content{/*学生首页内容区域*/
 	border:1px solid black;
 	width：100%;
+	height:840px;
 }
+
 .StudentIndex_foot{/*学生首页网页末尾*/
 	border:1px solid black;
 	width：100%;
-	height：5%;
+	height：20px;
+}
+div .StudentIndex_foot table {/*学生首页网页末尾*/
+	height:800px
 }
 .StudentIndex_content #tree li{
 	list-style: none;	
