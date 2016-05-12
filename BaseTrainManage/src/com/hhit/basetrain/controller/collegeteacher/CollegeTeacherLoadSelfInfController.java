@@ -28,7 +28,6 @@ public class CollegeTeacherLoadSelfInfController {
 	public Result execute(String ct_no){
 		
 		Result result = collegeTeacherService.showInf(ct_no);
-		System.out.println(result.getData().toString());
 		return result;
 	}
 	

@@ -12,11 +12,8 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.hhit.basetrain.dao.BaseTeacherDao;
-<<<<<<< HEAD
-=======
 import com.hhit.basetrain.entity.BaseTeacher;
 import com.hhit.basetrain.entity.Result;
->>>>>>> 5a857da9cd498017f0d9541f8ae813e0d070f0ab
 import com.hhit.basetrain.service.BaseTeacherService;
 
 /**

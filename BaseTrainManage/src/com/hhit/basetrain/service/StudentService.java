@@ -4,7 +4,6 @@
 package com.hhit.basetrain.service;
 
 import com.hhit.basetrain.entity.Result;
-import com.hhit.basetrain.entity.Student;
 
 /**
  * @author Jiya
@@ -37,5 +36,28 @@ public interface StudentService {
 	 */
 	public Result modifySelfInfo(String stuno,String stu_name,String stu_sex,String stu_class,String major,String phone,String birthday,String address);
 	
-	
+	/**
+	 * 查看学生是否已经报名
+	 */
+	public Result isStudentRegist(String stuno);
+	/**
+	 * 学生实训课程报名
+	 */
+	public Result studentRegist(String stuno,String cno,String base_no);
+	/**
+	 * 学生实训报名按专业统计
+	 */
+	public Result studentRegistCountByMajor();
+	/**
+	 * 学生实训报名按实训基地统计
+	 */
+	public Result studentRegistCountByBase();
+	/**
+	 * 学生实训报名按实训专业和基地统计
+	 */
+	public Result studentRegistCountByMajorAndBase();
+	/**
+	 * 学生实训报名信息
+	 */
+	public Result studentRegistCountInfo();
 }

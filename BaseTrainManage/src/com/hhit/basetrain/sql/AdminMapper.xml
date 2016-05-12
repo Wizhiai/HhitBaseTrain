@@ -20,5 +20,4 @@
 		set name = #{name},phone = #{phone}
 		where no = #{no}
 	</update>
-	
 </mapper>

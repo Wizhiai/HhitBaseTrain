@@ -8,7 +8,7 @@ import com.hhit.basetrain.entity.Result;
 /**
  * @author Mayu
  * @date 2016-4-23t下午08:49:44
- * TODO
+ * 
  */
 public interface PlacardService {
 	/**
@@ -25,6 +25,65 @@ public interface PlacardService {
 	 * @return
 	 */
 	public Result loadstudentPlacard (String id);
+	/**
+	 * 浏览全部常见问题信息
+	 * @param id
+	 * @return
+	 */
+	public Result skimAllQuestionInf();
+	/**
+	 * 通过基地号浏览常见问题
+	 * @param base_name
+	 * @return
+	 */
+	public Result skimQuestionInfByBaseNo(String base_no);
+	/**
+	 * 通过公告号显示常见问题
+	 * @param placard_no
+	 * @return
+	 */
+	public Result showQuestionInfByPlacardNo(String placard_no);
+	/**
+	 * 分页显示学校公告
+	 * @param placard_no
+	 * @return
+	 */
+	public Result showAllSchoolInf();
+	/**
+	 * 通过公告号显示学校公告
+	 * @param placard_no
+	 * @return
+	 */
+	public Result showSchoolPlacardInfByPlacardNo(String placard_no);
 	
-
+	/**
+	 * 添加学校公告
+	 * @param placard_no
+	 * @return
+	 */
+	public Result addSchoolPlacard(String placard_title,String placard_content,String publish_author);
+	/**
+	 * 判断学校公告标题是否已经存在
+	 * @param placard_no
+	 * @return
+	 */
+	public Result isSchoolPlacardExit(String placard_title);
+	/**
+	 * 通过学校公告标题模糊查询
+	 * @param placard_no
+	 * @return
+	 */
+	public Result searchSchoolPlacardByTitle(String placard_title);
+	/**
+	 * 修改学校公告信息
+	 * @param placard_no
+	 * @return
+	 */
+	public Result modifySchoolPlacard(String placard_no,String placard_title,String placard_content,String publish_author);
+	/**
+	 * 删除学校公告
+	 * @param placard_no
+	 * @return
+	 */
+	public Result deleteSchoolPlacard(String placard_no);
 }

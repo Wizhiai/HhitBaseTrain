@@ -47,25 +47,17 @@ function getCookie(objName){//获取指定名称的cookie的值
 
 function addCookie(objName,objValue,objHours){      //添加cookie
 
-    var str = objName + "=" + escape(objValue);
-
-    if(objHours > 0){                               //为时不设定过期时间，浏览器关闭时cookie自动消失
-
-        var date = new Date();
-
-        var ms = objHours*3600*1000;
-
-        date.setTime(date.getTime() + ms);
-
-        str += "; expires=" + date.toGMTString();
-
-   }
-
-   document.cookie = str;
-
+	var str = objName + "=" + escape(objValue);
+	
+	if(objHours > 0){                               //为时不设定过期时间，浏览器关闭时cookie自动消失
+		var date = new Date();
+      	var ms = objHours*3600*1000;
+      	date.setTime(date.getTime() + ms);
+     	str += "; expires=" + date.toGMTString();
+  	}
+	
+  	document.cookie = str+";path=/";
 }
-
- 
 
 function SetCookie(name,value)//两个参数，一个是cookie的名子，一个是值
 
@@ -80,7 +72,6 @@ function SetCookie(name,value)//两个参数，一个是cookie的名子，一个
     document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
 
 }
-
 function getCookie(name)//取cookies函数        
 
 {

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.hhit.basetrain.dao.TrainStudentDao;
 import com.hhit.basetrain.entity.Result;
 import com.hhit.basetrain.service.TrainStudentService;
 
@@ -27,7 +26,6 @@ public class SearchTrainStudnetInfoController {
 	@ResponseBody
 	public Result execute(String stno,String stuno){
 		Result result=trainStudentService.showBaseInfo(stno,stuno);
-		System.out.println(result.getData());
 		
 		return result;
 		

@@ -1,4 +1,4 @@
-#Sat Apr 23 16:16:01 CST 2016
+#Fri Apr 29 17:08:23 CST 2016
 eclipse.preferences.version=1
 encoding//WebRoot/html/JDT_modifyInfo.html=UTF-8
 encoding//WebRoot/html/JDT_studyplan.html=UTF-8
@@ -11,15 +11,16 @@ encoding//WebRoot/html/studentmain.html=UTF-8
 encoding//WebRoot/html/teachermain.html=UTF-8
 encoding//WebRoot/html/welcome.html=UTF-8
 encoding//WebRoot/index.jsp=UTF-8
-encoding//WebRoot/js/adminLogin.js=UTF-8
+encoding//WebRoot/js/admin/adminLogin.js=UTF-8
 encoding//WebRoot/js/menu.js=UTF-8
-encoding//WebRoot/jsp/adminLogin.jsp=UTF-8
+encoding//WebRoot/jsp/admin/adminLogin.jsp=UTF-8
 encoding//src/com/hhit/basetrain/entity/Admin.java=UTF-8
 encoding//src/com/hhit/basetrain/entity/Base.java=UTF-8
 encoding//src/com/hhit/basetrain/entity/BaseAdmin.java=UTF-8
 encoding//src/com/hhit/basetrain/entity/BaseTeacher.java=UTF-8
 encoding//src/com/hhit/basetrain/entity/CollegeTeacher.java=UTF-8
 encoding//src/com/hhit/basetrain/entity/Placard.java=UTF-8
+encoding//src/com/hhit/basetrain/entity/PlacardBean.java=UTF-8
 encoding//src/com/hhit/basetrain/entity/Result.java=UTF-8
 encoding//src/com/hhit/basetrain/entity/Student.java=UTF-8
 encoding//src/com/hhit/basetrain/entity/TrainCourse.java=UTF-8

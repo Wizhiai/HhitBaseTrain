@@ -20,7 +20,7 @@ public class Base {
 	/** 基地性质 */
 	private String base_property;
 	/** 基地管理机构情况 */
-	private Integer manage_insitution;
+	private Integer manage_institution;
 	/** 主要规章制度 */
 	private String main_rule;
 	/** 建设发展计划 */
@@ -58,7 +58,7 @@ public class Base {
 	/** 台套总数 */
 	private Integer machine_total;
 	/** 生均资产额 */
-	private Double aveage_assets;
+	private Double average_assets;
 	/** 生均台套数 */
 	private String machine_average;
 	/** 主流产品及型号 */
@@ -70,7 +70,7 @@ public class Base {
 	/** 软件先进度自我评价 */
 	private Integer software_selfevaluation;
 	/** 软件实训需求情况 */
-	private Integer soft_demand;
+	private Integer software_demand;
 	/** 食堂面积 */
 	private Double canteen_area;
 	/** 食堂座位数 */
@@ -94,7 +94,7 @@ public class Base {
 	/** 清洁卫生 */
 	private Integer clean_manage;
 	/** 环境状况 */
-	private Integer entironment;
+	private Integer environment;
 	/** 安全状况 */
 	private Integer safety;
 	/** 制定好的实训大纲 */
@@ -164,7 +164,7 @@ public class Base {
 	/** 本科生层次 */
 	private Double undergraduate_proportion;
 	/** 专科生层次 */
-	private Double specialist_proporrtion;
+	private Double specialist_proportion;
 	/** 学员来源：学校安排推荐 */
 	private Double school_source;
 	/** 学员来源：零散报道 */
@@ -190,11 +190,11 @@ public class Base {
 	/** 合作开发项目数 */
 	private String cooperation_project_num;
 	/** 加入就业联盟企业数 */
-	private String employment_aliance_num;
+	private String employment_alliance_num;
 	/** 实际从基地招生的企业数 */
 	private String actual_employment_num;
 	/** 就业联盟企业招生数占学生总数比例 */
-	private Double employment_aliance_proportion;
+	private Double employment_alliance_proportion;
 	/** 与基地长期稳定合作的大中型企业名称 */
 	private String cooperation_enterprise_name;
 	/** 基地办学特色和优势 */
@@ -240,12 +240,12 @@ public class Base {
 		base_property = baseProperty;
 	}
 
-	public Integer getManage_insitution() {
-		return manage_insitution;
+	public Integer getManage_institution() {
+		return manage_institution;
 	}
 
-	public void setManage_insitution(Integer manageInsitution) {
-		manage_insitution = manageInsitution;
+	public void setManage_institution(Integer manageInstitution) {
+		manage_institution = manageInstitution;
 	}
 
 	public String getMain_rule() {
@@ -392,12 +392,12 @@ public class Base {
 		machine_total = machineTotal;
 	}
 
-	public Double getAveage_assets() {
-		return aveage_assets;
+	public Double getAverage_assets() {
+		return average_assets;
 	}
 
-	public void setAveage_assets(Double aveageAssets) {
-		aveage_assets = aveageAssets;
+	public void setAverage_assets(Double averageAssets) {
+		average_assets = averageAssets;
 	}
 
 	public String getMachine_average() {
@@ -440,12 +440,12 @@ public class Base {
 		software_selfevaluation = softwareSelfevaluation;
 	}
 
-	public Integer getSoft_demand() {
-		return soft_demand;
+	public Integer getSoftware_demand() {
+		return software_demand;
 	}
 
-	public void setSoft_demand(Integer softDemand) {
-		soft_demand = softDemand;
+	public void setSoftware_demand(Integer softWareDemand) {
+		software_demand = softWareDemand;
 	}
 
 	public Double getCanteen_area() {
@@ -536,12 +536,12 @@ public class Base {
 		clean_manage = cleanManage;
 	}
 
-	public Integer getEntironment() {
-		return entironment;
+	public Integer getEnvironment() {
+		return environment;
 	}
 
-	public void setEntironment(Integer entironment) {
-		this.entironment = entironment;
+	public void setEnvironment(Integer environment) {
+		this.environment = environment;
 	}
 
 	public Integer getSafety() {
@@ -816,12 +816,12 @@ public class Base {
 		undergraduate_proportion = undergraduateProportion;
 	}
 
-	public Double getSpecialist_proporrtion() {
-		return specialist_proporrtion;
+	public Double getSpecialist_proportion() {
+		return specialist_proportion;
 	}
 
-	public void setSpecialist_proporrtion(Double specialistProporrtion) {
-		specialist_proporrtion = specialistProporrtion;
+	public void setSpecialist_proportion(Double specialistProportion) {
+		specialist_proportion = specialistProportion;
 	}
 
 	public Double getSchool_source() {
@@ -920,12 +920,12 @@ public class Base {
 		cooperation_project_num = cooperationProjectNum;
 	}
 
-	public String getEmployment_aliance_num() {
-		return employment_aliance_num;
+	public String getEmployment_alliance_num() {
+		return employment_alliance_num;
 	}
 
-	public void setEmployment_aliance_num(String employmentAlianceNum) {
-		employment_aliance_num = employmentAlianceNum;
+	public void setEmployment_alliance_num(String employmentAllianceNum) {
+		employment_alliance_num = employmentAllianceNum;
 	}
 
 	public String getActual_employment_num() {
@@ -936,13 +936,13 @@ public class Base {
 		actual_employment_num = actualEmploymentNum;
 	}
 
-	public Double getEmployment_aliance_proportion() {
-		return employment_aliance_proportion;
+	public Double getEmployment_alliance_proportion() {
+		return employment_alliance_proportion;
 	}
 
-	public void setEmployment_aliance_proportion(
-			Double employmentAlianceProportion) {
-		employment_aliance_proportion = employmentAlianceProportion;
+	public void setEmployment_alliance_proportion(
+			Double employmentAllianceProportion) {
+		employment_alliance_proportion = employmentAllianceProportion;
 	}
 
 	public String getCooperation_enterprise_name() {
@@ -964,7 +964,7 @@ public class Base {
 	@Override
 	public String toString() {
 		return "Base [actual_employment_num=" + actual_employment_num
-				+ ", aid_num=" + aid_num + ", aveage_assets=" + aveage_assets
+				+ ", aid_num=" + aid_num + ", average_assets=" + average_assets
 				+ ", base_address=" + base_address + ", base_advantage="
 				+ base_advantage + ", base_area=" + base_area + ", base_name="
 				+ base_name + ", base_no=" + base_no + ", base_property="
@@ -989,10 +989,10 @@ public class Base {
 				+ ", dormitory_bed=" + dormitory_bed + ", dormitory_belong="
 				+ dormitory_belong + ", dormitory_price=" + dormitory_price
 				+ ", education_num=" + education_num
-				+ ", employment_aliance_num=" + employment_aliance_num
-				+ ", employment_aliance_proportion="
-				+ employment_aliance_proportion + ", entironment="
-				+ entironment + ", equipment_total=" + equipment_total
+				+ ", employment_alliance_num=" + employment_alliance_num
+				+ ", employment_alliance_proportion="
+				+ employment_alliance_proportion + ", environment="
+				+ environment + ", equipment_total=" + equipment_total
 				+ ", establish_time=" + establish_time + ", evaluation_rule="
 				+ evaluation_rule + ", experienced_teacher="
 				+ experienced_teacher + ", extension_area=" + extension_area
@@ -1005,7 +1005,7 @@ public class Base {
 				+ ", machine_situation=" + machine_situation
 				+ ", machine_total=" + machine_total + ", main_rule="
 				+ main_rule + ", mainstream_product=" + mainstream_product
-				+ ", manage_insitution=" + manage_insitution + ", manager_num="
+				+ ", manage_institution=" + manage_institution + ", manager_num="
 				+ manager_num + ", meal_num=" + meal_num
 				+ ", middle_enterprise=" + middle_enterprise
 				+ ", new_guidingbook=" + new_guidingbook + ", new_material="
@@ -1021,10 +1021,10 @@ public class Base {
 				+ ", scientific_research=" + scientific_research
 				+ ", selfdevelop_project=" + selfdevelop_project
 				+ ", senior_num=" + senior_num + ", small_enterprise="
-				+ small_enterprise + ", soft_demand=" + soft_demand
+				+ small_enterprise + ", software_demand=" + software_demand
 				+ ", software_selfevaluation=" + software_selfevaluation
 				+ ", software_system=" + software_system
-				+ ", specialist_proporrtion=" + specialist_proporrtion
+				+ ", specialist_proportion=" + specialist_proportion
 				+ ", student_manage=" + student_manage + ", student_num="
 				+ student_num + ", student_selfask=" + student_selfask
 				+ ", teacher_num=" + teacher_num + ", teaching_material="

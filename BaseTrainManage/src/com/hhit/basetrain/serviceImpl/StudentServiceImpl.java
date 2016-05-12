@@ -3,6 +3,10 @@
  */
 package com.hhit.basetrain.serviceImpl;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -11,7 +15,8 @@ import com.hhit.basetrain.dao.StudentDao;
 import com.hhit.basetrain.dao.TrainStudentDao;
 import com.hhit.basetrain.entity.Result;
 import com.hhit.basetrain.entity.Student;
-import com.hhit.basetrain.entity.TrainStudent;
+import com.hhit.basetrain.entity.StudentRegistCountBean;
+import com.hhit.basetrain.entity.StudentRegistCountInfoBean;
 import com.hhit.basetrain.service.StudentService;
 
 /**
@@ -122,6 +127,127 @@ public class StudentServiceImpl implements StudentService{
 		return result;
 	}
 
-	
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.StudentService#isStudentRegist(java.lang.String)
+	 */
+	public Result isStudentRegist(String stuno) {
+		Result result = new Result();
+		
+		if(studentDao.findTrainBaseByStuno(stuno)==null
+				||
+			studentDao.findTrainBaseByStuno(stuno)==""){//未报名
+			result.setStatus(1);
+			result.setMsg("学生还未报名！！");
+			
+		}else{//已报名
+			
+			result.setStatus(0);
+			result.setMsg("对不起，您已经报名！");
+		}
+		return result;
+		
+	}
 
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.StudentService#studentRegist(java.lang.String, java.lang.String, java.lang.String)
+	 */
+	public Result studentRegist(String stuno, String cno, String baseNo) {
+		
+		Result result = new Result();
+		if(studentDao.findTrainBaseByStuno(stuno) == ""
+			||
+			studentDao.findTrainBaseByStuno(stuno) == null){//未报名
+			
+			Map<String,Object> map = new HashMap<String, Object>();
+			map.put("base_no", baseNo);
+			map.put("stuno", stuno);
+			map.put("cno", cno);
+			
+			result.setStatus(studentDao.regist(map));
+			result.setMsg("报名成功！！");
+			
+		}else{//已报名
+			
+			result.setStatus(0);
+			result.setMsg("对不起，您已经报名！");
+		}
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.StudentService#studentRegistCountByBase()
+	 */
+	public Result studentRegistCountByBase() {
+		
+		Result result = new Result();
+		List<StudentRegistCountBean> list =  studentDao.registCountByBase();
+		
+		if(list.size()==0){
+			result.setStatus(0);
+			result.setMsg("没有报名信息！");
+		}else{
+			result.setStatus(1);
+			result.setData(list);
+			result.setMsg("没有报名信息！");
+		}
+		
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.StudentService#studentRegistCountByMajor()
+	 */
+	public Result studentRegistCountByMajor() {
+		Result result = new Result();
+		List<StudentRegistCountBean> list =  studentDao.registCountByMajor();
+		
+		if(list.size()==0){
+			result.setStatus(0);
+			result.setMsg("没有报名信息！");
+		}else{
+			result.setStatus(1);
+			result.setData(list);
+			result.setMsg("没有报名信息！");
+		}
+		
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.StudentService#studentRegistCountByMajorAndBase()
+	 */
+	public Result studentRegistCountByMajorAndBase() {
+		Result result = new Result();
+		List<StudentRegistCountBean> list =  studentDao.registCountByMajorAndBase();
+		
+		if(list.size()==0){
+			result.setStatus(0);
+			result.setMsg("没有报名信息！");
+		}else{
+			result.setStatus(1);
+			result.setData(list);
+			result.setMsg("没有报名信息！");
+		}
+		
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.StudentService#studentRegistCountInfo()
+	 */
+	public Result studentRegistCountInfo() {
+		Result result = new Result();
+		List<StudentRegistCountInfoBean> list =  studentDao.searchRegistCountInf();
+		
+		if(list.size()==0){
+			result.setStatus(0);
+			result.setMsg("没有报名信息！");
+		}else{
+			result.setStatus(1);
+			result.setData(list);
+			result.setMsg("没有报名信息！");
+		}
+		
+		return result;
+	}
 }

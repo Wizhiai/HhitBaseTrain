@@ -34,7 +34,37 @@ public class StudentLoadSelfInfController {
 	@ResponseBody
 	public Result searchName(String stuno){
 		Result result = studentService.showName(stuno);
-		System.out.println(1);
+		return result;
+	}
+	
+	@RequestMapping("/student/isregist")
+	@ResponseBody
+	public Result isRegist(String stuno){
+		Result result = studentService.isStudentRegist(stuno);
+		return result;
+	}
+	@RequestMapping("/student/registCountByMajor")
+	@ResponseBody
+	public Result registCountByMajor(){
+		Result result = studentService.studentRegistCountByMajor();
+		return result;
+	}
+	@RequestMapping("/student/registCountByBase")
+	@ResponseBody
+	public Result registCountByBase(){
+		Result result = studentService.studentRegistCountByBase();
+		return result;
+	}
+	@RequestMapping("/student/registCountByMajorAndBase")
+	@ResponseBody
+	public Result registCountByMajorAndBase(){
+		Result result = studentService.studentRegistCountByMajorAndBase();
+		return result;
+	}
+	@RequestMapping("/student/registCountInfo")
+	@ResponseBody
+	public Result registCountInfo(){
+		Result result = studentService.studentRegistCountInfo();
 		return result;
 	}
 	
