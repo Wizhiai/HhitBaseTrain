@@ -1,8 +1,9 @@
 <!DOCTYPE HTML>
 <html>
   <head>
+   <meta content="text/html; charset=UTF-8">
     <title>高校实训学生管理系统</title>
-    <meta content="text/html; charset=UTF-8">
+   
     
     <link rel="stylesheet" type="text/css" href="../css/main.css">
    <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
@@ -18,13 +19,12 @@
   </head>
   
   <body>
-  <div id="header">
-  	<div id="logo"><img src="../image/head.png"/></div>
-    <div id="front"><a href="../html/jdteachermain.html">首&nbsp;页</a></div>
-  	<div id="flush"><a href="../html/studentLogin.jsp">登&nbsp;录</a></div>
-  	<div id="end" onclick="window.close();">退&nbsp;出</div>
-  	
-  </div>
+   <div id="header">
+  	<div class="btnList">
+  	  <a id="front" href="../html/jdteachermain.html">首页</a>
+  	  <a  id="flush" href="../html/studentLogin.jsp">登录</a>
+      <a id="end" onclick="window.close();">退出</a>
+  	</div>
   	<div class="navigation">
   		<ul class="menu">
   		  <li><a onclick="showtow(0,0,this)";>查询信息</a></li>

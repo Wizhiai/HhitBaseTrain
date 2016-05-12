@@ -15,6 +15,10 @@
 	   margin-left:50px;
 	   text-align:right;
 	   }
+	  #id8{
+	   float:left;
+	   margin-left:95px;
+	   }
 	   #id4{
 	   position:absolute;
 	   text-align:center;
@@ -37,7 +41,7 @@
 	   position:absolute;
 	   text-align:center;
 	   top:350px;
-	   left:610px;
+	   left:680px;
 	   }
 	   #test{
 	     width:728px;
@@ -52,6 +56,60 @@
 	   }s
 	   
  </style>
+  <script type="text/javascript" src="../js/cookie_util.js"></script>
+ <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+ <script type="text/javascript">
+    var tno=getCookie("username");
+    $(function(){
+    	 $.ajax({
+    	url:"http://localhost:8080/BaseTrainManage/baseteacher/loadselfinfo.do",
+    	type:"post",
+    	data:{"tno":tno},
+    	dataType:"json",
+    	success:function(result){
+    		if(result.status!=0){
+    			var data=result.data;
+    			$("#tno").val(data.t_no);
+    			$("#tname").val(data.t_name);
+    			$("#sex").val(data.t_sex);
+    			$("#phone").val(data.t_phone);
+    			$("#danwei").val(data.base_name);
+    			$op=$("<option>"+data.t_profession+"</option>");
+    			$("#profession").append($op);	
+    		}
+    	},
+    	error:function(){
+    		alert("程序错误");
+    	}
+    
+    });
+    $("#modify").click(function(){
+         var tname=$("#tname").val();
+         var phone=$("#phone").val();
+         var sex=$("#sex").val();
+         $.ajax({
+         	url:"http://localhost:8080/BaseTrainManage/baseteacher/modifyselfInfo.do",
+         	type:"post",
+         	data:{"tname":tname,"phone":phone,"sex":sex,"tno":tno},
+         	dataType:"json",
+         	success:function(result){
+         		if(result.status>0){
+         			alert(result.msg);
+         		}else{
+         			alert(result.msg);
+         		}
+         	},
+         	error:function(){
+         		alert("程序错误");
+         	}
+         
+         });
+    
+    });
+    })
+   
+ 
+ </script>
  </head>
 <body>
 	<div id="head1"><img  src="../image/info.png"/></div>
@@ -88,28 +146,25 @@ document.write(strDate);
 <form action="" method="post">
   <div id="test">
 	<div id="id4">
-	   <div id="id3">年&nbsp;&nbsp;龄&nbsp;<input name="jdTeacher.Tage" type="text" value=""/></div>
-	   <div id="id3">电&nbsp;&nbsp;&nbsp;&nbsp;话&nbsp;<input name="jdTeacher.Tcontact" type="text"  value=""/></div>        	  	   
+	   <div id="id3">性&nbsp;&nbsp;别&nbsp;<input name="jdTeacher.Tage" type="text" id="sex"/></div>
+	   <div id="id3">电&nbsp;&nbsp;&nbsp;&nbsp;话&nbsp;<input name="jdTeacher.Tcontact" type="text" id="phone"/></div>        	  	   
 	</div>
 	<div id="id5">
-         <div id="id3">工&nbsp;&nbsp;号&nbsp;<input  name="jdTeacher.Tno" type="text" disabled="disabled" value="" /></div>
-	     <div id="id3">姓&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;<input  name="jdTeacher.Tname" type="text" value=""/></div>
+         <div id="id3">工&nbsp;&nbsp;号&nbsp;<input  name="" type="text" disabled="disabled" id="tno"/></div>
+	     <div id="id3">姓&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;<input  name="" type="text" id="tname"/></div>
 	</div>
 	<div id="id6"> 
 	   <div id="id3">职&nbsp;&nbsp;称&nbsp;
-	      <select name="jdTeacher.Tposition">  
-             <option value ="项目经理">项目经理</option>  
-             <option value ="讲师">讲师</option>  
-             <option value="教授">教授</option>  
-             <option value=班主任">班主任</option> 
+	      <select name="" id="profession">  
+             
            </select>
 	    </div>
-	   <div id="id3">实训单位
-           <input  name="jdTeacher.Tunit" type="text" value=""/>
+	   <div id="id8">实训单位
+           <input  name="jdTeacher.Tunit" type="text" value="" id="danwei" disabled="disabled"/>
 	   </div>
 	</div>
 	<div id="id7"> 
-	   <input name="Scontact2" type="submit" value="修改信息"/>
+	   <input name="Scontact2" type="button" value="修改信息" id="modify"/>
 	</div>
   </div>
 </form>

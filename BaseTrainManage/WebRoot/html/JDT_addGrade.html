@@ -59,6 +59,95 @@ body{
 	   float:left;
 	   }
 </style>
+<script type="text/javascript" src="../js/cookie_util.js"></script>
+ <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+ <script type="text/javascript" src="../js/getParameter.js"></script>
+ <script type="text/javascript" src="../js/file.js"></script>
+<script type="text/javascript">
+   var userId=getCookie("username");
+   var cno;
+   var stuno;
+   var name;
+    var base_name;
+    var week;
+    var month;
+	$(function(){
+	var url=window.location;
+	 stuno=getUrlParam(url,"stuno");
+     name=getUrlParam(url,"name");
+      base_name=getUrlParam(url,"base_name");
+	  $("#stuno").val(stuno);
+	  $("#stuname").val(name);
+	  $("#basename").val(base_name);
+	  $.ajax({
+ 			url:"http://localhost:8080/BaseTrainManage/baseteacher/loadcno.do",
+ 			type:"post",
+ 			data:{"tno":userId},
+ 			dataType:"json",
+ 			success:function(result){
+ 				if(result.status!=0){
+ 					cno=result.data;
+ 					var op="<option>"+cno+"</option>";
+ 					$op=$(op);
+ 					$("#cno").append($op);
+ 				}else{
+ 					alert(result.msg);
+ 				}
+ 			},
+ 			error:function(){
+ 				alert("程序出错");
+ 			}
+ 		});
+	  
+ $("#btnAdd").click(function(){
+ 	 week=$("#week option:selected").text();
+ 	 month=$("#month option:selected").text();
+ 	var grade=parseFloat($("#grade").val());
+ 	$.ajax({
+ 		url:"http://localhost:8080/BaseTrainManage/trainstudent/saveGradeInfo.do",
+ 		type:"post",
+ 		data:{"stuno":stuno,"tNo":userId,"cno":cno,"month":month,"week":week,"grade":grade},
+ 		dataType:"json",
+ 		success:function(result){
+ 			if(result.status>0){
+ 				alert(result.msg);
+ 				$("table tbody").html("");
+ 				var tr=' <tr align="center" bgcolor="#FFFFFF" height="22">';
+ 				tr+=' <td>'+stuno+'</td>';    
+	            tr+='<td>'+name+'</td>';
+	            tr+='<td>'+base_name+'</td>';
+	            tr+='<td>'+cno+'</td>';
+	            tr+='<td>'+month+'</td>';
+	            tr+='<td>'+week+'</td>';
+	            tr+='<td>'+grade+'</td>';
+	            tr+='<td><img  src="../image/upload.png"/> <a onclick="toNextPage();">上传卷面</a>&nbsp;<img  src="../image/min.png"/><a onclick="download();">查看卷面</a> </td> </tr>';
+	            $tr=$(tr);
+	            $("table tbody").append($tr);
+	            $("table tfoot td b").html(1);
+ 			}else{
+ 				alert(result.msg);
+ 			}
+ 		},
+ 		error:function(){
+ 			alert("程序出错");
+ 		}
+ 	
+ 	});
+
+ });
+  $("table tbody").on("mouseover","tr",function(){
+	       $(this).css("background-color","#E7FDFE");
+	   });
+	    $("table tbody").on("mouseout","tr",function(){
+	       $(this).css("background-color","#fff");
+
+		
+		
+	
+	});
+	});
+
+</script>
 </head>
 <body>
 	<div id="head1"><img  src="../image/info.png"/></div>
@@ -93,25 +182,15 @@ document.write(strDate);
  </div>
  <div id="kuangjia">
     <form action=" " method="post">
-    	<div id="id1">学&nbsp;&nbsp;&nbsp;&nbsp;号<input type="text" name="sno" value="" disabled="disabled"/>
+    	<div id="id1">学&nbsp;&nbsp;&nbsp;&nbsp;号<input type="text" name="stuno" value="" disabled="disabled" id="stuno"/>
        </div>
-	     <div id="id2">姓&nbsp;&nbsp;名&nbsp;<input type="text" name="" disabled="disabled" value=""/></div>
-	     <div id="id3">实训单位&nbsp;<input type="text" name="" disabled="disabled" value=""/></div>
+	     <div id="id2">姓&nbsp;&nbsp;名&nbsp;<input type="text" name="stu_name" disabled="disabled" value="" id="stuname"/></div>
+	     <div id="id3">实训单位&nbsp;<input type="text" name="base_name" disabled="disabled" value="" id="basename"/></div>
 	     <div id="course">课&nbsp;程&nbsp;号&nbsp;
-	     <select name=" ">  
-           <option value ="1111101">1111101</option>  
-           <option value ="1111102">1111102</option>  
-           <option value="1111103">1111103</option>  
-		   <option value="1111104">1111104</option>
-		   <option value="1111105">1111105</option>
-		   <option value="1111106">1111106</option>
-		   <option value="1111107">1111107</option>
-		   <option value="1111108">1111108</option>
-		   <option value="1111109">1111109</option>
-		   <option value="11111010">1111110</option>
+	     <select id="cno">  
          </select>  
 	  </div>
-	  <div class="grade">
+	  <div class="grade" id="month">
 	     月&nbsp;份&nbsp;
 	     <select>
 	        <option value ="1">1</option>  
@@ -121,23 +200,24 @@ document.write(strDate);
 		    <option value="5">5</option>
 	     </select>
 	  </div>
-	  <div class="grade">
+	  <div class="grade" id="week">
 	    周&nbsp;数&nbsp;
 	    <select>
-	    	 <option value ="1"></option>  
+	    	 <option value ="1">1</option>  
             <option value ="2">2</option>  
             <option value="3">3</option>  
 		    <option value="4">4</option>
 		    <option value="5">5</option>
 	    </select>
 	  </div>
-	  <div class="grade">成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;绩&nbsp;<input type="text" name="grade"/></div>
-	  <div id="btnAdd"><input type="submit" value="提交"/></div>
+	  <div class="grade">成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;绩&nbsp;<input type="text" name="grade" id="grade"/></div>
+	  <div id="btnAdd"><input type="button" value="提交"/></div>
  </form>
  </div>
     <div id="id4">
     <form name="form2">
      <table width="950px" border="0" cellpadding="0" cellspacing="0"  align="center">
+     <thead>
       <tr>
          <td height="24"  colspan="8" align="left" bgcolor="b5d6e6"><b>学生成绩信息</b></td>
       </tr>
@@ -145,34 +225,22 @@ document.write(strDate);
        <tr align="center"  bgcolor="#E7FDFE" height="22">
 	      <th width="10%"><b>学号</b></th>
 	      <th width="10%"><b>姓名</b></th>
-	      <th width="15%"><b>实训单位</b></th>
+	      <th width="10%"><b>实训单位</b></th>
 	      <th width="10%"><b>课程号</b></th>
-	      <th width="10%"><b>课程名</b></th>
-	      <th width="10%"><b>学时</b></th>
+	      <th width="10%"><b>月份</b></th>
+	      <th width="10%"><b>周期</b></th>
 		  <th width="10%"><b>成绩</b></th>
-		  <th width="25%"><b>基本操作</b></th>
+		   <th width="25%"><b>操作</b></th>
+		  
        </tr>
-
-       <tr align='center' bgcolor="#FFFFFF" height="22" onMouseMove="javascript:this.bgColor='#E7FDFE';" onMouseOut="javascript:this.bgColor='#FFFFFF';">    
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td>
-	        <img  src="../image/upload.png"/>
-	           <a href="">上传卷面</a>&nbsp;
-	         <img  src="../image/min.png"/>
-	           <a href=""/>"查看卷面</a>
-	      </td>
-        </tr>
-		
+       </thead>
+      <tbody></tbody>
+		<tfoot>
       <tr>
-         <td height="24" bgcolor="#E7FDFE" colspan="8" align="right">
+         <td height="24" bgcolor="b5d6e6" colspan="8" align="right">
                                           总共&nbsp;<b>0</b>条记录</td>
      </tr>
+     </tfoot>
   </table>
  </form>
  </div>
