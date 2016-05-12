@@ -111,7 +111,7 @@ abbr[title], dfn[title] {
 }
  input, select {
      vertical-align:middle;
-     background-color: #fff;
+     background-color: none !important;
      border:none;
 }
 /*{

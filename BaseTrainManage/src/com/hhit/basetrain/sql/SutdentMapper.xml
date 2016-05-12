@@ -75,5 +75,24 @@
 		order by a.major,c.base_name,b.cname 
 	</select>
 	
+	<!-- 查找学生入学年份 -->
+	<select id="findEnterYear" resultType="int">
+		select distinct(enter_year) from student
+	</select>
+	
+	<!-- 查找学生专业 -->
+	<select id="findMajor" resultType="string">
+		select distinct(major) from student
+	</select>
+	
+	<!-- 根据专业查找学生班级 -->
+	<select id="findClass" parameterType="string" resultType="string">
+		select distinct(stu_class) from student 
+		<where> 
+			<if test="_parameter != null and _parameter !=''">
+				 major = #{_parameter}
+			</if>
+		</where>
+	</select>
 	
 </mapper>
