@@ -27,8 +27,68 @@
  		margin-top:160px;
  		margin-left:80px;
  	}
+ 	#page{
+      text-align:center;
+      position:absolute;
+       top:450px; 
+       left:335px; 
+     }
+     #page a{
+      text-decoration:none;
+      color:#000;
+      border:1px solid #e8f3f8;
+      margin:0;
+      padding:5px 10px;
+     }
+     #page a:hover{
+      border:1px solid #97B9C9;
+      background-color:#CDDDE4;
+      color:#067DB5;
+     }
+  
+     #page input{
+     	width:20px;
+     }
+     .dianji{
+      border:1px solid #97B9C9;
+      background-color:#CDDDE4;
+      color:#067DB5;
+     }
    
  </style>
+  <script type="text/javascript" src="../js/cookie_util.js"></script>
+ <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+ <script type="text/javascript" src="../js/teacherTongjiStudentGrade.js"></script>
+ <script type="text/javascript">
+ var count;
+  var pagesize=1;
+  var page;
+  var currentpage;
+  var pagecounts;
+ var stuclass="";
+ var major="";
+ var stuno="";
+ var stu;
+ var cno;
+ $(function(){
+ 	$("#query").click(function(){
+ 		stuno=$("#sno").val();
+ 		stuclass=$("#sclass").val();
+ 		major=$("#major option:selected").text();
+ 		toHomePage();
+ 	});
+ 	$("#pagesizes").change(setpageSize);
+ 	 $("#set").click(setPages);
+ 	 $("table tbody").on("mouseover","tr",function(){
+	       $(this).css("background-color","#E7FDFE");
+	   });
+	    $("table tbody").on("mouseout","tr",function(){
+	       $(this).css("background-color","#fff");
+	   });
+ 
+ })
+ 
+ </script>
 </head>
 <body>
 	<div id="head1"><img  src="../image/info.png"/></div>
@@ -62,21 +122,21 @@ document.write(strDate);
 </script> 
  </div>
     <div id="information">
-    	<form action="" method="post">
+    	<form>
     	<div id="choose">
-    		<div class="condition">学&nbsp;&nbsp;号&nbsp;<input type="text" name="sno"/></div>
-    		<div class="condition">班&nbsp;级&nbsp;<input type="text" name="sclass"/></div>
+    		<div class="condition">学&nbsp;&nbsp;号&nbsp;<input type="text" name="sno" id="sno"/></div>
+    		<div class="condition">班&nbsp;级&nbsp;<input type="text" name="sclass" id="sclass"/></div>
 
 	  <div class="condition">
 	     专&nbsp;业&nbsp;
-	     <select>
+	     <select id="major">
 	        <option value ="1">计算机科学与技术</option>  
             <option value ="2">软件工程</option>  
             <option value="3">网络工程</option>  
 		    <option value="4">软嵌工程</option>
 	     </select>
 	  </div>
-	  <div class="search"><input type="submit" value="查询"/></div>
+	  <div class="search"><input type="button" value="查询" id="query"/></div>
 	  </div>
     	</form>
      
@@ -85,8 +145,9 @@ document.write(strDate);
     <div id="id4">
     <form name="form2">
      <table width="950px" border="0" cellpadding="0" cellspacing="0" bgcolor="b5d6e6" align="center">
+      <thead>
       <tr>
-         <td height="24"  colspan="8" align="left"><b>学生实训信息</b></td>
+         <td height="24"  colspan="9" align="left"><b>学生实训信息</b></td>
       </tr>
 	   
        <tr align="center" bgcolor="#E7FDFE" height="22">
@@ -97,26 +158,29 @@ document.write(strDate);
 	      <th width="15%"><b>实训单位</b></th>
 	      <th width="10%"><b>课程号</b></th>
 	      <th width="10%"><b>课程名</b></th>
+	      <th width="10%"><b>周期</b></th>
 	      <th width="10%"><b>操作</b></th>
        </tr>
-
-       <tr align='center' bgcolor="#FFFFFF" height="22" onMouseMove="javascript:this.bgColor='#E7FDFE';" onMouseOut="javascript:this.bgColor='#FFFFFF';">    
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	       <td><a href="Teacher_tongjiGradeInfo.html">统计</a></td>
-        </tr>
-		
+       </thead>
+       <tbody>
+		</tbody>
+		<tfoot>
       <tr>
-         <td height="24"  colspan="8" align="right">
+         <td height="24"  colspan="9" align="right">
                                           总共&nbsp;<b>0</b>条记录</td>
      </tr>
+     </tfoot>
   </table>
  </form>
+ </div>
+ <div id="page">
+    &nbsp;&nbsp;每页<input type="text" id="pagesizes"><span id="number">条 </span>
+   <a href="#" id="head">首页</a>
+ 	<a href="#" id="lastpage">上一页</a>
+    <a href="#" id="nextpage">下一页</a>
+    <a href="#" id="end">尾页</a>
+        转到<input type="text" id="pages"/> 页<span id="set">设置</span>
+ 
  </div>
  </body>
 </html>

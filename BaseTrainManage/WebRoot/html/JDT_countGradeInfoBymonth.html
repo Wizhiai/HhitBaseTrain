@@ -69,6 +69,18 @@
  	}	
 
  </style>
+ <script type="text/javascript" src="../js/cookie_util.js"></script>
+ <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+ <script type="text/javascript" src="../js/tongjiTrainStudentGrade.js"></script>
+ <script type="text/javascript">
+ var stuno;
+ var cno;
+ var week="";
+ var month="";
+
+
+ 
+ </script>
 </head>
 <body>
 	<div id="head1"><img  src="../image/info.png"/></div>
@@ -103,12 +115,13 @@ document.write(strDate);
  </div>
     <div id="information">
     	<form action="" method="post">
-    		<div id="id1">学&nbsp;&nbsp;&nbsp;号&nbsp;<input type="text" name="sno" disabled="disabled"/></div>
-    		<div class="course">课&nbsp;程&nbsp;号&nbsp;<input type="text" disabled="disabled"/>
+    		<div id="id1">学&nbsp;&nbsp;&nbsp;号&nbsp;<input type="text" name="sno" disabled="disabled" id="stuno"/></div>
+    		<div class="course">课&nbsp;程&nbsp;号&nbsp;<input type="text" disabled="disabled" id="cno"/>
 	  </div>
 	  <div class="course">
 	     月&nbsp;份&nbsp;
-	     <select>
+	     <select id="month">
+	        <option value ="1"></option>  
 	        <option value ="1">1</option>  
             <option value ="2">2</option>  
             <option value="3">3</option>  
@@ -116,14 +129,14 @@ document.write(strDate);
 		    <option value="5">5</option>
 	     </select>
 	  </div>
-	  <div id="avg">平&nbsp;均&nbsp;分&nbsp;<input type="text" disabled="disabled"/></div>
-	  <div id="avg1"><input type="submit" value="平均分"/></div>
-	   <div id="max">最&nbsp;高&nbsp;分&nbsp;<input type="text" disabled="disabled"/></div>
-	  <div id="max1"><input type="submit" value="最高分"/></div>
-	   <div id="min">最&nbsp;低&nbsp;分&nbsp;<input type="text" disabled="disabled"/></div>
-	  <div id="min1"><input type="submit" value="最低分"/></div>
-	   <div id="pass">及&nbsp;格&nbsp;率&nbsp;<input type="text" disabled="disabled"/></div>
-	  <div id="pass1"><input type="submit" value="及格率"/></div>
+	  <div id="avg">平&nbsp;均&nbsp;分&nbsp;<input type="text" disabled="disabled" id="avgresult"/></div>
+	  <div id="avg1"><input type="button" value="平均分" id="agrade"/></div>
+	   <div id="max">最&nbsp;高&nbsp;分&nbsp;<input type="text" disabled="disabled" id="maxresult"/></div>
+	  <div id="max1"><input type="button" value="最高分" id="mgrade"/></div>
+	   <div id="min">最&nbsp;低&nbsp;分&nbsp;<input type="text" disabled="disabled" id="minresult"/></div>
+	  <div id="min1"><input type="button" value="最低分" id="mingrade"/></div>
+	   <div id="pass">及&nbsp;格&nbsp;率&nbsp;<input type="text" disabled="disabled" id="passresult"/></div>
+	  <div id="pass1"><input type="button" value="及格率" id="passgrade"/></div>
   </form> 
     </div>
  </body>

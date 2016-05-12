@@ -1,15 +1,18 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>高校实训学生管理系统</title>
-    <meta content="text/html; charset=UTF-8">
-    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>高校实训学生管理系统</title>  
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <script type="text/javascript" src="../js/cookie_util.js"></script>
    <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
    <script type="text/javascript" src="../js/menu.js"></script>
    <script type="text/javascript">
-   	
+   	$(function(){
+   		var height=$(document).height();
+   		var cHeight = height-140;
+   		$(".kuangjia").css("height",cHeight);
+   	})
      function startup() {
 		$("#user_show").show();
 	}
@@ -20,11 +23,11 @@
   
   <body>
   <div id="header">
-  	<div id="logo"><img src="../image/head.png"/></div>
-    <div id="front"><a href="../html/jdteachermain.html">首&nbsp;页</a></div>
-  	<div id="flush"><a href="../html/studentLogin.jsp">登&nbsp;录</a></div>
-  	<div id="end" onclick="window.close();">退&nbsp;出</div>
-  	
+  	<div class="btnList">
+  	  <a id="front" href="../html/jdteachermain.html">首页</a>
+  	  <a  id="flush" href="../html/studentLogin.jsp">登录</a>
+      <a id="end" onclick="window.close();">退出</a>
+  	</div>
   </div>
   	<div class="navigation">
   		<ul class="menu">
@@ -39,9 +42,8 @@
   		<tbody>
   			<tr>
   				<td style="POSITION: relative;" id=LeftPart class=LeftPart>
-								<DIV
-									style="POSITION: absolute; BOTTOM: 100px; CURSOR: pointer; LEFT: 25px"></DIV>
-									<DIV style="POSITION: absolute; BOTTOM: 5px; LEFT: 2px"
+								
+									<DIV style="POSITION: absolute; BOTTOM: 5px; LEFT: 2px;border-radius:4px;box-shadow:2px 2px 0 #ccc;"
 									><a href="http://jwc.hhit.edu.cn">
 									<IMG
 										src="../image/link.jpg"></a>
@@ -88,24 +90,24 @@
 	                                    </li>
 											<LI class=#><IMG class=icon
 												src="../image/icon_1.gif"><a
-												 href="JDT_addGradeInfo.html" target=businessfrm>实训学生成绩录入</a>
+												 onclick=upDownMenu(this) href="JDT_addGradeInfo.html" target="businessfrm">实训学生成绩录入</a>
 												</li>
 
 											<li class=#><IMG class=icon
 												src="../image/icon_1.gif"><a
-													onclick=upDownMenu(this) href="JDT_modifyGrade.html" target=businessfrm>实训学生成绩修改</a>
+													onclick=upDownMenu(this) href="JDT_modifyGrade.html" target="businessfrm">实训学生成绩修改</a>
 											</li>
 											<li class=#><IMG class=icon
 												src="../image/icon_1.gif"><a
-													onclick=upDownMenu(this) href="JDT_deleteGradeInfo.html" target=businessfrm>实训学生成绩删除</a>
+													onclick=upDownMenu(this) href="JDT_modifyGrade.html" target="businessfrm">实训学生成绩删除</a>
 											</li>
 											<li class=#><IMG class=icon
 												src="../image/icon_1.gif"><a
-													onclick=upDownMenu(this) href="JDT_searchGradeInfo.html" target=businessfrm>实训学生成绩查询</a>
+													onclick=upDownMenu(this) href="JDT_searchGradeInfo.html" target="businessfrm">实训学生成绩查询</a>
 											</li>
 											<li class=#><IMG class=icon
 												src="../image/icon_1.gif"><a
-													onclick=upDownMenu(this) href="JDT_countGradeInfo.html" target=businessfrm>实训学生成绩统计</a>
+													onclick=upDownMenu(this) href="JDT_countGradeInfo.html" target="businessfrm">实训学生成绩统计</a>
 											</li>		
 										</ul>
 										<ul>
@@ -135,11 +137,11 @@
 													onclick=upDownMenu(this) href="#">学习计划</a>
 													<ul>
 														<li><a href="JDT_studyplan.html"
-															target=businessfrm>上传学习计划</a></li>
+															target="businessfrm">上传学习计划</a></li>
 														<li><a href="JDT_studyplan.html"
-															target=businessfrm>查看学习计划</a></li>
+															target="businessfrm">查看学习计划</a></li>
 														<li><a href="dianziduizhang/yinqiduizhang/yqdzcx.html"
-															target=businessfrm>删除学习计划</a></li>
+															target="businessfrm">删除学习计划</a></li>
 													</ul>
 												</li>
 
@@ -148,11 +150,11 @@
 													onclick=upDownMenu(this) href="#">课程考勤</a>
 													<ul>
 														<li><a href="JDT_studycheck.html"
-															target=businessfrm>上传课程考勤</a></li>
+															target="businessfrm">上传课程考勤</a></li>
 														<li><a href="JDT_studycheck.html"
-															target=businessfrm>查看课程考勤</a></li>
+															target="businessfrm">查看课程考勤</a></li>
 														<li><a href="dianziduizhang/yinqiduizhang/yqdzcx.html"
-															target=businessfrm>删除课程考勤</a></li>
+															target="businessfrm">删除课程考勤</a></li>
 													</ul>
 											</li>
 											<li class=#><IMG class=icon
@@ -160,11 +162,11 @@
 													onclick=upDownMenu(this) href="#">课程资料管理</a>
 													<ul>
 														<li><a href="JDT_studydata.html"
-															target=businessfrm>上传课程资料</a></li>
+															target="businessfrm">上传课程资料</a></li>
 														<li><a href="JDT_studydata.html"
-															target=businessfrm>查看课程资料</a></li>
+															target="businessfrm">查看课程资料</a></li>
 														<li><a href="dianziduizhang/yinqiduizhang/yqdzcx.html"
-															target=businessfrm>删除课程资料</a></li>
+															target="businessfrm">删除课程资料</a></li>
 													</ul></li>
 										</ul>
 										<ul>
@@ -193,10 +195,10 @@
   			</tr>
   			<tr>
   			<td colspan="2">
-  			<div class="foot">
+  			<!--<div class="foot">
   			    江苏省连云港市淮海工学院版权所有 联系电话：0518-87695328
   			</div>
-  			</td>
+  			--></td>
   			</tr>
   		</tbody>
   	</table>

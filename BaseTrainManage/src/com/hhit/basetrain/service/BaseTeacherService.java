@@ -3,12 +3,10 @@
  */
 package com.hhit.basetrain.service;
 
-<<<<<<< HEAD
-=======
 import java.util.Map;
 
 import com.hhit.basetrain.entity.Result;
->>>>>>> 5a857da9cd498017f0d9541f8ae813e0d070f0ab
+
 
 /**
  * @author Mayu
@@ -17,5 +15,8 @@ import com.hhit.basetrain.entity.Result;
  */
 public interface BaseTeacherService {
 	public Result loadTeacherInfo(String t_name,String stuno);
-	
+	public Result loadTeacherInfoPage(String t_name,String stuno,Integer page,Integer pageSize);
+	public Result loadCnoInfo(String tno);
+	public Result loadSelInfo(String tno);
+	public Result modifySelInfo(String tname,String sex,String phone,String tno);
 }

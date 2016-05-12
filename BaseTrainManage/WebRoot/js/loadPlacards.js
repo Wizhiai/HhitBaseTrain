@@ -16,6 +16,7 @@ $(function(){
    	   		var placardContent=placards[i].placard_content;
    	   		var li='<li class="card" href=><a>'+placardsTitle+'</a></li>';
    	   		$li=$(li);
+   	   		$li.data("placardContent",placardContent);
    	   		$("#palard_list").append($li);
    	   	}
    	   }

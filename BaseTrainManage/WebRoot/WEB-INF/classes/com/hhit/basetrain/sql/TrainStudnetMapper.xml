@@ -15,11 +15,11 @@
  
  <select id="findInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.TrainStudent">
  	select stu_name,stu_sex,stu_class,major,phone,date_format(birthday,'%y-%c-%d') as birthday,
- 	address,base_no,base_class,cno,date_format(train_date,'%y-%c-%d') as train_date
+ 	address,base_no,base_class,cno,date_format(train_date,'%Y-%m-%d') as train_date
  	 from trainstudent where stuno=#{stuno}
  
  </select>
- 
+
  <!-- 查找实训单位 -->
  <select id="findBaseNameByNo" parameterType="string" resultType="string">
  	select base_name from baserelation where base_no=(select base_no from trainstudent where stuno=#{stuno})
@@ -31,8 +31,209 @@
 		SELECT s.stuno,s.stu_name,s.stu_class,s.major,s.base_class,tc.cno,r.base_name,
 tc.cname,tc.term,t.t_name,r.base_name from traincourse tc,trainstudent s,teaching e,baseteacher t,
 baserelation r
-where s.cno=tc.cno and s.base_no=r.base_no and s.base_class=e.base_class and e.t_no=t.t_no  and s.stuno like #{stno} and 
+where s.cno=tc.cno and s.base_no=r.base_no and s.base_class=e.base_class and e.t_no=t.t_no  and s.stuno LIKE CONCAT(CONCAT('%', #{stno}),'%') and 
 s.base_no=(select base_no from trainstudent  where stuno=#{stuno})
 	
 	</select>
+<select id="findInfoByPage" parameterType="java.util.HashMap" resultType="map">
+		SELECT s.stuno,s.stu_name,s.stu_class,s.major,s.base_class,tc.cno,r.base_name,
+tc.cname,tc.term,t.t_name,r.base_name from traincourse tc,trainstudent s,teaching e,baseteacher t,
+baserelation r
+where s.cno=tc.cno and s.base_no=r.base_no and s.base_class=e.base_class and e.t_no=t.t_no  and s.stuno LIKE CONCAT(CONCAT('%', #{stno}),'%') and 
+s.base_no=(select base_no from trainstudent  where stuno=#{stuno})limit ${page}, ${pagesize}
+	</select>
+	
+	<!-- 通过学号查询成绩 -->
+	<select id="findScoreInfoByNo" parameterType="java.util.HashMap" resultType="map">
+		SELECT s.stuno,s.stu_name,c.cno,c.month,c.week,c.grade,c.exampaper,r.base_name,tc.cname from trainstudent s,
+         score c,baserelation r,traincourse  tc 
+         <where> s.stuno=c.stuno and s.base_no=r.base_no 
+           and tc.cno=c.cno and c.stuno LIKE CONCAT(CONCAT('%', #{stuno}),'%')
+          <if test="month!=null and month!=''">
+           	  and c.month=#{month}
+           </if>
+           <if test="week!=null and week!=''">
+           	and c.week=#{week}
+           </if>
+	     </where>
+	</select>
+	<!-- 通过学号查询成绩分页 -->
+	<select id="findScoreInfoByPage" parameterType="java.util.HashMap" resultType="map">
+		SELECT s.stuno,s.stu_name,c.cno,c.month,c.week,c.grade,c.exampaper,r.base_name,tc.cname from trainstudent s,
+         score c,baserelation r,traincourse  tc 
+         <where>
+         s.stuno=c.stuno and s.base_no=r.base_no 
+           and tc.cno=c.cno and c.stuno LIKE CONCAT(CONCAT('%', #{stuno}),'%')
+          <if test="month!=null and month!=''">
+           	  and c.month=#{month}
+           </if>
+           <if test="week!=null and week!=''">
+           	and c.week=#{week}
+           </if>
+	     </where> 
+	     limit ${page}, ${pagesize}
+	</select>
+	<!-- 动态sql语句查询分页 -->
+	<select id="findScoreInfoByConditionPage" parameterType="java.util.HashMap" resultType="map">
+		SELECT s.stuno,s.stu_name,c.cno,c.month,c.week,c.grade,c.exampaper,r.base_name,tc.cname,c.id from trainstudent s,
+         score c,baserelation r,traincourse  tc where s.stuno=c.stuno and s.base_no=r.base_no 
+           and tc.cno=c.cno
+           and  c.cno=#{cno}
+           <if test="stuno!=null and stuno!=''">
+               and c.stuno  LIKE CONCAT(CONCAT('%', #{stuno}),'%')
+           </if>
+           <if test="month!=null and month!=''">
+           	  and c.month=#{month}
+           </if>
+           <if test="week!=null and week!=''">
+           	and c.week=#{week}
+           </if>
+           limit ${page}, ${pagesize}
+	</select>
+	<!-- 动态sql语句查询 -->
+	<select id="findScoreInfoByCondition" parameterType="java.util.HashMap" resultType="map">
+	    
+		SELECT s.stuno,s.stu_name,c.cno,c.month,c.week,c.grade,c.exampaper,r.base_name,tc.cname,c.id from trainstudent s,
+         score c,baserelation r,traincourse  tc 
+         where
+            s.stuno=c.stuno and s.base_no=r.base_no 
+           and tc.cno=c.cno 
+           and  c.cno=#{cno}
+           <if test="stuno!=null and stuno!=''">
+               and c.stuno LIKE CONCAT(CONCAT('%', #{stuno}),'%')
+           </if>
+           <if test="month!=null and month!=''">
+           	  and c.month=#{month}
+           </if>
+            <if test="week!=null and week!=''">
+           	and c.week=#{week}
+           </if>
+	</select>
+	<!-- 基地教师查询实训学生信息 -->
+	<select id="findTrainStudentInfo" parameterType="java.util.HashMap" resultType="map">
+		select s.stuno,s.stu_name,s.stu_sex,date_format(s.birthday,'%y-%c-%d') as birthday,s.phone,s.base_class,r.base_name,tc.cno,tc.cname
+		from trainstudent s,baserelation r,traincourse tc 
+		where
+		r.base_no=s.base_no
+		and s.cno=tc.cno 
+		<if test="stuname!=null and stuname!=''">
+		and s.stu_name like  CONCAT(CONCAT('%', #{stuname}),'%')
+		</if>
+	</select>
+	<!-- 基地教师查询实训学生信息 分页 -->
+	<select id="findTrainStudentInfoPage" parameterType="java.util.HashMap" resultType="map">
+		select s.stuno,s.stu_name,s.stu_sex,date_format(s.birthday,'%y-%c-%d') as birthday,s.phone,s.base_class,r.base_name,tc.cno,tc.cname
+		from trainstudent s,baserelation r,traincourse tc 
+		where
+		r.base_no=s.base_no
+		and s.cno=tc.cno 
+		<if test="stuname!=null and stuname!=''">
+		and s.stu_name like  CONCAT(CONCAT('%', #{stuname}),'%')
+		</if>
+		limit ${page}, ${pagesize}
+	</select>
+	
+	<!-- 插入成绩 -->
+	<insert id="saveGradeInfo" parameterType="java.util.HashMap">
+		insert into score(stuno,cno,t_no,month,week,grade) values(#{stuno},#{cno},#{t_no},#{month},#{week},#{grade})
+	</insert>
+	
+	<!-- 修改成绩 -->
+	<update id="updateGradeInfo" parameterType="java.util.HashMap">
+		update score set grade=${grade} where id=${id}
+	
+	</update>
+	<!-- 删除成绩 -->
+	<delete id="deleteGradeInfo" parameterType="string">
+		delete from score where id=#{id}
+	</delete>
+	
+	<!-- 通过学号，班级，专业动态查询实训信息 -->
+	<select id="findTrainInfo" parameterType="java.util.HashMap" resultType="map">
+		select s.stuno,s.stu_name,s.stu_class,s.major,r.base_name,tc.cno,tc.cname,tc.term from
+		trainstudent s,baserelation r,traincourse tc
+		 <where>
+		 s.base_no=r.base_no
+		 and s.cno=tc.cno
+		 <if test="stuclass!=null and stuclass!=''">
+		 	and s.stu_class=#{stuclass}
+		 </if>
+		 <if test="major!=null and major!=''">
+		 	and s.major=#{major}
+		 </if>
+		 <if test="stuno!=null and stuno!=''">
+		 	and s.stuno  LIKE CONCAT(CONCAT('%', #{stuno}),'%')
+		 </if>
+		 </where> 
+	</select>
+	<!-- 通过学号，班级，专业动态查询实训信息分页 -->
+	<select id="findTrainInfoPage" parameterType="java.util.HashMap" resultType="map">
+		select s.stuno,s.stu_name,s.stu_class,s.major,r.base_name,tc.cno,tc.cname,tc.term from
+		trainstudent s,baserelation r,traincourse tc
+		 <where>
+		 s.base_no=r.base_no
+		 and s.cno=tc.cno
+		 <if test="stuclass!=null and stuclass!=''">
+		 	and s.stu_class=#{stuclass}
+		 </if>
+		 <if test="major!=null and major!=''">
+		 	and s.major=#{major}
+		 </if>
+		 <if test="stuno!=null and stuno!=''">
+		 	and s.stuno LIKE CONCAT(CONCAT('%', #{stuno}),'%')
+		 </if>
+		 </where> 
+		 limit ${page}, ${pagesize}
+	</select>
+	<!-- 通过学号，班级，专业，月份，星期动态查询成绩 -->
+	<select id="findScoreInfo" parameterType="java.util.HashMap" resultType="map">
+	    
+		SELECT s.stuno,s.stu_name,s.stu_class,s.major,c.cno,c.month,c.week,c.grade,c.exampaper,r.base_name,tc.cname,c.id from trainstudent s,
+         score c,baserelation r,traincourse  tc 
+         where
+            s.stuno=c.stuno and s.base_no=r.base_no 
+           and tc.cno=c.cno 
+           <if test="stuno!=null and stuno!=''">
+               and c.stuno LIKE CONCAT(CONCAT('%', #{stuno}),'%')
+           </if>
+           <if test="month!=null and month!=''">
+           	  and c.month=#{month}
+           </if>
+            <if test="week!=null and week!=''">
+           	and c.week=#{week}
+           </if>
+           <if test="stuclass!=null and stuclass!=''">
+		 	and s.stu_class=#{stuclass}
+		 </if>
+		 <if test="major!=null and major!=''">
+		 	and s.major=#{major}
+		 </if>
+	</select>
+	
+	<!-- 通过学号，班级，专业，月份，星期动态查询成绩 分页-->
+		<select id="findScoreInfoPage" parameterType="java.util.HashMap" resultType="map">
+	    
+		SELECT s.stuno,s.stu_name,s.stu_class,s.major,c.cno,c.month,c.week,c.grade,c.exampaper,r.base_name,tc.cname,c.id from trainstudent s,
+         score c,baserelation r,traincourse  tc 
+         where
+            s.stuno=c.stuno and s.base_no=r.base_no 
+           and tc.cno=c.cno
+           <if test="stuno!=null and stuno!=''">
+               and c.stuno LIKE CONCAT(CONCAT('%', #{stuno}),'%')
+           </if>
+           <if test="month!=null and month!=''">
+           	  and c.month=#{month}
+           </if>
+            <if test="week!=null and week!=''">
+           	and c.week=#{week}
+           </if>
+           <if test="stuclass!=null and stuclass!=''">
+		 	and s.stu_class=#{stuclass}
+		 </if>
+		 <if test="major!=null and major!=''">
+		 	and s.major=#{major}
+		 </if>
+		  limit ${page}, ${pagesize}
+	</select>
+	
 </mapper>
