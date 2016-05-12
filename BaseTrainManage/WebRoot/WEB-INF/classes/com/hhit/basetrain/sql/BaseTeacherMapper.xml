@@ -3,8 +3,31 @@
  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
  <mapper namespace="com.hhit.basetrain.dao.BaseTeacherDao">
  	<select id="findInfoByBaseName" parameterType="java.util.HashMap" resultType="com.hhit.basetrain.entity.BaseTeacher">
- 		select t_no,t_name,t_sex,t_phone,t_profession from baseteacher where t_name like #{t_name} 
+ 		select t_no,t_name,t_sex,t_phone,t_profession from baseteacher where t_name like CONCAT(CONCAT('%', #{t_name}),'%') 
  		and base_no=(select base_no from trainstudent where stuno=#{stuno})
  	
  	</select>
+ 	
+ 	<select id="findInfoByBaseNamePage" parameterType="java.util.HashMap" resultType="com.hhit.basetrain.entity.BaseTeacher">
+ 		select t_no,t_name,t_sex,t_phone,t_profession from baseteacher where t_name like CONCAT(CONCAT('%', #{t_name}),'%') 
+ 		and base_no=(select base_no from trainstudent where stuno=#{stuno}) limit  ${page}, ${pagesize}
+ 	</select>
+ 	
+ 	<!-- 查询课程号通过教师ID -->
+ 	<select id="findCnoByTeacherNo" parameterType="string" resultType="string">
+ 		select cno from teaching where t_no=#{tno}
+ 	
+ 	</select>
+ 	
+ 	<!-- 通过教师ID查询教师信息 -->
+ 	<select id="findInfoByNo" parameterType="string" resultType="map">
+ 		select b.t_no,b.t_name,b.t_sex,b.t_phone,b.t_profession,r.base_name
+ 		from baseteacher b,baserelation r where r.base_no=b.base_no and b.t_no=#{tno}
+ 	</select>
+ 	
+ 	<!-- 修改个人信息 -->
+ 	<update id="modifySelfInfo" parameterType="com.hhit.basetrain.entity.BaseTeacher">
+ 		update baseteacher set t_name=#{t_name},t_sex=#{t_sex},t_phone=#{t_phone} where 
+ 		t_no=#{t_no}
+ 	</update>
  </mapper>

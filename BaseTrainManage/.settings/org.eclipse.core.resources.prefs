@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 #Fri Apr 29 17:08:23 CST 2016
+=======
+#Tue May 10 21:03:43 CST 2016
+>>>>>>> ecb39c985cd60b39d06e28deb8b5783e9b248f5f
 eclipse.preferences.version=1
 encoding//WebRoot/html/JDT_modifyInfo.html=UTF-8
 encoding//WebRoot/html/JDT_studyplan.html=UTF-8
 encoding//WebRoot/html/JDT_uploadStudyplan.html=UTF-8
+encoding//WebRoot/html/JDT_uploadexampper1.jsp=UTF-8
 encoding//WebRoot/html/Student_modifyInfo.html=UTF-8
 encoding//WebRoot/html/Teacher_changeInfo.html=UTF-8
 encoding//WebRoot/html/Teacher_study.html=UTF-8

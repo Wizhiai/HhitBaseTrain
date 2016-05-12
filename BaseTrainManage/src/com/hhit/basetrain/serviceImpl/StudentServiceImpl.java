@@ -118,7 +118,7 @@ public class StudentServiceImpl implements StudentService{
 		studentDao.modifyInfo(stu);
 		trainstudentDao.modifyInfo(stu);
 		
-		result.setStatus(0);
+		result.setStatus(1);
 		result.setMsg("修改成功");
 		
 		

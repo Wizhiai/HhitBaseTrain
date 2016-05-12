@@ -14,19 +14,20 @@ import com.hhit.basetrain.service.BaseTeacherService;
 
 /**
  * @author Mayu
- * @date 2016-4-25t下午05:57:21
+ * @date 2016-4-28t下午02:21:32
  * TODO
  */
 @Controller
-public class SearchBaseTeacherInfoController {
+public class BaseTeacherSearchGradeController {
 	@Resource
-	private BaseTeacherService baseTeacherservice;
+	private BaseTeacherService baseTeacherService;
 	
-	@RequestMapping("/baseteacher/search")
+	@RequestMapping("baseteacher/loadcno")
 	@ResponseBody
-	public Result execute(String t_name,String stuno){
-		Result result=baseTeacherservice.loadTeacherInfo(t_name, stuno);
+	public Result execute(String tno){
+		Result result=baseTeacherService.loadCnoInfo(tno);
 		return result;
 		
 	}
+	
 }

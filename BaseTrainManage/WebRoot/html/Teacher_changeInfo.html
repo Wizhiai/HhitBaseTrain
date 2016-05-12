@@ -37,7 +37,7 @@
 	   position:absolute;
 	   text-align:center;
 	   top:350px;
-	   left:610px;
+	   left:700px;
 	   }
 	   #test{
 	     width:728px;
@@ -51,6 +51,11 @@
 	   }
  
  </style>
+ <script type="text/javascript" src="../js/cookie_util.js"></script>
+ <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+ <script type="text/javascript" src="../js/collegeTeacher_modifyInfo.js"></script>
+ <script type="text/javascript">
+ </script>
  </head>
 <body>
 	<div id="head1"><img  src="../image/info.png"/></div>
@@ -84,31 +89,29 @@ document.write(strDate);
 </script> 
  </div>
 </body>
-<form action="" method="post">
+<form>
   <div id="test">
 	<div id="id4">
-	   <div id="id3">年&nbsp;&nbsp;龄&nbsp;<input name="jdTeacher.Tage" type="text" value=""/></div>
-	   <div id="id3">电&nbsp;&nbsp;&nbsp;&nbsp;话&nbsp;<input name="jdTeacher.Tcontact" type="text"  value=""/></div>        	  	   
+	   <div id="id3">生&nbsp;&nbsp;日&nbsp;<input id="birthday" type="text" value=""/></div>
+	   <div id="id3">电&nbsp;&nbsp;&nbsp;&nbsp;话&nbsp;<input id="telephone" type="text"  value=""/></div>        	  	   
 	</div>
 	<div id="id5">
-         <div id="id3">工&nbsp;&nbsp;号&nbsp;<input  name="jdTeacher.Tno" type="text" disabled="disabled" value="" /></div>
-	     <div id="id3">姓&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;<input  name="Teacher.Tname" type="text" value=""/></div>
+         <div id="id3">工&nbsp;&nbsp;号&nbsp;<input type="text" disabled="disabled" id="tno" /></div>
+	     <div id="id3">姓&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;<input id="tname" type="text"/></div>
 	</div>
 	<div id="id6"> 
-	   <div id="id3">职&nbsp;&nbsp;称&nbsp;
-	      <select name="jdTeacher.Tposition">  
-             <option value ="工程师">工程师</option>  
-             <option value ="讲师">讲师</option>  
-             <option value="教授">教授</option>  
-             <option value="副教授">副教授</option> 
-           </select>
+	   <div id="id3">性&nbsp;&nbsp;别&nbsp;
+	      <input type="text" id="sex"/>
 	    </div>
-	   <div id="id3">学院
-           <input  name="jdTeacher.Tunit" type="text" value=""/>
+	   <div id="id3">职&nbsp;&nbsp;称&nbsp;
+           <input  id="profession" type="text" value=""/>
+	   </div>
+	     <div id="id3">
+           <input  id="academy" type="hidden" id="academy"/>
 	   </div>
 	</div>
 	<div id="id7"> 
-	   <input name="Scontact2" type="submit" value="修改信息"/>
+	   <input  type="button" value="修改信息" id="modify"/>
 	</div>
   </div>
 </form>

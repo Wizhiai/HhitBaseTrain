@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.hhit.basetrain.dao.ScoreDao">
+	<!-- 添加文件名 -->
+	<update id="saveexamName" parameterType="com.hhit.basetrain.entity.Score">
+		update score set exampaper=#{exampaper} where stuno=#{stuno} and week=#{week} and month=#{month}
+	</update>
+   <!-- 获取文件名 -->
+   <select id="findexampper" parameterType="com.hhit.basetrain.entity.Score" resultType="string">
+   	select exampaper from score where stuno=#{stuno} and week=#{week} and month=#{month}
+   
+   </select>
+</mapper>

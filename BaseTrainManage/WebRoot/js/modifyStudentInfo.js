@@ -14,7 +14,7 @@ function modifySelfInfo(){
  		     "major":major,"stu_class":stuclass,"address":address},
  		    dataType:"json",
  		    success:function(result){
- 		    	if(result.status==0){
+ 		    	if(result.status==1){
  		    		alert("修改成功");
  		    	}
  		    },

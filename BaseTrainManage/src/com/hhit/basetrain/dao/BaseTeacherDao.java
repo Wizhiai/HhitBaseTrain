@@ -15,6 +15,9 @@ import com.hhit.basetrain.entity.BaseTeacher;
  */
 public interface BaseTeacherDao {
 	public List<BaseTeacher> findInfoByBaseName(Map map);
-	
+	public List<BaseTeacher> findInfoByBaseNamePage(Map map);
+	public String findCnoByTeacherNo(String tno);
+	public Map findInfoByNo(String tno);
+	public int modifySelfInfo(BaseTeacher teacher);
 
 }

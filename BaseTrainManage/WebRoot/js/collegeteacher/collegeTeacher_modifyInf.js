@@ -1,5 +1,6 @@
 $(function(){
 	var ct_no = getCookie("username");
+	alert(ct_no);
 	$.ajax({
 		url:"http://localhost:8080/BaseTrainManage/collegeteacher/loadSelfInf.do",
 		type:"post",
