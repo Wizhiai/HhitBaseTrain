@@ -1,5 +1,5 @@
 function upDownMenu(obj){  
-	$(obj).parent().find("ul li").css("background","url(../images/dict.png) no-repeat 0px 50%");//a连接的底色问题
+	$(obj).parent().find("ul li").css("background","url(../../images/dict.png) no-repeat 0px 50%");//a连接的底色问题
 	$(obj).parent().find("ul li a").css("padding-left","20px");
 	if(!$(obj).parent().find("ul")){
 		return false;
@@ -88,4 +88,12 @@ function promptName(){
 			}
 		});
 	}
+}
+function exitSystem(){
+	if(confirm("确定退出系统？")){
+		window.location.href="../../index.jsp";
+	}
+}
+function closeCurrentWindow(){
+	window.close();
 }

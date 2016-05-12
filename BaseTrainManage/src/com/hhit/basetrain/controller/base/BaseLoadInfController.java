@@ -67,4 +67,103 @@ public class BaseLoadInfController {
 		return result;
 	}
 	
+	/**
+	 * 通过基地号搜索基地基本信息
+	 * @return
+	 */
+	@RequestMapping("/base/searchByBaseNo")
+	@ResponseBody
+	public Result searchBaseBasicInfo(String base_no){
+		
+		Result result = baseService.showBaseBasicInfoByNo(base_no);
+		return result;
+	}
+	/**
+	 * 通过基地号搜索基地建设与管理状况
+	 * @return
+	 */
+	@RequestMapping("/base/searchBuildByBaseNo")
+	@ResponseBody
+	public Result searchBaseBuildInfo(String base_no){
+		
+		Result result = baseService.showBaseBuildInfoByNo(base_no);
+		return result;
+	}
+	/**
+	 * 通过基地号搜索基地场地与设施条件
+	 * @return
+	 */
+	@RequestMapping("/base/searchFieldByBaseNo")
+	@ResponseBody
+	public Result searchBaseFieldInfo(String base_no){
+		
+		Result result = baseService.showBaseFieldInfoByNo(base_no);
+		return result;
+	}
+	/**
+	 * 通过基地号搜索基地实训项目目标及内容
+	 * @return
+	 */
+	@RequestMapping("/base/searchContentByBaseNo")
+	@ResponseBody
+	public Result searchBaseContentInfo(String base_no){
+		
+		Result result = baseService.showBaseContentInfoByNo(base_no);
+		return result;
+	}
+	/**
+	 * 通过基地号搜索基地教师与辅导队伍
+	 * @return
+	 */
+	@RequestMapping("/base/searchCoachByBaseNo")
+	@ResponseBody
+	public Result searchBaseCoachInfo(String base_no){
+		
+		Result result = baseService.showBaseCoachInfoByNo(base_no);
+		return result;
+	}
+	/**
+	 * 通过基地号搜索基地科研与技术活动
+	 * @return
+	 */
+	@RequestMapping("/base/searchResearchByBaseNo")
+	@ResponseBody
+	public Result searchBaseResearchInfo(String base_no){
+		
+		Result result = baseService.showBaseResearchInfoByNo(base_no);
+		return result;
+	}
+	/**
+	 * 通过基地号搜索基地实践效果与能力开发
+	 * @return
+	 */
+	@RequestMapping("/base/searchEffectByBaseNo")
+	@ResponseBody
+	public Result searchBaseEffectInfo(String base_no){
+		
+		Result result = baseService.showBaseEffectInfoByNo(base_no);
+		return result;
+	}
+	/**
+	 * 通过基地号搜索基地企业联盟
+	 * @return
+	 */
+	@RequestMapping("/base/searchAllianceByBaseNo")
+	@ResponseBody
+	public Result searchBaseAllianceInfo(String base_no){
+		
+		Result result = baseService.showBaseAllianceInfoByNo(base_no);
+		return result;
+	}
+	/**
+	 * 通过基地号搜索基地特色
+	 * @return
+	 */
+	@RequestMapping("/base/searchAdvantageByBaseNo")
+	@ResponseBody
+	public Result searchBaseAdvantageInfo(String base_no){
+		
+		Result result = baseService.showBaseAdvantageInfoByNo(base_no);
+		return result;
+	}
 }

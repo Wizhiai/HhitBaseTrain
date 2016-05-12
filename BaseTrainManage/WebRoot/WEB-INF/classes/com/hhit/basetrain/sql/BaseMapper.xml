@@ -30,4 +30,69 @@
 		select base_no,base_name from base 
 	</select>
 	
+	<!-- 根据基地号搜索基地基本信息 -->
+	<select id="findBasicInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.BaseBean">
+		select base_no,base_name,base_address,date_format(establish_time,'%Y-%m-%d') as establish_time 
+		from base 
+		where base_no = #{base_no} 
+	</select>
+	
+	<!-- 根据基地号搜索基地建设与管理状况 -->
+	<select id="findBuildInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.BaseBuildBean">
+		select base_no,base_property,manage_institution,main_rule,development_plan,construction_funds,
+		financial_situation,base_qualification ,teacher_num,senior_num,intermediate_num,experienced_teacher,
+		manager_num,aid_num,developer_num from base 
+		where base_no = #{base_no} 
+	</select>
+	
+	<!-- 根据基地号搜索基地场地与设施条件 -->
+	<select id="findFieldInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.BaseFieldBean">
+		select base_no,base_area,base_station,extension_area,new_station,equipment_total,machine_total,average_assets,
+		machine_average,mainstream_product,machine_situation,software_system,software_selfevaluation,software_demand,canteen_area,
+		canteen_seat,meal_num,canteen_belong,dormitory_area,bed_num,dormitory_bed,dormitory_price,dormitory_belong,student_manage,
+		clean_manage,environment,safety from base 
+		where base_no = #{base_no} 
+	</select>
+	
+	<!-- 根据基地号搜索基地实训项目目标及内容 -->
+	<select id="findContentInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.BaseTrainContentBean">
+		select base_no,internship_outline,outline_plan,train_plan,new_plan,guide_book,new_guidingbook,teaching_material,
+		new_material,publish_book,train_project,new_project,student_num,train_price,develop_case from base 
+		where base_no = #{base_no} 
+	</select>
+	
+	<!-- 根据基地号搜索基地教师与辅导队伍-->
+	<select id="findCoachInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.BaseCoachBean">
+		select base_no,school_teacher,company_teacher from base 
+		where base_no = #{base_no} 
+	</select>
+	
+	<!-- 根据基地号搜索基地科研与技术活动-->
+	<select id="findResearchInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.BaseResearchBean">
+		select base_no,research_num,education_num,research_funding,scientific_research,typical_research,develop_project_num,
+		develop_project_funding,develop_project_staff,develop_project_student,typical_project from base 
+		where base_no = #{base_no} 
+	</select>
+	
+	<!-- 根据基地号搜索基地实践效果与能力开发-->
+	<select id="findEffectInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.BaseTrainEffectBean">
+		select base_no,project_inuse,good_project,company_project,selfdevelop_project,evaluation_rule,postgraduate_proportion,
+		undergraduate_proportion,specialist_proportion,school_source,trainee_source,train_finish_num,train_employed_num,large_enterprise,
+		middle_enterprise,small_enterprise,salary_range,base_recommend,student_selfask from base 
+		where base_no = #{base_no} 
+	</select>
+	
+	<!-- 根据基地号搜索基地企业联盟-->
+	<select id="findAllianceInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.BaseAllianceBean">
+		select base_no,cooperation_enterprise_num,cooperation_project_num,employment_alliance_num,actual_employment_num,
+		employment_alliance_proportion,cooperation_enterprise_name from base 
+		where base_no = #{base_no} 
+	</select>
+	
+	<!-- 根据基地号搜索基地特色-->
+	<select id="findAdvantageInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.BaseAdvantageBean">
+		select base_no,base_advantage from base 
+		where base_no = #{base_no} 
+	</select>
+	
 </mapper>

@@ -39,6 +39,12 @@ public class StudentSelfInfModifyController {
 		return result;
 	}
 	
-	
+	@RequestMapping("/student/trainregist")
+	@ResponseBody
+	public Result trainregist(String stuno, String cno, String base_no){
+		
+		Result result = studentService.studentRegist(stuno, cno, base_no);
+		return result;
+	}
 	
 }

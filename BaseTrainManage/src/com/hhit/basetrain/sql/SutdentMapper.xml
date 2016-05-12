@@ -35,4 +35,45 @@
 		where stuno = #{stuno}
 	</update>
 	
+	<!-- 通过学号查看学生报名基地 -->
+	<select id="findTrainBaseByStuno" parameterType="string" resultType="string">
+		select base_no from register where stuno = #{stuno}
+	</select>
+	
+	<!-- 实训课程报名 -->
+	<insert id="regist" parameterType="map">
+		insert into register(stuno,cno,base_no)
+		values
+		(#{stuno},#{cno},#{base_no})
+	</insert>
+	
+	<!-- 专业划分实训学生报名统计 -->
+	<select id="registCountByMajor" resultType="com.hhit.basetrain.entity.StudentRegistCountBean">
+		select count(*) as num,major as major from register a ,student b 
+		where a.stuno = b.stuno 
+		group by major
+	</select>
+	<!-- 实训单位划分实训学生报名统计 -->
+	<select id="registCountByBase" resultType="com.hhit.basetrain.entity.StudentRegistCountBean">
+		select count(*) as num,base_name as base_name from register a ,base b ,student c
+		where a.base_no = b.base_no and c.stuno = a.stuno
+		group by a.base_no
+	</select>
+	<!-- 专业和实训单位划分实训学生报名统计 -->
+	<select id="registCountByMajorAndBase" resultType="com.hhit.basetrain.entity.StudentRegistCountBean">
+		select count(*) as num,major as major,base_name as base_name from register a ,student b,base c 
+		where a.stuno = b.stuno and a.base_no = c.base_no 
+		group by b.major,a.base_no
+	</select>
+	
+	<!-- 专业划分实训学生报名统计详细信息 -->
+	<select id="searchRegistCountInf" resultType="com.hhit.basetrain.entity.StudentRegistCountInfoBean">
+		select a.stu_name as stu_name,a.stu_class as stu_class,a.major as major,
+		c.base_name as base_name,b.cname as cname 
+		from student a,traincourse b,base c,register d
+		where a.stuno = d.stuno and b.cno = d.cno and c.base_no = d.base_no and b.base_no = c.base_no
+		order by a.major,c.base_name,b.cname 
+	</select>
+	
+	
 </mapper>

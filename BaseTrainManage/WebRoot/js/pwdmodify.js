@@ -1,6 +1,5 @@
 $(function(){
 	var username = getCookie("username");
-	
 	$("#modify").click(function(){
 		var oldPwd = $("#oldpwd").val();
 		var newPwd = $("#newpwd").val();
@@ -32,7 +31,6 @@ $(function(){
 				dataType:"json",
 				success:function(result){
 					alert(result.msg);
-					
 				},
 				error:function(){
 					alert("程序出错！!");

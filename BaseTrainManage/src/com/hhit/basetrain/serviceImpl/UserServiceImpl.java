@@ -47,7 +47,6 @@ public class UserServiceImpl implements UserService{
 			result.setStatus(1);
 			result.setData(user);
 		}
-		
 		return result;
 	}
 
@@ -58,7 +57,6 @@ public class UserServiceImpl implements UserService{
 	public Result modifyPwd(String username, String oldPwd, String newPwd) {
 		
 		Result result = new Result();
-		
 		if(!userDao.searchPwd(username).equals(oldPwd)){
 			result.setStatus(-1);
 			result.setMsg("原密码输入错误！");
