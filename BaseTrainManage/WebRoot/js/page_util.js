@@ -7,7 +7,7 @@
  */
 
 function clearTableContent(){//清除表格中的数据
-	$("#showInform tbody tr").empty();
+	$("#showInform tbody tr").remove();
 }
 			
 function addTableContent(tr){//将数据加入表格中
@@ -31,7 +31,10 @@ function pageCalculate(data,pageSize){//计算总页数
 		$("#totalPage").text(data.length/pageSize);
 	}
 }
-
+/*function showtotalRecords(data){
+	alert(data.length);
+	$("#totalRecords").text(data.length);
+}*/
 function pageJudge(){//判断上一页下一页是否可用
 	var currentPage =$("#currentPage").text();
 	var totalPage =$("#totalPage").text();
@@ -39,15 +42,23 @@ function pageJudge(){//判断上一页下一页是否可用
 	if(currentPage == totalPage && currentPage ==1){//当前页为尾页且当前页为起始页
 		$("#nextPage").attr("disabled",true);
 		$("#prePage").attr("disabled",true);
+		$("#nextPage").addClass("btn_disabled");
+		$("#prePage").addClass("btn_disabled");
 	}else if(currentPage ==1){//当前页为起始页
 		$("#prePage").attr("disabled",true);
 		$("#nextPage").attr("disabled",false);
+		$("#prePage").addClass("btn_disabled");
+		$("#nextPage").removeClass("btn_disabled");
 	}else if(currentPage == totalPage){//当前页为尾页
 		$("#prePage").attr("disabled",false);
 		$("#nextPage").attr("disabled",true);
+		$("#prePage").removeClass("btn_disabled");
+		$("#nextPage").addClass("btn_disabled");
 	}else{//当前页既不是首页也不是尾页
 		$("#nextPage").attr("disabled",false);
 		$("#prePage").attr("disabled",false);
+		$("#prePage").removeClass("btn_disabled");
+		$("#nextPage").removeClass("btn_disabled");
 	}
 }
 
@@ -67,6 +78,7 @@ function nextPage(data,pageSize){//下一页
 }
 
 function firstPage(data,pageSize){//首页
+	$("#totalRecords").text(data.length);
 	gotoPage(pageSize,parseInt(1),data);//跳转至首页
 	$("#currentPage").text(1);//改变当前页页数
 	pageJudge();

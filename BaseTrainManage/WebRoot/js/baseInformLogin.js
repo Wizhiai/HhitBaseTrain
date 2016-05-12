@@ -17,11 +17,11 @@ $(function(){
 						if(result.data.identity == "2"){
 							addCookie("username",result.data.username,2);
 							addCookie("identity",result.data.identity,2);
-							window.location.href="../jsp/collegeTeacherIndex.jsp";
+							window.location.href="collegeteacher/collegeTeacherIndex.jsp";
 						}else if(result.data.identity == "4"){
 							addCookie("username",result.data.username,2);
 							addCookie("identity",result.data.identity,2);
-							window.location.href="../jsp/studentIndex.jsp";
+							window.location.href="student/studentIndex.jsp";
 						}else{
 							alert("您没有权限进入系统！");
 						}
@@ -35,4 +35,7 @@ $(function(){
 			});
 		}
   });
+	$("#back").click(function(){
+		window.location.href="../index.jsp";
+	});
 });

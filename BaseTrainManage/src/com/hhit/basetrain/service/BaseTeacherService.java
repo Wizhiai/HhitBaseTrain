@@ -3,10 +3,14 @@
  */
 package com.hhit.basetrain.service;
 
+<<<<<<< HEAD
+import com.hhit.basetrain.entity.Result;
+=======
 import java.util.Map;
 
 import com.hhit.basetrain.entity.Result;
 
+>>>>>>> ecb39c985cd60b39d06e28deb8b5783e9b248f5f
 
 /**
  * @author Mayu

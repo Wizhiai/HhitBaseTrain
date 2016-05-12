@@ -19,7 +19,7 @@ public class TrainCourse {
 	/** 花费 */
 	private Integer cost;
 	/** 花费时间 */
-	private Integer term;
+	private Double term;
 
 	public String getCno() {
 		return cno;
@@ -53,11 +53,11 @@ public class TrainCourse {
 		this.cost = cost;
 	}
 
-	public Integer getTerm() {
+	public Double getTerm() {
 		return term;
 	}
 
-	public void setTerm(Integer term) {
+	public void setTerm(Double term) {
 		this.term = term;
 	}
 
