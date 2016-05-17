@@ -10,9 +10,6 @@
         	dataType:"json",
         	success:function(result){
         		if(result.status==1){
-        			alert(1);
-        			alert(week);
-        			alert(month);
         			fileName=result.data;
         			 alert(fileName);
         			 window.location.href="../download.do?fileName="+fileName;

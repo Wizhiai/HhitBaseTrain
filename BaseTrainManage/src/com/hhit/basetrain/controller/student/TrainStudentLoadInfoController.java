@@ -26,6 +26,8 @@ public class TrainStudentLoadInfoController {
 	@ResponseBody
 	public Result execute(String sno){
 		Result result=studentservice.showInfo(sno);
+		System.out.println(result.getData());
+		System.out.println(result.getStatus());
 		return result;
 	}
 	

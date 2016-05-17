@@ -3,6 +3,7 @@
  */
 package com.hhit.basetrain.serviceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -61,6 +62,38 @@ public class TrainCourseServiceImpl implements TrainCourseService{
 			result.setMsg("课程查找成功！");
 			result.setStatus(1);
 			result.setData(list);
+		}
+		return result;
+	}
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.TrainCourseService#loadTrainCourseInfo(java.lang.String)
+	 */
+	public Result loadTrainCourseInfo(String tNo) {
+		Result result=new Result();
+		TrainCourse course=new TrainCourse();
+		course=trainCourseDao.findCourseInfoByTno(tNo);
+		if(course==null){
+			result.setStatus(0);
+			result.setMsg("查找失败");
+		}else{
+			result.setStatus(1);
+			result.setMsg("查找成功");
+			result.setData(course);	
+		}
+		return result;
+		
+	}
+	public Result showCno(String base_no) {
+		Result result=new Result();
+		List<String> cnos=new ArrayList<String>();
+		cnos=trainCourseDao.findCourse(base_no);
+		if(cnos.size()==0){
+			result.setMsg("查找失败");
+			result.setStatus(0);
+		}else{
+			result.setMsg("查找成功");
+			result.setStatus(1);
+			result.setData(cnos);
 		}
 		return result;
 	}

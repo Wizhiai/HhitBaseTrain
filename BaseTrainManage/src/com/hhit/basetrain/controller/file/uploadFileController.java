@@ -109,8 +109,7 @@ public class uploadFileController {
 		//ModelAndView mav=new ModelAndView();
 		Map<String,String> map=new HashMap<String,String>();
 	        String path = Thread.currentThread()
-            .getContextClassLoader().getResource("").getPath()
-            + "download"; 
+            .getContextClassLoader().getResource("").getPath(); 
 	        File file = new File(path);  
 	        if (!file.exists()) {  
 	            file.mkdirs();  
@@ -126,12 +125,12 @@ public class uploadFileController {
 	            List<FileItem> fileItems = sfu.parseRequest(request); // 解码请求  
 	            for (FileItem fi : fileItems) {  
 	            	if(fi.isFormField()){
-	            		map.put(fi.getFieldName(),fi.getString() );
+	            		map.put(fi.getFieldName(),fi.getString("utf-8") );
 	            		/*System.out.println(fi.getFieldName());
 	            		System.out.println(fi.getString());*/
 	            	}
 	            	else{
-	            		fileName = UUID.randomUUID() + fi.getName().substring(fi.getName().lastIndexOf("."), fi.getName().length());  
+	            		fileName = "download"+File.separator+UUID.randomUUID() + fi.getName().substring(fi.getName().lastIndexOf("."), fi.getName().length());  
 	            		fi.write(new File(path, fileName));  
 	            	}
 	            	

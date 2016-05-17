@@ -10,6 +10,76 @@
  	}
 
  </style>
+ <script type="text/javascript" src="../js/cookie_util.js"></script>
+ <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+ <script type="text/javascript">
+ var stuno=getCookie("username");
+ //alert(stuno);
+ var cname;
+ var cno;
+ var term;
+ var studyplan;
+ $(function(){
+ 	//alert(1);
+    $.ajax({
+      url:"http://localhost:8080/BaseTrainManage/trainstudnet/load.do",
+      type:"post",
+ 	  data:{"sno":stuno},
+ 	  dataType:"json",
+ 	  success:function(result){
+ 	    alert(result.status);
+ 	  	if(result.status==1){
+ 	  		var data=result.data;
+ 	  		cno=data.cno;
+ 	  		$.ajax({
+ 		url:"http://localhost:8080/BaseTrainManage/teaching/showstudyplanbycno.do",
+ 		type:"post",
+ 		data:{"cno":cno},
+ 		dataType:"json",
+ 		success:function(result){
+ 			if(result.status==1){
+ 				var data=result.data;
+ 				cname=data.cname;
+ 				cno=data.cno;
+ 				term=data.term;
+ 				studyplan=data.studyplan;
+ 				$("table tbody").html("");
+ 				var tr='<tr align="center" bgcolor="#FFFFFF" height="22"> ';
+ 				tr+='<td>'+data.cno+'</td>';
+ 				tr+='<td>'+data.cname+'</td>';
+ 				tr+='<td>'+data.term+'</td>';
+ 				tr+='<td><img  src="../image/look.png"/>';
+ 				tr+='<a onclick="download();">查看学习计划</a>&nbsp;</td></tr>';
+ 				$tr=$(tr);
+ 				$("table tbody").append($tr);
+ 			}else{
+ 				alert(result.msg);
+ 			}
+ 			$("table tfoot td b").html(1);
+ 		},
+ 		error:function(){
+ 			alert("程序出错");
+ 		}
+ 	
+ 	});
+ 	  		
+ 	  	}
+ 	  }
+    
+    })
+ 	
+ 
+ });
+ function download(){
+ 	            var fileName=studyplan;
+ 				if(fileName==""){
+ 					alert("没有文件，请重新上传！");
+ 				}else{
+ 					window.location.href="../download.do?fileName="+fileName;
+ 				}
+
+ }
+ </script>
 </head>
 <body>
 	<div id="head1"><img  src="../image/info.png"/></div>
@@ -45,6 +115,7 @@ document.write(strDate);
 <div id="information">
 	<form name="form2">
      <table width="950px" border="0" cellpadding="0" cellspacing="0" bgcolor="b5d6e6" align="center" style="margin-top:8px">
+      <thead>
       <tr>
          <td height="24" colspan="4" align="left"><b>课程信息</b></td>
      </tr>
@@ -55,20 +126,26 @@ document.write(strDate);
 	      <td width="20%"><b>学期</b></td>
 		  <td width="30%"><b>基本操作</b></td>
        </tr>
-       <tr align='center' bgcolor="#FFFFFF" height="22" onMouseMove="javascript:this.bgColor='#E7FDFE';" onMouseOut="javascript:this.bgColor='#FFFFFF';">    
+       </thead>
+       <tbody>
+       <tr align='center' bgcolor="#FFFFFF" height="22">    
 	      <td></td>
 	      <td align="center"></td>
 	      <td></td>
 	      <td>
+	         <img  src="../image/upload.png"/>
+	           <a href="JDT_uploadStudyplan.html">上传学习计划</a>&nbsp;
 	           <img  src="../image/look.png"/>
 	           <a href="JDT_downloadStudyplan.html">查看学习计划</a>&nbsp;
 	      </td>
         </tr>
-		
+		</tbody>
+		<tfoot>
     <tr>
          <td height="24" colspan="4" align="right">
                                           总共&nbsp;<b>0</b>条记录</td>
      </tr>
+     </tfoot>
   </table>
  </form>
  </div>

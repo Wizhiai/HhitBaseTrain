@@ -25,6 +25,7 @@
   	  <a  id="flush" href="../html/studentLogin.jsp">登录</a>
       <a id="end" onclick="window.close();">退出</a>
   	</div>
+  	</div>
   	<div class="navigation">
   		<ul class="menu">
   		  <li><a onclick="showtow(0,0,this)";>查询信息</a></li>
@@ -122,16 +123,16 @@
 	                                    </li>
 											<LI class=#><IMG class=icon
 												src="../image//icon_1.gif"><a
-													onclick=upDownMenu(this) href="#">最新作业</a>
+													onclick=upDownMenu(this) href="Student_showWork.html" target="businessfrm">最新作业</a>
 												</li>
 
 											<li class=#><IMG class=icon
 												src="../image/icon_1.gif"><a
-													onclick=upDownMenu(this) href="#">未交作业</a>
+													onclick=upDownMenu(this) href="Student_unfinishedWork.html" target="businessfrm">未交作业</a>
 											</li>
 											<li class=#><IMG class=icon
 												src="../image/icon_1.gif"><a
-													onclick=upDownMenu(this) href="#">已交作业</a>
+													onclick=upDownMenu(this) href="Student_showuploadedWork.html" target="businessfrm">已交作业</a>
 													</li>
 											<li class=#><IMG class=icon
 												src="../image/icon_1.gif"><a
@@ -161,13 +162,6 @@
   				  <iframe id="businessfrm" src="welcome.html"
 						frameborder="0" width="100%" name="businessfrm" scrolling="no";height="510px";></iframe>
   				</td>
-  			</tr>
-  			<tr>
-  			<td colspan="2">
-  			<div class="foot">
-  			    江苏省连云港市淮海工学院版权所有 联系电话：0518-87695328
-  			</div>
-  			</td>
   			</tr>
   		</tbody>
   	</table>

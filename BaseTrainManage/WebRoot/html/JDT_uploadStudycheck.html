@@ -21,12 +21,39 @@
  	#studyplan{
        width:215px; 	
  	}
-
+div{
+margin-top:10px;
+text-align:center;
+}
+#d4{
+ 	margin-left:55px;
+ 	}
  </style>
+ <script type="text/javascript" src="../js/cookie_util.js"></script>
+ <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+ <script type="text/javascript" src="../js/getParameter.js"></script>
+ <script type="text/javascript">
+ var cno;
+ var cname;
+ var term;
+ var tno;
+ $(function(){
+    var url=window.location;
+    cno=getUrlParam(url,"cno");
+    cname=getUrlParam(url,"cname");
+    term=getUrlParam(url,"term");
+    tno=getUrlParam(url,"tno");
+ 	$("#cno").val(cno);
+ 	$("#cname").val((cname));
+ 	$("#term").val(term);
+ 	$("#tno").val(tno);
+ });
+
+ </script>
 </head>
 <body>
 	<div id="head1"><img  src="../image/info.png"/></div>
-    <div id="head2">当前位置：首页&nbsp;>>&nbsp;课程管理&nbsp;>>&nbsp;课程考勤管理&nbsp;>><b>上传课程考勤</b></div>
+    <div id="head2">当前位置：首页&nbsp;>>&nbsp;课程管理&nbsp;>>&nbsp;课程考勤管理&nbsp;>><b>课程考勤</b></div>
     <div id="person"><img  src="../image/person.png"/></div>
    <div id="welcome">您好：<b id="name"></b>,欢迎登录外实训学生管理系统--基地教师管理子系统</div>
    <div id="time"><img  src="../image/time.png"/>
@@ -56,26 +83,16 @@ document.write(strDate);
 </script> 
  </div>
  <div id="information">
- 	<table cellpadding="10" cellspacing="0" align="center">
- 		<tr>
- 			<td><div id="d1" align="left">课&nbsp;&nbsp;&nbsp;程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号&nbsp;<input type="text" disabled="disabled"/></div></td>
- 			</tr>
- 			<tr>
-           <td><div id="d2" align="left">课&nbsp;&nbsp;&nbsp;程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;<input type="text" disabled="disabled"/></div></td>
-           </tr>
-           <tr>
-           <td><div align="left">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;期&nbsp;<input type="text" disabled="disabled"/></div></td>
-           </tr>
-           <tr>
-          <td><div align="left">  
-          <form action="" enctype="multipart/form-data" method="post">
-                       课&nbsp;&nbsp;程&nbsp;&nbsp;考&nbsp;&nbsp;勤<input type="file" name="studyplan" id="studyplan"/>
-           <input type="submit" value="上传" id="upload"/>
-           </form></div></td>
-          </tr>
- 		
- 	</table>
- 	
+   <form action="../uploadfilecheck.do" enctype="multipart/form-data" method="post">
+     <div id="d1">课&nbsp;&nbsp;程&nbsp;&nbsp;号:&nbsp;<input type="text"  id="cno" name="cno"/><input type="hidden" id="tno" name="tno"/></div>
+     <div id="d2">课&nbsp;&nbsp;程&nbsp;&nbsp;名:&nbsp; <input type="text" id="cname" name="cname"/></div>
+     <div id="d3">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;期:&nbsp;&nbsp;&nbsp;<input type="text"  id="term" name="term"/></div>
+     <div id="d4">  
+ 课&nbsp;程&nbsp;考&nbsp;勤:&nbsp;<input type="file" name="file" id="exampaper"/>
+     <input type="submit" value="上传" id="upload"/>
+ </div> 
+    <div id="d5"></div>
+ </form>
  </div>
  </body>
  </html>

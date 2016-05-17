@@ -21,8 +21,33 @@
  	#studyplan{
        width:215px; 	
  	}
-
+div{
+margin-top:10px;
+text-align:center;
+}
+#d4{
+ 	margin-left:55px;
+ 	}
  </style>
+ <script type="text/javascript" src="../js/cookie_util.js"></script>
+ <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+ <script type="text/javascript" src="../js/getParameter.js"></script>
+ <script type="text/javascript">
+ var cno;
+ var cname;
+ var term;
+ $(function(){
+    var url=window.location;
+    cno=getUrlParam(url,"cno");
+    cname=getUrlParam(url,"cname");
+    term=getUrlParam(url,"term");
+    alert(cno);
+ 	$("#cno").val(cno);
+ 	$("#cname").val((cname));
+ 	$("#term").val(term);
+ });
+
+ </script>
 </head>
 <body>
 	<div id="head1"><img  src="../image/info.png"/></div>
@@ -56,26 +81,16 @@ document.write(strDate);
 </script> 
  </div>
  <div id="information">
- 	<table cellpadding="10" cellspacing="0" align="center">
- 		<tr>
- 			<td><div id="d1" align="left">课&nbsp;&nbsp;&nbsp;程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号&nbsp;<input type="text" disabled="disabled"/></div></td>
- 			</tr>
- 			<tr>
-           <td><div id="d2" align="left">课&nbsp;&nbsp;&nbsp;程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;<input type="text" disabled="disabled"/></div></td>
-           </tr>
-           <tr>
-           <td><div align="left">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;期&nbsp;<input type="text" disabled="disabled"/></div></td>
-           </tr>
-           <tr>
-          <td><div align="left">  
-          <form action="" enctype="multipart/form-data" method="post">
-                        学&nbsp;&nbsp;习&nbsp;&nbsp;计&nbsp;&nbsp;划<input type="file" name="studyplan" id="studyplan"/>
-           <input type="submit" value="上传" id="upload"/>
-           </form></div></td>
-          </tr>
- 		
- 	</table>
- 	
+   <form action="../uploadfileplan.do" enctype="multipart/form-data" method="post">
+     <div id="d1">课&nbsp;&nbsp;程&nbsp;&nbsp;号:&nbsp;<input type="text"  id="cno" name="cno"/></div>
+     <div id="d2">课&nbsp;&nbsp;程&nbsp;&nbsp;名:&nbsp; <input type="text" id="cname" name="cname"/></div>
+     <div id="d1">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;期:&nbsp;&nbsp;&nbsp;<input type="text"  id="term" name="term"/></div>
+     <div id="d4">  
+ 学&nbsp;习&nbsp;计&nbsp;划:&nbsp;<input type="file" name="file" id="exampaper"/>
+     <input type="submit" value="上传" id="upload"/>
+ </div> 
+    <div id="d5"></div>
+ </form>
  </div>
  </body>
  </html>
