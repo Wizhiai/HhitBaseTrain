@@ -18,8 +18,8 @@
  			    	    var courses=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<courses.length;i++){
- 			    	    		id=courses[i].id;
- 			    	    		studydata=courses[i].studydata;
+ 			    	    		var id=courses[i].id;
+ 			    	    		var studydata=courses[i].studydata;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+courses[i].cno+'</td>';
  			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
@@ -27,8 +27,10 @@
  			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a onclick="download();">查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("studydata",studydata);
+ 			    	 	    $tr.data("id",id);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(courses.length);
@@ -38,17 +40,19 @@
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			            	for(var i=0;i<courses.length;i++){
- 			            		id=courses[i].id;
- 			            		studydata=courses[i].studydata;
- 	 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
- 	 			    	 	    tr+='<img  src="../image/look.png"/>';
- 	 			    	 	   tr+='<td><a onclick="download();">查看课辅资料</a>&nbsp;</td></tr>';
- 			    	 			$tr=$(tr);
+ 			            		var id=courses[i].id;
+ 			    	    		var studydata=courses[i].studydata;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
+			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
+ 			    	 	  tr+='<img  src="../image/look.png"/>';
+ 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("studydata",studydata);
+ 			    	 	    $tr.data("id",id);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -75,17 +79,19 @@
  			    	    var courses=result.data;
  			    	    if(currentpage==1 && currentpage<pagecounts){
  			    	    	for(var i=0;i<courses.length;i++){
- 			    	    		id=courses[i].id;
- 			    	    		studydata=courses[i].studydata;
- 	 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
-	 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
- 	 			    	 	    tr+='<img  src="../image/look.png"/>';
- 	 			    	 	   tr+='<td><a onclick="download();">查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	    		var id=courses[i].id;
+ 			    	    		var studydata=courses[i].studydata;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
+			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
+ 			    	 	  tr+='<img  src="../image/look.png"/>';
+ 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("studydata",studydata);
+ 			    	 	    $tr.data("id",id);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(courses.length);
@@ -95,17 +101,19 @@
  			    	          $a.insertAfter("#number");
  			            }else if(1<currentpage && currentpage<pagecounts){
  			            	for(var i=0;i<courses.length;i++){
- 			            		id=courses[i].id;
- 			            		studydata=courses[i].studydata;
- 	 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
-	 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
- 	 			    	 	    tr+='<img  src="../image/look.png"/>';
- 	 			    	 	    tr+='<td><a onclick="download();">查看课辅资料</a>&nbsp;</td></tr>';
- 			    	 			$tr=$(tr);
+ 			            		var id=courses[i].id;
+ 			    	    		var studydata=courses[i].studydata;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
+			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
+ 			    	 	  tr+='<img  src="../image/look.png"/>';
+ 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("studydata",studydata);
+ 			    	 	    $tr.data("id",id);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -115,17 +123,19 @@
  			    	   $a.insertAfter("#number");
  			        }else if( currentpage>1 && currentpage==pagecounts){
  			               for(var i=0;i<courses.length;i++){
- 			            	      id=courses[i].id;
- 			            		 studydata=courses[i].studydata;
- 		 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 		 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
- 		 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
- 		 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
- 		 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
- 	 	 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
- 		 			    	 	    tr+='<img  src="../image/look.png"/>';
- 		 			    	 	   tr+='<td><a onclick="download();">查看课辅资料</a>&nbsp;</td></tr>';
- 			    	 			$tr=$(tr);
+ 			            		var id=courses[i].id;
+ 			    	    		var studydata=courses[i].studydata;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
+			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
+ 			    	 	  tr+='<img  src="../image/look.png"/>';
+ 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("studydata",studydata);
+ 			    	 	    $tr.data("id",id);
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
  			    	 }
@@ -136,17 +146,19 @@
  			    	   $a.insertAfter("#number");
  			        }else if(currentpage==1 && currentpage==pagecounts)	{
  			        	for(var i=0;i<courses.length;i++){
- 			        		id=courses[i].id;
- 			        		studydata=courses[i].studydata;
- 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
- 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
- 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
- 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
-			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
- 			    	 	    tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a onclick="download();">查看课辅资料</a>&nbsp;</td></tr>';
- 			    	 			$tr=$(tr);
+ 			        		var id=courses[i].id;
+			    	    		var studydata=courses[i].studydata;
+			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+			    	 	    tr+='<td>'+courses[i].cno+'</td>';
+			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
+			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
+			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
+		    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
+			    	 	  tr+='<img  src="../image/look.png"/>';
+			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+			    	 	    $tr=$(tr);
+			    	 	    $tr.data("studydata",studydata);
+			    	 	    $tr.data("id",id);
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
  			    	 }
@@ -174,17 +186,19 @@
  			    	    var courses=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<courses.length;i++){
- 			    	    		id=courses[i].id;
- 			    	    		studydata=courses[i].studydata;
- 	 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
-	 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
- 	 			    	 	 tr+='<img  src="../image/look.png"/>';
- 	 			    	 	   tr+='<td><a onclick="download();">查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	    		var id=courses[i].id;
+ 			    	    		var studydata=courses[i].studydata;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
+			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
+ 			    	 	  tr+='<img  src="../image/look.png"/>';
+ 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("studydata",studydata);
+ 			    	 	    $tr.data("id",id);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(courses.length);
@@ -194,17 +208,19 @@
  			    	        $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			            	for(var i=0;i<courses.length;i++){
- 			            		id=courses[i].id;
- 			            		studydata=courses[i].studydata;
- 	 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
-	 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
- 	 			    	 	 tr+='<img  src="../image/look.png"/>';
- 	 			    	 	   tr+='<td><a onclick="download();">查看课辅资料</a>&nbsp;</td></tr>';
- 			    	 			$tr=$(tr);
+ 			            		var id=courses[i].id;
+ 			    	    		var studydata=courses[i].studydata;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
+			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
+ 			    	 	  tr+='<img  src="../image/look.png"/>';
+ 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("studydata",studydata);
+ 			    	 	    $tr.data("id",id);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -232,17 +248,19 @@
  			    	    var courses=result.data;
  			    	    if(currentpage==1){
  			    	    	for(var i=0;i<courses.length;i++){
- 			    	    		id=courses[i].id;
- 			    	    		studydata=courses[i].studydata;
- 	 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
-	 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
- 	 			    	 	 tr+='<img  src="../image/look.png"/>';
- 	 			    	 	   tr+='<td><a onclick="download();">查看课辅资料</a>&nbsp;</tr>';
+ 			    	    		var id=courses[i].id;
+ 			    	    		var studydata=courses[i].studydata;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
+			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
+ 			    	 	  tr+='<img  src="../image/look.png"/>';
+ 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("studydata",studydata);
+ 			    	 	    $tr.data("id",id);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(courses.length);
@@ -253,17 +271,19 @@
  			    			
  			            }else if(1<currentpage<pagecounts){
  			            	for(var i=0;i<courses.length;i++){
- 			            		id=courses[i].id;
- 			            		studydata=courses[i].studydata;
- 	 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
-	 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
- 	 			    	 	    tr+='<img  src="../image/look.png"/>';
- 	 			    	 	   tr+='<td><a onclick="download();">查看课辅资料</a>&nbsp;</td></tr>';
- 			    	 			$tr=$(tr);
+ 			            		var id=courses[i].id;
+ 			    	    		var studydata=courses[i].studydata;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
+			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
+ 			    	 	  tr+='<img  src="../image/look.png"/>';
+ 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("studydata",studydata);
+ 			    	 	    $tr.data("id",id);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -297,17 +317,19 @@
  			    	    var courses=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<courses.length;i++){
- 			    	    		id=courses[i].id;
- 			    	    		studydata=courses[i].studydata;
- 	 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
-	 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
- 	 			    	 	 tr+='<img  src="../image/look.png"/>';
- 	 			    	 	   tr+='<td><a onclick="download();">查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	    		var id=courses[i].id;
+ 			    	    		var studydata=courses[i].studydata;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
+			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
+ 			    	 	  tr+='<img  src="../image/look.png"/>';
+ 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("studydata",studydata);
+ 			    	 	    $tr.data("id",id);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(courses.length);
@@ -317,17 +339,19 @@
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			            	for(var i=0;i<courses.length;i++){
- 			            		id=courses[i].id;
- 			            		studydata=courses[i].studydata;
- 	 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
-	 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
- 	 			    	 	 tr+='<img  src="../image/look.png"/>';
- 	 			    	 	   tr+='<td><a onclick="download();">查看课辅资料</a>&nbsp;</td></tr>';
- 			    	 			$tr=$(tr);
+ 			            		var id=courses[i].id;
+ 			    	    		var studydata=courses[i].studydata;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
+			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
+ 			    	 	  tr+='<img  src="../image/look.png"/>';
+ 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("studydata",studydata);
+ 			    	 	    $tr.data("id",id);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -362,17 +386,19 @@
  			    		$("#page #head").addClass("dianji");
  			    	    if(pagecounts==1){
  			    	    	for(var i=0;i<courses.length;i++){
- 			    	    		id=courses[i].id;
- 			    	    		studydata=courses[i].studydata;
- 	 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
-	 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
- 	 			    	 	 tr+='<img  src="../image/look.png"/>';
- 	 			    	 	   tr+='<td><a onclick="download();">查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	    		var id=courses[i].id;
+ 			    	    		var studydata=courses[i].studydata;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
+			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
+ 			    	 	  tr+='<img  src="../image/look.png"/>';
+ 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("studydata",studydata);
+ 			    	 	    $tr.data("id",id);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(courses.length);
@@ -381,17 +407,19 @@
  			    	         $a.insertAfter("#number");
  			            }else{
  			            	for(var i=0;i<courses.length;i++){
- 			            		id=courses[i].id;
- 			            		studydata=courses[i].studydata;
- 	 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
- 	 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
-	 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
- 	 			    	 	 tr+='<img  src="../image/look.png"/>';
- 	 			    	 	   tr+='<td><a onclick="download();">查看课辅资料</a>&nbsp;</td></tr>';
- 			    	 			$tr=$(tr);
+ 			            		var id=courses[i].id;
+ 			    	    		var studydata=courses[i].studydata;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+courses[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].studydataname+'</td>';
+ 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
+			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
+ 			    	 	  tr+='<img  src="../image/look.png"/>';
+ 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("studydata",studydata);
+ 			    	 	    $tr.data("id",id);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(courses.length);

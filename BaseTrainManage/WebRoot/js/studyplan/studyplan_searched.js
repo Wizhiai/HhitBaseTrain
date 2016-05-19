@@ -18,14 +18,15 @@
  			    	    var studyplans=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<studyplans.length;i++){
- 			    	    		studyplan=studyplans[i].studyplan;
+ 			    	    		var studyplan=studyplans[i].studyplan;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+studyplans[i].cno+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].cname+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].term+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a onclick="download();">查看学习计划</a>&nbsp;</td></tr>';
+ 			    	 	   tr+='<td><a>查看学习计划</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("studyplan",studyplan);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(studyplans.length);
@@ -35,14 +36,15 @@
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			            	for(var i=0;i<studyplans.length;i++){
- 			    	    		studyplan=studyplans[i].studyplan;
+ 			    	    		var studyplan=studyplans[i].studyplan;
  			    	 	       var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	        tr+='<td>'+studyplans[i].cno+'</td>';
  			    	 	       tr+='  <td>'+studyplans[i].cname+'</td>';
  			    	 	       tr+='  <td>'+studyplans[i].term+'</td>';
  			    	 	      tr+='<img  src="../image/look.png"/>';
- 			    	 	       tr+='<td><a onclick="download();">查看学习计划</a>&nbsp;</td></tr>';
+ 			    	 	       tr+='<td><a>查看学习计划</a>&nbsp;</td></tr>';
  			    	 			$tr=$(tr);
+ 			    	 		  $tr.data("studyplan",studyplan);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -69,14 +71,15 @@
  			    	    var studyplans=result.data;
  			    	    if(currentpage==1 && currentpage<pagecounts){
  			    	    	for(var i=0;i<studyplans.length;i++){
- 			    	    		studyplan=studyplans[i].studyplan;
+ 			    	    		var studyplan=studyplans[i].studyplan;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+studyplans[i].cno+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].cname+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].term+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a onclick="download();">查看学习计划</a>&nbsp;</td></tr>';
+ 			    	 	   tr+='<td><a>查看学习计划</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	  $tr.data("studyplan",studyplan);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(studyplans.length);
@@ -86,14 +89,15 @@
  			    	          $a.insertAfter("#number");
  			            }else if(1<currentpage && currentpage<pagecounts){
  			    	    	for(var i=0;i<studyplans.length;i++){
- 			    	    		studyplan=studyplans[i].studyplan;
+ 			    	    		var studyplan=studyplans[i].studyplan;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+studyplans[i].cno+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].cname+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].term+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a onclick="download();">查看学习计划</a>&nbsp;</td></tr>';
+ 			    	 	   tr+='<td><a>查看学习计划</a>&nbsp;</td></tr>';
  			    	 			$tr=$(tr);
+ 			    	 		  $tr.data("studyplan",studyplan);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -103,14 +107,15 @@
  			    	   $a.insertAfter("#number");
  			        }else if( currentpage>1 && currentpage==pagecounts){
 			    	    	for(var i=0;i<studyplans.length;i++){
- 			    	    		studyplan=studyplans[i].studyplan;
+ 			    	    		var studyplan=studyplans[i].studyplan;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+studyplans[i].cno+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].cname+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].term+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a onclick="download();">查看学习计划</a>&nbsp;</td></tr>';
+ 			    	 	   tr+='<td><a>查看学习计划</a>&nbsp;</td></tr>';
  			    	 			$tr=$(tr);
+ 			    	 		  $tr.data("studyplan",studyplan);
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
  			    	 }
@@ -121,14 +126,15 @@
  			    	   $a.insertAfter("#number");
  			        }else if(currentpage==1 && currentpage==pagecounts)	{
 			    	    	for(var i=0;i<studyplans.length;i++){
- 			    	    		studyplan=studyplans[i].studyplan;
+ 			    	    		var studyplan=studyplans[i].studyplan;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+studyplans[i].cno+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].cname+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].term+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a onclick="download();">查看学习计划</a>&nbsp;</td></tr>';
+ 			    	 	   tr+='<td><a>查看学习计划</a>&nbsp;</td></tr>';
  			    	 			$tr=$(tr);
+ 			    	 		  $tr.data("studyplan",studyplan);
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
  			    	 }
@@ -156,14 +162,15 @@
  			    	    var studyplans=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<studyplans.length;i++){
- 			    	    		studyplan=studyplans[i].studyplan;
+ 			    	    		var studyplan=studyplans[i].studyplan;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+studyplans[i].cno+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].cname+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].term+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a onclick="download();">查看学习计划</a>&nbsp;</td></tr>';
+ 			    	 	   tr+='<td><a>查看学习计划</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	  $tr.data("studyplan",studyplan);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(studyplans.length);
@@ -173,14 +180,15 @@
  			    	        $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			    	    	for(var i=0;i<studyplans.length;i++){
- 			    	    		studyplan=studyplans[i].studyplan;
+ 			    	    		var studyplan=studyplans[i].studyplan;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+studyplans[i].cno+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].cname+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].term+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a onclick="download();">查看学习计划</a>&nbsp;</td></tr>';
+ 			    	 	   tr+='<td><a>查看学习计划</a>&nbsp;</td></tr>';
  			    	 			$tr=$(tr);
+ 			    	 		  $tr.data("studyplan",studyplan);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -208,14 +216,15 @@
  			    	    var studyplans=result.data;
  			    	    if(currentpage==1){
  			    	    	for(var i=0;i<studyplans.length;i++){
- 			    	    		studyplan=studyplans[i].studyplan;
+ 			    	    		var studyplan=studyplans[i].studyplan;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+studyplans[i].cno+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].cname+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].term+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a onclick="download();">查看学习计划</a>&nbsp;</td></tr>';
+ 			    	 	   tr+='<td><a>查看学习计划</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	  $tr.data("studyplan",studyplan);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(studyplans.length);
@@ -226,14 +235,15 @@
  			    			
  			            }else if(1<currentpage<pagecounts){
  			    	    	for(var i=0;i<studyplans.length;i++){
- 			    	    		studyplan=studyplans[i].studyplan;
+ 			    	    		var studyplan=studyplans[i].studyplan;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+studyplans[i].cno+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].cname+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].term+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a onclick="download();">查看学习计划</a>&nbsp;</td></tr>';
+ 			    	 	   tr+='<td><>查看学习计划</a>&nbsp;</td></tr>';
  			    	 			$tr=$(tr);
+ 			    	 			 $tr.data("studyplan",studyplan);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -267,14 +277,15 @@
  			    	    var studyplans=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<studyplans.length;i++){
- 			    	    		studyplan=studyplans[i].studyplan;
+ 			    	    		var studyplan=studyplans[i].studyplan;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+studyplans[i].cno+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].cname+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].term+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a onclick="download();">查看学习计划</a>&nbsp;</td></tr>';
+ 			    	 	   tr+='<td><a>查看学习计划</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	  $tr.data("studyplan",studyplan);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(studyplans.length);
@@ -284,14 +295,15 @@
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			    	    	for(var i=0;i<studyplans.length;i++){
- 			    	    		studyplan=studyplans[i].studyplan;
+ 			    	    		var studyplan=studyplans[i].studyplan;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+studyplans[i].cno+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].cname+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].term+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a onclick="download();">查看学习计划</a>&nbsp;</td></tr>';
+ 			    	 	   tr+='<td><a>查看学习计划</a>&nbsp;</td></tr>';
  			    	 			$tr=$(tr);
+ 			    	 			 $tr.data("studyplan",studyplan);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -326,14 +338,15 @@
  			    		$("#page #head").addClass("dianji");
  			    	    if(pagecounts==1){
  			    	    	for(var i=0;i<studyplans.length;i++){
- 			    	    		studyplan=studyplans[i].studyplan;
+ 			    	    		var studyplan=studyplans[i].studyplan;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+studyplans[i].cno+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].cname+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].term+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a onclick="download();">查看学习计划</a>&nbsp;</td></tr>';
+ 			    	 	   tr+='<td><a>查看学习计划</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	  $tr.data("studyplan",studyplan);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(studyplans.length);
@@ -342,14 +355,15 @@
  			    	         $a.insertAfter("#number");
  			            }else{
  			    	    	for(var i=0;i<studyplans.length;i++){
- 			    	    		studyplan=studyplans[i].studyplan;
+ 			    	    		var studyplan=studyplans[i].studyplan;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+studyplans[i].cno+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].cname+'</td>';
  			    	 	    tr+='  <td>'+studyplans[i].term+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a onclick="download();">查看学习计划</a>&nbsp;</td></tr>';
+ 			    	 	   tr+='<td><a>查看学习计划</a>&nbsp;</td></tr>';
  			    	 			$tr=$(tr);
+ 			    	 			 $tr.data("studyplan",studyplan);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(studyplans.length);

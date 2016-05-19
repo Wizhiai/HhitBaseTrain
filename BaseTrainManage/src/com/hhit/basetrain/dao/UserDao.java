@@ -50,4 +50,10 @@ public interface UserDao {
 	 * @return
 	 */
 	public int resetPwd(String username);
+	/**
+	 * 插入基地教师
+	 * @param user
+	 * @return
+	 */
+	public int saveBaseTeacher(User user);
 }

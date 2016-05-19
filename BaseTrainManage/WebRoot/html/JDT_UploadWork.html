@@ -34,8 +34,9 @@
  var base_class;
  
  $(function(){
+
+ 
  $("#tno").val(t_no);
- alert(1);
     $.ajax({
  		url:"http://localhost:8080/BaseTrainManage/traincourse/loadTrainCourse.do",
  		type:"post",
@@ -58,7 +59,6 @@
  		            	    var data=result.data;
  		            		base_no=data.base_no;
  		            		base_class=data.base_class;
- 		            		alert(base_no);
  		            		$("#baseno").val(base_no);
  		            		$("#baseclass").val(base_class);
  		            	}
@@ -71,8 +71,21 @@
  			alert("程序出错");
  		}
  });
- });
  
+ });
+   function uploadSucced(){
+   $("#title").val("");
+   $("#content").text("");
+   		$("#endDate").val("");
+   		$("#studywork").val("");
+   		alert("上传成功");
+   		
+   }
+   function uploadFailed(){
+   		alert("上传失败");
+   		/* $("#firstUploadFailed").show();
+   		$("#firstUploadSucceed").hide(); */
+   }
  </script>
  
 </head>
@@ -108,7 +121,7 @@ document.write(strDate);
 </script> 
  </div>
  <div id="information">
- <form action="../uploadfilework.do" enctype="multipart/form-data" method="post">
+ <form action="../uploadfilework.do" enctype="multipart/form-data" method="post" target="hidden_frame">
  	<table cellpadding="10" cellspacing="0" align="center">
  		<tr>
  			<td><div id="d1" align="left">课&nbsp;&nbsp;&nbsp;程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:&nbsp;<input type="text" id="cno" name="cno"/></div></td>
@@ -122,7 +135,7 @@ document.write(strDate);
            
            </tr>
             <tr>
-            <td><div align="left">作&nbsp;&nbsp;业&nbsp;描&nbsp;&nbsp;述:&nbsp;<textArea cols="16" rows="4" name="content"></textArea></div></td>
+            <td><div align="left">作&nbsp;&nbsp;业&nbsp;描&nbsp;&nbsp;述:&nbsp;<textArea cols="16" rows="4" name="content" id="content"></textArea></div></td>
            </tr>
            <tr>
             <td><div align="left">结&nbsp;&nbsp;止&nbsp;日&nbsp;&nbsp;期:&nbsp;<input type="text" id="endDate" name="endDate"/><input type="hidden" id="baseclass" name="baseclass"/></div></td>
@@ -131,13 +144,14 @@ document.write(strDate);
            <tr>
           <td><div align="left">  
           
-                    文&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;件:&nbsp;<input type="file" name="studycheck" id="studycheck"/>
+                    文&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;件:&nbsp;<input type="file" name="studywork" id="studywork"/>
            <input type="submit" value="上传" id="upload"/>
            </div></td>
           </tr>
  		
  	</table>
  	</form>
+ 	<iframe name='hidden_frame' id="hidden_frame" style='display:none'></iframe>
  </div>
  </body>
  </html>

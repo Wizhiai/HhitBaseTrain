@@ -1,5 +1,5 @@
   function toNextPage(){
-        window.location.href="JDT_uploadexampper1.jsp?stuno="+stuno+"&name="+name+"&cno="+cno+"&week="+week+"&month="+month;
+        window.location.href="JDT_uploadexampper1.html?stuno="+stuno+"&name="+name+"&cno="+cno+"&week="+week+"&month="+month;
     }
     function download(){
        var fileName=null;

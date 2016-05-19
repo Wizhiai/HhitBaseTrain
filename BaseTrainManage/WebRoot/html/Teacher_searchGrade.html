@@ -80,6 +80,30 @@
  	});
  	$("#pagesizes").change(setpageSize);
  	 $("#set").click(setPages);
+ 	  $("table tbody").on("click","tr",function(){
+ 	  	   var fileName=null;
+ 	  	   var stuno1=$(this).data("stuno");
+ 	  	   var week1=$(this).data("week");
+ 	  	   var month1=$(this).data("month");
+ 	  	   alert(month1);
+        $.ajax({
+        	url:"http://localhost:8080/BaseTrainManage/gainExam.do",
+        	type:"post",
+        	data:{"stuno":stuno1,"month":month1,"week":week1},
+        	dataType:"json",
+        	success:function(result){
+        		if(result.status==1){
+        			fileName=result.data;
+        			 alert(fileName);
+        			 window.location.href="../download.do?fileName="+fileName;
+        		}else{
+        			alert("还没有上传试卷，请上传试卷");
+        			
+        		}
+        	}
+        
+        });
+	   });
  	 $("table tbody").on("mouseover","tr",function(){
 	       $(this).css("background-color","#E7FDFE");
 	   });

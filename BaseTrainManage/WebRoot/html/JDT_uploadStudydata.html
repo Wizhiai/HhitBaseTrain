@@ -42,7 +42,17 @@
  	$("#term").val(term);
  	$("#tno").val(tno);
  });
- 
+ function uploadSucced(){
+     	$("#title").val("");
+   		$("#studydata").val("");
+   		alert("上传成功");
+   		
+   }
+   function uploadFailed(){
+   		alert("上传失败");
+   		/* $("#firstUploadFailed").show();
+   		$("#firstUploadSucceed").hide(); */
+   }
  </script>
 </head>
 <body>
@@ -77,7 +87,7 @@ document.write(strDate);
 </script> 
  </div>
  <div id="information">
- <form action="../uploadfiledata.do" enctype="multipart/form-data" method="post">
+ <form action="../uploadfiledata.do" enctype="multipart/form-data" method="post" target="hidden_frame">
  	<table cellpadding="10" cellspacing="0" align="center">
  		<tr>
  			<td><div id="d1" align="left">课&nbsp;&nbsp;&nbsp;程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号&nbsp;<input type="text" id="cno" name="cno"/><input type="hidden" id="tno" name="tno"/></div></td>
@@ -95,13 +105,14 @@ document.write(strDate);
            <tr>
           <td><div align="left">  
           
-                        教&nbsp;&nbsp;辅&nbsp;&nbsp;资&nbsp;&nbsp;料<input type="file" name="studycheck" id="studycheck"/>
+                        教&nbsp;&nbsp;辅&nbsp;&nbsp;资&nbsp;&nbsp;料<input type="file" name="studydata" id="studydata"/>
            <input type="submit" value="上传" id="upload"/>
            </div></td>
           </tr>
  		
  	</table>
  	</form>
+ 	<iframe name='hidden_frame' id="hidden_frame" style='display:none'></iframe>
  </div>
  </body>
  </html>

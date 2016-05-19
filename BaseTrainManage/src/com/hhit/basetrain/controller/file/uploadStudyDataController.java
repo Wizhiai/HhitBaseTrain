@@ -27,7 +27,7 @@ public class uploadStudyDataController {
 	
 	@RequestMapping("/uploadfiledata.do")
 	@ResponseBody
-	 public void uploadFile(HttpServletRequest request,HttpServletResponse response) throws Exception {  
+	 public Object uploadFile(HttpServletRequest request,HttpServletResponse response) throws Exception {  
 		//ModelAndView mav=new ModelAndView();
 		Map<String,String> map=new HashMap<String,String>();
 	        String path = Thread.currentThread()
@@ -37,7 +37,8 @@ public class uploadStudyDataController {
 	            file.mkdirs();  
 	        }  
 	        //获取图片url地址  
-	        String fileName = "";// 文件名称  
+	        String fileName = "";// 文件名称 
+	        boolean result=false;
 	        /**上传文件处理内容**/  
 	        DiskFileItemFactory factory = new DiskFileItemFactory();  
 	        ServletFileUpload sfu = new ServletFileUpload(factory);  
@@ -67,17 +68,20 @@ public class uploadStudyDataController {
 	            String studydataname=map.get("title");
 	            String studydata=fileName;
 	            String uploadDate=TimeUtil.getFormatCurrentTime();
-	            boolean result=courseCoachService.addCourseCoach(cno, cname, term, studydataname, studydata, uploadDate, uploadNo);
-	            if(result){
-	            	response.sendRedirect("html/JDT_uploadStudydata1.html");
-	            }else{
-	            	response.sendRedirect("html/JDT_uploadStudydata2.html");
-	            }
+	            result=courseCoachService.addCourseCoach(cno, cname, term, studydataname, studydata, uploadDate, uploadNo);
+	           
 	            
 	        } catch (Exception e) {  
 	            e.printStackTrace(); 
 	            System.out.println("文件上传出错");
 	        }  
+	        if(result){
+	              return "<script>window.parent.uploadSucced();</script>";
+	              
+    }else{
+	             return "<script>window.parent.uploadFailed();</script>";
+	            //response.sendRedirect("html/JDT_uploadStudycheck2.html");
+    }
 	      
 	    }  
 }

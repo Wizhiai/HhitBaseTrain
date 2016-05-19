@@ -49,4 +49,38 @@ public interface WorkService {
 	 * 查询已交作业
 	 */
 	public Result showUploadWorks(Integer base_no,String base_class,String title,Integer page,Integer pagesize);
+	/**
+	 * 查询评论
+	 */
+	public Result showComments();
+	/**
+	 * 更新状态
+	 */
+	public boolean upDateIden(String stuno,String wid);
+	/**
+	 * 插入批改作业
+	 */
+	public boolean saveMarked(String stuno,String wid,String uploadDate,Double result,String comment,String markedfile);
+	
+	/**
+	 * 学生查询已批作业
+	 */
+	public Result searchMarkedWork(String stuno,Integer page,Integer pagesize);
+	/**
+	 * 基地教师查询已交作业
+	 */
+	public Result searchAllFinishedWork(String base_class,Integer base_no,String title,Integer page,Integer pageSize);
+	/**
+	 * 基地教师查询未交作业
+	 */
+	public Result searchAllUnFinishedWork(String base_class,Integer base_no,String title,Integer page,Integer pageSize);
+	/**
+	 * 学校教师查询学生作业情况
+	 */
+	public Result searchStudentWork(String base_no,String stuno,Integer page,Integer pagesize);
+	/**
+	 * 重交作业
+	 */
+	public boolean reUpload(String stuno,String uploadDate,String file,String wid);
+	
 }

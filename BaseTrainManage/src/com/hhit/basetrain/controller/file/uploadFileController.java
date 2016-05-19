@@ -105,7 +105,7 @@ public class uploadFileController {
 	
 	@RequestMapping("/uploadfile.do")
 	@ResponseBody
-	 public void uploadFile(HttpServletRequest request,HttpServletResponse response) throws Exception {  
+	 public Object uploadFile(HttpServletRequest request,HttpServletResponse response) throws Exception {  
 		//ModelAndView mav=new ModelAndView();
 		Map<String,String> map=new HashMap<String,String>();
 	        String path = Thread.currentThread()
@@ -115,7 +115,8 @@ public class uploadFileController {
 	            file.mkdirs();  
 	        }  
 	        //获取图片url地址  
-	        String fileName = "";// 文件名称  
+	        String fileName = "";// 文件名称 
+	        Result result = null;
 	        /**上传文件处理内容**/  
 	        DiskFileItemFactory factory = new DiskFileItemFactory();  
 	        ServletFileUpload sfu = new ServletFileUpload(factory);  
@@ -139,13 +140,20 @@ public class uploadFileController {
 	            String week=map.get("week");
 	            String month=map.get("month");
 	            String exampaper=fileName;
-	            scoreService.saveExampper(stuno, week, month, exampaper);
-	            request.setAttribute("result", "上传成功");
-	            response.sendRedirect("html/JDT_uploadexampper.jsp");
+	            result=scoreService.saveExampper(stuno, week, month, exampaper);
+	           // response.sendRedirect("html/JDT_uploadexampper.jsp");
 	        } catch (Exception e) {  
 	            e.printStackTrace(); 
 	            System.out.println("文件上传出错");
 	        }  
+	        if(result.getStatus()==1){
+	              return "<script>window.parent.uploadSucced();</script>";
+	              
+        }else{
+	             return "<script>window.parent.uploadFailed();</script>";
+	            //response.sendRedirect("html/JDT_uploadStudycheck2.html");
+        }
+	      
 	      
 	    }  
 }

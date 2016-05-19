@@ -18,8 +18,13 @@
  			    	    var works=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		file=works[i].file;
- 			    	    		wid=works[i].wid;
+ 			    	    		var file=works[i].file;
+ 			    	    		var wid=works[i].wid;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stu_name=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var finishedfile=works[i].finishedfile;
+ 			    	    		var title=works[i].title;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	      tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
@@ -27,10 +32,15 @@
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	   tr+='<td><a >批改作业</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a>批改作业</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
  			    	 	    $tr.data("wid",wid);
- 			    	 	  $tr.data("file",file);
+ 			    	 	    $tr.data("file",file);
+ 	 			    	    $tr.data("stu_name",stu_name);
+ 	 			    	 	  $tr.data("stuno",stuno);
+ 	 			    	 	  $tr.data("cname",cname);
+ 	 			    	 	 $tr.data("finishedfile",finishedfile);
+ 	 			    	 	 $tr.data("title",title);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
@@ -40,8 +50,13 @@
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			            	for(var i=0;i<works.length;i++){
- 			    	    		file=works[i].file;
- 			    	    		wid=works[i].wid;
+ 			            		var file=works[i].file;
+ 			    	    		var wid=works[i].wid;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stu_name=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var finishedfile=works[i].finishedfile;
+ 			    	    		var title=works[i].title;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
@@ -53,6 +68,11 @@
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
+			    	 	  $tr.data("stu_name",stu_name);
+	 			    	 	  $tr.data("stuno",stuno);
+	 			    	 	  $tr.data("cname",cname);
+	 			    	 	  $tr.data("finishedfile",finishedfile);
+	 			    	 	 $tr.data("title",title);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -79,8 +99,13 @@
  			    	    var works=result.data;
  			    	    if(currentpage==1 && currentpage<pagecounts){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		file=works[i].file;
- 			    	    		wid=works[i].wid;
+ 			    	    		var file=works[i].file;
+ 			    	    		var wid=works[i].wid;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stu_name=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var finishedfile=works[i].finishedfile;
+ 			    	    		var title=works[i].title;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
@@ -92,6 +117,11 @@
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
+			    	 	  $tr.data("stu_name",stu_name);
+	 			    	 	  $tr.data("stuno",stuno);
+	 			    	 	  $tr.data("cname",cname);
+	 			    	 	  $tr.data("finishedfile",finishedfile);
+	 			    	 	 $tr.data("title",title);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
@@ -101,8 +131,13 @@
  			    	          $a.insertAfter("#number");
  			            }else if(1<currentpage && currentpage<pagecounts){
  			            	for(var i=0;i<works.length;i++){
- 			    	    		file=works[i].file;
- 			    	    		wid=works[i].wid;
+ 			            		var file=works[i].file;
+ 			    	    		var wid=works[i].wid;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stu_name=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var finishedfile=works[i].finishedfile;
+ 			    	    		var title=works[i].title;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	   tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
@@ -114,6 +149,11 @@
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
+			    	 	  $tr.data("stu_name",stu_name);
+	 			    	 	  $tr.data("stuno",stuno);
+	 			    	 	  $tr.data("cname",cname);
+	 			    	     $tr.data("finishedfile",finishedfile);
+	 			    	    $tr.data("title",title);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -123,8 +163,13 @@
  			    	   $a.insertAfter("#number");
  			        }else if( currentpage>1 && currentpage==pagecounts){
  			        	for(var i=0;i<works.length;i++){
-			    	    		file=works[i].file;
-			    	    		wid=works[i].wid;
+ 			        		var file=works[i].file;
+			    	    		var wid=works[i].wid;
+			    	    		var stuno=works[i].stuno;
+			    	    		var stu_name=works[i].stu_name;
+			    	    		var cname=works[i].cname;
+			    	    		var finishedfile=works[i].finishedfile;
+			    	    		var title=works[i].title;
 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
@@ -136,6 +181,11 @@
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
+			    	 	  $tr.data("stu_name",stu_name);
+	 			    	 	  $tr.data("stuno",stuno);
+	 			    	 	  $tr.data("cname",cname);
+	 			    	 	  $tr.data("finishedfile",finishedfile);
+	 			    	 	$tr.data("title",title);
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
  			    	 }
@@ -146,8 +196,13 @@
  			    	   $a.insertAfter("#number");
  			        }else if(currentpage==1 && currentpage==pagecounts)	{
  			        	for(var i=0;i<works.length;i++){
-			    	    		file=works[i].file;
-			    	    		wid=works[i].wid;
+ 			        		var file=works[i].file;
+			    	    		var wid=works[i].wid;
+			    	    		var stuno=works[i].stuno;
+			    	    		var stu_name=works[i].stu_name;
+			    	    		var cname=works[i].cname;
+			    	    		var finishedfile=works[i].finishedfile;
+			    	    		var title=works[i].title;
 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
 			    	 	   tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
@@ -159,6 +214,11 @@
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
+			    	 	  $tr.data("stu_name",stu_name);
+	 			    	 	  $tr.data("stuno",stuno);
+	 			    	 	  $tr.data("cname",cname);
+	 			    	 	  $tr.data("finishedfile",finishedfile);
+	 			    	 	$tr.data("title",title);
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
  			    	 }
@@ -186,8 +246,13 @@
  			    	    var works=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		file=works[i].file;
- 			    	    		wid=works[i].wid;
+ 			    	    		var file=works[i].file;
+ 			    	    		var wid=works[i].wid;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stu_name=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var finishedfile=works[i].finishedfile;
+ 			    	    		var title=works[i].title;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	   tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
@@ -199,6 +264,11 @@
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
+			    	 	  $tr.data("stu_name",stu_name);
+	 			    	 	  $tr.data("stuno",stuno);
+	 			    	 	  $tr.data("cname",cname);
+	 			    	 	  $tr.data("finishedfile",finishedfile);
+	 			    	 	$tr.data("title",title);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
@@ -208,8 +278,13 @@
  			    	        $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			            	for(var i=0;i<works.length;i++){
- 			    	    		file=works[i].file;
- 			    	    		wid=works[i].wid;
+ 			            		var file=works[i].file;
+ 			    	    		var wid=works[i].wid;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stu_name=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var finishedfile=works[i].finishedfile;
+ 			    	    		var title=works[i].title;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	  tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
@@ -221,6 +296,11 @@
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
+			    	 	  $tr.data("stu_name",stu_name);
+	 			    	 	  $tr.data("stuno",stuno);
+	 			    	 	  $tr.data("cname",cname);
+	 			    	 	 $tr.data("finshedfile",finishedfile);
+	 			    	 	$tr.data("title",title);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -248,8 +328,13 @@
  			    	    var works=result.data;
  			    	    if(currentpage==1){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		file=works[i].file;
- 			    	    		wid=works[i].wid;
+ 			    	    		var file=works[i].file;
+ 			    	    		var wid=works[i].wid;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stu_name=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var finishedfile=works[i].finishedfile;
+ 			    	    		var title=works[i].title;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	   tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
@@ -261,6 +346,11 @@
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
+			    	 	  $tr.data("stu_name",stu_name);
+	 			    	 	  $tr.data("stuno",stuno);
+	 			    	 	  $tr.data("cname",cname);
+	 			    	 	 $tr.data("finshedfile",finishedfile);
+	 			    	 	$tr.data("title",title);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
@@ -271,8 +361,13 @@
  			    			
  			            }else if(1<currentpage<pagecounts){
  			            	for(var i=0;i<works.length;i++){
- 			    	    		file=works[i].file;
- 			    	    		wid=works[i].wid;
+ 			            		var file=works[i].file;
+ 			    	    		var wid=works[i].wid;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stu_name=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var finishedfile=works[i].finishedfile;
+ 			    	    		var title=works[i].title;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	   tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
@@ -284,6 +379,11 @@
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
+			    	 	  $tr.data("stu_name",stu_name);
+	 			    	 	  $tr.data("stuno",stuno);
+	 			    	 	  $tr.data("cname",cname);
+	 			    	 	 $tr.data("finshedfile",finishedfile);
+	 			    	 	$tr.data("title",title);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -318,8 +418,14 @@
  			    	    var works=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		file=works[i].file;
- 			    	    		wid=works[i].wid;
+ 			    	    		var file=works[i].file;
+ 			    	    		var wid=works[i].wid;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stu_name=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var finishedfile=works[i].finishedfile;
+ 			    	    		var title=works[i].title;
+ 			    	    		alert(finishedfile);
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
@@ -331,6 +437,11 @@
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
+			    	 	  $tr.data("stu_name",stu_name);
+	 			    	 	  $tr.data("stuno",stuno);
+	 			    	 	  $tr.data("cname",cname);
+	 			    	 	 $tr.data("finishedfile",finishedfile);
+	 			    	 	$tr.data("title",title);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
@@ -340,8 +451,13 @@
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			            	for(var i=0;i<works.length;i++){
- 			    	    		file=works[i].file;
- 			    	    		wid=works[i].wid;
+ 			            		var file=works[i].file;
+ 			    	    		var wid=works[i].wid;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stu_name=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var finishedfile=works[i].finishedfile;
+ 			    	    		var title=works[i].title;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	   tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
@@ -353,6 +469,11 @@
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
+			    	 	  $tr.data("stu_name",stu_name);
+	 			    	 	  $tr.data("stuno",stuno);
+	 			    	 	  $tr.data("cname",cname);
+	 			    	 	 $tr.data("finshedfile",finishedfile);
+	 			    	 	$tr.data("title",title);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -387,8 +508,14 @@
  			    		$("#page #head").addClass("dianji");
  			    	    if(pagecounts==1){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		file=works[i].file;
- 			    	    		wid=works[i].wid;
+ 			    	    		var file=works[i].file;
+ 			    	    		var wid=works[i].wid;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stu_name=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var finishedfile=works[i].finishedfile;
+ 			    	    		var title=works[i].title;
+ 			    	    	
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	   tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
@@ -400,6 +527,11 @@
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
+			    	 	  $tr.data("stu_name",stu_name);
+	 			    	 	  $tr.data("stuno",stuno);
+	 			    	 	  $tr.data("cname",cname);
+	 			    	 	 $tr.data("finshedfile",finishedfile);
+	 			    	 	$tr.data("title",title);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
@@ -408,8 +540,13 @@
  			    	         $a.insertAfter("#number");
  			            }else{
  			            	for(var i=0;i<works.length;i++){
- 			    	    		file=works[i].file;
- 			    	    		wid=works[i].wid;
+ 			            		var file=works[i].file;
+ 			    	    		var wid=works[i].wid;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stu_name=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var finishedfile=works[i].finishedfile;
+ 			    	    		var title=works[i].title;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	   tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
@@ -421,6 +558,11 @@
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	    $tr.data("file",file);
+			    	 	   $tr.data("stu_name",stu_name);
+	 			    	 	  $tr.data("stuno",stuno);
+	 			    	 	  $tr.data("cname",cname);
+	 			    	 	 $tr.data("finshedfile",finishedfile);
+	 			    	 	$tr.data("title",title);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(works.length);

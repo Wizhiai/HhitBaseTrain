@@ -129,24 +129,24 @@
  	});
  	$("#pagesizes").change(setpageSize);
  	$("#set").click(setPages);
- 	     
- 	   $("table tbody").on("mouseover","tr",function(){
-	       $(this).css("background-color","#E7FDFE");
-	   });
-	    $("table tbody").on("mouseout","tr",function(){
-	       $(this).css("background-color","#fff");
-	   });
- });
- function download(){
- 			var fileName=studydata;
+ 	        
+ 	   $("table tbody").on("click","tr",function(){
+ 	       var studydata=$(this).data("studydata");
+	      	var fileName=studydata;
  			alert(fileName);
  			if(fileName==""){
  				alert("该基地该课程没有上传文件呢！");
  			}else{
  				window.location.href="../download.do?fileName="+fileName;
  				}	
- 			}
- 	
+	   }); 
+ 	   $("table tbody").on("mouseover","tr",function(){
+	       $(this).css("background-color","#E7FDFE");
+	   });
+	    $("table tbody").on("mouseout","tr",function(){
+	       $(this).css("background-color","#fff");
+	   });
+ 	});
  </script>
 </head>
 <body>

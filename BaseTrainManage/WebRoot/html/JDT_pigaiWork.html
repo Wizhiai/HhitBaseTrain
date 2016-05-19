@@ -63,6 +63,7 @@
   var title;
   var wid;
   var file;
+  var finishedfile;
  $(function(){
   $.ajax({
  	       url:"http://localhost:8080/BaseTrainManage/teaching/showbaseinfo.do",
@@ -117,57 +118,21 @@
 	    $("table tbody").on("click","tr",function(){
 		  var wid=$(this).data("wid");
 		  var file=$(this).data("file");
+		  var cname=$(this).data("cname");
+		  var title=$(this).data("title");
+		  var stuno=$(this).data("stuno");
+		  var stu_name=$(this).data("stu_name");
+		  var finishedfile=$(this).data("finishedfile");
 		  alert(wid);
 		  alert(file);
-		  $.ajax({
- 		        url:"http://localhost:8080/BaseTrainManage/work/deletework.do",
- 		 		type:"post",
- 				data:{"wid":wid,"filename":file},
- 				dataType:"json",
- 				success:function(result){
- 					if(result.statu!=01){
- 							alert(result.msg);
- 							toHomePage();
- 					}else{
- 				  			 alert(result.msg);
- 						}	
- 					},
- 			error:function(){
- 				alert("程序出错");
- 			}
- 	
- 	});
+		  alert(finishedfile);
+	      window.location.href="JDT_pigai.html?stuno="+stuno+"&cname="+cname+"&cname"+"&title="+title+"&wid="+wid+
+	      "&file="+file+"&stu_name="+stu_name+"&finishedfile="+finishedfile;
 		
 	   });
  	           
  });
- function toNextPage(){
- 	window.location.href="JDT_uploadStudyplan.html?cno="+cno+"&cname="+cname+"&term="+term;
- }
- function download(){
- 	$.ajax({
- 		url:"http://localhost:8080/BaseTrainManage/teaching/showfile.do",
- 		type:"post",
- 		data:{"t_no":t_no},
- 		dataType:"json",
- 		success:function(result){
- 			if(result.status==1){
- 				var data=result.data;
- 				var fileName=data.studyplan;
- 				if(fileName==""){
- 					alert("没有文件，请重新上传！");
- 				}else{
- 					window.location.href="../download.do?fileName="+fileName;
- 				}
- 				
- 			}
- 		},
- 		error:function(){
- 			alert("程序出错");
- 		}
- 	
- 	});
- }
+ 
  </script>
 </head>
 <body>

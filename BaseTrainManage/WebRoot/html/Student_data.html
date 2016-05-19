@@ -87,18 +87,18 @@
 	    $("table tbody").on("mouseout","tr",function(){
 	       $(this).css("background-color","#fff");
 	   });
-
- 
- });
- function download(){
- 	            var fileName=studydata;
+	    $("table tbody").on("click","tr",function(){
+	       var studydata=$(this).data("studydata");
+	        var fileName=studydata;
  				if(fileName==""){
  					alert("没有文件，请重新上传！");
  				}else{
  					window.location.href="../download.do?fileName="+fileName;
  				}
+	   });
 
- }
+ 
+ });
  </script>
 </head>
 <body>

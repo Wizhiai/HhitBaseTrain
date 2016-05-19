@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.hhit.basetrain.dao.WorkDao;
 import com.hhit.basetrain.entity.FinishWorkBean;
+import com.hhit.basetrain.entity.MarkedWork;
 import com.hhit.basetrain.entity.Result;
 import com.hhit.basetrain.entity.Work;
 import com.hhit.basetrain.service.WorkService;
@@ -173,7 +174,7 @@ public class WorkServiceImpl implements WorkService{
 		List<Map> lists=workDao.findWorkUploadPage(map);
 		if(list.size()==0 || lists.size()==0){
 			result.setStatus(0);
-			result.setMsg("查找失败");
+			result.setMsg("没有已交的作业");
 		}else if(list.size()!=0 || lists.size()!=0){
 			result.setMsg("查找成功");
 			result.setStatus(list.size());
@@ -228,6 +229,167 @@ public class WorkServiceImpl implements WorkService{
 			result.setMsg("有批改的作业");
 		}
 		return result;
+	}
+
+	public Result showComments() {
+		Result result=new Result();
+		List<String> comments=workDao.findComments();
+		if(comments.size()!=0){
+			result.setMsg("加载成功");
+			result.setStatus(1);	
+			result.setData(comments);
+		}else{
+			result.setMsg("加载失败");
+			result.setStatus(0);
+		}
+		return result;
+	}
+
+	public boolean upDateIden(String stuno, String wid) {
+		boolean flag=false;
+		FinishWorkBean finish=new FinishWorkBean();
+		finish.setStuno(stuno);
+		finish.setWid(wid);
+		int count=workDao.updateIdentity(finish);
+		if(count!=0){
+			flag=true;
+		}
+		else{
+			flag=false;
+		}
+		return flag;
+	}
+
+	public boolean saveMarked(String stuno, String wid, String uploadDate,
+			Double result, String comment,String markedfile) {
+		boolean flag=false;
+		MarkedWork mark=new MarkedWork();
+		mark.setStuno(stuno);
+		mark.setWid(wid);
+		mark.setUploadDate(uploadDate);
+		mark.setResult(result);
+		mark.setComment(comment);
+		mark.setMarkedfile(markedfile);
+		int count=workDao.saveMarkedWork(mark);
+		System.out.println(count);
+		if(count!=0){
+			flag=true;
+		}else{
+			flag=false;
+		}
+		return flag;
+	}
+
+	public Result searchMarkedWork(String stuno, Integer page, Integer pagesize) {
+		Result result=new Result();
+		Map<String,Object> map=new HashMap<String,Object>();
+		Map<String,Object> map1=new HashMap<String,Object>();
+		map.put("stuno", stuno);
+		map.put("page", page);
+		map.put("pagesize", pagesize);
+		List<Map> works=workDao.findWorkMarkPage(map);
+		List<Map> work=workDao.findWorkMark(stuno);
+		if(work.size()==0 || works.size()==0){
+			result.setMsg("没有批改完的作业");
+			result.setStatus(0);
+		}else if(work.size()!=0 && works.size()!=0){
+			result.setData(works);
+			result.setStatus(work.size());
+			result.setMsg("有批改的作业");
+		}
+		return result;
+	}
+
+	public Result searchAllFinishedWork(String base_class, Integer base_no,
+			String title, Integer page, Integer pageSize) {
+		Result result=new Result();
+		Map<String,Object> map=new HashMap<String,Object>();
+		Map<String,Object> map1=new HashMap<String,Object>();
+		map.put("base_class", base_class);
+		map.put("page", page);
+		map.put("pagesize", pageSize);
+	    map.put("base_no", base_no);
+	    map.put("title", title);
+	    map1.put("base_class", base_class);
+	    map1.put("base_no", base_no);
+	    map1.put("title", title);
+		List<Map> works=workDao.findAllFinishedWorkPage(map);
+		List<Map> work=workDao.findAllFinishedWork(map1);
+		if(work.size()==0 || works.size()==0){
+			result.setMsg("没有已交作业的同学");
+			result.setStatus(0);
+		}else if(work.size()!=0 && works.size()!=0){
+			result.setData(works);
+			result.setStatus(work.size());
+			result.setMsg("有已交作业的同学");
+		}
+		return result;
+	}
+
+	public Result searchAllUnFinishedWork(String base_class, Integer base_no,
+			String title, Integer page, Integer pageSize) {
+		Result result=new Result();
+		Map<String,Object> map=new HashMap<String,Object>();
+		Map<String,Object> map1=new HashMap<String,Object>();
+		map.put("base_class", base_class);
+		map.put("page", page);
+		map.put("pagesize", pageSize);
+	    map.put("base_no", base_no);
+	    map.put("title", title);
+	    map1.put("base_class", base_class);
+	    map1.put("base_no", base_no);
+	    map1.put("title", title);
+		List<Map> works=workDao.findUnfinishedWorkPage(map);		
+		List<Map> work=workDao.findUnfinishedWork(map1);
+		if(work.size()==0 || works.size()==0){
+			result.setMsg("没有未交作业的同学");
+			result.setStatus(0);
+		}else if(work.size()!=0 && works.size()!=0){
+			result.setData(works);
+			result.setStatus(work.size());
+			result.setMsg("有未交作业的同学");
+		}
+		return result;
+	}
+
+	public Result searchStudentWork(String base_no, String stuno, Integer page,
+			Integer pagesize) {
+		Result result=new Result();
+		Map<String,Object> map=new HashMap<String,Object>();
+		Map<String,Object> map1=new HashMap<String,Object>();
+	    map.put("stuno", stuno);
+		map.put("page", page);
+		map.put("pagesize", pagesize);
+	    map.put("base_no", base_no);
+	    map1.put("base_no", base_no);
+	    map1.put("stuno", stuno);
+		List<Map> works=workDao.findstudentworkPage(map);		
+		List<Map> work=workDao.findstudentwork(map1);
+		if(work.size()==0 || works.size()==0){
+			result.setMsg("该同学没有作业");
+			result.setStatus(0);
+		}else if(work.size()!=0 && works.size()!=0){
+			result.setData(works);
+			result.setStatus(work.size());
+			result.setMsg("查找成功");
+		}
+		return result;
+		
+	}
+
+	public boolean reUpload(String stuno, String uploadDate,
+			String file, String wid) {
+		boolean flag=false;
+		FinishWorkBean finish=new FinishWorkBean();
+		finish.setStuno(stuno);
+		finish.setFile(file);
+		finish.setUploadDate(uploadDate);
+		finish.setWid(wid);
+		int count=workDao.updateFinshedWork(finish);
+		if(count!=0){
+			flag=true;
+		}
+		return flag;
 	}
 	
 }

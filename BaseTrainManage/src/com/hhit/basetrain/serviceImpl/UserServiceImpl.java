@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.hhit.basetrain.dao.UserDao;
 import com.hhit.basetrain.entity.Result;
@@ -70,6 +71,25 @@ public class UserServiceImpl implements UserService{
 			result.setMsg("修改成功!");
 		}
 		return result;
+	}
+
+    @Transactional()
+	public Result InputInfo(String username, String password, String identity) {
+		Result result=new Result();
+		User user=new User();
+		user.setUsername(username);
+		user.setPassword(password);
+		user.setIdentity(identity);
+		int count=userDao.saveBaseTeacher(user);
+		if(count!=0){
+			result.setStatus(1);
+			result.setMsg("添加成功");
+		}else{
+			result.setStatus(0);
+			result.setMsg("添加失败");
+		}
+		return result;
+		
 	}
 
 }

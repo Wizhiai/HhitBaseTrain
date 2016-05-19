@@ -53,8 +53,18 @@
  	$("#content").val(finishedfile);
  	$("#stuno").val(stuno);
  	$("#wid").val(wid);
- 	$("#deletefile").click(function(){
- 	   $.ajax({
+ 	alert(wid);
+ });
+ function download(){
+ 		var fileName=file;
+ 		if(fileName==""){
+ 			alert("没有文件，请重新上传！");
+ 		}else{
+ 			window.location.href="../download.do?fileName="+fileName;
+ 		}
+ }
+ function deletefile(){
+ 	 $.ajax({
  		url:"http://localhost:8080/BaseTrainManage/work/deleteworkfile.do",
  		post:"post",
  		data:{"filename":finishedfile,"wid":wid,"stuno":stuno},
@@ -71,24 +81,25 @@
  			alert("程序错误");
  		}
  	});
- 	});
- 
- });
- function download(){
- 		var fileName=file;
- 		if(fileName==""){
- 			alert("没有文件，请重新上传！");
- 		}else{
- 			window.location.href="../download.do?fileName="+fileName;
- 		}
  }
+  function uploadSucced(){
+
+   		$("#studywork").val("");
+   		alert("上传成功");
+   		
+   }
+   function uploadFailed(){
+   		alert("上传失败");
+   		/* $("#firstUploadFailed").show();
+   		$("#firstUploadSucceed").hide(); */
+   }
  
  </script>
  
 </head>
 <body>
 	<div id="head1"><img  src="../image/info.png"/></div>
-    <div id="head2">当前位置：首页&nbsp;>>&nbsp作业管理&nbsp;>><b>提交作业</b></div>
+    <div id="head2">当前位置：首页&nbsp;>>&nbsp;作业管理&nbsp;>><b>提交作业</b></div>
     <div id="person"><img  src="../image/person.png"/></div>
    <div id="welcome">您好：<b id="name"></b>,欢迎登录外实训学生管理系统--学生管理子系统</div>
    <div id="time"><img  src="../image/time.png"/>
@@ -118,7 +129,7 @@ document.write(strDate);
 </script> 
  </div>
  <div id="information">
- <form action="../uploadwork.do" enctype="multipart/form-data" method="post">
+ <form action="../reuploadwork.do" enctype="multipart/form-data" method="post" target="hidden_frame">
  	<table cellpadding="10" cellspacing="0" align="center">
  		<tr>
  			<td><div id="d1" align="left">课&nbsp;&nbsp;&nbsp;程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:&nbsp;<input type="text" id="cno" name="cno"/><input type="hidden" id="stuno" name="stuno"/></div></td>
@@ -131,18 +142,19 @@ document.write(strDate);
             <td><div align="left">作&nbsp;&nbsp;业&nbsp;标&nbsp;&nbsp;题:&nbsp;<input type="text" id="title" name="title"/><a href="javascript:void(0);" onclick="download();">作业附件下载</a></div></td>
            </tr>
             <tr>
-            <td><div align="left">已&nbsp;&nbsp;交&nbsp;作&nbsp;&nbsp;业:&nbsp;<textArea cols="20" rows="4" name="content" id="content"></textArea><button id="deletefile">删除</button></div></td>
+            <td><div align="left">已&nbsp;&nbsp;交&nbsp;作&nbsp;&nbsp;业:&nbsp;<textArea cols="20" rows="4" name="content" id="content"></textArea><a href="javascript:void(0);" onclick="deletefile();">删除</a></div></td>
            </tr>
            <tr>
           <td><div align="left">  
           
-                    文&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;件:&nbsp;<input type="file" name="studycheck" id="studywork"/>
+                    文&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;件:&nbsp;<input type="file" name="studywork" id="studywork"/>
            <input type="submit" value="上传" id="upload"/>
            </div></td>
           </tr>
  		
  	</table>
  	</form>
+ 	<iframe name='hidden_frame' id="hidden_frame" style='display:none'></iframe>
  </div>
  </body>
  </html>

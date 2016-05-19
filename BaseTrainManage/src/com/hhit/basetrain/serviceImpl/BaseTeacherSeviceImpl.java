@@ -134,6 +134,17 @@ public class BaseTeacherSeviceImpl implements BaseTeacherService{
 		
 	}
 
+	public Result inputBaseTeacher(String t_no, String t_name, String t_sex,
+			String t_phone, String t_profeesion, Integer base_no) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Result deleteBaseTeacherByNo(String tNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 
 }
