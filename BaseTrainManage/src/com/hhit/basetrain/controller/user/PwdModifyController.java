@@ -30,4 +30,11 @@ public class PwdModifyController {
 		Result result = userService.modifyPwd(username, oldPwd, newPwd);
 		return result;
 	}
+	@RequestMapping("/user/resetPwd")
+	@ResponseBody
+	public Result resetPwd(String username){
+		
+		Result result = userService.resetUserPwdByNo(username);
+		return result;
+	}
 }

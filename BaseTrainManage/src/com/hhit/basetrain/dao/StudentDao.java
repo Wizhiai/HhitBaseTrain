@@ -27,4 +27,8 @@ public interface StudentDao {
 	public List<StudentRegistCountBean> registCountByMajor();
 	public List<StudentRegistCountBean> registCountByMajorAndBase();
 	public List<StudentRegistCountInfoBean> searchRegistCountInf();
+	public List<Integer> findEnterYear();
+	public List<String> findMajor();
+	public List<String> findClass(String major);
+	public List<Student> findStudentAsUser(Map<String,Object> map);
 }

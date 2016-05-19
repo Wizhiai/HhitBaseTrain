@@ -11,15 +11,7 @@
 		<script type="text/javascript" src="../../js/cookie_util.js"></script>
 		<script type="text/javascript">
 			$(function(){
-				$("body").css("background","#dbecfb");
-				$("body").css("height","100%");
-				$("body").css("overflow","hidden");
-				$(".secondMenu").css("display","none");
-				/* 二级菜单的显示与隐藏  */
-				$(".personInfo").click(function(){
-					$(this).next(".secondMenu").slideToggle(1);
-					$(this).siblings().next(".secondMenu").css("display","none");
-				});
+				indexMenuManage();
 				promptName();
 				$("#exit").click(function(){
 					exitSystem();
@@ -30,7 +22,7 @@
   </head>
   
   <body>
-  	<header class="stuHeader"></header>
+  	<header class="stuHeader">
 	  <div class="userLogin ">
 	  	<div class="showUserName">
 	  		
@@ -38,6 +30,7 @@
 	  		<label id="name_show"></label>
 	  	</div>
 	  </div>
+	  </header>
 	  <!-- 主体内容 -->
 	  <div class="CMSMain" >
 	  <!-- 左侧菜单栏 -->
@@ -50,30 +43,34 @@
 	  	</ul>
 	  	<div id="searchInfo" class="personInfo">用户管理</div>
 	  	<ul class="userManageMenu secondMenu">
-	  		<li><a target="businessfrm">添加用户</a></li>
-	  		<li><a target="businessfrm">删除用户</a></li>
-	  		<li><a target="businessfrm">用户密码重置</a></li>
-	  		<li><a target="businessfrm">查询用户信息</a></li>
+	  		<li><a href="../user/addUser.jsp" target="businessfrm">添加用户</a></li>
+	  		<li><a href="../user/deleteUser.jsp" target="businessfrm">删除用户</a></li>
+	  		<li><a href="../user/userPwdReset.jsp" target="businessfrm">用户密码重置</a></li>
     	</ul> 
     	<div id="searchInfo" class="personInfo">基地管理</div>
 	  	<ul class="secondMenu">
-	  		<li><a target="businessfrm">添加基地</a></li>
-	  		<li><a target="businessfrm">删除基地</a></li>
+	  		<li><a href="../base/addBase.jsp" target="businessfrm">添加基地</a></li>
+	  		<li><a href="../base/deleteBase.jsp" target="businessfrm">删除基地</a></li>
     	</ul>
     	<div id="searchInfo" class="personInfo">公告管理</div>
 	  	<ul class="secondMenu">
 	  		<li><a href="../placard/addSchoolPlacard.jsp" target="businessfrm">发布公告信息</a></li>
 	  		<li><a href="../placard/searchSchoolPlacard.jsp" target="businessfrm">编辑公告信息</a></li>
     	</ul> 
-    	<div id="registCount" class="personInfo">
-    		<a id="trainregists" href="registStudentCount.jsp" target="businessfrm">学生实训统计</a>
-    	</div>
-	  	<div id="userAccess" class="personInfo">
-    		<a id="trainregist" target="businessfrm">用户权限分配</a>
-    	</div>	
+    	<ul id="registCount" class="personInfo">
+    		<li>
+    			<a id="trainregists" href="registStudentCount.jsp" target="businessfrm">学生实训统计</a>
+    		</li>
+    	</ul>
+	  	<ul id="userAccess" class="personInfo">
+	  		<li>
+    			<a id="trainregist" target="businessfrm">用户权限分配</a>
+    		</li>
+    	</ul>	
 	  	</section>
 	  	<!-- 右边数据显示 -->
 	  	<section class="rightContent">
+	  	
 	  		<iframe id="businessfrm" src=""
 					frameborder="0" width="100%" height="100%" name="businessfrm"  height="100%"></iframe>
 	  	</section>

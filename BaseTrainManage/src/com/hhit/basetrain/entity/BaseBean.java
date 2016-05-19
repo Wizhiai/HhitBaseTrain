@@ -17,6 +17,10 @@ public class BaseBean {
 	private String base_address;
 	/** 成立时间 */
 	private String establish_time;
+	/** 基地管理员姓名*/
+	private String manager_name;
+	/** 基地管理员联系方式*/
+	private String manager_phone;
 
 	public Integer getBase_no() {
 		return base_no;
@@ -50,11 +54,28 @@ public class BaseBean {
 		establish_time = establishTime;
 	}
 
+	public String getManager_name() {
+		return manager_name;
+	}
+
+	public void setManager_name(String managerName) {
+		manager_name = managerName;
+	}
+
+	public String getManager_phone() {
+		return manager_phone;
+	}
+
+	public void setManager_phone(String managerPhone) {
+		manager_phone = managerPhone;
+	}
+
 	@Override
 	public String toString() {
 		return "BaseBean [base_address=" + base_address + ", base_name="
 				+ base_name + ", base_no=" + base_no + ", establish_time="
-				+ establish_time + "]";
+				+ establish_time + ", manager_phone=" + manager_phone
+				+ ", manager_name=" + manager_name + "]";
 	}
 
 }

@@ -22,4 +22,21 @@
 		where ct_no = #{ct_no}
 	</update>
 	
+	<!-- 查找学院名 -->
+	<select id="findAcademy" resultType="com.hhit.basetrain.entity.Academy">
+		select b.academy_no as academy_no,b.academy_name as academy_name from academy b
+		 where b.academy_no in (select distinct(a.academy_no) from collegeteacher a)
+	</select>
+	
+		<!-- 查找教师用户 -->
+	<select id="findTeacherByAcademyNo" parameterType="string" resultType="com.hhit.basetrain.entity.CollegeTeacher">
+		select a.ct_no,a.ct_name,a.ct_birthday,a.ct_sex,a.academy_no,
+		a.ct_phone,a.ct_profession from collegeteacher a
+		<where>
+			<if test="_parameter != null and _parameter !=''">
+				a.academy_no = #{_parameter}
+			</if>
+		</where>
+	</select>
+	
 </mapper>

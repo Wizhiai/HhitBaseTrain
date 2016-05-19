@@ -65,27 +65,29 @@
   </script>
   <body>
   	<div class="list">
-	   <div id="placardInform">
-	    <table id="showInform" border="1" style="border:1px solid black;">
-	    	<thead>
-	    		<tr>
-	    			<th>序号</th>
-	    			<th>公告标题</th>
-	    			<th>发布时间</th>
-	    			<th>操作</th>
-	    		</tr>
-	    	</thead>
-	    	<tbody></tbody>
-	    </table>
-	    <div class="pageInfo">
-		  	<span>共计</span><span id="totalRecords"></span><span>条数据</span>
-		  	<input type="button" id="firstPage" class="btn" value = "首页">
-				<input type="button" id="prePage"  class="btn" value="上一页">
-				<span>第</span><span id="currentPage"></span><span>页/共</span>
-				<span id="totalPage"></span><span>页</span>
-				<input type="button" id="nextPage" class="btn" value="下一页">
-		  </div>
-	   </div>
+  		<div class="topContent">
+  		<div id="placardInform">
+	  		<table id="showInform">
+		    	<thead>
+		    		<tr>
+		    			<th>序号</th>
+		    			<th>公告标题</th>
+		    			<th>发布时间</th>
+		    			<th>操作</th>
+		    		</tr>
+		    	</thead>
+		    	<tbody></tbody>
+		    </table>
+		    <div class="pageInfo">
+			  	<span>共计</span><span id="totalRecords"></span><span>条数据</span>
+			  	<input type="button" id="firstPage" class="btn" value = "首页">
+					<input type="button" id="prePage"  class="btn" value="上一页">
+					<span>第</span><span id="currentPage"></span><span>页/共</span>
+					<span id="totalPage"></span><span>页</span>
+					<input type="button" id="nextPage" class="btn" value="下一页">
+			  </div>
+		   </div>
+  		</div>
 	  </div>
   </body>
 </html>

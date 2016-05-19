@@ -106,7 +106,6 @@
 		}
 		function searchCourseByBaseNo(){
 			var base_no = $("#baseName").val();
-			alert(base_no);
 			$.ajax({
 				url:"http://localhost:8080/BaseTrainManage/traincourse/searchCourseInfByBaseNo.do",
 				type:"post",
@@ -133,7 +132,7 @@
    	<h1>查询条件</h1>
   	<select id="baseName">
   	</select>
-  	<input type="button" id="search" value="查询">
+  	<input type="button" id="search" value="查询" class="editBtn">
    </div>
    <div id="courseInform">
     <table id="showInform">
@@ -147,7 +146,7 @@
     			<th>操作</th>
     		</tr>
     	</thead>
-    	<tbody>
+    	<tbody></tbody>
     	</table>
 	    <div class="pageInfo">
 		   	<span>共计</span><span id="totalRecords"></span><span>条数据</span>

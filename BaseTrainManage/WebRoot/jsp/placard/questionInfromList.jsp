@@ -93,7 +93,6 @@
   	function searchBaseQuestion(){//根据学生选中的基地名查找常见问题
   	
   		var base_no = $("#searchType option:selected").val();
-  		alert(base_no);
   		if(base_no ==""){
 					alert("请输入关键字");
 			}
@@ -122,7 +121,7 @@
   	<div class="topContent">
   		<h1>查询条件</h1>
   		<select id="searchType"></select>
-  		<input type="button" id="search" value="查询"/>
+  		<input type="button" id="search" value="查询" class="editBtn"/>
   	</div>
   	<div class="questionInform">
 	  	<table id="showInform" >

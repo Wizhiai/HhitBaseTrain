@@ -60,7 +60,7 @@
   		}
   	</script>
   </head>
-  <body>
+  <body style="background:url(images/background.png) 100% 100%">
 	  <div class="total">
 	  <!--  头部-->
 	  	<header></header>

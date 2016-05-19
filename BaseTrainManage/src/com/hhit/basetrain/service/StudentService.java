@@ -60,4 +60,20 @@ public interface StudentService {
 	 * 学生实训报名信息
 	 */
 	public Result studentRegistCountInfo();
+	/**
+	 * 学生入学年份信息
+	 */
+	public Result studentEnterYearInfo();
+	/**
+	 * 学生专业信息
+	 */
+	public Result studentMajorInfo();
+	/**
+	 * 根据专业查找学生班级信息
+	 */
+	public Result searchClassInfo(String major);
+	/**
+	 * 根据入学年份、专业、班级查找学生信息
+	 */
+	public Result searchStudentInfoAsUser(int enter_year,String major,String stu_class);
 }
