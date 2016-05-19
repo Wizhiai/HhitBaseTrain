@@ -73,7 +73,7 @@
  <script type="text/javascript" src="../js/cookie_util.js"></script>
  <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
 <script type="text/javascript" src="../js/jdteacherSearchGradeByCondition.js"></script>
-<script type="text/javascript" src="../js/file.js"></script>
+<!-- <script type="text/javascript" src="../js/file.js"></script> -->
  <script type="text/javascript">
  	var userId=getCookie("username");
  	var count;
@@ -115,7 +115,36 @@
  	    month1=$("#month option:selected").text();
  	    week1=$("#week option:selected").text();
  	     toHomePage();
- 	     $("#pagesizes").change(setpageSize);
+ 	    
+ 	    
+ 	});
+ 	 $("table tbody").on("click","tr",function(){
+		  	var stuno=$(this).data("stuno");
+		 	 var week=$(this).data("week");
+		 	 var month=$(this).data("month");
+		 	  var fileName=null;
+        $.ajax({
+        	url:"http://localhost:8080/BaseTrainManage/gainExam.do",
+        	type:"post",
+        	data:{"stuno":stuno,"month":month,"week":week},
+        	dataType:"json",
+        	success:function(result){
+        		if(result.status==1){
+        			fileName=result.data;
+        			 alert(fileName);
+        			 window.location.href="../download.do?fileName="+fileName;
+        		}else{
+        			alert("还没有上传试卷，请上传试卷");
+        			
+        		}
+        	}
+        
+        });
+		 	
+		
+	   });
+ 	           
+ 	 $("#pagesizes").change(setpageSize);
  	     $("#set").click(setPages);
  	    $("table tbody").on("mouseover","tr",function(){
 	       $(this).css("background-color","#E7FDFE");
@@ -123,8 +152,6 @@
 	    $("table tbody").on("mouseout","tr",function(){
 	       $(this).css("background-color","#fff");
 	   });
- 	    
- 	});
  	
  	});
  	 

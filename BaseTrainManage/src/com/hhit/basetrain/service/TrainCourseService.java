@@ -24,4 +24,12 @@ public interface TrainCourseService {
 	 * @return
 	 */
 	public Result showAllbaseCourseInf();
+	/**
+	 * 通过教师号显示相应的课程信息
+	 */
+	public Result loadTrainCourseInfo(String t_no);
+	/**
+	 * 通过基地号查询课程号
+	 */
+	public Result showCno(String base_no);
 }

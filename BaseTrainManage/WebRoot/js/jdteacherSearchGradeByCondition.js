@@ -19,9 +19,9 @@
  			    	    var grades=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<grades.length;i++){
- 			    	    		stuno=grades[i].stuno;
- 			    	    		week=grades[i].week;
- 			    	    		month=grades[i].month;
+ 			    	    		var stuno=grades[i].stuno;
+ 			    	    		var week=grades[i].week;
+ 			    	    		var month=grades[i].month;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
  			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
@@ -31,8 +31,12 @@
  			    	 	    tr+='  <td>'+grades[i].month+'</td>';
  			    	 	    tr+='  <td>'+grades[i].week+'</td>';
  			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 	    tr+='  <td><a onclick="download();">查看卷面</a></td></tr>';
+ 			    	 	    //tr+='  <td><a>查看卷面</a></td></tr>';
+ 			    	 	    tr+='  <td><a>查看卷面</a></td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("stuno",stuno);
+ 			    	 	     $tr.data("week",week);
+ 			    	 	   $tr.data("month",month);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(grades.length);
@@ -54,8 +58,11 @@
  			    	 	  		tr+='  <td>'+grades[i].month+'</td>';
  			    	 	    	tr+='  <td>'+grades[i].week+'</td>';
  			    	 	    	tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 			tr+='  <td><a onclick="download();">查看卷面</a></td></tr>';
+ 			    	 			tr+='  <td><a>查看卷面</a></td></tr>';
  			    	 			$tr=$(tr);
+ 			    	 			 $tr.data("stuno",stuno);
+ 	 			    	 	     $tr.data("week",week);
+ 	 			    	 	   $tr.data("month",month);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -94,8 +101,11 @@
  			    	 	    tr+='  <td>'+grades[i].month+'</td>';
  			    	 	    tr+='  <td>'+grades[i].week+'</td>';
  			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 	    tr+='  <td><a onclick="download();">查看卷面</a></td></tr>';
+ 			    	 	    tr+='  <td><a>查看卷面</a></td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	  $tr.data("stuno",stuno);
+			    	 	     $tr.data("week",week);
+			    	 	   $tr.data("month",month);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(grades.length);
@@ -117,8 +127,11 @@
  			    	 	  		tr+='  <td>'+grades[i].month+'</td>';
  			    	 	    	tr+='  <td>'+grades[i].week+'</td>';
  			    	 	    	tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 			tr+='  <td><a onclick="download();">查看卷面</a></td></tr>';
+ 			    	 			tr+='  <td><a>查看卷面</a></td></tr>';
  			    	 			$tr=$(tr);
+ 			    	 			 $tr.data("stuno",stuno);
+ 	 			    	 	     $tr.data("week",week);
+ 	 			    	 	   $tr.data("month",month);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -140,8 +153,11 @@
  			    	 	  		tr+='  <td>'+grades[i].month+'</td>';
  			    	 	    	tr+='  <td>'+grades[i].week+'</td>';
  			    	 	    	tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 			tr+='  <td><a onclick="download();">查看卷面</a></td></tr>';
+ 			    	 			tr+='  <td><a>查看卷面</a></td></tr>';
  			    	 			$tr=$(tr);
+ 			    	 			 $tr.data("stuno",stuno);
+ 	 			    	 	     $tr.data("week",week);
+ 	 			    	 	   $tr.data("month",month);
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
  			    	 }
@@ -164,8 +180,11 @@
  			    	 	  		tr+='  <td>'+grades[i].month+'</td>';
  			    	 	    	tr+='  <td>'+grades[i].week+'</td>';
  			    	 	    	tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 			tr+='  <td><a onclick="download();">查看卷面</a></td></tr>';
+ 			    	 			tr+='  <td><a>查看卷面</a></td></tr>';
  			    	 			$tr=$(tr);
+ 			    	 			 $tr.data("stuno",stuno);
+ 	 			    	 	     $tr.data("week",week);
+ 	 			    	 	   $tr.data("month",month);
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
  			    	 }
@@ -205,8 +224,11 @@
  			    	 	    tr+='  <td>'+grades[i].month+'</td>';
  			    	 	    tr+='  <td>'+grades[i].week+'</td>';
  			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 	    tr+='  <td><a onclick="download();">查看卷面</a></td></tr>';
+ 			    	 	    tr+='  <td><a>查看卷面</a></td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	  $tr.data("stuno",stuno);
+			    	 	     $tr.data("week",week);
+			    	 	   $tr.data("month",month);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(grades.length);
@@ -228,8 +250,11 @@
  			    	 	  		tr+='  <td>'+grades[i].month+'</td>';
  			    	 	    	tr+='  <td>'+grades[i].week+'</td>';
  			    	 	    	tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 			tr+='  <td><a onclick="download();">查看卷面</a></td></tr>';
+ 			    	 			tr+='  <td><a>查看卷面</a></td></tr>';
  			    	 			$tr=$(tr);
+ 			    	 			 $tr.data("stuno",stuno);
+ 	 			    	 	     $tr.data("week",week);
+ 	 			    	 	   $tr.data("month",month);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -271,6 +296,9 @@
  			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
  			    	 	    tr+='  <td><aonclick="download();">查看卷面</a></td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	  $tr.data("stuno",stuno);
+			    	 	     $tr.data("week",week);
+			    	 	   $tr.data("month",month);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(grades.length);
@@ -293,8 +321,11 @@
  			    	 	  		tr+='  <td>'+grades[i].month+'</td>';
  			    	 	    	tr+='  <td>'+grades[i].week+'</td>';
  			    	 	    	tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 			tr+='  <td><a onclick="download();">查看卷面</a></td></tr>';
+ 			    	 			tr+='  <td><a>查看卷面</a></td></tr>';
  			    	 			$tr=$(tr);
+ 			    	 			 $tr.data("stuno",stuno);
+ 	 			    	 	     $tr.data("week",week);
+ 	 			    	 	   $tr.data("month",month);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -341,8 +372,11 @@
  			    	 	    tr+='  <td>'+grades[i].month+'</td>';
  			    	 	    tr+='  <td>'+grades[i].week+'</td>';
  			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 	    tr+='  <td><a onclick="download();">查看卷面</a></td></tr>';
+ 			    	 	    tr+='  <td><a>查看卷面</a></td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	  $tr.data("stuno",stuno);
+			    	 	     $tr.data("week",week);
+			    	 	   $tr.data("month",month);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(grades.length);
@@ -352,9 +386,9 @@
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			        	   for(var i=0;i<grades.length;i++){
- 			        		  stuno=grades[i].stuno;
- 			        		  week=grades[i].week;
-			    	    		month=grades[i].month;
+ 			        		  var stuno=grades[i].stuno;
+ 			        		  var week=grades[i].week;
+			    	    		var month=grades[i].month;
  			    	 	   		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	     	tr+='<td>'+grades[i].stuno+'</td>';
  			    	 	    	tr+='  <td>'+grades[i].stu_name+'</td>';
@@ -364,8 +398,11 @@
  			    	 	  		tr+='  <td>'+grades[i].month+'</td>';
  			    	 	    	tr+='  <td>'+grades[i].week+'</td>';
  			    	 	    	tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 			tr+='  <td><a onclick="download();">查看卷面</a></td></tr>';
+ 			    	 			tr+='  <td><a>查看卷面</a></td></tr>';
  			    	 			$tr=$(tr);
+ 			    	 			$tr.data("stuno",stuno);
+ 	 			    	 	     $tr.data("week",week);
+ 	 			    	 	   $tr.data("month",month);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -412,8 +449,11 @@
  			    	 	    tr+='  <td>'+grades[i].month+'</td>';
  			    	 	    tr+='  <td>'+grades[i].week+'</td>';
  			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 	    tr+='  <td><a onclick="download();">查看卷面</a></td></tr>';
+ 			    	 	    tr+='  <td><a>查看卷面</a></td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	  $tr.data("stuno",stuno);
+			    	 	     $tr.data("week",week);
+			    	 	   $tr.data("month",month);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(grades.length);
@@ -434,8 +474,11 @@
  			    	 	  		tr+='  <td>'+grades[i].month+'</td>';
  			    	 	    	tr+='  <td>'+grades[i].week+'</td>';
  			    	 	    	tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 			tr+='  <td><a onclick="download();">查看卷面</a></td></tr>';
+ 			    	 			tr+='  <td><a>查看卷面</a></td></tr>';
  			    	 			$tr=$(tr);
+ 			    	 			 $tr.data("stuno",stuno);
+ 	 			    	 	     $tr.data("week",week);
+ 	 			    	 	   $tr.data("month",month);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(grades.length);

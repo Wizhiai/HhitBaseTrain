@@ -8,8 +8,98 @@
  	body{
  	 position:relative;
  	}
+ 	 #page{
+      text-align:center;
+      position:absolute;
+       top:450px; 
+       left:335px; 
+     }
+     #page a{
+      text-decoration:none;
+      color:#000;
+      border:1px solid #e8f3f8;
+      margin:0;
+      padding:5px 10px;
+     }
+     #page a:hover{
+      border:1px solid #97B9C9;
+      background-color:#CDDDE4;
+      color:#067DB5;
+     }
+  
+     #page input{
+     	width:20px;
+     }
+     .dianji{
+      border:1px solid #97B9C9;
+      background-color:#CDDDE4;
+      color:#067DB5;
+     }
 
  </style>
+ <script type="text/javascript" src="../js/cookie_util.js"></script>
+ <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="../js/coach/Student_searchCoach.js"></script>
+ <script type="text/javascript">
+  var stuno=getCookie("username");
+ //alert(stuno);
+ var count;
+    var pagesize=1;
+    var page;
+    var currentpage;
+    var pagecounts;
+ var cname;
+ var cno;
+ var term;
+ var studydata;
+ $(function(){
+ 	//alert(1);
+    $.ajax({
+      url:"http://localhost:8080/BaseTrainManage/trainstudnet/load.do",
+      type:"post",
+ 	  data:{"sno":stuno},
+ 	  dataType:"json",
+ 	  success:function(result){
+ 	    alert(result.status);
+ 	  	if(result.status==1){
+ 	  		var data=result.data;
+ 	  		cno=data.cno;
+ 	  		toHomePage();
+ 	  		
+ 	  	}else{
+ 	  		alert(result.msg);
+ 	  	}
+ 	  },
+ 	  error:function(){
+ 	  	alert("程序出错");
+ 	  }
+    
+    });
+ 		$("#query").click(function(){
+ 	    $("table tbody").html("");
+ 	      toHomePage();
+ 	});
+ 	 $("#pagesizes").change(setpageSize);
+ 	  $("#set").click(setPages);
+ 	 $("table tbody").on("mouseover","tr",function(){
+	       $(this).css("background-color","#E7FDFE");
+	   });
+	    $("table tbody").on("mouseout","tr",function(){
+	       $(this).css("background-color","#fff");
+	   });
+	    $("table tbody").on("click","tr",function(){
+	       var studydata=$(this).data("studydata");
+	        var fileName=studydata;
+ 				if(fileName==""){
+ 					alert("没有文件，请重新上传！");
+ 				}else{
+ 					window.location.href="../download.do?fileName="+fileName;
+ 				}
+	   });
+
+ 
+ });
+ </script>
 </head>
 <body>
 	<div id="head1"><img  src="../image/info.png"/></div>
@@ -45,34 +135,41 @@ document.write(strDate);
 <div id="information">
 	<form name="form2">
      <table width="950px" border="0" cellpadding="0" cellspacing="0" bgcolor="b5d6e6" align="center" style="margin-top:8px">
+      <thead>
       <tr>
-         <td height="24" colspan="4" align="left"><b>课程信息</b></td>
+         <td height="24" colspan="6" align="left"><b>课程信息</b></td>
      </tr>
 	   
        <tr align="center" bgcolor="#E7FDFE" height="22">
-	      <td width="25%"><b>课程号</b></td>
-	      <td width="25%"><b>课程名</b></td>
-	      <td width="20%"><b>学期</b></td>
-		  <td width="30%"><b>基本操作</b></td>
+	      <td width="15%"><b>课程号</b></td>
+	      <td width="15%"><b>课程名</b></td>
+	      <td width="15%"><b>资料名称</b></td>
+	       <td width="15%"><b>上传日期</b></td>
+	        <td width="15%"><b>上传人</b></td> 
+		  <td width="15%"><b>基本操作</b></td>
        </tr>
-       <tr align='center' bgcolor="#FFFFFF" height="22" onMouseMove="javascript:this.bgColor='#E7FDFE';" onMouseOut="javascript:this.bgColor='#FFFFFF';">    
-	      <td></td>
-	      <td align="center"></td>
-	      <td></td>
-	      <td>
-	           <img  src="../image/look.png"/>
-	           <a href="JDT_downloadStudyplan.html">查看教辅资料</a>&nbsp;
-	      </td>
-        </tr>
-		
+       </thead>
+       <tbody>
+      
+		</tbody>
+		<tfoot>
     <tr>
-         <td height="24" colspan="4" align="right">
+         <td height="24" colspan="6" align="right">
                                           总共&nbsp;<b>0</b>条记录</td>
      </tr>
+     </tfoot>
   </table>
  </form>
  </div>
-
+<div id="page">
+        &nbsp;&nbsp;每页<input type="text" id="pagesizes"><span id="number">条 </span>
+   <a href="#" id="head">首页</a>
+ 	<a href="#" id="lastpage">上一页</a>
+    <a href="#" id="nextpage">下一页</a>
+    <a href="#" id="end">尾页</a>
+        转到<input type="text" id="pages"/> 页<span id="set">设置</span>
+ 
+ </div>
 
 </body>
 </html>

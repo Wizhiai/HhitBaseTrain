@@ -17,4 +17,13 @@
 		a.cost as cost,a.term as term from traincourse a,base b where a.base_no = b.base_no
 	</select>
 	
+	<!-- 查询课程信息 -->
+	<select id="findCourseInfoByTno" parameterType="string" resultType="com.hhit.basetrain.entity.TrainCourse">
+		select base_no ,cno,cname,term from traincourse where cno=(select cno from teaching where t_no=#{t_no})	
+	</select>
+	
+	<!-- 通过基地号查询课程号 -->
+	<select id="findCourse" parameterType="string" resultType="string">
+		select cno from traincourse where base_no=#{base_no}
+	</select>
 </mapper>

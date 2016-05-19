@@ -61,7 +61,7 @@
 </head>
 <body>
 	<div id="head1"><img  src="../image/info.png"/></div>
-    <div id="head2">当前位置：首页&nbsp;>>&nbsp;课程管理&nbsp;>>&nbsp;课程考勤管理&nbsp;>><b>上传课程考勤</b></div>
+   <div id="head2">当前位置：首页&nbsp;>>&nbsp;实训成绩管理&nbsp;>>&nbsp;成绩信息修改&nbsp;>><b>上传试卷</b></div>
     <div id="person"><img  src="../image/person.png"/></div>
    <div id="welcome">您好：<b id="name"></b>,欢迎登录外实训学生管理系统--基地教师管理子系统</div>
    <div id="time"><img  src="../image/time.png"/>

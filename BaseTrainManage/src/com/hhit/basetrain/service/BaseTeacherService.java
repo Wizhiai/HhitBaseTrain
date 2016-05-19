@@ -3,6 +3,7 @@
  */
 package com.hhit.basetrain.service;
 
+
 import com.hhit.basetrain.entity.Result;
 
 
@@ -17,4 +18,12 @@ public interface BaseTeacherService {
 	public Result loadCnoInfo(String tno);
 	public Result loadSelInfo(String tno);
 	public Result modifySelInfo(String tname,String sex,String phone,String tno);
+	/**
+	 * 插入基地教师
+	 */
+	public Result inputBaseTeacher(String t_no,String t_name,String t_sex,String t_phone,String t_profeesion,Integer base_no);
+	/**
+	 * 删除基地教师
+	 */
+	public Result deleteBaseTeacherByNo(String tNo);
 }

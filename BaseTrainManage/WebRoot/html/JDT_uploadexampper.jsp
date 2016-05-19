@@ -61,7 +61,7 @@
 </head>
 <body>
 	<div id="head1"><img  src="../image/info.png"/></div>
-    <div id="head2">当前位置：首页&nbsp;>>&nbsp;课程管理&nbsp;>>&nbsp;课程考勤管理&nbsp;>><b>上传课程考勤</b></div>
+    <div id="head2">当前位置：首页&nbsp;>>&nbsp;实训成绩管理&nbsp;>>&nbsp;成绩信息修改&nbsp;>><b>上传试卷</b></div>
     <div id="person"><img  src="../image/person.png"/></div>
    <div id="welcome">您好：<b id="name"></b>,欢迎登录外实训学生管理系统--基地教师管理子系统</div>
    <div id="time"><img  src="../image/time.png"/>
@@ -104,28 +104,6 @@ document.write(strDate);
     <div id="d5"></div>
  </form>
  	
- 	<!--<table cellpadding="10" cellspacing="0" align="center">
- 		<tr>
- 			<td><div  align="left">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:&nbsp;<input type="text" disabled="disabled" id="stuno" name="stuno"/></div></td>
- 			</tr>
- 			<tr>
-           <td><div align="left">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:&nbsp;<input type="text" disabled="disabled" id="sname"/></div></td>
-           </tr>
-           <tr>
-           <td><div align="left">课&nbsp;&nbsp;&nbsp;程&nbsp;&nbsp;&nbsp;号:&nbsp;<input type="text" disabled="disabled" id="cno"/><input type="hidden" disabled="disabled" id="week" name="week"/><input type="hidden" disabled="disabled" id="month" name="month"/></div></td>
-           </tr>
-                   
-          
-           <tr>
-          <td><div align="left">  
-             
-                       考&nbsp;&nbsp;试&nbsp;&nbsp;试&nbsp;&nbsp;卷<input type="file" name="file" id="exampaper"/>
-           <input type="submit" value="上传" id="upload"/>
-            </div></td>
-          </tr>
- 		
- 	</table>
- 	-->
  	
  	
  </div>

@@ -30,4 +30,14 @@
  		update baseteacher set t_name=#{t_name},t_sex=#{t_sex},t_phone=#{t_phone} where 
  		t_no=#{t_no}
  	</update>
+ 	<!-- 插入基地教师 -->
+ 	<insert id="saveBaseTeacher" parameterType="com.hhit.basetrain.entity.BaseTeacher">
+ 		insert into baseteacher(t_no,t_name,t_sex,t_phone,base_no,t_profession) 
+ 		values(#{t_no},#{t_name},#{t_sex},#{t_phone},#{base_no},#{t_profession})
+ 	</insert>
+ 	<!-- 删除基地教师 -->
+ 	<delete id="deleteBaseTeacher" parameterType="string">
+ 		delete from baseteacher where t_no=#{t_no}
+ 	</delete>
+ 	
  </mapper>

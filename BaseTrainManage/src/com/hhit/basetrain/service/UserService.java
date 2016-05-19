@@ -27,7 +27,15 @@ public interface UserService {
 	 */
 	public Result modifyPwd(String username,String oldPwd,String newPwd);
 	/**
-	 * 添加用户
+	 * 插入基地教师
+	 * @param username
+	 * @param password
+	 * @param identity
+	 * @return
+	 */
+	public Result InputInfo(String username,String password,String identity);
+	 
+	/** 添加用户
 	 * @param username
 	 * @param identity
 	 * @return

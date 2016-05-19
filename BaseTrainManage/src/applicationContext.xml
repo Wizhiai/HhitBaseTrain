@@ -17,16 +17,23 @@
 		<property name="password" value="lijiehu"></property>
 		<property name="url" value="jdbc:mysql://120.27.112.49:3306/trainproject?useUnicode=true&amp;characterEncoding=utf-8"></property>
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-	</bean>
+	</bean>-->
 	
 	
-	-->
+	
 	<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="username" value="root"></property>
 		<property name="password" value="123456"></property>
 		<property name="url" value="jdbc:mysql://localhost:3306/trainproject?useUnicode=true&amp;characterEncoding=utf-8"></property>
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 	</bean>
+	<!--<bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="username" value="basetrain3"></property>
+		<property name="password" value="7788h00"></property>
+		<property name="url" value="jdbc:mysql://rm-m5e49v03f5qe7p351.mysql.rds.aliyuncs.com:3306/trainproject?useUnicode=true&amp;characterEncoding=utf-8"></property>
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+	</bean>-->
 	
 	<!--
 	<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
@@ -44,7 +51,6 @@
 		<property name="url" value="jdbc:mysql:///basetrain?useUnicode=true&amp;characterEncoding=utf-8"></property>
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 	</bean>
-	
 	-->
 	<bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dbcp"></property>

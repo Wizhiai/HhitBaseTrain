@@ -60,6 +60,12 @@ public interface UserDao {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public int resetPwd(String username);
 	/**
+	 * 插入基地教师
+	 * @param user
+	 * @return
+	 */
+	public int saveBaseTeacher(User user);
+	/**
 	 * 根据用户名查找学生信息
 	 * @param username
 	 * @return

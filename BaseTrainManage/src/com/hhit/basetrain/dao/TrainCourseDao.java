@@ -26,4 +26,15 @@ public interface TrainCourseDao {
 	 * @return
 	 */
 	public List<TrainCourseBean> findAllCourse();
+	/**
+	 * 加载基地课程信息
+	 * @param t_no
+	 * @return
+	 */
+	public TrainCourse findCourseInfoByTno(String t_no);
+	/**
+	 * 查询课程号
+	 */
+	public List<String> findCourse(String base_no);
+
 }

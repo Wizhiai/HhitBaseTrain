@@ -58,7 +58,7 @@
  <script type="text/javascript">
     var t_no=getCookie("username");
     var count;
-    var pagesize=1;
+    var pagesize=2;
     var page;
     var stuno;
     var currentpage;
@@ -77,7 +77,15 @@
  	     	toHomePage();
  	     
  	     })
- 	     
+ 	      $("table tbody").on("click","tr",function(){
+		  var stu=$(this).data("stu");
+		  var name=$(this).data("name");
+		  var base_name=$(this).data("base_name");
+		  alert(stu);
+		  alert(name);
+		  alert(base_name);
+		  window.location.href="JDT_addGrade.html?stuno="+stu+"&name="+name+"&base_name="+base_name;
+	   });
  	     
  	    $("table tbody").on("mouseover","tr",function(){
 	       $(this).css("background-color","#E7FDFE");

@@ -39,4 +39,14 @@ public class TrainCourseLoadInfController {
 		return result;
 		
 	}
+	
+	@RequestMapping("/traincourse/searchCno")
+	@ResponseBody
+	public Result execute(String base_no){
+		
+		Result result=trainCourseService.showCno(base_no);
+		return result;
+		
+	}
+
 }

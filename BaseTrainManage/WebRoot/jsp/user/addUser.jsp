@@ -82,10 +82,10 @@
 	  			</table>
 	  		</section>
   			<section class="btnLists">
-	  			<input type="button" id="rightMove" value=">"/><br/>
-	  			<input type="button" id="rightAllMove" value=">>"/><br/>
-	  			<input type="button" id="leftMove" value="<"/><br/>
-	  			<input type="button" id="leftAllMove" value="<<"/><br/>
+	  			<input type="button" id="rightMove" value="&gt;"/><br/>
+	  			<input type="button" id="rightAllMove" value="&gt;&gt;"/><br/>
+	  			<input type="button" id="leftMove" value="&lt;"/><<br/>
+	  			<input type="button" id="leftAllMove" value="&lt;&lt;"/><br/>
 	  			<input type="button" value="添加" id="addUser"/>
 	  		</section>
 	  		<section class="tableShow">

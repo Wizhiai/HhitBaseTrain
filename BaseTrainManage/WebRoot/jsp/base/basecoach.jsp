@@ -57,7 +57,7 @@
 	            <span class="imgBtn"></span><h1 class="resultTitle">学院队伍基地队伍</h1>
 	            <div class="resultInfo">
 	                <span>来自高校(聘请或合作)的指导教师和教辅人员总数<input type="text" value="" class="baseNeedInfo" id="school_teacher"/>人</span><br/>
-	                <span>来自企业，且富有实践教学经验的指导教师和教辅人员总数<input type="text" value="" class="baseNeedInfo" id="company_teacher"/>人</span
+	                <span>来自企业，且富有实践教学经验的指导教师和教辅人员总数<input type="text" value="" class="baseNeedInfo" id="company_teacher"/>人</span>
 	            </div>
 	        </div>
 	    </section>
