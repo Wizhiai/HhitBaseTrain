@@ -39,7 +39,7 @@
 		set Upwd = '000000'
 		where username = #{username}
 	</update>
-	<!-- 录入基地教师到用户表 -->
+	<!-- 录入基地教师到用户 -->
 	<insert id="saveBaseTeacher" parameterType="com.hhit.basetrain.entity.User">
 		insert into user(username,password,identity) values(#{username},'000000','3')
 	</insert>
