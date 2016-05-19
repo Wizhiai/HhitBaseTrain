@@ -3,11 +3,14 @@
  */
 package com.hhit.basetrain.serviceImpl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
 import com.hhit.basetrain.dao.CollegeTeacherDao;
+import com.hhit.basetrain.entity.Academy;
 import com.hhit.basetrain.entity.CollegeTeacher;
 import com.hhit.basetrain.entity.Result;
 import com.hhit.basetrain.service.CollegeTeacherService;
@@ -58,7 +61,6 @@ public class CollegeTeacherServiceImpl implements CollegeTeacherService{
 		teacher.setCt_profession(ct_profession);
 		teacher.setCt_birthday(ct_birthday);
 		teacher.setAcademy_no(academy_no);
-		System.out.println(ct_birthday);
 		
 		Result result = new Result();
 		result.setStatus(collegeTeacherDao.modifyInf(teacher));
@@ -84,6 +86,49 @@ public class CollegeTeacherServiceImpl implements CollegeTeacherService{
 			result.setStatus(1);
 			result.setMsg("查询成功");
 			result.setData(collegeTeacherDao.findNameByNo(ctNo));
+		}
+		return result;
+	}
+
+
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.CollegeTeacherService#showAcademyInf()
+	 */
+	public Result showAcademyInf() {
+		
+		Result result = new Result();
+		List<Academy> list = collegeTeacherDao.findAcademy();
+		
+		if(list.size() == 0){
+			
+			result.setStatus(0);
+			result.setMsg("学院显示失败！");
+			
+		}else{
+			result.setStatus(1);
+			result.setData(list);
+			result.setMsg("学院查询成功！");
+		}
+		return result;
+	}
+
+
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.CollegeTeacherService#showCollegeTeacherByAcademyNo(java.lang.String)
+	 */
+	public Result showCollegeTeacherByAcademyNo(String academyNo) {
+		Result result = new Result();
+		List<CollegeTeacher> list = collegeTeacherDao.findTeacherByAcademyNo(academyNo);
+		
+		if(list.size() == 0){
+			
+			result.setStatus(0);
+			result.setMsg("未查找到相关的教师信息！");
+			
+		}else{
+			result.setStatus(1);
+			result.setData(list);
+			result.setMsg("教师信息查找成功！");
 		}
 		return result;
 	}

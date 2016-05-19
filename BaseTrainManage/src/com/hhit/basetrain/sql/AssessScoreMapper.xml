@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ 
+<mapper namespace="com.hhit.basetrain.dao.AssessScoreDao">
+
+	<!-- 根据用户名查找用户 -->
+	<select id="findByName" parameterType="string" resultType="com.hhit.basetrain.entity.User">
+		select username,password,identity from user where username = #{name}
+	</select>
+	
+	<!-- 添加分数 -->
+	<insert id="save" parameterType="map">
+		insert into assessscore(oone,otwo,othree,
+		tone,ttwo,tthree,tfour,tfive,tsix,tseven,
+		threeone,threetwo,threethree,threefour,threefive,threesix,
+		fourone,fourtwo,fourthree,fourfour,fourfive,
+		fiveone,fivetwo,fivethree,fivefour,fivefive,
+		sixone,sixtwo,sixthree,sixfour,sixfive,sixsix)
+		values
+		(#{s11},#{s12},#{s13},
+		#{s21},#{s22},#{s23},#{s24},#{s25},#{s26},#{s27},
+		#{s31},#{s32},#{s33},#{s34},#{s35},#{s36},
+		#{s41},#{s42},#{s43},#{s44},#{s45},
+		#{s51},#{s52},#{s53},#{s54},#{s55},
+		#{s61},#{s62},#{s63},#{s64},#{s65},#{s66})
+	</insert>
+	
+	<!-- 删除用户 -->
+	<delete id="delete" parameterType="string">
+		delete from user where username = #{username}
+	</delete>
+	
+	<!-- 查询密码-->
+	<select id="searchPwd" parameterType="string" resultType="string">
+		select password where username = #{username}
+	</select>
+	
+	<!-- 修改密码 -->
+	<update id="mofifyPwd" parameterType="java.util.Map">
+		update user
+		set password = #{newPwd}
+		where username = #{username}
+	</update>
+	
+	<!-- 密码重置 -->
+	<update id="resetPwd" parameterType="string">
+		update user
+		set Upwd = '000000'
+		where username = #{username}
+	</update>
+	
+</mapper>

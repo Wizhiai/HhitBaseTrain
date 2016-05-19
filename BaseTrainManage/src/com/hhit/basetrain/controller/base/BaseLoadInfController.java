@@ -74,9 +74,20 @@ public class BaseLoadInfController {
 	 */
 	@RequestMapping("/base/searchByBaseNo")
 	@ResponseBody
-	public Result searchBaseBasicInfo(String base_no){
+	public Result searchBaseBasicInfo(int base_no){
 		
 		Result result = baseService.showBaseBasicInfoByNo(base_no);
+		return result;
+	}
+	/**
+	 * 通过基地号搜索基地基本信息(包括基地联系人)
+	 * @return
+	 */
+	@RequestMapping("/base/searchBaseBasicInfoByBaseNo")
+	@ResponseBody
+	public Result searchBaseBasicInfoByBaseNo(int base_no){
+		
+		Result result = baseService.showBaseAndBaseAdminBasicInfoByNo(base_no);
 		return result;
 	}
 	/**
@@ -85,7 +96,7 @@ public class BaseLoadInfController {
 	 */
 	@RequestMapping("/base/searchBuildByBaseNo")
 	@ResponseBody
-	public Result searchBaseBuildInfo(String base_no){
+	public Result searchBaseBuildInfo(int base_no){
 		
 		Result result = baseService.showBaseBuildInfoByNo(base_no);
 		return result;
@@ -96,7 +107,7 @@ public class BaseLoadInfController {
 	 */
 	@RequestMapping("/base/searchFieldByBaseNo")
 	@ResponseBody
-	public Result searchBaseFieldInfo(String base_no){
+	public Result searchBaseFieldInfo(int base_no){
 		
 		Result result = baseService.showBaseFieldInfoByNo(base_no);
 		return result;
@@ -107,7 +118,7 @@ public class BaseLoadInfController {
 	 */
 	@RequestMapping("/base/searchContentByBaseNo")
 	@ResponseBody
-	public Result searchBaseContentInfo(String base_no){
+	public Result searchBaseContentInfo(int base_no){
 		
 		Result result = baseService.showBaseContentInfoByNo(base_no);
 		return result;
@@ -118,7 +129,7 @@ public class BaseLoadInfController {
 	 */
 	@RequestMapping("/base/searchCoachByBaseNo")
 	@ResponseBody
-	public Result searchBaseCoachInfo(String base_no){
+	public Result searchBaseCoachInfo(int base_no){
 		
 		Result result = baseService.showBaseCoachInfoByNo(base_no);
 		return result;
@@ -129,7 +140,7 @@ public class BaseLoadInfController {
 	 */
 	@RequestMapping("/base/searchResearchByBaseNo")
 	@ResponseBody
-	public Result searchBaseResearchInfo(String base_no){
+	public Result searchBaseResearchInfo(int base_no){
 		
 		Result result = baseService.showBaseResearchInfoByNo(base_no);
 		return result;
@@ -140,7 +151,7 @@ public class BaseLoadInfController {
 	 */
 	@RequestMapping("/base/searchEffectByBaseNo")
 	@ResponseBody
-	public Result searchBaseEffectInfo(String base_no){
+	public Result searchBaseEffectInfo(int base_no){
 		
 		Result result = baseService.showBaseEffectInfoByNo(base_no);
 		return result;
@@ -151,7 +162,7 @@ public class BaseLoadInfController {
 	 */
 	@RequestMapping("/base/searchAllianceByBaseNo")
 	@ResponseBody
-	public Result searchBaseAllianceInfo(String base_no){
+	public Result searchBaseAllianceInfo(int base_no){
 		
 		Result result = baseService.showBaseAllianceInfoByNo(base_no);
 		return result;
@@ -162,7 +173,7 @@ public class BaseLoadInfController {
 	 */
 	@RequestMapping("/base/searchAdvantageByBaseNo")
 	@ResponseBody
-	public Result searchBaseAdvantageInfo(String base_no){
+	public Result searchBaseAdvantageInfo(int base_no){
 		
 		Result result = baseService.showBaseAdvantageInfoByNo(base_no);
 		return result;

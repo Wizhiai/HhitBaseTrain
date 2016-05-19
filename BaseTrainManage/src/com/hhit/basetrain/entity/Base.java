@@ -45,48 +45,18 @@ public class Base {
 	private Integer aid_num;
 	/** 实训项目开发人员数 */
 	private Integer developer_num;
-	/** 实训场地面积 */
-	private Double base_area;
-	/** 实训工位数 */
-	private Integer base_station;
-	/** 计划扩建面积 */
-	private Double extension_area;
-	/** 新扩实训工位数 */
-	private Integer new_station;
-	/** 仪器设备总额 */
-	private Double equipment_total;
-	/** 台套总数 */
-	private Integer machine_total;
-	/** 生均资产额 */
-	private Double average_assets;
-	/** 生均台套数 */
-	private String machine_average;
-	/** 主流产品及型号 */
-	private String mainstream_product;
+	/** 实训场地 */
+	private String base_area;
+	/** 硬件设备 */
+	private String handware;
 	/** 设备使用状况 */
 	private Integer machine_situation;
-	/** 正版软件系统 */
-	private String software_system;
 	/** 软件先进度自我评价 */
 	private Integer software_selfevaluation;
 	/** 软件实训需求情况 */
 	private Integer software_demand;
-	/** 食堂面积 */
-	private Double canteen_area;
-	/** 食堂座位数 */
-	private Integer canteen_seat;
-	/** 每日提供的餐数 */
-	private Integer meal_num;
 	/** 食堂归属 */
 	private Integer canteen_belong;
-	/** 宿舍面积 */
-	private Double dormitory_area;
-	/** 床位数 */
-	private Integer bed_num;
-	/** 每个宿舍床位 */
-	private String dormitory_bed;
-	/** 宿舍每月价格 */
-	private String dormitory_price;
 	/** 宿舍归属 */
 	private Integer dormitory_belong;
 	/** 学生管理现状 */
@@ -94,9 +64,9 @@ public class Base {
 	/** 清洁卫生 */
 	private Integer clean_manage;
 	/** 环境状况 */
-	private Integer environment;
+	private String environment;
 	/** 安全状况 */
-	private Integer safety;
+	private String safety;
 	/** 制定好的实训大纲 */
 	private String internship_outline;
 	/** 拟指定的实训大纲 */
@@ -344,92 +314,12 @@ public class Base {
 		developer_num = developerNum;
 	}
 
-	public Double getBase_area() {
-		return base_area;
-	}
-
-	public void setBase_area(Double baseArea) {
-		base_area = baseArea;
-	}
-
-	public Integer getBase_station() {
-		return base_station;
-	}
-
-	public void setBase_station(Integer baseStation) {
-		base_station = baseStation;
-	}
-
-	public Double getExtension_area() {
-		return extension_area;
-	}
-
-	public void setExtension_area(Double extensionArea) {
-		extension_area = extensionArea;
-	}
-
-	public Integer getNew_station() {
-		return new_station;
-	}
-
-	public void setNew_station(Integer newStation) {
-		new_station = newStation;
-	}
-
-	public Double getEquipment_total() {
-		return equipment_total;
-	}
-
-	public void setEquipment_total(Double equipmentTotal) {
-		equipment_total = equipmentTotal;
-	}
-
-	public Integer getMachine_total() {
-		return machine_total;
-	}
-
-	public void setMachine_total(Integer machineTotal) {
-		machine_total = machineTotal;
-	}
-
-	public Double getAverage_assets() {
-		return average_assets;
-	}
-
-	public void setAverage_assets(Double averageAssets) {
-		average_assets = averageAssets;
-	}
-
-	public String getMachine_average() {
-		return machine_average;
-	}
-
-	public void setMachine_average(String machineAverage) {
-		machine_average = machineAverage;
-	}
-
-	public String getMainstream_product() {
-		return mainstream_product;
-	}
-
-	public void setMainstream_product(String mainstreamProduct) {
-		mainstream_product = mainstreamProduct;
-	}
-
 	public Integer getMachine_situation() {
 		return machine_situation;
 	}
 
 	public void setMachine_situation(Integer machineSituation) {
 		machine_situation = machineSituation;
-	}
-
-	public String getSoftware_system() {
-		return software_system;
-	}
-
-	public void setSoftware_system(String softwareSystem) {
-		software_system = softwareSystem;
 	}
 
 	public Integer getSoftware_selfevaluation() {
@@ -448,29 +338,6 @@ public class Base {
 		software_demand = softWareDemand;
 	}
 
-	public Double getCanteen_area() {
-		return canteen_area;
-	}
-
-	public void setCanteen_area(Double canteenArea) {
-		canteen_area = canteenArea;
-	}
-
-	public Integer getCanteen_seat() {
-		return canteen_seat;
-	}
-
-	public void setCanteen_seat(Integer canteenSeat) {
-		canteen_seat = canteenSeat;
-	}
-
-	public Integer getMeal_num() {
-		return meal_num;
-	}
-
-	public void setMeal_num(Integer mealNum) {
-		meal_num = mealNum;
-	}
 
 	public Integer getCanteen_belong() {
 		return canteen_belong;
@@ -480,37 +347,6 @@ public class Base {
 		canteen_belong = canteenBelong;
 	}
 
-	public Double getDormitory_area() {
-		return dormitory_area;
-	}
-
-	public void setDormitory_area(Double dormitoryArea) {
-		dormitory_area = dormitoryArea;
-	}
-
-	public Integer getBed_num() {
-		return bed_num;
-	}
-
-	public void setBed_num(Integer bedNum) {
-		bed_num = bedNum;
-	}
-
-	public String getDormitory_bed() {
-		return dormitory_bed;
-	}
-
-	public void setDormitory_bed(String dormitoryBed) {
-		dormitory_bed = dormitoryBed;
-	}
-
-	public String getDormitory_price() {
-		return dormitory_price;
-	}
-
-	public void setDormitory_price(String dormitoryPrice) {
-		dormitory_price = dormitoryPrice;
-	}
 
 	public Integer getDormitory_belong() {
 		return dormitory_belong;
@@ -536,19 +372,19 @@ public class Base {
 		clean_manage = cleanManage;
 	}
 
-	public Integer getEnvironment() {
+	public String getEnvironment() {
 		return environment;
 	}
 
-	public void setEnvironment(Integer environment) {
+	public void setEnvironment(String environment) {
 		this.environment = environment;
 	}
 
-	public Integer getSafety() {
+	public String getSafety() {
 		return safety;
 	}
 
-	public void setSafety(Integer safety) {
+	public void setSafety(String safety) {
 		this.safety = safety;
 	}
 
@@ -961,22 +797,36 @@ public class Base {
 		base_advantage = baseAdvantage;
 	}
 
+	
+	public String getBase_area() {
+		return base_area;
+	}
+
+	public void setBase_area(String baseArea) {
+		base_area = baseArea;
+	}
+
+	public String getHandware() {
+		return handware;
+	}
+
+	public void setHandware(String handware) {
+		this.handware = handware;
+	}
+
 	@Override
 	public String toString() {
 		return "Base [actual_employment_num=" + actual_employment_num
-				+ ", aid_num=" + aid_num + ", average_assets=" + average_assets
-				+ ", base_address=" + base_address + ", base_advantage="
-				+ base_advantage + ", base_area=" + base_area + ", base_name="
-				+ base_name + ", base_no=" + base_no + ", base_property="
-				+ base_property + ", base_qualification=" + base_qualification
-				+ ", base_recommend=" + base_recommend + ", base_station="
-				+ base_station + ", bed_num=" + bed_num + ", canteen_area="
-				+ canteen_area + ", canteen_belong=" + canteen_belong
-				+ ", canteen_seat=" + canteen_seat + ", clean_manage="
-				+ clean_manage + ", company_project=" + company_project
-				+ ", company_teacher=" + company_teacher
-				+ ", construction_funds=" + construction_funds
-				+ ", cooperation_enterprise_name="
+				+ ", aid_num=" + aid_num + ", base_address=" + base_address
+				+ ", base_advantage=" + base_advantage + ", base_area="
+				+ base_area + ", base_name=" + base_name + ", base_no="
+				+ base_no + ", base_property=" + base_property
+				+ ", base_qualification=" + base_qualification
+				+ ", base_recommend=" + base_recommend + ", canteen_belong="
+				+ canteen_belong + ", clean_manage=" + clean_manage
+				+ ", company_project=" + company_project + ", company_teacher="
+				+ company_teacher + ", construction_funds="
+				+ construction_funds + ", cooperation_enterprise_name="
 				+ cooperation_enterprise_name + ", cooperation_enterprise_num="
 				+ cooperation_enterprise_num + ", cooperation_project_num="
 				+ cooperation_project_num + ", develop_case=" + develop_case
@@ -985,45 +835,37 @@ public class Base {
 				+ ", develop_project_staff=" + develop_project_staff
 				+ ", develop_project_student=" + develop_project_student
 				+ ", developer_num=" + developer_num + ", development_plan="
-				+ development_plan + ", dormitory_area=" + dormitory_area
-				+ ", dormitory_bed=" + dormitory_bed + ", dormitory_belong="
-				+ dormitory_belong + ", dormitory_price=" + dormitory_price
+				+ development_plan + ", dormitory_belong=" + dormitory_belong
 				+ ", education_num=" + education_num
 				+ ", employment_alliance_num=" + employment_alliance_num
 				+ ", employment_alliance_proportion="
 				+ employment_alliance_proportion + ", environment="
-				+ environment + ", equipment_total=" + equipment_total
-				+ ", establish_time=" + establish_time + ", evaluation_rule="
-				+ evaluation_rule + ", experienced_teacher="
-				+ experienced_teacher + ", extension_area=" + extension_area
+				+ environment + ", establish_time=" + establish_time
+				+ ", evaluation_rule=" + evaluation_rule
+				+ ", experienced_teacher=" + experienced_teacher
 				+ ", financial_situation=" + financial_situation
 				+ ", good_project=" + good_project + ", guide_book="
-				+ guide_book + ", intermediate_num=" + intermediate_num
-				+ ", internship_outline=" + internship_outline
-				+ ", large_enterprise=" + large_enterprise
-				+ ", machine_average=" + machine_average
-				+ ", machine_situation=" + machine_situation
-				+ ", machine_total=" + machine_total + ", main_rule="
-				+ main_rule + ", mainstream_product=" + mainstream_product
-				+ ", manage_institution=" + manage_institution + ", manager_num="
-				+ manager_num + ", meal_num=" + meal_num
-				+ ", middle_enterprise=" + middle_enterprise
-				+ ", new_guidingbook=" + new_guidingbook + ", new_material="
-				+ new_material + ", new_plan=" + new_plan + ", new_project="
-				+ new_project + ", new_station=" + new_station
-				+ ", outline_plan=" + outline_plan
-				+ ", postgraduate_proportion=" + postgraduate_proportion
-				+ ", project_inuse=" + project_inuse + ", publish_book="
-				+ publish_book + ", research_funding=" + research_funding
-				+ ", research_num=" + research_num + ", safety=" + safety
-				+ ", salary_range=" + salary_range + ", school_source="
-				+ school_source + ", school_teacher=" + school_teacher
-				+ ", scientific_research=" + scientific_research
-				+ ", selfdevelop_project=" + selfdevelop_project
-				+ ", senior_num=" + senior_num + ", small_enterprise="
-				+ small_enterprise + ", software_demand=" + software_demand
+				+ guide_book + ", handware=" + handware + ", intermediate_num="
+				+ intermediate_num + ", internship_outline="
+				+ internship_outline + ", large_enterprise=" + large_enterprise
+				+ ", machine_situation=" + machine_situation + ", main_rule="
+				+ main_rule + ", manage_institution=" + manage_institution
+				+ ", manager_num=" + manager_num + ", middle_enterprise="
+				+ middle_enterprise + ", new_guidingbook=" + new_guidingbook
+				+ ", new_material=" + new_material + ", new_plan=" + new_plan
+				+ ", new_project=" + new_project + ", outline_plan="
+				+ outline_plan + ", postgraduate_proportion="
+				+ postgraduate_proportion + ", project_inuse=" + project_inuse
+				+ ", publish_book=" + publish_book + ", research_funding="
+				+ research_funding + ", research_num=" + research_num
+				+ ", safety=" + safety + ", salary_range=" + salary_range
+				+ ", school_source=" + school_source + ", school_teacher="
+				+ school_teacher + ", scientific_research="
+				+ scientific_research + ", selfdevelop_project="
+				+ selfdevelop_project + ", senior_num=" + senior_num
+				+ ", small_enterprise=" + small_enterprise
+				+ ", software_demand=" + software_demand
 				+ ", software_selfevaluation=" + software_selfevaluation
-				+ ", software_system=" + software_system
 				+ ", specialist_proportion=" + specialist_proportion
 				+ ", student_manage=" + student_manage + ", student_num="
 				+ student_num + ", student_selfask=" + student_selfask

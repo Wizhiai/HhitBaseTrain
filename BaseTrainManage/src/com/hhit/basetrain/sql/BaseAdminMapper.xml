@@ -21,4 +21,18 @@
 		where manager_no = #{manager_no}
 	</update>
 	
+	<!-- 删除基地管理员 -->
+	<delete id="deleteBaseAdminByNo" parameterType="string">
+		delete from baseadmin where manager_no = #{manager_no}
+	</delete>
+	
+	<!-- 管理员添加基地管理员 -->
+	<insert id="saveBaseAdmin" parameterType="string">
+		insert into baseadmin(manager_no)
+		values
+		(#{manager_no})
+	</insert>
+	
+	
+	
 </mapper>

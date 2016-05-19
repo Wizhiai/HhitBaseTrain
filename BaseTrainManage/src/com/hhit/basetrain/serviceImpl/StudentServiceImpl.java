@@ -250,4 +250,84 @@ public class StudentServiceImpl implements StudentService{
 		
 		return result;
 	}
+
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.StudentService#searchClassInfoByMajor(java.lang.String)
+	 */
+	public Result searchClassInfo(String major) {
+		Result result = new Result();
+		List<String> list =  studentDao.findClass(major);
+		
+		if(list.size() == 0){
+			result.setStatus(0);
+			result.setMsg("未查找到相关的班级！");
+		}else{
+			result.setStatus(1);
+			result.setData(list);
+			result.setMsg("班级查找成功");
+		}
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.StudentService#studentEnterYearInfo()
+	 */
+	public Result studentEnterYearInfo() {
+		Result result = new Result();
+		List<Integer> list =  studentDao.findEnterYear();
+		
+		if(list.size() == 0){
+			result.setStatus(0);
+			result.setMsg("未查找到学生入学年份！");
+		}else{
+			result.setStatus(1);
+			result.setData(list);
+			result.setMsg("入学年份查找成功查找成功");
+		}
+		
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.StudentService#studentMajorInfo()
+	 */
+	public Result studentMajorInfo() {
+		Result result = new Result();
+		List<String> list =  studentDao.findMajor();
+		
+		if(list.size() == 0){
+			result.setStatus(0);
+			result.setMsg("未查找到专业信息！");
+		}else{
+			result.setStatus(1);
+			result.setData(list);
+			result.setMsg("专业查找成功");
+		}
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.StudentService#searchStudentInfoAsUser(int, java.lang.String, java.lang.String)
+	 */
+	public Result searchStudentInfoAsUser(int enterYear, String major,
+			String stuClass) {
+		
+		Result result = new Result();
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("enter_year", enterYear);
+		map.put("major", major);
+		map.put("stu_class", stuClass);
+		
+		List<Student> list =  studentDao.findStudentAsUser(map);
+		
+		if(list.size() == 0){
+			result.setStatus(0);
+			result.setMsg("未查找到学生信息！");
+		}else{
+			result.setStatus(1);
+			result.setData(list);
+			result.setMsg("学生信息查找成功");
+		}
+		return result;
+	}
 }

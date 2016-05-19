@@ -17,7 +17,7 @@
 					if(placard_title =="" || placard_content == ""){
 						alert("公告标题或公告内容不能为空！");
 					}else if(placard_title !="" && placard_content != ""){
-						addSchoolPlacard();
+							addSchoolPlacard();
 					}
 				});
 				$("#title").change(function(){
@@ -37,7 +37,8 @@
 								$("#add").attr("disabled","true");
 								$("#add").addClass("btn_disabled");
 							}else{
-								$("#msg").text("").hide();
+								isTitleExit = 1;
+								$("#msg").text("");
 								$("#add").removeAttr("disabled");
 								$("#add").removeClass("btn_disabled");
 							}
@@ -68,10 +69,13 @@
   </head>
   
   <body>
-  	<div class="list">
-   		公告标题：<input type="text" id="title"/><span id="msg"></span><br/>
-			公告内容：<textarea id="content"></textarea><br/>
-			<input type="button" value="发布" id="add"/>
-		</div>
+  	 <div class="list">
+	 	 <div  class="modifyInfo" >
+	    	<span>公告标题：<input type="text" id="title" class="placardTitle"/></span><span id="msg"></span><br/>
+				<span style="vertical-align: top;">公告内容：</span>
+				<textarea id="content" class="placardContent"></textarea><br/>
+				<input type="button"  class="editBtn" value="发布" id="add"/>
+	   </div>
+	  </div>
   </body>
 </html>

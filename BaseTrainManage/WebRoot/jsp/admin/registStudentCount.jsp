@@ -13,7 +13,7 @@
 			var pageSize = 1;
 			var resultdata = new Object();
 			$(function(){
-				$("#studnetRegistCountInform").css("display","none");
+				$("#studnetRegistCountInform").hide();
 				$("#search").click(function(){
 					Count();
 				});
@@ -30,8 +30,8 @@
 			function Count(){
 				var countType = $("#countType option:selected").val();
 				if(countType == 1){
-					var tr = "<th>序号</th><th>专业</th><th>报名人数</th><th>操作</th>";
-					$("#showInform thead").empty();
+					var tr = "<tr><th>序号</th><th>专业</th><th>报名人数</th><th>操作</th></tr>";
+					$("#showInform thead tr").remove();
 					$("#showInform thead").append($(tr));
 					$.ajax({
 		  			url:"http://localhost:8080/BaseTrainManage/student/registCountByMajor.do",
@@ -51,8 +51,8 @@
 						}
 					});
 				}else if(countType == 2){
-					var tr = "<th>序号</th><th>实训单位</th><th>报名人数</th><th>操作</th>";
-					$("#showInform thead").empty();
+					var tr = "<tr><th>序号</th><th>实训单位</th><th>报名人数</th><th>操作</th></tr>";
+					$("#showInform thead tr").remove();
 					$("#showInform thead").append($(tr));
 					$.ajax({
 		  			url:"http://localhost:8080/BaseTrainManage/student/registCountByBase.do",
@@ -72,8 +72,8 @@
 						}
 					});
 				}else if(countType == 3){
-					var tr = "<th>序号</th><th>专业</th><th>实训单位</th><th>报名人数</th><th>操作</th>";
-					$("#showInform thead").empty();
+					var tr = "<tr><th>序号</th><th>专业</th><th>实训单位</th><th>报名人数</th><th>操作</th></tr>";
+					$("#showInform thead tr").remove();
 					$("#showInform thead").append($(tr));
 					$.ajax({
 		  			url:"http://localhost:8080/BaseTrainManage/student/registCountByMajorAndBase.do",
@@ -93,7 +93,7 @@
 						}
 					});
 				}
-				$("#studnetRegistCountInform").css("display","block");
+				$("#studnetRegistCountInform").show();
 			}
 			function gotoPage(pageSize,pageIndex,data){
 			
@@ -134,11 +134,17 @@
 	  	 	<option value="2">实训单位划分统计</option>
 	  	 	<option value="3">按专业和实训单位划分统计</option>
 	  	 </select>
-	   	 <input type="button" value="统计" id="search"/>
+	   	 <input type="button" value="统计" id="search" class="editBtn"/>
 	   	</div>
 	   	<div id="studnetRegistCountInform">
 		    <table id="showInform" >
 		    	<thead>
+		    	<tr>
+		    		<th>序号</th>
+	    			<th>公告标题</th>
+	    			<th>发布时间</th>
+	    			<th>操作</th>
+	    		</tr>
 		    	</thead>
 		    	<tbody></tbody>
 		     </table>

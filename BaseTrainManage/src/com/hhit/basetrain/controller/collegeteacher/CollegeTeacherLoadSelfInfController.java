@@ -38,4 +38,18 @@ public class CollegeTeacherLoadSelfInfController {
 		return result;
 	}
 	
+	@RequestMapping("/collegeteacher/searchAcademy")
+	@ResponseBody
+	public Result searchAcademyName(){
+		Result result = collegeTeacherService.showAcademyInf();
+		return result;
+	}
+	
+	@RequestMapping("/teacher/searchTeacherUser")
+	@ResponseBody
+	public Result searchTeacherUser(String academy_no){
+		Result result = collegeTeacherService.showCollegeTeacherByAcademyNo(academy_no);
+		return result;
+	}
+	
 }
