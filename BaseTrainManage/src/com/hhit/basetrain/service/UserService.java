@@ -34,4 +34,35 @@ public interface UserService {
 	 * @return
 	 */
 	public Result InputInfo(String username,String password,String identity);
+	 
+	/** 添加用户
+	 * @param username
+	 * @param identity
+	 * @return
+	 */
+	public Result insertUser(String username,String identity);
+	/**
+	 * 删除用户
+	 * @param username
+	 * @return
+	 */
+	public Result deleteUser(String username);
+	/**
+	 * 通过用户名查看学生信息
+	 * @param username
+	 * @return
+	 */
+	public Result showStudentUserInfoByNo(String username);
+	/**
+	 * 通过用户名查看教师信息
+	 * @param username
+	 * @return
+	 */
+	public Result showCollegeTeacherUserInfoByNo(String username);
+	/**
+	 * 重置密码
+	 * @param username
+	 * @return
+	 */
+	public Result resetUserPwdByNo(String username);
 }

@@ -5,6 +5,11 @@ package com.hhit.basetrain.dao;
 
 import java.util.Map;
 
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.hhit.basetrain.entity.CollegeTeacher;
+import com.hhit.basetrain.entity.Student;
 import com.hhit.basetrain.entity.User;
 
 /**
@@ -25,13 +30,15 @@ public interface UserDao {
 	 * @param password
 	 * @param identity
 	 */
-	public void save(String username,String password,String identity);
+	@Transactional(propagation = Propagation.REQUIRED)
+	public int save(Map<String,Object> map);
 	/**
 	 * 删除用户
 	 * @param username
 	 * @return
 	 */
-	public int delect(String username);
+	@Transactional(propagation = Propagation.REQUIRED)
+	public int delete(String username);
 	/**
 	 * 查询密码
 	 * @param map
@@ -43,12 +50,14 @@ public interface UserDao {
 	 * @param map
 	 * @return
 	 */
+	@Transactional(propagation = Propagation.REQUIRED)
 	public int modifyPwd(Map<String,Object> map);
 	/**
 	 * 密码重置
 	 * @param username
 	 * @return
 	 */
+	@Transactional(propagation = Propagation.REQUIRED)
 	public int resetPwd(String username);
 	/**
 	 * 插入基地教师
@@ -56,4 +65,16 @@ public interface UserDao {
 	 * @return
 	 */
 	public int saveBaseTeacher(User user);
+	/**
+	 * 根据用户名查找学生信息
+	 * @param username
+	 * @return
+	 */
+	public Student findStudentUserByNo(String username);
+	/**
+	 * 根据用户名查找学生信息
+	 * @param username
+	 * @return
+	 */
+	public CollegeTeacher findCollegeTeacherUserByNo(String username);
 }
