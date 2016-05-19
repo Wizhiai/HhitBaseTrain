@@ -86,4 +86,11 @@ public class StudentLoadSelfInfController {
 		return result;
 	}
 	
+	@RequestMapping("/student/searchStudentUser")
+	@ResponseBody
+	public Result searchStudentUser(int enter_year,String major,String stu_class){
+		Result result = studentService.searchStudentInfoAsUser(enter_year, major, stu_class);
+		return result;
+	}
+	
 }

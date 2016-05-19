@@ -95,4 +95,18 @@
 		</where>
 	</select>
 	
+	<!-- 查找学生用户 -->
+	<select id="findStudentAsUser" parameterType="map" resultType="com.hhit.basetrain.entity.Student">
+		select stuno,stu_name from student  
+		<where>  
+			enter_year = enter_year
+			<if test="major != null and major !=''">
+				and major = #{major}
+			</if>
+			<if test="stu_class != null and stu_class !=''">
+				and stu_class = #{stu_class}
+			</if>
+		</where>
+	</select>
+	
 </mapper>

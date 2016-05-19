@@ -68,7 +68,6 @@
 					alert("请输入关键字");
 				}
 				var a=$("#searchType option:selected").val();
-				alert(a+searchKey);
 				if(a == 1){//基地名称搜索
 					$.ajax({
 						url:"http://localhost:8080/BaseTrainManage/base/searchByName.do",
@@ -143,7 +142,7 @@
 	  			<option value="3">基地课程</option>
 	  		</select>
 	  		<input type="text" id="searchkey">
-	  		<input type="button" id="search" value="查询">
+	  		<input type="button" id="search" value="查询" class="editBtn">
 	  	</div>
 	    <div id="baseInform">
 	    	<table id="showInform">

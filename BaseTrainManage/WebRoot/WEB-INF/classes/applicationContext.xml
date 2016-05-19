@@ -12,8 +12,7 @@
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 	
-	<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
-<<<<<<< HEAD
+	<!--<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="username" value="hulijie"></property>
 		<property name="password" value="lijiehu"></property>
 		<property name="url" value="jdbc:mysql://120.27.112.49:3306/trainproject?useUnicode=true&amp;characterEncoding=utf-8"></property>
@@ -21,27 +20,24 @@
 	</bean>
 	
 	
-	<!--
-	
-=======
+	-->
+	<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="username" value="root"></property>
 		<property name="password" value="123456"></property>
 		<property name="url" value="jdbc:mysql://localhost:3306/trainproject?useUnicode=true&amp;characterEncoding=utf-8"></property>
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 	</bean>
-	<!--<bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean">
->>>>>>> 5cd18050c1be87b4d23434b67cfe9a1856844acb
+	
+	<!--
 	<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
 		<property value="basetrain3" name="username"/>
 		<property value="7788h00" name="password"/>
 		<property value="jdbc:mysql://rm-m5e49v03f5qe7p351.mysql.rds.aliyuncs.com:3306/trainproject?useUnicode=true&amp;characterEncoding=utf-8" name="url"/>
 		<property value="com.mysql.jdbc.Driver" name="driverClassName"/>
 	</bean>
-<<<<<<< HEAD
 	
-=======
->>>>>>> 5cd18050c1be87b4d23434b67cfe9a1856844acb
-	
+	-->
+	<!--
 	<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="username" value="root"></property>
 		<property name="password" value="123456"></property>
@@ -49,7 +45,8 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 	</bean>
 	
-	--><bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean">
+	-->
+	<bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dbcp"></property>
 		<property name="mapperLocations" value="classpath:com/hhit/basetrain/sql/*.xml"></property>
 	</bean>
@@ -66,6 +63,9 @@
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="1073741824"></property>
 	</bean>
-	
-
---></beans>
+-->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dbcp"></property>
+	</bean>
+	<tx:annotation-driven transaction-manager="txManager"/>
+</beans>

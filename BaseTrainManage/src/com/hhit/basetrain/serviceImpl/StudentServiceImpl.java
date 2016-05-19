@@ -305,4 +305,29 @@ public class StudentServiceImpl implements StudentService{
 		}
 		return result;
 	}
+
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.StudentService#searchStudentInfoAsUser(int, java.lang.String, java.lang.String)
+	 */
+	public Result searchStudentInfoAsUser(int enterYear, String major,
+			String stuClass) {
+		
+		Result result = new Result();
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("enter_year", enterYear);
+		map.put("major", major);
+		map.put("stu_class", stuClass);
+		
+		List<Student> list =  studentDao.findStudentAsUser(map);
+		
+		if(list.size() == 0){
+			result.setStatus(0);
+			result.setMsg("未查找到学生信息！");
+		}else{
+			result.setStatus(1);
+			result.setData(list);
+			result.setMsg("学生信息查找成功");
+		}
+		return result;
+	}
 }

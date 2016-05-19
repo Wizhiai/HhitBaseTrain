@@ -69,7 +69,11 @@ public interface StudentService {
 	 */
 	public Result studentMajorInfo();
 	/**
-	 * 根绝专业查找学生班级信息
+	 * 根据专业查找学生班级信息
 	 */
 	public Result searchClassInfo(String major);
+	/**
+	 * 根据入学年份、专业、班级查找学生信息
+	 */
+	public Result searchStudentInfoAsUser(int enter_year,String major,String stu_class);
 }

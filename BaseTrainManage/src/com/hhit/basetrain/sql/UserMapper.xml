@@ -6,38 +6,50 @@
 
 	<!-- 根据用户名查找用户 -->
 	<select id="findByName" parameterType="string" resultType="com.hhit.basetrain.entity.User">
-		select username,password,identity from user where username = #{name}
+		select username,password,identity from user where binary username = #{name}
 	</select>
 	
 	<!-- 添加用户 -->
-	<insert id="save" parameterType="com.hhit.basetrain.entity.User">
+	<insert id="save" parameterType="map">
 		insert into user(username,password,identity)
 		values
-		(#{username},#{password},#{identity})
+		(#{username},'000000',#{identity})
 	</insert>
 	
 	<!-- 删除用户 -->
 	<delete id="delete" parameterType="string">
-		delete from user where username = #{username}
+		delete from user where binary username = #{username}
 	</delete>
 	
 	<!-- 查询密码-->
 	<select id="searchPwd" parameterType="string" resultType="string">
-		select password from user where username = #{username}
+		select password from user where binary username = #{username}
 	</select>
 	
 	<!-- 修改密码 -->
 	<update id="modifyPwd" parameterType="java.util.Map">
 		update user
 		set password = #{newPwd}
-		where username = #{username}
+		where binary username = #{username}
 	</update>
 	
 	<!-- 密码重置 -->
 	<update id="resetPwd" parameterType="string">
 		update user
-		set Upwd = '000000'
+		set password = '000000'
 		where username = #{username}
 	</update>
+	
+	<!-- 根据用户名查找学生信息 -->
+	<select id="findStudentUserByNo" parameterType="string" resultType="com.hhit.basetrain.entity.Student">
+		select stuno,stu_name,stu_sex,stu_class,major,phone,enter_year,birthday,address from student
+		where stuno = #{username}
+	</select>
+	
+	<!-- 根据用户名查找教师信息 -->
+	<select id="findCollegeTeacherUserByNo" parameterType="string" resultType="com.hhit.basetrain.entity.CollegeTeacher">
+		select ct_no,ct_name,ct_birthday,ct_sex,academy_no,ct_phone,ct_profession from collegeteacher
+		where ct_no = #{username}
+	</select>
 	
 </mapper>

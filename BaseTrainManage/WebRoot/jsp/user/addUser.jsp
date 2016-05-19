@@ -9,12 +9,14 @@
     <script type="text/javascript" src="../../js/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/menuchoose.js"></script>
 		<script type="text/javascript" src="../../js/cookie_util.js"></script>
+		<script type="text/javascript" src="../../js/userManage.js"></script>
 		<script type="text/javascript">
+			var addResult = parseInt(0);
 			$(function(){
 				selectHide();
+				$(".searchResultInfo").hide();
 				$("#userType").change(function(){
 					var userType = $("#userType").val();
-					alert(userType);
 					if(userType == 0){
 						alert("请选择用户类型");
 					}else if(userType == 1){//学生
@@ -26,103 +28,39 @@
 						$("#stu_class").show();
 					}else if(userType == 2){//教师
 						selectHide();
-						$("#academy_no").show();
+						addAcademy();//添加学院
+						$("#academy").show();
 					}
 				});
-				$("#stu_major").change(function(){
+				$("#stu_major").change(function(){//专业改变触发班级改变事件
+					$("#stu_class option:first").next().remove();
 					addStudentClass();//添加班级
 				});
+				
+				$("#search").click(function(){//查找用户
+					searchUser();
+					if($("#userType").val() != 0){
+						$(".searchResultInfo").show();
+					}
+				});
+				$("#rightMove").click(function(){
+					resultRightMove();
+				});
+				$("#rightAllMove").click(function(){//全部右移
+					resultAllRightMove();
+				});
+				$("#leftMove").click(function(){//左移
+					insertLeftMove();
+				});
+				$("#leftAllMove").click(function(){//全部左移
+					resultAllLeftMove();
+				});
+				$("#addUser").click(function(){
+					addUser();
+				});
 			});
-			function selectHide(){/*隐藏用户类型后的选择条件*/
-				$("#stu_enter_year").hide();
-				$("#stu_major").hide();
-				$("#stu_class").hide();
-				$("#academy_no").hide();
-			}
-			function addStudentEnterYear(){//添加入学年份
-				$.ajax({
-		  			url:"http://localhost:8080/BaseTrainManage/student/searchEnteryear.do",
-						type:"post",
-						dataType:"json",
-						success:function(result){
-							if(result.status == 1){
-								var data = result.data;
-								for(var i=0;i<data.length;i++){
-									var tr ="<option value="+data[i]+">"+data[i]+"</option>"
-									$("#stu_enter_year").append($(tr));
-								}
-							}else{
-								alert(result.msg);
-							}
-						},
-						error:function(){
-								alert("程序出错");
-						}
-				});
-			}
-			function addStudentMajor(){//添加专业
-				$.ajax({
-		  			url:"http://localhost:8080/BaseTrainManage/student/searchMajor.do",
-						type:"post",
-						dataType:"json",
-						success:function(result){
-							if(result.status == 1){
-								var data = result.data;
-								var tr ="<option selected>请选择专业</option>";
-								for(var i=0;i<data.length;i++){
-									tr +="<option value="+data[i]+">"+data[i]+"</option>"
-									$("#stu_major").append($(tr));
-								}
-							}else{
-								alert(result.msg);
-							}
-						},
-						error:function(){
-								alert("程序出错");
-						}
-				});
-			}
-			function addStudentClass(){//添加班级
-				var major = $("#stu_major option:selected").val();
-				$.ajax({
-		  			url:"http://localhost:8080/BaseTrainManage/student/searchClass.do",
-						type:"post",
-						data:{"major":major},
-						dataType:"json",
-						success:function(result){
-							if(result.status == 1){
-								var data = result.data;
-								var tr ="<option selected>请选择班级</option>";
-								for(var i=0;i<data.length;i++){
-								
-									tr +="<option value="+data[i]+">"+data[i]+"</option>"
-									$("#stu_class").append($(tr));
-								}
-							}else{
-								alert(result.msg);
-							}
-						},
-						error:function(){
-								alert("程序出错");
-						}
-				});
-			}
-			
-			function searchUser(){
-				var userType = $("#userType").val();
-				if(userType == 0){
-					alert("请选择用户类型");
-				}else if(userType == 1){//学生
-					$("#stu_enter_year").show();
-					$("#stu_major").show();
-					$("#stu_class").show();
-				}else if(userType == 2){//教师
-					$("#academy_no").show();
-				}
-			}
 		</script>
   </head>
-  
   <body>
   	<div class="list">
    		<div class="topContent">
@@ -133,10 +71,26 @@
 	  			<option value="2">学校教师</option>
 	  		</select>
 	  		<select id="stu_enter_year"></select>
-	  		<select id="stu_major"></select>
-	  		<select id="stu_class"></select>
-	  		<select id="academy_no"><option>12</option></select>
-	  		<input type="button" id="search" value="查询"/>
+	  		<select id="stu_major"><option value="" selected>请选择专业</option></select>
+	  		<select id="stu_class"><option value="" selected>请选择班级</option></select>
+	  		<select id="academy"><option value="" selected>请选择学院</option></select>
+	  		<input type="button" id="search"  class="editBtn" value="查询"/>
+  		</div>
+  		<div class="searchResultInfo">
+	  		<section class="tableShow">
+	  			<table id="searchResult" class="appendStu">
+	  			</table>
+	  		</section>
+  			<section class="btnLists">
+	  			<input type="button" id="rightMove" value=">"/><br/>
+	  			<input type="button" id="rightAllMove" value=">>"/><br/>
+	  			<input type="button" id="leftMove" value="<"/><br/>
+	  			<input type="button" id="leftAllMove" value="<<"/><br/>
+	  			<input type="button" value="添加" id="addUser"/>
+	  		</section>
+	  		<section class="tableShow">
+  				<table id="insertResult" class="appendStu"></table>
+  			</section>
   		</div>
 		</div>
   </body>

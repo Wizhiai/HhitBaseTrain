@@ -112,7 +112,8 @@ abbr[title], dfn[title] {
  input, select {
      vertical-align:middle;
      background-color: none !important;
-     border:none;
+     border:1px solid #ccc;
+     border-radius:5px;
 }
 /*{
 	cursor:pointer;

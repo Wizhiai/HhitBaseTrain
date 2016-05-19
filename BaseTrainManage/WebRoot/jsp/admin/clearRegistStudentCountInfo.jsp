@@ -4,6 +4,8 @@
 <html>
   <head>
     <title>My JSP 'trainregist.jsp' starting page</title>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/index.css"/>
     <script type="text/javascript" src="../../js/jquery.min.js"></script>
 		<script type="text/javascript" src="../../js/page_util.js"></script>
 		<script type="text/javascript" src="../../js/menuchoose.js"></script>
@@ -59,34 +61,31 @@
   </head>
   
   <body>
-   	<div id="studnetRegistCountInform">
-    <table id="showInform" border="1" style="border:1px solid black;">
-    	<thead>
-    		<th>序号</th>
-    		<th>学生姓名</th>
-    		<th>班级</th>
-    		<th>专业</th>
-    		<th>基地名</th>
-    		<th>课程名</th>
-    	</thead>
-    	<tbody></tbody>
-    	<tfoot align="center">
-    		<tr>
-    			<td></td>
-    			<td>
-    				<input type="button" id="firstPage" value = "首页">
-    				<input type="button" id="prePage" value="上一页">&nbsp;&nbsp;
-    			</td>
-    			<td>	
-    				第<label id="currentPage"></label>页/共<label id="totalPage"></label>页
-    			</td>
-    			<td>
-    				<input type="button" id="nextPage" value="下一页">
-    			</td>
-    		</tr>
-    	</tfoot>
-    </table>
+  	<div class="list">
+  	<div class="topContent">
+	   	<div id="studnetRegistCountInform">
+	    <table id="showInform" border="1" style="border:1px solid black;">
+	    	<thead>
+	    		<th>序号</th>
+	    		<th>学生姓名</th>
+	    		<th>班级</th>
+	    		<th>专业</th>
+	    		<th>基地名</th>
+	    		<th>课程名</th>
+	    	</thead>
+	    	<tbody></tbody>
+	    </table>
+	    <div class="pageInfo">
+				<span>共计</span><span id="totalRecords"></span><span>条数据</span>
+				<input type="button" id="firstPage" class="btn" value = "首页">
+				<input type="button" id="prePage"  class="btn" value="上一页">
+				<span>第</span><span id="currentPage"></span><span>页/共</span>
+				<span id="totalPage"></span><span>页</span>
+				<input type="button" id="nextPage" class="btn" value="下一页">
+		 </div>
+		 <input type="button" value="关闭" id="close" class="editBtn" style="margin-left: 280px;margin-top:20px;"/>
+	  </div>
    </div>
-   <input type="button" value="关闭" id="close"/>
+   </div>
   </body>
 </html>

@@ -118,10 +118,10 @@
 	  	<div class="topContent">
 	  		<h1>请输入公告标题</h1>
 	  		<input type="text" id="title"/>
-				<input type="button" value="查询" id="search"/>
+				<input type="button" value="查询" id="search" class="editBtn"/>
 	  	</div>
-	  	<div id="placardInform">
-	    	<table id="showInform" border="1" style="border:1px solid black;">
+	  	<div class="mainContent">
+	    	<table id="showInform">
 		    	<thead>
 		    		<tr>
 		    			<th>序号</th>
