@@ -23,6 +23,6 @@ values(#{cno},#{cname},${term},#{studydataname},#{studydata},#{uploadDate},#{upl
 	delete from coursecoach where id=${id}
 </delete>
 
-<!-- 查询课辅资料查看-->
+<!-- 查询课辅资料-->
 
 </mapper>
