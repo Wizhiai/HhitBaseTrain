@@ -44,5 +44,4 @@
 		insert into user(username,password,identity) values(#{username},'000000','3')
 	</insert>
 	
-	
 </mapper>
