@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
   	<meta content="">
-    <title>My JSP 'admin_modifyInf.jsp' starting page</title>
+    <title>超级管理员个人信息</title>
     <link rel="stylesheet" href="../../css/common.css"/>
     <link rel="stylesheet" href="../../css/index.css"/>
     <script type="text/javascript" src="../../js/jquery.min.js"></script>

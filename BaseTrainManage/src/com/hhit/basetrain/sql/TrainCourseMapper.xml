@@ -17,6 +17,45 @@
 		a.cost as cost,a.term as term from traincourse a,base b where a.base_no = b.base_no
 	</select>
 	
+<<<<<<< HEAD
+	<!-- 添加基地课程 -->
+	<insert id="saveCourse" parameterType="map">
+		insert into traincourse(cno,base_no,cname,cost,term)
+		values
+		(#{cno},#{base_no},#{cname},#{cost},#{term})
+	</insert>
+	
+	<!-- 通过基地查找基地课程 -->
+	<select id="findCourseByBaseNo" parameterType="int" resultType="com.hhit.basetrain.entity.TrainCourse">
+		select cno,base_no,cname,cost,term from traincourse
+		where base_no = #{base_no}
+	</select>
+	
+	<!-- 通过课程号修改课程 -->
+	<update id="updateCourseInfoByCourseNo" parameterType="map">
+		update traincourse 
+		set cname = #{cname},cost=#{cost},term=#{term}
+		where cno = #{cno}
+	</update>
+	
+	<!-- 通过课程号删除课程 -->
+	<delete id="deleteCourseInfoByCourseNo" parameterType="string">
+		delete from traincourse where cno = #{cno}
+	</delete>
+	
+	<!-- 通过基地号、课程名查找基地课程 -->
+	<select id="findCourseByBaseNoAndCname" parameterType="map" resultType="com.hhit.basetrain.entity.TrainCourse">
+		select cno,base_no,cname,cost,term from traincourse
+		where base_no = #{base_no} and cname = #{cname}
+	</select>
+	
+	<!-- 通过课程号查找基地课程 -->
+	<select id="findCourseByCourseNo" parameterType="string" resultType="com.hhit.basetrain.entity.TrainCourse">
+		select cno,base_no,cname,cost,term from traincourse
+		where cno = #{cno}
+	</select>
+	
+=======
 	<!-- 查询课程信息 -->
 	<select id="findCourseInfoByTno" parameterType="string" resultType="com.hhit.basetrain.entity.TrainCourse">
 		select base_no ,cno,cname,term from traincourse where cno=(select cno from teaching where t_no=#{t_no})	
@@ -26,4 +65,5 @@
 	<select id="findCourse" parameterType="string" resultType="string">
 		select cno from traincourse where base_no=#{base_no}
 	</select>
+>>>>>>> 945d2b75460f000516705e1dd40c9ea8b8dd71dd
 </mapper>

@@ -30,6 +30,18 @@
  		update baseteacher set t_name=#{t_name},t_sex=#{t_sex},t_phone=#{t_phone} where 
  		t_no=#{t_no}
  	</update>
+<<<<<<< HEAD
+ 	
+ 	<!-- 通过基地号查询教师编号-->
+ 	<select id="findBaseTeacherNoByBaseNo" parameterType="string" resultType="string">
+ 		select t_no from baseteacher where base_no = #{base_no}
+ 	</select>
+ 	
+ 	<!--根据基地号删除基地教师 -->
+ 	<delete id="deleteBaseTeacherByBaseNo" parameterType="int">
+ 		delete from baseteacher where base_no = #{baseteacher}
+ 	</delete>
+=======
  	<!-- 插入基地教师 -->
  	<insert id="saveBaseTeacher" parameterType="com.hhit.basetrain.entity.BaseTeacher">
  		insert into baseteacher(t_no,t_name,t_sex,t_phone,base_no,t_profession) 
@@ -40,4 +52,5 @@
  		delete from baseteacher where t_no=#{t_no}
  	</delete>
  	
+>>>>>>> 945d2b75460f000516705e1dd40c9ea8b8dd71dd
  </mapper>

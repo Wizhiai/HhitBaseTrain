@@ -83,4 +83,19 @@ public class BaseAdminServiceImpl implements BaseAdminService{
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.BaseAdminService#showBaseNoByManagerNo(java.lang.String)
+	 */
+	public Result showBaseNoByManagerNo(String managerNo) {
+		
+		Result result = new Result();
+		int base_no = baseAdminDao.findBaseNoByManagerNo(managerNo);
+			
+		result.setStatus(1);
+		result.setMsg("查询成功");
+		result.setData(base_no);
+			
+		return result;
+	}
+
 }

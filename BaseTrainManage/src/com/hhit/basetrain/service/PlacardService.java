@@ -86,4 +86,47 @@ public interface PlacardService {
 	 * @return
 	 */
 	public Result deleteSchoolPlacard(String placard_no);
+	/**
+	 * 分页显示基地公告
+	 * @param placard_no
+	 * @return
+	 */
+	public Result showAllBaseInf(String pulish_author);
+	/**
+	 * 通过公告号显示学校公告
+	 * @param placard_no
+	 * @return
+	 */
+	public Result showBasePlacardInfByPlacardNo(String placard_no);
+	
+	/**
+	 * 添加基地公告
+	 * @param placard_no
+	 * @return
+	 */
+	public Result addBasePlacard(String placard_title,String placard_content,String publish_author,String placard_type);
+	/**
+	 * 判断学校公告标题是否已经存在
+	 * @param placard_no
+	 * @return
+	 */
+	public Result isBasePlacardExit(String placard_title,String publish_author);
+	/**
+	 * 通过基地公告标题模糊查询
+	 * @param placard_no
+	 * @return
+	 */
+	public Result searchBasePlacardByTitle(String placard_title,String placard_type,String publish_author);
+	/**
+	 * 修改基地公告信息
+	 * @param placard_no
+	 * @return
+	 */
+	public Result modifyBasePlacard(String placard_no,String placard_title,String placard_content,String placard_type,String publish_author);
+	/**
+	 * 删除基地公告
+	 * @param placard_no
+	 * @return
+	 */
+	public Result deleteBasePlacard(String placard_no);
 }

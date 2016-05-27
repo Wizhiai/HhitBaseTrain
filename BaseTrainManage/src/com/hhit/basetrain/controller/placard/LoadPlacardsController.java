@@ -26,7 +26,6 @@ public class LoadPlacardsController {
 	@ResponseBody
 	public Result execute(String id){
 		Result result=placardService.loadPlacard(id);
-		System.out.println(1);
 		return result;
 		
 	}
@@ -34,7 +33,6 @@ public class LoadPlacardsController {
 	@ResponseBody
 	public Result execute1(){
 		Result result=placardService.loadSchoolPlacard();
-		System.out.println(1);
 		return result;
 	}
 	
@@ -118,6 +116,57 @@ public class LoadPlacardsController {
 	public Result deleteschoolPlacardByTitle(String placard_no){
 		
 		Result result=placardService.deleteSchoolPlacard(placard_no);
+		return result;
+	}
+	
+	@RequestMapping("/basePlacard/searchAllBasePlacard")
+	@ResponseBody
+	public Result searchbasePagePlacard(String publish_author){
+		Result result=placardService.showAllBaseInf(publish_author);
+		return result;
+	}
+	
+	@RequestMapping("/basePlacard/searchbasePlacardByPlacardNo")
+	@ResponseBody
+	public Result searchbasePlacardByNo(String placard_no){
+		
+		Result result=placardService.showBasePlacardInfByPlacardNo(placard_no);
+		return result;
+	}
+	@RequestMapping("/basePlacard/addBasePlacard")
+	@ResponseBody
+	public Result addbasePlacard(String placard_title,String placard_content,String publish_author,String placard_type){
+		
+		Result result=placardService.addBasePlacard(placard_title, placard_content, publish_author, placard_type);
+		return result;
+	}
+	
+	@RequestMapping("/basePlacard/findBasePlacardByTitle")
+	@ResponseBody
+	public Result isbasePlacardExit(String placard_title,String publish_author){
+		
+		Result result=placardService.isBasePlacardExit(placard_title, publish_author);
+		return result;
+	}
+	@RequestMapping("/basePlacard/searchBasePlacardByTitle")
+	@ResponseBody
+	public Result searchbasePlacardByTitle(String placard_title,String placard_type,String publish_author){
+		
+		Result result=placardService.searchBasePlacardByTitle(placard_title, placard_type, publish_author);
+		return result;
+	}
+	@RequestMapping("/basePlacard/updateBasePlacardByNo")
+	@ResponseBody
+	public Result updatebasePlacardByTitle(String placard_no,String placard_title,String placard_content,String placard_type,String publish_author){
+		System.out.println(placard_no);
+		Result result=placardService.modifyBasePlacard(placard_no, placard_title, placard_content, placard_type, publish_author);
+		return result;
+	}
+	@RequestMapping("/basePlacard/deleteBasePlacardByNo")
+	@ResponseBody
+	public Result deletebasePlacardByTitle(String placard_no){
+		
+		Result result=placardService.deleteBasePlacard(placard_no);
 		return result;
 	}
 }

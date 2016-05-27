@@ -3,7 +3,7 @@
 <html>
   <head>
     
-    <title>My JSP 'question.jsp' starting page</title>
+    <title>编辑学校公告信息</title>
     <link rel="stylesheet" href="../../css/common.css"/>
     <link rel="stylesheet" href="../../css/index.css"/>
     <script type="text/javascript" src="../../js/jquery.min.js"></script>

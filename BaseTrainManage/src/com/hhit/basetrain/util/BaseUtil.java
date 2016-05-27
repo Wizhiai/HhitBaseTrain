@@ -3,10 +3,10 @@
  */
 package com.hhit.basetrain.util;
 
+
 /**
  * @author Jiya
  * @date 2016-5-13t下午10:27:21
- * TODO
  */
 public class BaseUtil {
 	/**
@@ -44,7 +44,16 @@ public class BaseUtil {
 		return manage_no;
 		
 	}
-	public static void main(String[] args) {
-		System.out.println(generateBaseAdminNo(1,3));
+	
+	public static String generateTrainCourseNo(int base_no){
+		
+		String timeStr = String.valueOf(System.currentTimeMillis());
+		int length = timeStr.length();
+		
+		String ffix = timeStr.substring(0,2).concat(timeStr.substring(length-5,length));
+		
+		String cno = formatBaseNo(base_no,3).concat(ffix) ;
+		return cno;
+		
 	}
 }

@@ -3,38 +3,15 @@
 <html>
   <head>
     
-    <title>My JSP 'question.jsp' starting page</title>
+    <title>学校公告信息</title>
     <link rel="stylesheet" href="../../css/common.css"/>
     <link rel="stylesheet" href="../../css/index.css"/>
     <script type="text/javascript" src="../../js/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/menuchoose.js"></script>
 		<script type="text/javascript" src="../../js/cookie_util.js"></script>
-		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->	
+		<script type="text/javascript" src="../../js/placard/schoolplacard.js"></script>
 		<script type="text/javascript">
-			$(function(){
-				var placard_no = getCookie("placard_no");
-				$.ajax({
-	  			url:"http://localhost:8080/BaseTrainManage/schoolPlacard/searchByPlacardNo.do",
-					type:"post",
-					data:{"placard_no":placard_no},
-					dataType:"json",
-					success:function(result){
-						if(result.status == 1){
-							$("#title").val(result.data.placard_title);
-							$("#publish_time").val(result.data.publish_time);
-							$("#content").val(result.data.placard_content);
-						}else{
-							alert(result.msg);
-						}
-					},
-					error:function(){
-							alert("程序出错");
-					}
-				});
-				$("#close").click(function(){
-					closeCurrentWindow();
-				});
-			});
+		
 		</script>
   </head>
   
@@ -48,8 +25,7 @@
 				<textarea id="content" style="overflow-y:auto; " readonly="readonly" style="overflow-y:auto; "></textarea><br/>
 				<input type="button" value="关闭" id="close" class="editBtn"/>
    		</div>
-  		</div>
-  		
+  		</div>	
 		</div>
   </body>
 </html>

@@ -39,6 +39,52 @@ public class TrainCourseLoadInfController {
 		return result;
 		
 	}
+<<<<<<< HEAD
+	@RequestMapping("/traincourse/isCourseNameExit")
+	@ResponseBody
+	public Result isCourseNameExit(String manager_no, String cname){
+		
+		Result result=trainCourseService.isCourseNameExit(manager_no, cname);
+		return result;
+		
+	}
+	@RequestMapping("/traincourse/addCourse")
+	@ResponseBody
+	public Result addCourse(String manager_no,String cname,int cost,double term){
+		
+		Result result=trainCourseService.addCourseInf(manager_no, cname, cost, term);
+		return result;
+		
+	}
+	@RequestMapping("/traincourse/showBaseCourseByManagerNo")
+	@ResponseBody
+	public Result showBaseCourseByManagerNo(String manager_no){
+		
+		Result result=trainCourseService.showCourseInfByManagerNo(manager_no);
+		return result;
+	}
+	@RequestMapping("/traincourse/searchCourseByCourseNo")
+	@ResponseBody
+	public Result searchCourseByCourseNo(String cno){
+		
+		Result result=trainCourseService.searchCourseInfByCourseNo(cno);
+		return result;
+	}
+	@RequestMapping("/traincourse/modifyCourseInfoByCourseNo")
+	@ResponseBody
+	public Result modifyCourseInfoByCourseNo(String cno,String cname,int cost,double term){
+		
+		Result result=trainCourseService.modifyCourseInfByCourseNo(cno, cname, cost, term);
+		return result;
+	}
+	@RequestMapping("/traincourse/deleteCourseInfoByCourseNo")
+	@ResponseBody
+	public Result deleteCourseInfoByCourseNo(String cno){
+		
+		Result result=trainCourseService.deleteCourseInfByCourseNo(cno);
+		return result;
+	}
+=======
 	
 	@RequestMapping("/traincourse/searchCno")
 	@ResponseBody
@@ -49,4 +95,5 @@ public class TrainCourseLoadInfController {
 		
 	}
 
+>>>>>>> 945d2b75460f000516705e1dd40c9ea8b8dd71dd
 }

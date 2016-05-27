@@ -8,7 +8,6 @@
   	<script type="text/javascript" src="../../js/cookie_util.js"></script>
   </head>
   <body  class="bg">
-		<div class="logo"></div>
 		<div class="center">
 			 <div class="login_left"><img src="../../images/mm.png"></div>
 		    <div class="login">

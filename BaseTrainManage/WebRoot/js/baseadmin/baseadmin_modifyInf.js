@@ -32,6 +32,11 @@ $(function(){
 	$("#update").click(function(){
 		var name = $("#name").val();
 		var phone = $("#telephone").val();
+		var manager_no = getCookie("username");
+		if(manager_no == "" || manager_no ==null){
+			alert("页面已失效，请重新登录！");
+			return;
+		}
 		if(name =="" || phone ==""){
 			alert("用户名或联系方式不能为空！");
 		}else if(name !="" && phone !=""){
