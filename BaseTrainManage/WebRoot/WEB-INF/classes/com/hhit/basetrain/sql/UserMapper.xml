@@ -43,13 +43,13 @@
 	<!-- 根据用户名查找学生信息 -->
 	<select id="findStudentUserByNo" parameterType="string" resultType="com.hhit.basetrain.entity.Student">
 		select stuno,stu_name,stu_sex,stu_class,major,phone,enter_year,birthday,address from student
-		where stuno = #{username}
+		where binary stuno = #{username}
 	</select>
 	
 	<!-- 根据用户名查找教师信息 -->
 	<select id="findCollegeTeacherUserByNo" parameterType="string" resultType="com.hhit.basetrain.entity.CollegeTeacher">
 		select ct_no,ct_name,ct_birthday,ct_sex,academy_no,ct_phone,ct_profession from collegeteacher
-		where ct_no = #{username}
+		where binary ct_no = #{username}
 	</select>
 	
 </mapper>

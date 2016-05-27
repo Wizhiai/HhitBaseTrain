@@ -24,4 +24,44 @@ public interface TrainCourseService {
 	 * @return
 	 */
 	public Result showAllbaseCourseInf();
+	/**
+	 *  通过基地管理员显示基地课程
+	 * @param manager_no
+	 * @return
+	 */
+	public Result showCourseInfByManagerNo(String manager_no);
+	/**
+	 * 通过课程号查询课程信息
+	 * @param cno
+	 * @return
+	 */
+	public Result searchCourseInfByCourseNo(String cno);
+	/**
+	 * 通过课程号修改课程信息
+	 * @param cno
+	 * @return
+	 */
+	public Result modifyCourseInfByCourseNo(String cno,String cname,int cost,double term);
+	/**
+	 * 通过课程号删除课程信息
+	 * @param cno
+	 * @return
+	 */
+	public Result deleteCourseInfByCourseNo(String cno);
+	/**
+	 * 查看基地课程名是否存在
+	 * @param cno
+	 * @return
+	 */
+	public Result isCourseNameExit(String manager_no,String cname);
+	/**
+	 * 添加基地课程
+	 * @param manager_no
+	 * @param cname
+	 * @param cost
+	 * @param term
+	 * @return
+	 */
+	public Result addCourseInf(String manager_no,String cname,int cost,double term);
+	
 }

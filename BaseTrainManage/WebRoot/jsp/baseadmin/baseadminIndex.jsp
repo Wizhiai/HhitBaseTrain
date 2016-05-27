@@ -9,28 +9,14 @@
 		<script type="text/javascript" src="../../js/jquery.min.js"></script>
 		<script type="text/javascript" src="../../js/menuchoose.js"></script>
 		<script type="text/javascript" src="../../js/cookie_util.js"></script>
+		<script type="text/javascript" src="../../js/baseadmin/baseadminIndex.js"></script>
 		<script type="text/javascript">
-			$(function(){
-				/*$("body").css("background","#dbecfb");
-				$("body").css("height","100%");
-				$("body").css("overflow","hidden");
-				$(".secondMenu").css("display","none");
-				 二级菜单的显示与隐藏  
-				$(".personInfo").click(function(){
-					$(this).next(".secondMenu").slideToggle(1);
-					$(this).siblings().next(".secondMenu").css("display","none");
-				});*/
-				indexMenuManage();
-				promptName();
-				$("#exit").click(function(){
-					exitSystem();
-				});
-			})
+			
 		</script>
 
   </head>
   
-  <body>
+  <body style="min-width:1400px">
   <!--  头部-->
 	  <header class="stuHeader">
 	  <div class="userLogin ">
@@ -50,25 +36,30 @@
 	  		<li><a href="baseadmin_modifyInf.jsp" target="businessfrm">修改个人信息</a></li>
     		<li><a href="../pwdModify.jsp" target="businessfrm">修改密码</a></li>
 	  	</ul>
-	  	<div id="searchInfo" class="personInfo">基地信息管理</div>
+	  	<div id="baseManage" class="personInfo">基地信息管理</div>
 	  	<ul class="secondMenu">
-	  		<li><a target="businessfrm">查询基地信息</a></li>
-	  		<li><a href="#" target="businessfrm">编辑基地信息</a></li>
+	  		<li><a id="searchBaseInfo" target="businessfrm">查询基地信息</a></li>
+	  		<li><a id="manageBaseInfo" target="businessfrm">编辑基地信息</a></li>
     	</ul> 
-    	<div id="searchInfo" class="personInfo">基地教师管理</div>
+    	<div id="userInfo" class="personInfo">基地教师管理</div>
 	  	<ul class="secondMenu">
 	  		<li><a href="#" target="businessfrm">添加教师信息</a></li>
 	  		<li><a href="#" target="businessfrm">编辑教师信息</a></li>
     	</ul> 
     	<div id="searchInfo" class="personInfo">公告管理</div>
 	  	<ul class="secondMenu">
-	  		<li><a href="#" target="businessfrm">发布公告信息</a></li>
-	  		<li><a href="#" target="businessfrm">编辑公告信息</a></li>
+	  		<li><a href="../placard/addBasePlacard.jsp" target="businessfrm">发布公告信息</a></li>
+	  		<li><a href="../placard/searchBasePlacard.jsp" target="businessfrm">编辑公告信息</a></li>
     	</ul> 
-    	<div id="searchInfo" class="personInfo">实训学生管理</div>
+    	<div id="userInfo" class="personInfo">实训学生管理</div>
 	  	<ul class="secondMenu">
 	  		<li><a href="" target="businessfrm">添加实训学生</a></li>
 	  		<li><a href="" target="businessfrm">编辑实训学生信息</a></li>
+    	</ul> 
+    	<div id="basePlacardAccess" class="personInfo">基地开设课程管理</div>
+	  	<ul class="secondMenu">
+	  		<li><a href="../traincourse/addBaseCourse.jsp" target="businessfrm">添加课程</a></li>
+	  		<li><a href="../traincourse/manageCourseInfo.jsp" target="businessfrm">编辑课程信息</a></li>
     	</ul> 
 	  	<ul id="signUp" class="personInfo">
 	  		<li>

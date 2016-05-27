@@ -18,6 +18,13 @@ function indexMenuManage(){
 	
 	});
 }
+function isPageValid(obj){
+	var username = getCookie("username");
+	if(username == "" || username == null){
+		alert("页面已失效，请从新登陆！");
+		$(obj).removeAttr("href");
+	}
+}
 function promptName(){
 	var no = getCookie("username");
 	var identity = getCookie("identity");

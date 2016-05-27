@@ -52,6 +52,11 @@ $(function(){
 		var stu_class = $("#class").val();
 		var phone = $("#telephone").val();
 		var address = $("#address").val();
+		var stuno = getCookie("username");
+		if(stuno == "" || stuno == null){
+			alert("页面已失效，请重新登录！");
+			return;
+		}
 		
 		if(phone =="" ||address=="" || birthday==""){
 			alert("联系方式或家庭地址或出生日期不能为空！");

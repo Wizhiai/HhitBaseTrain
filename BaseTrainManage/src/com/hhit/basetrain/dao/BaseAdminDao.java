@@ -29,4 +29,5 @@ public interface BaseAdminDao {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public int saveBaseAdmin(String manager_no);
 
+	public int findBaseNoByManagerNo(String manager_no);
 }

@@ -3,7 +3,7 @@
 <html>
   <head>
   	<meta content="">
-    <title>My JSP 'admin_modifyInf.jsp' starting page</title>
+    <title>基地管理员修改个人信息</title>
      <link rel="stylesheet" href="../../css/common.css"/>
     <link rel="stylesheet" href="../../css/index.css"/>
     <script type="text/javascript" src="../../js/jquery.min.js"></script>

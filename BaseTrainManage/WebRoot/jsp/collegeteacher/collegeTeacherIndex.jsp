@@ -3,29 +3,15 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title>My JSP 'StudentIndex.jsp' starting page</title>
+    <title>基地信息查询学校教师首页</title>
     <link rel="stylesheet" href="../../css/common.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/index.css">
 		<script type="text/javascript" src="../../js/jquery.min.js"></script>
 		<script type="text/javascript" src="../../js/menuchoose.js"></script>
 		<script type="text/javascript" src="../../js/cookie_util.js"></script>
+		<script type="text/javascript" src="../../js/collegeteacher/collegeTeacherIndex.js"></script>
 		<script type="text/javascript">
-			$(function(){
-			/*	$("body").css("background","#dbecfb");
-				$("body").css("height","100%");
-				$("body").css("overflow","hidden");
-				$(".secondMenu").css("display","none");
-				 二级菜单的显示与隐藏  
-				$(".personInfo").click(function(){
-					$(this).next(".secondMenu").slideToggle(1);
-					$(this).siblings().next(".secondMenu").css("display","none");
-				});*/
-				indexMenuManage();
-				promptName();
-				$("#exit").click(function(){
-					exitSystem();
-				});
-			})
+			
 		</script>
 
   </head>

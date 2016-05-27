@@ -19,5 +19,7 @@ public interface BaseTeacherDao {
 	public String findCnoByTeacherNo(String tno);
 	public Map findInfoByNo(String tno);
 	public int modifySelfInfo(BaseTeacher teacher);
+	public int deleteBaseTeacherByBaseNo(int base_no);
+	public List<String> findBaseTeacherNoByBaseNo(int base_no);
 
 }

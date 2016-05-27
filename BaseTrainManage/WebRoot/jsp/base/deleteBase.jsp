@@ -3,90 +3,15 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title>My JSP 'base.jsp' starting page</title>
+    <title>删除基地</title>
     <link rel="stylesheet" href="../../css/common.css"/>
-    <link rel="stylesheet" href="../../css/index.css"/>
+    <link rel="stylesheet" href="../../css/base.css"/>
 		<script type="text/javascript" src="../../js/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/menuchoose.js"></script>
     <script type="text/javascript" src="../../js/page_util.js"></script>
 		<script type="text/javascript" src="../../js/cookie_util.js"></script>
+		<script type="text/javascript" src="../../js/base/deleteBase.js"></script>
 	 	<script type="text/javascript">
-	 		var pageSize = 1;
-			var resultdata = new Object();
-	 		$(function(){
-	 			$("#baseInform").hide();
-	 			$("#search").click(function(){
-	 				searchBase();
-	 			});
-	 			$("#firstPage").click(function(){//首页
-					firstPage(resultdata,pageSize);
-				});
-				$("#prePage").click(function(){//上一页
-					prePage(resultdata,pageSize);
-				});
-				$("#nextPage").click(function(){//下一页
-					nextPage(resultdata,pageSize);
-				});
-	 		})
-	 		function searchBase(){
-	 			var baseName = $("#base_name").val();
-	 			if(baseName == ""){
-	 				alert("请输入基地名！");
-	 			}else{
-	 				$.ajax({
-							url:"http://localhost:8080/BaseTrainManage/base/searchByName.do",
-							type:"post",
-							data:{"base_name":baseName},
-							dataType:"json",
-							success:function(result){
-								if(result.status == 1){
-									resultdata = result.data;
-									pageCalculate(resultdata,pageSize);
-									firstPage(resultdata,pageSize);//显示首页
-									$("#baseInform").show();
-								}else{
-									alert(result.msg);
-									$("#baseInform").hide();
-								}
-							},
-							error:function(){
-									alert("程序出错");
-							}
-					});
-	 			}
-	 		}
-	 		function gotoPage(pageSize,pageIndex,data){//页数跳转
-					var tr = "";
-					for(var i=(pageIndex-1)*pageSize;i<=parseInt(pageIndex)*parseInt(pageSize)-1&& i<data.length;i++){
-						tr += "<tr><td>"+(i+1)+"</td><td>"+data[i].base_name+"</td><td>"+data[i].base_address+"</td><td>"+data[i].establish_time+"</td>";
-						tr += "<td><input id='base_no' type='hidden'value="+data[i].base_no+"><input type='button' value='删除' class='btn' onclick='deleteBase();'></td></tr>";
-					}
-					clearTableContent();
-					addTableContent(tr);
-			}
-	 		function deleteBase(){
-	 			if(confirm("确定删除该基地？")){
-					var base_no = $("#base_no").val();
-	 				alert(base_no);
-	 				$.ajax({
-						url:"http://localhost:8080/BaseTrainManage/base/deleteBase.do",
-						type:"post",
-						data:{"base_no":base_no},
-						dataType:"json",
-						success:function(result){
-							if(result.status == 1){
-								alert("基地删除成功！");
-								searchBase();
-							}else{
-								alert("基地删除失败！");
-							}
-						},
-						error:function(){
-								alert("程序出错");
-						}
-					});
-				}
-	 		}
 	 		
 	 	</script>
  	

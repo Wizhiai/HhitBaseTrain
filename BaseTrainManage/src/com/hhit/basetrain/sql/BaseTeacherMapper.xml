@@ -30,4 +30,14 @@
  		update baseteacher set t_name=#{t_name},t_sex=#{t_sex},t_phone=#{t_phone} where 
  		t_no=#{t_no}
  	</update>
+ 	
+ 	<!-- 通过基地号查询教师编号-->
+ 	<select id="findBaseTeacherNoByBaseNo" parameterType="string" resultType="string">
+ 		select t_no from baseteacher where base_no = #{base_no}
+ 	</select>
+ 	
+ 	<!--根据基地号删除基地教师 -->
+ 	<delete id="deleteBaseTeacherByBaseNo" parameterType="int">
+ 		delete from baseteacher where base_no = #{baseteacher}
+ 	</delete>
  </mapper>

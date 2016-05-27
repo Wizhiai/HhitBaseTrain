@@ -33,6 +33,9 @@
 		(#{manager_no})
 	</insert>
 	
-	
+	<!-- 根据基地管理员账号查找基地号 -->
+	<select id="findBaseNoByManagerNo" parameterType="string" resultType="int">
+		select ifnull(base_no,0) as base_no from baserelation where manager_no = #{manager_no}
+	</select>
 	
 </mapper>

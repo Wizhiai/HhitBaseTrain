@@ -18,6 +18,11 @@ $(function(){
 		var oldPwd = $("#oldpwd").val();
 		var newPwd = $("#newpwd").val();
 		var newPwd2 = $("#newpwd2").val();
+		var username = getCookie("username");
+		if(username == "" || username ==null){
+			alert("页面失效，请重新登录！");
+			return;
+		}
 		if(oldPwd ==""){
 			alert("请输入原密码!");
 			return;
