@@ -3,11 +3,8 @@
  */
 package com.hhit.basetrain.serviceImpl;
 
-<<<<<<< HEAD
 import java.util.HashMap;
-=======
 import java.util.ArrayList;
->>>>>>> 945d2b75460f000516705e1dd40c9ea8b8dd71dd
 import java.util.List;
 import java.util.Map;
 
@@ -213,7 +210,7 @@ public class TrainCourseServiceImpl implements TrainCourseService{
 		
 		return result;
 	}
-=======
+	/**
 	 * @see com.hhit.basetrain.service.TrainCourseService#loadTrainCourseInfo(java.lang.String)
 	 */
 	public Result loadTrainCourseInfo(String tNo) {
@@ -246,5 +243,4 @@ public class TrainCourseServiceImpl implements TrainCourseService{
 		return result;
 	}
 
->>>>>>> 945d2b75460f000516705e1dd40c9ea8b8dd71dd
 }

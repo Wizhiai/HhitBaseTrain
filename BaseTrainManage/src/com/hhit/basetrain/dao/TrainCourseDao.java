@@ -65,7 +65,7 @@ public interface TrainCourseDao {
 	  * @return
 	  */
 	 public TrainCourse findCourseByCourseNo(String cno);
-=======
+	 /**
 	 * 加载基地课程信息
 	 * @param t_no
 	 * @return
@@ -76,5 +76,4 @@ public interface TrainCourseDao {
 	 */
 	public List<String> findCourse(String base_no);
 
->>>>>>> 945d2b75460f000516705e1dd40c9ea8b8dd71dd
 }
