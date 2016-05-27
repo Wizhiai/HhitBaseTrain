@@ -8,14 +8,89 @@
  	body{
  	 position:relative;
  	}
+ 	a{
+ 	color:#000;
+ 	text-decoration: none;
+ 	cursor: ponter;
+ 	}
 
  </style>
+ <script type="text/javascript" src="../js/cookie_util.js"></script>
+ <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+ <script type="text/javascript">
+ var t_no=getCookie("username");
+ var cname;
+ var cno;
+ var term;
+ $(function(){
+ 	$.ajax({
+ 		url:"http://localhost:8080/BaseTrainManage/traincourse/loadTrainCourse.do",
+ 		type:"post",
+ 		data:{"t_no":t_no},
+ 		dataType:"json",
+ 		success:function(result){
+ 			if(result.status==1){
+ 				var data=result.data;
+ 				cname=data.cname;
+ 				cno=data.cno;
+ 				term=data.term;
+ 				$("table tbody").html("");
+ 				var tr='<tr align="center" bgcolor="#FFFFFF" height="22"> ';
+ 				tr+='<td>'+data.cno+'</td>';
+ 				tr+='<td>'+data.cname+'</td>';
+ 				tr+='<td>'+data.term+'</td>';
+ 				tr+='<td> <img  src="../image/upload.png"/>';
+ 				tr+='<a onclick="toNextPage();">上传教辅资料</a>&nbsp;';
+ 				tr+='<img  src="../image/look.png"/>';
+ 				tr+='<a href="JDT_UpdateStudyCheck.html">查看教辅资料</a>&nbsp;</td></tr>';
+ 				$tr=$(tr);
+ 				$("table tbody").append($tr);
+ 			}else{
+ 				alert(result.msg);
+ 			}
+ 			$("table tfoot td b").html(1);
+ 		},
+ 		error:function(){
+ 			alert("程序出错");
+ 		}
+ 	
+ 	});
+ 
+ });
+ function toNextPage(){
+ 	window.location.href="JDT_uploadStudydata.html?cno="+cno+"&cname="+cname+"&term="+term+"&tno="+t_no;
+ }
+ function download(){
+ 	$.ajax({
+ 		url:"http://localhost:8080/BaseTrainManage/teaching/showfile.do",
+ 		type:"post",
+ 		data:{"t_no":t_no},
+ 		dataType:"json",
+ 		success:function(result){
+ 			if(result.status==1){
+ 				var data=result.data;
+ 				var fileName=data.studydata;
+ 				if(fileName==""){
+ 					alert("没有文件，请重新上传！");
+ 				}else{
+ 					window.location.href="../download.do?fileName="+fileName;
+ 				}
+ 				
+ 			}
+ 		},
+ 		error:function(){
+ 			alert("程序出错");
+ 		}
+ 	
+ 	});
+ }
+ </script>
 </head>
 <body>
 	<div id="head1"><img  src="../image/info.png"/></div>
-    <div id="head2">当前位置：首页&nbsp;>>&nbsp;课程管理&nbsp;>>&nbsp;教辅资料管理&nbsp;>><b>上传教辅资料</b></div>
+    <div id="head2">当前位置：首页&nbsp;>>&nbsp;课程管理&nbsp;>>&nbsp;课辅资料管理&nbsp;>><b>课辅资料</b></div>
     <div id="person"><img  src="../image/person.png"/></div>
-   <div id="welcome">您好：<b id="name"></b>,欢迎登录外实训学生管理系统--基地教师管理子系统</div>
+   <div id="welcome">您好:欢迎登录外实训学生管理系统--基地教师管理子系统</div>
    <div id="time"><img  src="../image/time.png"/>
     <script language="JavaScript" type="text/javascript"> 
 var today=new Date(); 
@@ -45,6 +120,7 @@ document.write(strDate);
 <div id="information">
 	<form name="form2">
      <table width="950px" border="0" cellpadding="0" cellspacing="0" bgcolor="b5d6e6" align="center" style="margin-top:8px">
+      <thead>
       <tr>
          <td height="24" colspan="4" align="left"><b>课程信息</b></td>
      </tr>
@@ -55,22 +131,15 @@ document.write(strDate);
 	      <td width="20%"><b>学期</b></td>
 		  <td width="30%"><b>基本操作</b></td>
        </tr>
-       <tr align='center' bgcolor="#FFFFFF" height="22" onMouseMove="javascript:this.bgColor='#E7FDFE';" onMouseOut="javascript:this.bgColor='#FFFFFF';">    
-	      <td></td>
-	      <td align="center"></td>
-	      <td></td>
-	      <td>
-	         <img  src="../image/upload.png"/>
-	           <a href="JDT_uploadStudydata.html">上传教辅资料</a>&nbsp;
-	           <img  src="../image/look.png"/>
-	           <a href="JDT_uploadStudydata.html">查看教辅资料</a>&nbsp;
-	      </td>
-        </tr>
-		
+       </thead>
+       <tbody>
+		</tbody>
+		<tfoot>
     <tr>
          <td height="24" colspan="4" align="right">
                                           总共&nbsp;<b>0</b>条记录</td>
      </tr>
+     </tfoot>
   </table>
  </form>
  </div>

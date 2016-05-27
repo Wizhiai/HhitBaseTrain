@@ -19,6 +19,9 @@
  			    	    var grades=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<grades.length;i++){
+ 			    	    		var stuno=grades[i].stuno;
+ 			    	    		var month=grades[i].month;
+ 			    	    		var week=grades[i].week
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
  			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
@@ -30,8 +33,11 @@
  			    	 	    tr+='  <td>'+grades[i].month+'</td>';
  			    	 	    tr+='  <td>'+grades[i].week+'</td>';
  			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 	    tr+='  <td><a href="">查看卷面</a></td></tr>';
+ 			    	 	    tr+='  <td><a>查看卷面</a></td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("stuno",stuno);
+ 			    	 	    $tr.data("month",month);
+ 			    	 	    $tr.data("week",week);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(grades.length);
@@ -41,19 +47,25 @@
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			        	   for(var i=0;i<grades.length;i++){
- 			    	 	   		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].major+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].base_name+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].cno+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].cname+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].month+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].week+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 	    tr+='  <td><a href="">查看卷面</a></td></tr>';
- 			    	 			$tr=$(tr);
+ 			        		  var stuno=grades[i].stuno;
+			    	    		var month=grades[i].month;
+			    	    		var week=grades[i].week
+			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
+			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
+			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
+			    	 	    tr+='  <td>'+grades[i].major+'</td>';
+			    	 	    tr+='  <td>'+grades[i].base_name+'</td>';
+			    	 	    tr+='  <td>'+grades[i].cno+'</td>';
+			    	 	    tr+='  <td>'+grades[i].cname+'</td>';
+			    	 	    tr+='  <td>'+grades[i].month+'</td>';
+			    	 	    tr+='  <td>'+grades[i].week+'</td>';
+			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
+			    	 	    tr+='  <td><a>查看卷面</a></td></tr>';
+			    	 	    $tr=$(tr);
+			    	 	    $tr.data("stuno",stuno);
+			    	 	    $tr.data("month",month);
+			    	 	    $tr.data("week",week);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -80,7 +92,10 @@
  			    	    var grades=result.data;
  			    	    if(currentpage==1 && currentpage<pagecounts){
  			    	    	for(var i=0;i<grades.length;i++){
- 			    	 	   var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	    		var stuno=grades[i].stuno;
+ 			    	    		var month=grades[i].month;
+ 			    	    		var week=grades[i].week
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
  			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
  			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
@@ -91,8 +106,11 @@
  			    	 	    tr+='  <td>'+grades[i].month+'</td>';
  			    	 	    tr+='  <td>'+grades[i].week+'</td>';
  			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 	    tr+='  <td><a href="">查看卷面</a></td></tr>';
+ 			    	 	    tr+='  <td><a>查看卷面</a></td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("stuno",stuno);
+ 			    	 	    $tr.data("month",month);
+ 			    	 	    $tr.data("week",week);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(grades.length);
@@ -102,19 +120,25 @@
  			    	          $a.insertAfter("#number");
  			            }else if(1<currentpage && currentpage<pagecounts){
  			        	   for(var i=0;i<grades.length;i++){
- 			    	 	   		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].major+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].base_name+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].cno+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].cname+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].month+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].week+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 	    tr+='  <td><a href="">查看卷面</a></td></tr>';
- 			    	 			$tr=$(tr);
+ 			        		  var stuno=grades[i].stuno;
+			    	    		var month=grades[i].month;
+			    	    		var week=grades[i].week
+			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
+			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
+			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
+			    	 	    tr+='  <td>'+grades[i].major+'</td>';
+			    	 	    tr+='  <td>'+grades[i].base_name+'</td>';
+			    	 	    tr+='  <td>'+grades[i].cno+'</td>';
+			    	 	    tr+='  <td>'+grades[i].cname+'</td>';
+			    	 	    tr+='  <td>'+grades[i].month+'</td>';
+			    	 	    tr+='  <td>'+grades[i].week+'</td>';
+			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
+			    	 	    tr+='  <td><a>查看卷面</a></td></tr>';
+			    	 	    $tr=$(tr);
+			    	 	    $tr.data("stuno",stuno);
+			    	 	    $tr.data("month",month);
+			    	 	    $tr.data("week",week);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -124,19 +148,25 @@
  			    	   $a.insertAfter("#number");
  			        }else if( currentpage>1 && currentpage==pagecounts){
  			               for(var i=0;i<grades.length;i++){
- 			    	 	   		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].major+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].base_name+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].cno+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].cname+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].month+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].week+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 	    tr+='  <td><a href="">查看卷面</a></td></tr>';
- 			    	 			$tr=$(tr);
+ 			            	  var stuno=grades[i].stuno;
+			    	    		var month=grades[i].month;
+			    	    		var week=grades[i].week
+			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
+			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
+			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
+			    	 	    tr+='  <td>'+grades[i].major+'</td>';
+			    	 	    tr+='  <td>'+grades[i].base_name+'</td>';
+			    	 	    tr+='  <td>'+grades[i].cno+'</td>';
+			    	 	    tr+='  <td>'+grades[i].cname+'</td>';
+			    	 	    tr+='  <td>'+grades[i].month+'</td>';
+			    	 	    tr+='  <td>'+grades[i].week+'</td>';
+			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
+			    	 	    tr+='  <td><a>查看卷面</a></td></tr>';
+			    	 	    $tr=$(tr);
+			    	 	    $tr.data("stuno",stuno);
+			    	 	    $tr.data("month",month);
+			    	 	    $tr.data("week",week);
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
  			    	 }
@@ -147,19 +177,25 @@
  			    	   $a.insertAfter("#number");
  			        }else if(currentpage==1 && currentpage==pagecounts)	{
  			        	 for(var i=0;i<grades.length;i++){
- 			    	 	   		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].major+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].base_name+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].cno+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].cname+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].month+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].week+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 	    tr+='  <td><a href="">查看卷面</a></td></tr>';
- 			    	 			$tr=$(tr);
+ 			        		var stuno=grades[i].stuno;
+			    	    		var month=grades[i].month;
+			    	    		var week=grades[i].week
+			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
+			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
+			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
+			    	 	    tr+='  <td>'+grades[i].major+'</td>';
+			    	 	    tr+='  <td>'+grades[i].base_name+'</td>';
+			    	 	    tr+='  <td>'+grades[i].cno+'</td>';
+			    	 	    tr+='  <td>'+grades[i].cname+'</td>';
+			    	 	    tr+='  <td>'+grades[i].month+'</td>';
+			    	 	    tr+='  <td>'+grades[i].week+'</td>';
+			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
+			    	 	    tr+='  <td><a>查看卷面</a></td></tr>';
+			    	 	    $tr=$(tr);
+			    	 	    $tr.data("stuno",stuno);
+			    	 	    $tr.data("month",month);
+			    	 	    $tr.data("week",week);
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
  			    	 }
@@ -187,7 +223,10 @@
  			    	    var grades=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<grades.length;i++){
- 			    	 	  var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	    		var stuno=grades[i].stuno;
+ 			    	    		var month=grades[i].month;
+ 			    	    		var week=grades[i].week
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
  			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
  			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
@@ -198,8 +237,11 @@
  			    	 	    tr+='  <td>'+grades[i].month+'</td>';
  			    	 	    tr+='  <td>'+grades[i].week+'</td>';
  			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 	    tr+='  <td><a href="">查看卷面</a></td></tr>';
+ 			    	 	    tr+='  <td><a>查看卷面</a></td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("stuno",stuno);
+ 			    	 	    $tr.data("month",month);
+ 			    	 	    $tr.data("week",week);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(grades.length);
@@ -209,19 +251,25 @@
  			    	        $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			        	   for(var i=0;i<grades.length;i++){
- 			    	 	   		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].major+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].base_name+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].cno+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].cname+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].month+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].week+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 	    tr+='  <td><a href="">查看卷面</a></td></tr>';
- 			    	 			$tr=$(tr);
+ 			        		  var stuno=grades[i].stuno;
+			    	    		var month=grades[i].month;
+			    	    		var week=grades[i].week
+			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
+			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
+			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
+			    	 	    tr+='  <td>'+grades[i].major+'</td>';
+			    	 	    tr+='  <td>'+grades[i].base_name+'</td>';
+			    	 	    tr+='  <td>'+grades[i].cno+'</td>';
+			    	 	    tr+='  <td>'+grades[i].cname+'</td>';
+			    	 	    tr+='  <td>'+grades[i].month+'</td>';
+			    	 	    tr+='  <td>'+grades[i].week+'</td>';
+			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
+			    	 	    tr+='  <td><a>查看卷面</a></td></tr>';
+			    	 	    $tr=$(tr);
+			    	 	    $tr.data("stuno",stuno);
+			    	 	    $tr.data("month",month);
+			    	 	    $tr.data("week",week);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -249,7 +297,10 @@
  			    	    var grades=result.data;
  			    	    if(currentpage==1){
  			    	    	for(var i=0;i<grades.length;i++){
- 			    	 	   var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	    		var stuno=grades[i].stuno;
+ 			    	    		var month=grades[i].month;
+ 			    	    		var week=grades[i].week
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
  			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
  			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
@@ -260,8 +311,11 @@
  			    	 	    tr+='  <td>'+grades[i].month+'</td>';
  			    	 	    tr+='  <td>'+grades[i].week+'</td>';
  			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 	    tr+='  <td><a href="">查看卷面</a></td></tr>';
+ 			    	 	    tr+='  <td><a>查看卷面</a></td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("stuno",stuno);
+ 			    	 	    $tr.data("month",month);
+ 			    	 	    $tr.data("week",week);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(grades.length);
@@ -272,19 +326,25 @@
  			    			
  			            }else if(1<currentpage<pagecounts){
  			        	   for(var i=0;i<grades.length;i++){
- 			    	 	   		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].major+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].base_name+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].cno+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].cname+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].month+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].week+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 	    tr+='  <td><a href="">查看卷面</a></td></tr>';
- 			    	 			$tr=$(tr);
+ 			        		  var stuno=grades[i].stuno;
+			    	    		var month=grades[i].month;
+			    	    		var week=grades[i].week
+			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
+			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
+			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
+			    	 	    tr+='  <td>'+grades[i].major+'</td>';
+			    	 	    tr+='  <td>'+grades[i].base_name+'</td>';
+			    	 	    tr+='  <td>'+grades[i].cno+'</td>';
+			    	 	    tr+='  <td>'+grades[i].cname+'</td>';
+			    	 	    tr+='  <td>'+grades[i].month+'</td>';
+			    	 	    tr+='  <td>'+grades[i].week+'</td>';
+			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
+			    	 	    tr+='  <td><a>查看卷面</a></td></tr>';
+			    	 	    $tr=$(tr);
+			    	 	    $tr.data("stuno",stuno);
+			    	 	    $tr.data("month",month);
+			    	 	    $tr.data("week",week);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -318,7 +378,10 @@
  			    	    var grades=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<grades.length;i++){
- 			    	 	   var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	    		var stuno1=grades[i].stuno;
+ 			    	    		var month1=grades[i].month;
+ 			    	    		var week1=grades[i].week
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
  			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
  			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
@@ -329,8 +392,11 @@
  			    	 	    tr+='  <td>'+grades[i].month+'</td>';
  			    	 	    tr+='  <td>'+grades[i].week+'</td>';
  			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 	    tr+='  <td><a href="">查看卷面</a></td></tr>';
+ 			    	 	    tr+='  <td><a>查看卷面</a></td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("stuno",stuno1);
+ 			    	 	    $tr.data("month",month1);
+ 			    	 	    $tr.data("week",week1);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(grades.length);
@@ -340,20 +406,25 @@
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			        	   for(var i=0;i<grades.length;i++){
- 			    	 	   		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	     	var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].major+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].base_name+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].cno+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].cname+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].month+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].week+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 	    tr+='  <td><a href="">查看卷面</a></td></tr>';
- 			    	 			$tr=$(tr);
+ 			        		  var stuno=grades[i].stuno;
+			    	    		var month=grades[i].month;
+			    	    		var week=grades[i].week;
+			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
+			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
+			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
+			    	 	    tr+='  <td>'+grades[i].major+'</td>';
+			    	 	    tr+='  <td>'+grades[i].base_name+'</td>';
+			    	 	    tr+='  <td>'+grades[i].cno+'</td>';
+			    	 	    tr+='  <td>'+grades[i].cname+'</td>';
+			    	 	    tr+='  <td>'+grades[i].month+'</td>';
+			    	 	    tr+='  <td>'+grades[i].week+'</td>';
+			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
+			    	 	    tr+='  <td><a>查看卷面</a></td></tr>';
+			    	 	    $tr=$(tr);
+			    	 	    $tr.data("stuno",stuno);
+			    	 	    $tr.data("month",month);
+			    	 	    $tr.data("week",week);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -388,7 +459,10 @@
  			    		$("#page #head").addClass("dianji");
  			    	    if(pagecounts==1){
  			    	    	for(var i=0;i<grades.length;i++){
- 			    	 	   var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	    		var stuno=grades[i].stuno;
+ 			    	    		var month=grades[i].month;
+ 			    	    		var week=grades[i].week
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
  			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
  			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
@@ -399,8 +473,11 @@
  			    	 	    tr+='  <td>'+grades[i].month+'</td>';
  			    	 	    tr+='  <td>'+grades[i].week+'</td>';
  			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 	    tr+='  <td><a href="">查看卷面</a></td></tr>';
+ 			    	 	    tr+='  <td><a>查看卷面</a></td></tr>';
  			    	 	    $tr=$(tr);
+ 			    	 	    $tr.data("stuno",stuno);
+ 			    	 	    $tr.data("month",month);
+ 			    	 	    $tr.data("week",week);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(grades.length);
@@ -409,19 +486,25 @@
  			    	         $a.insertAfter("#number");
  			            }else{
  			        	   for(var i=0;i<grades.length;i++){
- 			    	 	   		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].major+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].base_name+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].cno+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].cname+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].month+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].week+'</td>';
- 			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
- 			    	 	    tr+='  <td><a href="">查看卷面</a></td></tr>';
- 			    	 			$tr=$(tr);
+ 			        		  var stuno=grades[i].stuno;
+			    	    		var month=grades[i].month;
+			    	    		var week=grades[i].week
+			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+			    	 	    tr+='<td>'+grades[i].stuno+'</td>';
+			    	 	    tr+='  <td>'+grades[i].stu_name+'</td>';
+			    	 	    tr+='  <td>'+grades[i].stu_class+'</td>';
+			    	 	    tr+='  <td>'+grades[i].major+'</td>';
+			    	 	    tr+='  <td>'+grades[i].base_name+'</td>';
+			    	 	    tr+='  <td>'+grades[i].cno+'</td>';
+			    	 	    tr+='  <td>'+grades[i].cname+'</td>';
+			    	 	    tr+='  <td>'+grades[i].month+'</td>';
+			    	 	    tr+='  <td>'+grades[i].week+'</td>';
+			    	 	    tr+='  <td>'+grades[i].grade+'</td>';
+			    	 	    tr+='  <td><a>查看卷面</a></td></tr>';
+			    	 	    $tr=$(tr);
+			    	 	    $tr.data("stuno",stuno);
+			    	 	    $tr.data("month",month);
+			    	 	    $tr.data("week",week);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(grades.length);

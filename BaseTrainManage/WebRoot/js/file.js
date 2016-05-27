@@ -1,5 +1,5 @@
   function toNextPage(){
-        window.location.href="JDT_uploadexampper1.jsp?stuno="+stuno+"&name="+name+"&cno="+cno+"&week="+week+"&month="+month;
+        window.location.href="JDT_uploadexampper1.html?stuno="+stuno+"&name="+name+"&cno="+cno+"&week="+week+"&month="+month;
     }
     function download(){
        var fileName=null;
@@ -10,9 +10,6 @@
         	dataType:"json",
         	success:function(result){
         		if(result.status==1){
-        			alert(1);
-        			alert(week);
-        			alert(month);
         			fileName=result.data;
         			 alert(fileName);
         			 window.location.href="../download.do?fileName="+fileName;

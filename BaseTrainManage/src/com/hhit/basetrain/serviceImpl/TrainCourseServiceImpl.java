@@ -3,7 +3,11 @@
  */
 package com.hhit.basetrain.serviceImpl;
 
+<<<<<<< HEAD
 import java.util.HashMap;
+=======
+import java.util.ArrayList;
+>>>>>>> 945d2b75460f000516705e1dd40c9ea8b8dd71dd
 import java.util.List;
 import java.util.Map;
 
@@ -71,6 +75,7 @@ public class TrainCourseServiceImpl implements TrainCourseService{
 		return result;
 	}
 	/* (non-Javadoc)
+<<<<<<< HEAD
 	 * @see com.hhit.basetrain.service.TrainCourseService#deleteCourseInfByCourseNo(java.lang.String)
 	 */
 	public Result deleteCourseInfByCourseNo(String cno) {
@@ -208,4 +213,38 @@ public class TrainCourseServiceImpl implements TrainCourseService{
 		
 		return result;
 	}
+=======
+	 * @see com.hhit.basetrain.service.TrainCourseService#loadTrainCourseInfo(java.lang.String)
+	 */
+	public Result loadTrainCourseInfo(String tNo) {
+		Result result=new Result();
+		TrainCourse course=new TrainCourse();
+		course=trainCourseDao.findCourseInfoByTno(tNo);
+		if(course==null){
+			result.setStatus(0);
+			result.setMsg("查找失败");
+		}else{
+			result.setStatus(1);
+			result.setMsg("查找成功");
+			result.setData(course);	
+		}
+		return result;
+		
+	}
+	public Result showCno(String base_no) {
+		Result result=new Result();
+		List<String> cnos=new ArrayList<String>();
+		cnos=trainCourseDao.findCourse(base_no);
+		if(cnos.size()==0){
+			result.setMsg("查找失败");
+			result.setStatus(0);
+		}else{
+			result.setMsg("查找成功");
+			result.setStatus(1);
+			result.setData(cnos);
+		}
+		return result;
+	}
+
+>>>>>>> 945d2b75460f000516705e1dd40c9ea8b8dd71dd
 }

@@ -1,5 +1,4 @@
  $(function(){
-	
       $("#login1").click(function(){
       //清空原来的消息
        $("#name_msg").html("");

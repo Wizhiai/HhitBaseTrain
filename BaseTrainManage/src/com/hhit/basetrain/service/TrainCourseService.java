@@ -25,6 +25,7 @@ public interface TrainCourseService {
 	 */
 	public Result showAllbaseCourseInf();
 	/**
+<<<<<<< HEAD
 	 *  通过基地管理员显示基地课程
 	 * @param manager_no
 	 * @return
@@ -64,4 +65,13 @@ public interface TrainCourseService {
 	 */
 	public Result addCourseInf(String manager_no,String cname,int cost,double term);
 	
+=======
+	 * 通过教师号显示相应的课程信息
+	 */
+	public Result loadTrainCourseInfo(String t_no);
+	/**
+	 * 通过基地号查询课程号
+	 */
+	public Result showCno(String base_no);
+>>>>>>> 945d2b75460f000516705e1dd40c9ea8b8dd71dd
 }

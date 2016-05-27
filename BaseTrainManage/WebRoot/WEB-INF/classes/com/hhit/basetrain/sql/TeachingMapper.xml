@@ -10,4 +10,64 @@
 	<update id="savestudyplan" parameterType="com.hhit.basetrain.entity.Teaching">
 		update teaching set studyplan=#{studyplan} where cno=#{cno}
 	</update>
+	
+	<!-- 查询studyplan -->
+	<select id="findfile" parameterType="string" resultType="com.hhit.basetrain.entity.Teaching">
+		select studyplan,studycheck from teaching where t_no=#{t_no}
+	</select>
+	
+	<!-- 通过基地号查询学习计划 -->
+	<select id="findStudyPlan" parameterType="string" resultType="map">
+		select DISTINCT tc.base_no,tc.cno,tc.cname,tc.term,t.studyplan from traincourse tc,teaching t where tc.cno=t.cno and base_no=#{base_no}
+	</select> 
+	
+	<!-- 通过基地号查询学习计划分页 -->
+	<select id="findStudyPlanPage" parameterType="map" resultType="map">
+		select DISTINCT tc.base_no,tc.cno,tc.cname,tc.term,t.studyplan from traincourse tc,teaching t 
+		where tc.cno=t.cno and base_no=#{base_no} limit ${page},${pagesize}
+	</select> 
+	
+	<!-- 通过基地号或者班级查找课程考勤 -->
+	<select id="findStudyCheck" parameterType="map" resultType="map">
+		select tc.base_no,tc.cno,tc.cname,tc.term,t.base_class,t.studycheck from traincourse tc,teaching t 
+		<where>
+		tc.cno=t.cno and base_no=#{base_no}
+		<if test="base_class !=null and base_class!=''">
+			and base_class=#{base_class}
+		</if>
+		</where> 
+	</select>
+	
+	<!-- 通过基地号或者班级查找课程考勤分页 -->
+	<select id="findStudyCheckPage" parameterType="map" resultType="map">
+	select tc.base_no,tc.cno,tc.cname,tc.term,t.base_class,t.studycheck from traincourse tc,teaching t 
+		<where>
+		tc.cno=t.cno and base_no=#{base_no}
+		<if test="base_class !=null and base_class!=''">
+			and base_class=#{base_class}
+		</if>
+		</where> 
+		limit ${page},${pagesize}
+		</select>
+		<!-- 查询班级 -->
+		<select id="findBaseclass" parameterType="string" resultType="map">
+			select DISTINCT tc.base_no,t.base_class from traincourse tc,teaching t where t.cno=tc.cno
+			and base_no=#{base_no}
+		</select>
+		
+		<!-- 通过课程号查询课程考勤 -->
+		<select id="findStudyplanBycno" parameterType="string" resultType="map">
+			select distinct tc.cno,tc.cname,tc.term,t.studyplan from traincourse tc,teaching t
+			where t.cno=tc.cno and tc.cno=#{cno}
+		</select>
+		<!-- 通过课程号和班级查询课程考勤 -->
+		<select id="findStudcheckbyCno" parameterType="map" resultType="map">
+			select tc.cno,tc.cname,tc.term,t.base_class,t.studycheck from traincourse tc,teaching t
+			where t.cno=tc.cno and tc.cno=#{cno} and t.base_class=#{base_class} 
+		</select>
+		
+		<!-- 通过教师号查询基地号和基地班级 -->
+		<select id="findBaseByTno" parameterType="string" resultType="map">
+			select b.base_no,t.base_class from baseteacher b,teaching t where b.t_no=t.t_no and t.t_no=#{t_no}
+		</select>
 </mapper>

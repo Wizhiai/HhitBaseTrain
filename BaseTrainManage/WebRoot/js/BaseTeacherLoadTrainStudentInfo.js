@@ -20,9 +20,9 @@
  			    	    var students=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<students.length;i++){
- 			    	    		stu=students[i].stuno;
- 			    	    		name=students[i].stu_name;
- 			    	    		base_name=students[i].base_name;
+ 			    	    		 stu=students[i].stuno;
+ 			    	    		 name=students[i].stu_name;
+ 			    	    		 base_name=students[i].base_name;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+students[i].stuno+'</td>';
  			    	 	    tr+='  <td>'+students[i].stu_name+'</td>';
@@ -32,8 +32,11 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	    tr+='  <td><a onclick="toNextPage();">录入成绩</a></td>';
- 			    	 	    $tr=$(tr);
+ 			    	 	  tr+=' <td><a>录入成绩</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("stu",stu);
+			    	 	 $tr.data("name",name);
+			    	 	 $tr.data("base_name",base_name);
  			    	 	  // $tr.data=("stuno",stu);
  			    	 	     $("table tbody").append($tr);
  			    	      }
@@ -44,9 +47,9 @@
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			        	   for(var i=0;i<students.length;i++){
- 			        		  stu=students[i].stuno;
- 			        		  name=students[i].stu_name;
- 			    	    	  base_name=students[i].base_name;
+ 			        		   stu=students[i].stuno;
+ 			        		 name=students[i].stu_name;
+ 			    	    	 base_name=students[i].base_name;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+students[i].stuno+'</td>';
  			    	 	    tr+='  <td>'+students[i].stu_name+'</td>';
@@ -56,8 +59,11 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	     tr+='  <td><a onclick="toNextPage();">录入成绩</a></td>';
- 			    	 			$tr=$(tr);
+ 			    	 	  tr+='  <td><a>录入成绩</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	    $tr.data("stu",stu);
+			    	 	    $tr.data("name",name);
+			    	 	    $tr.data("base_name",base_name);
  			    	 			//$tr.data=("stuno",stu);
  			    	 			$("table tbody").append($tr);
  			    	 }
@@ -85,9 +91,9 @@
  			    	    var students=result.data;
  			    	    if(currentpage==1 && currentpage<pagecounts){
  			    	    	for(var i=0;i<students.length;i++){
- 			    	    	stu=students[i].stuno;
- 			    	    	name=students[i].stu_name;
- 			    	        base_name=students[i].base_name;
+ 			    	    	  stu=students[i].stuno;
+ 			    	    	 name=students[i].stu_name;
+ 			    	       base_name=students[i].base_name;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+students[i].stuno+'</td>';
  			    	 	    tr+='  <td>'+students[i].stu_name+'</td>';
@@ -97,8 +103,11 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	   tr+='  <td><a onclick="toNextPage();">录入成绩</a></td>';
- 			    	 	    $tr=$(tr);
+ 			    	 	   tr+='  <td><a>录入成绩</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	    $tr.data("stu",stu);
+			    	 	    $tr.data("name",name);
+			    	 	    $tr.data("base_name",base_name);
  			    	 	    //$tr.data=("stuno",stu);
  			    	 	     $("table tbody").append($tr);
  			    	      }
@@ -109,9 +118,9 @@
  			    	          $a.insertAfter("#number");
  			            }else if(1<currentpage && currentpage<pagecounts){
  			    	 	   		for(var i=0;i<students.length;i++){
- 			    	 	   			 stu=students[i].stuno;
- 			    	 	   			 name=students[i].stu_name;
- 			    	    		     base_name=students[i].base_name;
+ 			    	 	   		 stu=students[i].stuno;
+ 			    	 	   		 name=students[i].stu_name;
+ 			    	    		    base_name=students[i].base_name;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+students[i].stuno+'</td>';
  			    	 	    tr+='  <td>'+students[i].stu_name+'</td>';
@@ -121,8 +130,11 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	    tr+='  <td><a onclick="toNextPage();">录入成绩</a></td>';
- 			    	 	    $tr=$(tr);
+ 			    	 	    tr+='  <td><a>录入成绩</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("stu",stu);
+			    	 	 $tr.data("name",name);
+			    	 	 $tr.data("base_name",base_name);
  			    	 	   // $tr.data=("stuno",stu);
  			    	 			$("table tbody").append($tr);
  			    	 }
@@ -135,7 +147,7 @@
  			              for(var i=0;i<students.length;i++){
  			    	 	   		 stu=students[i].stuno;
  			    	 	   		 name=students[i].stu_name;
- 			    	    		base_name=students[i].base_name;
+ 			    	    		 base_name=students[i].base_name;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+students[i].stuno+'</td>';
  			    	 	    tr+='  <td>'+students[i].stu_name+'</td>';
@@ -145,9 +157,11 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	      tr+='  <td><a onclick="toNextPage();">录入成绩</a></td>';
- 			    	 			$tr=$(tr);
- 			    	 			//$tr.data=("stuno",stu);
+ 			    	 	  tr+='  <td><a>录入成绩</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("stu",stu);
+			    	 	 $tr.data("name",name);
+			    	 	 $tr.data("base_name",base_name);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -157,8 +171,8 @@
  			    	   $a.insertAfter("#number");
  			        }else if(currentpage==1 && currentpage==pagecounts)	{
  			        	 for(var i=0;i<students.length;i++){
- 			        		stu=students[i].stuno;
- 			        		name=students[i].stu_name;
+ 			        		 stu=students[i].stuno;
+ 			        	 name=students[i].stu_name;
  			    	        base_name=students[i].base_name;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+students[i].stuno+'</td>';
@@ -169,8 +183,11 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	    tr+='  <td><a onclick="toNextPage();">录入成绩</a></td>';
- 			    	 	    $tr=$(tr);
+ 			    	 	  tr+='  <td><a>录入成绩</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("stu",stu);
+			    	 	 $tr.data("name",name);
+			    	 	 $tr.data("base_name",base_name);
  			    	 	    //$tr.data=("stuno",stu);
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
@@ -200,9 +217,9 @@
  			    	    if(currentpage==pagecounts){
  			    	    	
  			    	    	for(var i=0;i<students.length;i++){
- 			    	    		stu=students[i].stuno;
- 			    	    		name=students[i].stu_name;
- 			    	    		base_name=students[i].base_name;
+ 			    	    		 stu=students[i].stuno;
+ 			    	    		 name=students[i].stu_name;
+ 			    	    		 base_name=students[i].base_name;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+students[i].stuno+'</td>';
  			    	 	    tr+='  <td>'+students[i].stu_name+'</td>';
@@ -212,8 +229,11 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	     tr+='  <td><a onclick="toNextPage();">录入成绩</a></td>';
- 			    	 	    $tr=$(tr);
+ 			    	 	  tr+='  <td><a>录入成绩</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("stu",stu);
+			    	 	 $tr.data("name",name);
+			    	 	 $tr.data("base_name",base_name);
  			    	 	   // $tr.data=("stuno",stu);
  			    	 	     $("table tbody").append($tr);
  			    	      }
@@ -224,9 +244,9 @@
  			    	        $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			        	  for(var i=0;i<students.length;i++){
- 			        		 stu=students[i].stuno;
- 			        		 name=students[i].stu_name;
- 			    	         base_name=students[i].base_name;
+ 			        		 var stu=students[i].stuno;
+ 			        		 var name=students[i].stu_name;
+ 			    	         var base_name=students[i].base_name;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+students[i].stuno+'</td>';
  			    	 	    tr+='  <td>'+students[i].stu_name+'</td>';
@@ -236,9 +256,11 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	     tr+='  <td><a onclick="toNextPage();">录入成绩</a></td>';
- 			    	 	   
- 			    	 			$tr=$(tr);
+ 			    	 	  tr+='  <td><a>录入成绩</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("stu",stu);
+			    	 	 $tr.data("name",name);
+			    	 	 $tr.data("base_name",base_name);
  			    	 			//$tr.data=("stuno",stu);
  			    	 			$("table tbody").append($tr);
  			    	 }
@@ -279,8 +301,11 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	    tr+='  <td><a onclick="toNextPage();">录入成绩</a></td>';
- 			    	 	    $tr=$(tr);
+ 			    	 	  tr+='  <td><a>录入成绩</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("stu",stu);
+			    	 	 $tr.data("name",name);
+			    	 	 $tr.data("base_name",base_name);
  			    	 	    //$tr.data=("stuno",stu);
  			    	 	     $("table tbody").append($tr);
  			    	      }
@@ -292,7 +317,7 @@
  			    			
  			            }else if(1<currentpage<pagecounts){
  			        	  for(var i=0;i<students.length;i++){
- 			        		 stu=students[i].stuno;
+ 			        		stu=students[i].stuno;
  			        		 name=students[i].stu_name;
  			    	         base_name=students[i].base_name;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
@@ -304,8 +329,11 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	      tr+='  <td><a onclick="toNextPage();">录入成绩</a></td>';
- 			    	 	    $tr=$(tr);
+ 			    	 	  tr+='  <td><a>录入成绩</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("stu",stu);
+			    	 	 $tr.data("name",name);
+			    	 	 $tr.data("base_name",base_name);
  			    	 	   // $tr.data=("stuno",stu);
  			    	 			$("table tbody").append($tr);
  			    	 }
@@ -341,11 +369,12 @@
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<students.length;i++){
  			    	    		
- 			    	    		 stu=students[i].stuno;
- 			    	    		 name=students[i].stu_name;
- 			    	    		base_name=students[i].base_name;
+ 			    	    		 var stu=students[i].stuno;
+ 			    	    	    var name=students[i].stu_name;
+ 			    	    		 var base_name=students[i].base_name;
+ 			    	    		 
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	    tr+='<td>'+students[i].stuno+'</td>';
+ 			    	 	    tr+='  <td>'+students[i].stuno+'</td>';
  			    	 	    tr+='  <td>'+students[i].stu_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].stu_sex+'</td>';
  			    	 	    tr+='  <td>'+students[i].birthday+'</td>';
@@ -353,8 +382,11 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	     tr+='  <td><a onclick="toNextPage();">录入成绩</a></td>';
+ 			    	 	     tr+='  <td><a>录入成绩</a></td>';
  			    	 	    $tr=$(tr);
+ 			    	 	  $tr.data("stu",stu);
+  			    	 	 $tr.data("name",name);
+  			    	 	 $tr.data("base_name",base_name);
  			    	 	   // $tr.data=("stuno",stu);
  			    	 	     $("table tbody").append($tr);
  			    	      }
@@ -365,8 +397,8 @@
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			        	  for(var i=0;i<students.length;i++){
- 			        		  stu=students[i].stuno;
- 			        		  name=students[i].stu_name;
+ 			        		   stu=students[i].stuno;
+ 			        		   name=students[i].stu_name;
  			    	    	  base_name=students[i].base_name;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+students[i].stuno+'</td>';
@@ -377,9 +409,15 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	   tr+='  <td><a onclick="toNextPage();">录入成绩</a></td>';
- 			    	 	    $tr=$(tr);
- 			    	 	    $tr.data=("stuno",stu);
+ 			    	 	  tr+='  <td><a>录入成绩</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("stu",stu);
+			    	 	 $tr.data("name",name);
+			    	 	 $tr.data("base_name",base_name);
+ 			    	 	  $tr.data("stu",stu);
+ 			    	 	 $tr.data("name",name);
+ 			    	 	 $tr.data("base_name",base_name);
+ 			    	 	   // $tr.data=("stuno",stu);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -416,7 +454,7 @@
  			    	    	for(var i=0;i<students.length;i++){
  			    	    		 stu=students[i].stuno;
  			    	    		 name=students[i].stu_name;
- 			    	    		base_name=students[i].base_name;
+ 			    	    		 base_name=students[i].base_name;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+students[i].stuno+'</td>';
  			    	 	    tr+='  <td>'+students[i].stu_name+'</td>';
@@ -426,8 +464,11 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	      tr+='  <td><a onclick="toNextPage();">录入成绩</a></td>';
- 			    	 	    $tr=$(tr);
+ 			    	 	  tr+='  <td><a>录入成绩</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("stu",stu);
+			    	 	 $tr.data("name",name);
+			    	 	 $tr.data("base_name",base_name);
  			    	 	  //  $tr.data=("stuno",stu);
  			    	 	     $("table tbody").append($tr);
  			    	      }
@@ -437,9 +478,9 @@
  			    	         $a.insertAfter("#number");
  			            }else{
  			        	  for(var i=0;i<students.length;i++){
- 			        		  stu=students[i].stuno;
- 			        		  name=students[i].stu_name;
- 			    	    	  base_name=students[i].base_name;
+ 			        		 stu=students[i].stuno;
+ 			        		 name=students[i].stu_name;
+ 			    	    	 base_name=students[i].base_name;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+students[i].stuno+'</td>';
  			    	 	    tr+='  <td>'+students[i].stu_name+'</td>';
@@ -449,8 +490,11 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	   tr+='  <td><a onclick="toNextPage();">录入成绩</a></td>';
- 			    	 	    $tr=$(tr);
+ 			    	 	  tr+='  <td><a>录入成绩</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("stu",stu);
+			    	 	 $tr.data("name",name);
+			    	 	 $tr.data("base_name",base_name);
  			    	 	   // $tr.data=("stuno",stu);
  			    	 			$("table tbody").append($tr);
  			    	 }
@@ -464,11 +508,4 @@
  			    }
  	});
  	}
- 
- function toNextPage(){
-	  window.location.href="JDT_addGrade.html?stuno="+stu+"&name="+name+"&base_name="+base_name;
-	
-	 
-	 
- }
 

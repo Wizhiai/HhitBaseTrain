@@ -23,6 +23,37 @@
  	}
 
  </style>
+ <script type="text/javascript" src="../js/cookie_util.js"></script>
+ <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+ <script type="text/javascript" src="../js/getParameter.js"></script>
+ <script type="text/javascript">
+ var cno;
+ var cname;
+ var term;
+ $(function(){
+    var url=window.location;
+    cno=getUrlParam(url,"cno");
+    cname=getUrlParam(url,"cname");
+    term=getUrlParam(url,"term");
+    tno=getUrlParam(url,"tno");
+    alert(cno);
+ 	$("#cno").val(cno);
+ 	$("#cname").val((cname));
+ 	$("#term").val(term);
+ 	$("#tno").val(tno);
+ });
+ function uploadSucced(){
+     	$("#title").val("");
+   		$("#studydata").val("");
+   		alert("上传成功");
+   		
+   }
+   function uploadFailed(){
+   		alert("上传失败");
+   		/* $("#firstUploadFailed").show();
+   		$("#firstUploadSucceed").hide(); */
+   }
+ </script>
 </head>
 <body>
 	<div id="head1"><img  src="../image/info.png"/></div>
@@ -56,26 +87,32 @@ document.write(strDate);
 </script> 
  </div>
  <div id="information">
+ <form action="../uploadfiledata.do" enctype="multipart/form-data" method="post" target="hidden_frame">
  	<table cellpadding="10" cellspacing="0" align="center">
  		<tr>
- 			<td><div id="d1" align="left">课&nbsp;&nbsp;&nbsp;程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号&nbsp;<input type="text" disabled="disabled"/></div></td>
+ 			<td><div id="d1" align="left">课&nbsp;&nbsp;&nbsp;程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号&nbsp;<input type="text" id="cno" name="cno"/><input type="hidden" id="tno" name="tno"/></div></td>
  			</tr>
  			<tr>
-           <td><div id="d2" align="left">课&nbsp;&nbsp;&nbsp;程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;<input type="text" disabled="disabled"/></div></td>
+           <td><div id="d2" align="left">课&nbsp;&nbsp;&nbsp;程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;<input type="text" id="cname" name="cname"/></div></td>
            </tr>
            <tr>
-           <td><div align="left">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;期&nbsp;<input type="text" disabled="disabled"/></div></td>
+           <td><div align="left">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;期&nbsp;<input type="text" id="term" name="term"/></div></td>
+           </tr>
+           <tr>
+            <td><div align="left">名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称&nbsp;<input type="text" id="title" name="title"/></div></td>
+           
            </tr>
            <tr>
           <td><div align="left">  
-          <form action="" enctype="multipart/form-data" method="post">
-                        教&nbsp;&nbsp;辅&nbsp;&nbsp;资&nbsp;&nbsp;料<input type="file" name="studyplan" id="studyplan"/>
+          
+                        教&nbsp;&nbsp;辅&nbsp;&nbsp;资&nbsp;&nbsp;料<input type="file" name="studydata" id="studydata"/>
            <input type="submit" value="上传" id="upload"/>
-           </form></div></td>
+           </div></td>
           </tr>
  		
  	</table>
- 	
+ 	</form>
+ 	<iframe name='hidden_frame' id="hidden_frame" style='display:none'></iframe>
  </div>
  </body>
  </html>
