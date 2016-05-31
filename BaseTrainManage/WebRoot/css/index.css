@@ -210,7 +210,7 @@ html{
 }
 /*  管理左侧菜单*/
 .userMenuLeft{
-	width:200px;
+	width:15%;
 	height:100%;
 	float:left;
 	min-height:300px;
@@ -306,7 +306,7 @@ html{
 	height:100%;
 	text-align:center;
 	display:inline-block;
-	width:1163px;
+	width:84%;
 	background:-moz-linear-gradient(top,#edf5fd 0%,#fcfdfe 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#edf5fd), color-stop(100%,#fcfdfe));
   background: -webkit-linear-gradient(top, #edf5fd 0%,#fcfdfe 100%);
