@@ -33,9 +33,14 @@
 		(#{manager_no})
 	</insert>
 	
+
 	<!-- 通过基地管理员查询基地名称 -->
 	<select id="loadBaseNameByNo" parameterType="string" resultType="com.hhit.basetrain.entity.BaseBean">
 		select base_name,base_no from baserelation where manager_no = #{manager_no}
+		</select>
+	<!-- 根据基地管理员账号查找基地号 -->
+	<select id="findBaseNoByManagerNo" parameterType="string" resultType="int">
+		select ifnull(base_no,0) as base_no from baserelation where manager_no = #{manager_no}
 	</select>
 	
 </mapper>
