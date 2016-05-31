@@ -1,4 +1,8 @@
 /*****************************门户网站设计开始*****************************/
+ table {
+     border-collapse:collapse;
+     border-spacing:0;
+}
 body{
 	background:-moz-linear-gradient(top,#edf5fd 0%,#fcfdfe 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#edf5fd), color-stop(100%,#fcfdfe));
@@ -388,9 +392,10 @@ html{
 	height:36px;
 	width:100%;
 	line-height:36px;
+	border:1px solid #ccc;
 }
 #showInform thead,th{
-	border:1px solid #ccc;
+	border-right:1px solid #ccc;
 	background:url(../images/level2bg.png);
 	font-weight:bold;
 	color:#000;
@@ -401,7 +406,7 @@ html{
 		max-width:200px;
 	}
 #showInform tfoot,td{
-	border:1px solid #ccc;
+	border-right:1px solid #ccc;
 }
 .btn{
 	background:none;
