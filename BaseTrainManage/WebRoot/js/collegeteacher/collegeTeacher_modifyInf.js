@@ -46,6 +46,11 @@ $(function(){
 		var academy = $("#academy").val();
 		var profession = $("#profession").val();
 		var phone = $("#telephone").val();
+		var ct_no = getCookie("username");
+		if(ct_no == "" || ct_no ==null){
+			alert("页面已失效，请重新输入!");
+			return;
+		}
 		if(name =="" || phone =="" || birthday ==""){
 			alert("姓名或联系方式或出生日期不能为空");
 		}else if(name !="" && phone !="" && birthday !=""){

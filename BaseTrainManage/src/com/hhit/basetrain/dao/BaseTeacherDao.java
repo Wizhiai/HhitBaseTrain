@@ -48,6 +48,9 @@ public interface BaseTeacherDao {
 	 * @return
 	 */
 	public int modifySelfInfo(BaseTeacher teacher);
+	public int deleteBaseTeacherByBaseNo(int base_no);
+	public List<String> findBaseTeacherNoByBaseNo(int base_no);
+
 	/**
 	 * 插入教师信息
 	 * @param teacher

@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.hhit.basetrain.dao.BaseAdminDao;
 import com.hhit.basetrain.dao.BaseDao;
+import com.hhit.basetrain.dao.BaseTeacherDao;
 import com.hhit.basetrain.dao.UserDao;
 import com.hhit.basetrain.entity.BaseAdvantageBean;
 import com.hhit.basetrain.entity.BaseAllianceBean;
@@ -23,6 +24,7 @@ import com.hhit.basetrain.entity.BaseCoachBean;
 import com.hhit.basetrain.entity.BaseFieldBean;
 import com.hhit.basetrain.entity.BaseNameBean;
 import com.hhit.basetrain.entity.BaseResearchBean;
+import com.hhit.basetrain.entity.BaseTeacher;
 import com.hhit.basetrain.entity.BaseTrainContentBean;
 import com.hhit.basetrain.entity.BaseTrainEffectBean;
 import com.hhit.basetrain.entity.Result;
@@ -44,6 +46,8 @@ public class BaseServiceImpl implements BaseService{
 	private BaseAdminDao baseAdminDao;
 	@Resource
 	private UserDao userDao;
+	@Resource
+	private BaseTeacherDao baseTeacherDao;
 
 	/* (non-Javadoc)
 	 * @see com.hhit.basetrain.service.BaseService#skimBaseInf(java.lang.String)
@@ -161,7 +165,6 @@ public class BaseServiceImpl implements BaseService{
 	public Result showBaseBasicInfoByNo(int baseNo) {
 		Result result = new Result();
 		BaseBean base = baseDao.findBasicInfoByNo(baseNo);
-
 		if(base == null){
 			
 			result.setStatus(0);
@@ -453,7 +456,7 @@ public class BaseServiceImpl implements BaseService{
 					result.setMsg("基地管理员从用户表中删除失败！");
 					throw new RuntimeException("基地管理员插入用户表失败！");
 					
-				}else{//将基地管理员从用户表中删除成功
+				}else{//将基地管理员从基地关系表中删除成功
 					
 					int deleteRelationNum = baseDao.deleteBaseRelation(baseNo);
 					
@@ -473,6 +476,12 @@ public class BaseServiceImpl implements BaseService{
 							result.setMsg("基地管理员和基地关系删除失败！");
 							throw new RuntimeException("基地管理员和基地关系删除失败！");
 						}else{//基地管理员删除成功
+							
+							List<String> list = baseTeacherDao.findBaseTeacherNoByBaseNo(baseNo);
+							for(String t_no:list){
+								int deleteUserBaseTeacherNum = userDao.delete(t_no);
+							}
+							int deleteBaseTeacherNum = baseTeacherDao.deleteBaseTeacherByBaseNo(baseNo);//删除基地教师
 							
 							int deleteBaseNum = baseDao.deleteBase(baseNo);
 							

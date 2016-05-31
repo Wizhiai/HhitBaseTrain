@@ -32,4 +32,5 @@ public interface BaseAdminDao {
 	
 	public BaseBean loadBaseNameByNo(String manager_no);
 
+	public int findBaseNoByManagerNo(String manager_no);
 }

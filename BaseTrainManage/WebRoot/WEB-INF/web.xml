@@ -26,4 +26,19 @@
   <login-config>
   	<auth-method>BASIC</auth-method>
   </login-config>
+  <!--
+  
+  <filter>
+  	<filter-name>loginFilter</filter-name>
+  	<filter-class>com.hhit.basetrain.filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>loginFilter</filter-name>
+  	<url-pattern>/jsp/*.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>loginFilter</filter-name>
+  	<url-pattern>*.html</url-pattern>
+  </filter-mapping>
+-->
 </web-app>
