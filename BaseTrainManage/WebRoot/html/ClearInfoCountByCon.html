@@ -1,0 +1,104 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>实训学生详细信息</title>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/index.css"/>
+    <style type="text/css">
+    	#studnetRegistCountInform{
+    		margin-top:150px;
+    	}
+    </style>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/page_util.js"></script>
+		<script type="text/javascript" src="../js/menuchoose.js"></script>
+		<script type="text/javascript" src="../js/cookie_util.js"></script>
+		<script type="text/javascript" src="../js/getParameter.js"></script>
+		<script type="text/javascript">
+		    var url=window.location;
+		    var base_no=getUrlParam(url,"base_no");
+		    var cno=getUrlParam(url,"cno");
+			var pageSize = 1;
+			alert(base_no);
+			alert(cno);
+			var resultdata = new Object();
+			$(function(){
+				showCountInfo();
+				$("#firstPage").click(function(){//首页
+				firstPage(resultdata,pageSize);
+				});
+				$("#prePage").click(function(){//上一页
+					prePage(resultdata,pageSize);
+				});
+				$("#nextPage").click(function(){//下一页
+					nextPage(resultdata,pageSize);
+				});
+				$("#close").click(function(){
+				    closeCurrentWindow();
+				});
+			});
+			function showCountInfo(){
+				$.ajax({
+			  	url:"http://localhost:8080/BaseTrainManage/baseadmin/counttrainstudentdetail.do",
+					type:"post",
+					dataType:"json",
+					data:{"base_no":base_no,"cno":cno},
+					success:function(result){
+						if(result.status == 1){
+							resultdata = result.data;
+							pageCalculate(resultdata,pageSize);
+							firstPage(resultdata,pageSize);//显示首页
+						}else{
+							alert(result.msg);
+						}
+					},
+					error:function(){
+							alert("程序出错");
+					}
+				});
+			}
+			function gotoPage(pageSize,pageIndex,data){
+				var tr = "";
+				for(var i=(pageIndex-1)*pageSize;i<=parseInt(pageIndex)*parseInt(pageSize)-1&& i<data.length;i++){
+				
+					tr += "<tr><td>"+(i+1)+"</td><td>"+data[i].stuno+"</td><td>"+data[i].stu_name+"</td><td>"+data[i].base_class+"</td>";
+					tr += "<td>"+data[i].cno+"</td><td>"+data[i].cname+"</td><td>"+data[i].train_date+"</td></tr>";
+				}
+				clearTableContent();
+				addTableContent(tr);
+			}
+		</script>
+  </head>
+  
+  <body>
+  	<div class="list">
+  	<div class="topContent">
+	   	<div id="studnetRegistCountInform">
+	    <table id="showInform" border="1" style="border:1px solid black;">
+	    	<thead>
+	    		<th>序号</th>
+	    		<th>学号</th>
+	    		<th>姓名</th>
+	    		<th>班级</th>
+	    		<th>课程号</th>
+	    		<th>课程名</th>
+	    		<th>培训时间</th>
+	    	</thead>
+	    	<tbody></tbody>
+	    </table>
+	    <div class="pageInfo">
+				<span>共计</span><span id="totalRecords"></span><span>条数据</span>
+				<input type="button" id="firstPage" class="btn" value = "首页">
+				<input type="button" id="prePage"  class="btn" value="上一页">
+				<span>第</span><span id="currentPage"></span><span>页/共</span>
+				<span id="totalPage"></span><span>页</span>
+				<input type="button" id="nextPage" class="btn" value="下一页">
+		 </div>
+		 <input type="button" value="关闭" id="close" class="editBtn" style="margin-left: 280px;margin-top:20px;"/>
+	  </div>
+   </div>
+   </div>
+  </body>
+</html>

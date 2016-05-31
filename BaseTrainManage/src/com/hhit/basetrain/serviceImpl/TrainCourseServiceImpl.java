@@ -11,12 +11,14 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.hhit.basetrain.dao.BaseAdminDao;
 import com.hhit.basetrain.dao.TrainCourseDao;
 import com.hhit.basetrain.entity.Result;
 import com.hhit.basetrain.entity.TrainCourse;
 import com.hhit.basetrain.entity.TrainCourseBean;
+import com.hhit.basetrain.entity.TrainStudent;
 import com.hhit.basetrain.service.TrainCourseService;
 import com.hhit.basetrain.util.BaseUtil;
 
@@ -239,6 +241,19 @@ public class TrainCourseServiceImpl implements TrainCourseService{
 			result.setMsg("查找成功");
 			result.setStatus(1);
 			result.setData(cnos);
+		}
+		return result;
+	}
+	public Result showCname(String cno) {
+		Result result=new Result();
+		String cname=trainCourseDao.findCourseName(cno);
+		if(cname!=null){
+			result.setMsg("查找成功");
+			result.setStatus(1);
+			result.setData(cname);
+		}else{
+			result.setMsg("查找失败");
+			result.setStatus(0);
 		}
 		return result;
 	}

@@ -3,11 +3,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>高校实训学生管理系统</title>
+ <link rel="stylesheet" type="text/css" href="../css/common.css">
  <link rel="stylesheet" type="text/css" href="../css/input.css">
+
 <style type="text/css">
 body{
  position:relative;
 }
+
+
 	   
 	  #id1{
 	  width:25%;
@@ -30,7 +34,7 @@ body{
         top:180px; 
         left:140px; 
 	  }
-	  #course{
+	/*   #course{
 	    width:25%;
 	    margin-top:10px;
 	    float:left;
@@ -46,18 +50,14 @@ body{
 	   }
 	   .grade select{
 	   	 width:40px;
-	   }  
+	   }   */
 	   #kuangjia{
 	       position:absolute;
 	       text-align:center;
 	       top:90px;
 	       left:140px;
 	   }
-	   #btnAdd{
-	   margin-top:10px;
-	   width:20%;
-	   float:left;
-	   }
+	  
 </style>
 <script type="text/javascript" src="../js/cookie_util.js"></script>
  <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
@@ -65,6 +65,10 @@ body{
  <script type="text/javascript" src="../js/file.js"></script>
 <script type="text/javascript">
    var userId=getCookie("username");
+   if(userId==null){
+ 		alert("由于您长时间没有登录，请重新登录!");
+ 		window.open("studentLogin1.jsp");
+ 	}
    var cno;
    var stuno;
    var name;
@@ -102,7 +106,10 @@ body{
  $("#btnAdd").click(function(){
  	 week=$("#week option:selected").text();
  	 month=$("#month option:selected").text();
+ 	 alert(week);
+ 	 alert(month);
  	var grade=parseFloat($("#grade").val());
+ 	alert(grade);
  	$.ajax({
  		url:"http://localhost:8080/BaseTrainManage/trainstudent/saveGradeInfo.do",
  		type:"post",
@@ -120,7 +127,7 @@ body{
 	            tr+='<td>'+month+'</td>';
 	            tr+='<td>'+week+'</td>';
 	            tr+='<td>'+grade+'</td>';
-	            tr+='<td><img  src="../image/upload.png"/> <a onclick="toNextPage();">上传卷面</a>&nbsp;<img  src="../image/min.png"/><a onclick="download();">查看卷面</a> </td> </tr>';
+	            tr+='<td><img  src="../image/upload.png"/> <a href="javascript:void(0)" onclick="toNextPage();">上传卷面</a>&nbsp;<img  src="../image/min.png"/><a href="javascript:void(0)" onclick="download();">查看卷面</a> </td> </tr>';
 	            $tr=$(tr);
 	            $("table tbody").append($tr);
 	            $("table tfoot td b").html(1);
@@ -136,7 +143,7 @@ body{
 
  });
   $("table tbody").on("mouseover","tr",function(){
-	       $(this).css("background-color","#E7FDFE");
+	       $(this).css("background-color","#F0F0F0");
 	   });
 	    $("table tbody").on("mouseout","tr",function(){
 	       $(this).css("background-color","#fff");
@@ -153,76 +160,69 @@ body{
 	<div id="head1"><img  src="../image/info.png"/></div>
     <div id="head2">当前位置：首页&nbsp;>>&nbsp;实训成绩管理&nbsp;>>&nbsp;<b>实训成绩录入</b></div>
     <div id="person"><img  src="../image/person.png"/></div>
-   <div id="welcome">您好：<b id="name"></b>,欢迎登录外实训学生管理系统--基地教师管理子系统</div>
+   <div id="welcome">您好：<b id="name"></b>欢迎登录外实训学生管理系统--基地教师管理子系统</div>
    <div id="time"><img  src="../image/time.png"/>
-    <script language="JavaScript" type="text/javascript"> 
+    <script type="text/javascript"> 
 var today=new Date(); 
 var strDate=(" "+today.getFullYear()+"年"+(today.getMonth()+1)+"月"+today.getDate()+"日"); 
 var n_day=today.getDay(); 
 switch(n_day){ 
 case 0: 
-{strDate=strDate+" 星期日 "}break; 
+{strDate=strDate+" 星期日 ";}break; 
 case 1: 
-{strDate=strDate+" 星期一 "}break; 
+{strDate=strDate+" 星期一 ";}break; 
 case 2: 
-{strDate=strDate+" 星期二 "}break; 
+{strDate=strDate+" 星期二 ";}break; 
 case 3: 
-{strDate=strDate+" 星期三 "}break; 
+{strDate=strDate+" 星期三 ";}break; 
 case 4: 
-{strDate=strDate+" 星期四 "}break; 
+{strDate=strDate+" 星期四 ";}break; 
 case 5: 
-{strDate=strDate+" 星期五 "}break; 
+{strDate=strDate+" 星期五 ";}break; 
 case 6: 
-{strDate=strDate+" 星期六 "}break; 
+{strDate=strDate+" 星期六 ";}break; 
 case 7: 
-{strDate=strDate+" 星期日 "}break; 
+{strDate=strDate+" 星期日 ";}break; 
 } 
 document.write(strDate); 
 </script> 
  </div>
- <div id="kuangjia">
-    <form action=" " method="post">
-    	<div id="id1">学&nbsp;&nbsp;&nbsp;&nbsp;号<input type="text" name="stuno" value="" disabled="disabled" id="stuno"/>
-       </div>
-	     <div id="id2">姓&nbsp;&nbsp;名&nbsp;<input type="text" name="stu_name" disabled="disabled" value="" id="stuname"/></div>
-	     <div id="id3">实训单位&nbsp;<input type="text" name="base_name" disabled="disabled" value="" id="basename"/></div>
-	     <div id="course">课&nbsp;程&nbsp;号&nbsp;
-	     <select id="cno">  
+ <div id="information">
+ 		<div class="topContent">
+    	学号<input type="text" name="stuno" value="" disabled="disabled" id="stuno" class="inputInfo"/>
+	              姓名<input type="text" name="stu_name" disabled="disabled" value="" id="stuname"  class="inputInfo"/>
+	            实训单位<input type="text" name="base_name" disabled="disabled" value="" id="basename"  class="inputInfo"/>
+	            课程号
+	     <select id="cno"  class="selectInfo">  
          </select>  
-	  </div>
-	  <div class="grade" id="month">
-	     月&nbsp;份&nbsp;
-	     <select>
+         </div>
+         <div class="chooseInfo">
+	            月份
+	     <select  class="selectInfo" id="month">
 	        <option value ="1">1</option>  
             <option value ="2">2</option>  
             <option value="3">3</option>  
 		    <option value="4">4</option>
 		    <option value="5">5</option>
 	     </select>
-	  </div>
-	  <div class="grade" id="week">
-	    周&nbsp;数&nbsp;
-	    <select>
+	            周数
+	    <select  class="selectInfo" id="week">
 	    	 <option value ="1">1</option>  
             <option value ="2">2</option>  
             <option value="3">3</option>  
 		    <option value="4">4</option>
 		    <option value="5">5</option>
 	    </select>
+	  成绩<input type="text" name="grade" id="grade"  class="inputInfo"/><input type="button" value="提交" id="btnAdd" class="editBtn"/>
+	   <input type="button" onclick="window.close();" class="editBtn">
 	  </div>
-	  <div class="grade">成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;绩&nbsp;<input type="text" name="grade" id="grade"/></div>
-	  <div id="btnAdd"><input type="button" value="提交"/></div>
- </form>
  </div>
+
     <div id="id4">
     <form name="form2">
-     <table width="950px" border="0" cellpadding="0" cellspacing="0"  align="center">
+     <table width="950px" border="0" cellpadding="0" cellspacing="0"  align="center" class="tableInfo">
      <thead>
-      <tr>
-         <td height="24"  colspan="8" align="left" bgcolor="b5d6e6"><b>学生成绩信息</b></td>
-      </tr>
-	   
-       <tr align="center"  bgcolor="#E7FDFE" height="22">
+       	<tr align="center" bgcolor="#E7FDFE" height="30"  style="line-height:30px;" class="titleInfo" >
 	      <th width="10%"><b>学号</b></th>
 	      <th width="10%"><b>姓名</b></th>
 	      <th width="10%"><b>实训单位</b></th>
@@ -230,18 +230,17 @@ document.write(strDate);
 	      <th width="10%"><b>月份</b></th>
 	      <th width="10%"><b>周期</b></th>
 		  <th width="10%"><b>成绩</b></th>
-		   <th width="25%"><b>操作</b></th>
-		  
+		   <th width="20%"><b>操作</b></th>
        </tr>
        </thead>
       <tbody></tbody>
-		<tfoot>
-      <tr>
-         <td height="24" bgcolor="b5d6e6" colspan="8" align="right">
-                                          总共&nbsp;<b>0</b>条记录</td>
-     </tr>
-     </tfoot>
+	 	<tfoot>
+ 	   <tr bgcolor="#b5d6e6">
+ 	   	<td colspan="9" align="right" style="border:0">总共<b>0</b>条记录</td>
+ 	   </tr>
+ 	</tfoot>
   </table>
+ 
  </form>
  </div>
  </body>

@@ -1,9 +1,6 @@
  $(function(){
       $("#login1").click(function(){
       //清空原来的消息
-       $("#name_msg").html("");
-       $("#password_msg").html("");
-       
        //获取登录信息
     	var username=$("#username").val();
     	var password=$("#password").val();

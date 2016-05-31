@@ -27,7 +27,7 @@
  			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">查看课辅资料</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
  			    	 	    $tr.data("studydata",studydata);
  			    	 	    $tr.data("id",id);
@@ -49,18 +49,18 @@
  			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">查看课辅资料</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
  			    	 	    $tr.data("studydata",studydata);
  			    	 	    $tr.data("id",id);
  			    	 			$("table tbody").append($tr);
  			    	 }
- 			    	 $("table tfoot td b").html(pagesize);
+ 			    	 $("table tfoot td b").html(courses.length);
  			    	 $("#page a").remove();
  			    	 a='<a id="head" class="dianji" onclick="toHomePage()">首页</a><a id="nextpage" onclick="nextPage()">下一页</a><a id="end" onclick="toEndpage()">尾页</a>';
  			    	 $a=$(a);
  			    	 $a.insertAfter("#number");
- 			        }		
+ 			        }
  			    	}
  			    }
  	});
@@ -88,7 +88,7 @@
  			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">查看课辅资料</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
  			    	 	    $tr.data("studydata",studydata);
  			    	 	    $tr.data("id",id);
@@ -110,7 +110,7 @@
  			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">查看课辅资料</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
  			    	 	    $tr.data("studydata",studydata);
  			    	 	    $tr.data("id",id);
@@ -132,14 +132,14 @@
  			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">查看课辅资料</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
  			    	 	    $tr.data("studydata",studydata);
  			    	 	    $tr.data("id",id);
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
  			    	 }
- 			    	 $("table tfoot td b").html(pagesize);
+ 			    	 $("table tfoot td b").html(courses.length);
  			    	 	$("#page a").remove();
  			    	   a='<a id="head" onclick="toHomePage()">首页</a><a id="lastpage" onclick="frontpage()">上一页</a><a id="end" class="dianji" onclick="toEndpage()">尾页</a>';
  			    	   $a=$(a);
@@ -155,19 +155,22 @@
 			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
 		    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
 			    	 	  tr+='<img  src="../image/look.png"/>';
-			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+			    	 	   tr+='<td><a href="javascript:void(0)">查看课辅资料</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("studydata",studydata);
 			    	 	    $tr.data("id",id);
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
  			    	 }
- 			    	 $("table tfoot td b").html(pagesize);
+ 			    	 $("table tfoot td b").html(courses.length);
  			    	 	$("#page a").remove();
  			    	     a='<a id="head" class="dianji" onclick="toHomePage()">首页</a>';
  			    	     $a=$(a);
  			    	    $a.insertAfter("#number");
- 			        }
+ 			        }else if(currentpage>pagecounts){
+ 			        	alert("你输入的页码超过最大页数，请重新输入");
+ 			        	
+ 			        }	
  			    	}
  			    }
  	});
@@ -195,7 +198,7 @@
  			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">查看课辅资料</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
  			    	 	    $tr.data("studydata",studydata);
  			    	 	    $tr.data("id",id);
@@ -217,7 +220,7 @@
  			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">查看课辅资料</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
  			    	 	    $tr.data("studydata",studydata);
  			    	 	    $tr.data("id",id);
@@ -257,7 +260,7 @@
  			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">查看课辅资料</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
  			    	 	    $tr.data("studydata",studydata);
  			    	 	    $tr.data("id",id);
@@ -280,7 +283,7 @@
  			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">查看课辅资料</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
  			    	 	    $tr.data("studydata",studydata);
  			    	 	    $tr.data("id",id);
@@ -326,7 +329,7 @@
  			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">查看课辅资料</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
  			    	 	    $tr.data("studydata",studydata);
  			    	 	    $tr.data("id",id);
@@ -334,7 +337,7 @@
  			    	      }
  			    	        $("table tfoot td b").html(courses.length);
  			    	         $("#page a").remove();
- 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>"
+ 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>";
  			    	         $a=$(a);
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
@@ -348,7 +351,7 @@
  			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">查看课辅资料</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
  			    	 	    $tr.data("studydata",studydata);
  			    	 	    $tr.data("id",id);
@@ -395,14 +398,14 @@
  			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">查看课辅资料</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
  			    	 	    $tr.data("studydata",studydata);
  			    	 	    $tr.data("id",id);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(courses.length);
- 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>"
+ 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>";
  			    	         $a=$(a);
  			    	         $a.insertAfter("#number");
  			            }else{
@@ -416,7 +419,7 @@
  			    	 	    tr+='  <td>'+courses[i].uploadDate+'</td>';
 			    	 	    tr+='  <td>'+courses[i].uploadNo+'</td>';
  			    	 	  tr+='<img  src="../image/look.png"/>';
- 			    	 	   tr+='<td><a>查看课辅资料</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">查看课辅资料</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
  			    	 	    $tr.data("studydata",studydata);
  			    	 	    $tr.data("id",id);

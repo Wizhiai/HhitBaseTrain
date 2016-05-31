@@ -97,10 +97,10 @@ abbr[title], dfn[title] {
      border-bottom:1px dotted;
      cursor:help;
 }
- table {
+/*  table {
      border-collapse:collapse;
      border-spacing:0;
-}
+} */
  hr {
      display:block;
      height:1px;
@@ -115,9 +115,7 @@ abbr[title], dfn[title] {
      border:1px solid #ccc;
      border-radius:5px;
 }
-/*{
-	cursor:pointer;
-	}*/
+
 .clearfix{
 	clear:both;
 }

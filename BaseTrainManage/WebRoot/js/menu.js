@@ -10,8 +10,8 @@ function showtow(nam,obj,me){
 	}
 
 	for (var i=0 ;i< tmp_rom.length ; i++ ){
-		tmp_rom[i].style.display='none'
-		tmp_rom[obj].style.display='block'
+		tmp_rom[i].style.display='none';
+		tmp_rom[obj].style.display='block';
 		}
 	   $("#user_show").hide();//把提示的table hide
 	 

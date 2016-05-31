@@ -1,0 +1,141 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>实训学生详细信息</title>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/index.css"/>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/page_util.js"></script>
+		<script type="text/javascript" src="../js/cookie_util.js"></script>
+		<script type="text/javascript">
+		    var manager_no=getCookie("username");
+			var pageSize = 1;
+			var resultdata = new Object();
+			$(function(){
+			alert(1);
+				$("#studnetRegistCountInform").hide();
+				
+				$("#search").click(function(){
+					Count();
+				});
+				$("#firstPage").click(function(){//首页
+				firstPage(resultdata,pageSize);
+				});
+				$("#prePage").click(function(){//上一页
+					prePage(resultdata,pageSize);
+				});
+				$("#nextPage").click(function(){//下一页
+					nextPage(resultdata,pageSize);
+				});
+			});
+			function Count(){
+				var countType = $("#countType option:selected").val();
+				if(countType == 1){
+					var tr = "<tr><th>序号</th><th>实训单位</th><th>课程号</th><th>课程名称</th><th>人数</th><th>操作</th></tr>";
+					$("#showInform thead tr").remove();
+					$("#showInform thead").append($(tr));
+					$.ajax({
+		  			url:"http://localhost:8080/BaseTrainManage/baseadmin/counttrainstudent.do",
+						type:"post",
+						data:{"manager_no":manager_no},
+						dataType:"json",
+						success:function(result){
+							if(result.status == 1){
+								resultdata = result.data;
+								pageCalculate(resultdata,pageSize);
+								firstPage(resultdata,pageSize);//显示首页
+							}else{
+								alert(result.msg);
+							}
+						},
+						error:function(){
+								alert("程序出错");
+						}
+					});
+				}else if(countType == 2){
+					var tr = "<tr><th>序号</th><th>实训单位</th><th>课程号</th><th>课程名</th><th>班级</th><th>人数</th><th>操作</th></tr>";
+					$("#showInform thead tr").remove();
+					$("#showInform thead").append($(tr));
+					$.ajax({
+		  			url:"http://localhost:8080/BaseTrainManage/baseadmin/counttrainstudentbyclass.do",
+						type:"post",
+						data:{"manager_no":manager_no},
+						dataType:"json",
+						success:function(result){
+							if(result.status == 1){
+								resultdata = result.data;
+								pageCalculate(resultdata,pageSize);
+								firstPage(resultdata,pageSize);//显示首页
+							}else{
+								alert(result.msg);
+							}
+						},
+						error:function(){
+								alert("程序出错");
+						}
+					});
+				}
+				$("#studnetRegistCountInform").show();
+			}
+			function gotoPage(pageSize,pageIndex,data){
+			
+				var countType = $("#countType option:selected").val();
+				var tr = "";
+				if(countType ==1){//按专业划分页数跳转
+					for(var i=(pageIndex-1)*pageSize;i<=parseInt(pageIndex)*parseInt(pageSize)-1&& i<data.length;i++){
+					    var cno=data[i].cno;
+					    var base_no=data[i].base_no;
+						tr += "<tr><td>"+(i+1)+"</td><td>"+data[i].base_name+"</td><td>"+data[i].cno+"</td><td>"+data[i].cname+"</td><td>"+data[i].count+"</td>";
+						tr += "<td><a href='ClearInfoCountByCon.html?cno="+cno+"&base_no="+base_no+"' target='_blank'>详情信息</a></td></tr>";
+					}
+				}else if(countType ==2){//按实训单位划分页数跳转
+					for(var i=(pageIndex-1)*pageSize;i<=parseInt(pageIndex)*parseInt(pageSize)-1&& i<data.length;i++){
+						var base_class=data[i].base_class;
+					    var base_no=data[i].base_no;
+						tr += "<tr><td>"+(i+1)+"</td><td>"+data[i].base_name+"</td><td>"+data[i].cno+"</td><td>"+data[i].cname+"</td><td>"+data[i].base_class+"</td><td>"+data[i].count+"</td>";
+						tr += "<td><a href='ClearInfoCountByClass.html?base_class="+base_class+"&base_no="+base_no+"'  target='_blank'>详情信息</a></td></tr>";
+					}
+				}
+				
+				clearTableContent();
+				addTableContent(tr);
+			}
+		</script>
+  </head>
+  
+  <body>
+  	<div class="list">
+	  	<div class="topContent">
+	  		<h1>统计方式条件</h1>
+	  		<select id="countType">
+	  	 	<option value="1" select="selected">按实训课程划分统计</option>
+	  	 	<option value="2">按实训班级划分统计</option>
+	  	 </select>
+	   	 <input type="button" value="统计" id="search" class="editBtn"/>
+	   	</div>
+	   	<div id="studnetRegistCountInform">
+		    <table id="showInform" >
+		    	<thead>
+		    	<tr>
+		    		<th>序号</th>
+	    			<th>实训单位</th>
+	    			<th>课程</th>
+	    			<th>操作</th>
+	    		</tr>
+		    	</thead>
+		    	<tbody></tbody>
+		     </table>
+		     <div class="pageInfo">
+					<span>共计</span><span id="totalRecords"></span><span>条数据</span>
+					<input type="button" id="firstPage" class="btn" value = "首页">
+					<input type="button" id="prePage"  class="btn" value="上一页">
+					<span>第</span><span id="currentPage"></span><span>页/共</span>
+					<span id="totalPage"></span><span>页</span>
+					<input type="button" id="nextPage" class="btn" value="下一页">
+				 </div>
+   	</div>
+   </div>
+  </body>
+</html>

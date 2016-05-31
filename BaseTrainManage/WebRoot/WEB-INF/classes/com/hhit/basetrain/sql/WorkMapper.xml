@@ -171,7 +171,7 @@ c.wid=f.wid
 		trainstudent s,work w,pigai p where p.stuno=s.stuno and p.wid=w.wid and  s.stuno like CONCAT(CONCAT('%', #{stuno}),'%')
 		and w.base_no=#{base_no} limit ${page},${pagesize}
 		</select>
-		<!-- 重交作业 -->
+		<!-- 学生重交作业 -->
 		<update id="updateFinshedWork" parameterType="com.hhit.basetrain.entity.FinishWorkBean">
 			update finished set uploadDate=#{uploadDate},finishedfile=#{file}
 			where stuno=#{stuno} and wid=#{wid}

@@ -74,24 +74,6 @@ public class UserServiceImpl implements UserService{
 		return result;
 	}
 
-    @Transactional()
-	public Result InputInfo(String username, String password, String identity) {
-		Result result=new Result();
-		User user=new User();
-		user.setUsername(username);
-		user.setPassword(password);
-		user.setIdentity(identity);
-		int count=userDao.saveBaseTeacher(user);
-		if(count!=0){
-			result.setStatus(1);
-			result.setMsg("添加成功");
-		}else{
-			result.setStatus(0);
-			result.setMsg("添加失败");
-		}
-		return result;
-		
-    }
 	/* (non-Javadoc)
 	 * @see com.hhit.basetrain.service.UserService#insertUser(java.lang.String, java.lang.String)
 	 */

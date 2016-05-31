@@ -18,7 +18,7 @@ function addStudentEnterYear(){//添加入学年份
 				if(result.status == 1){
 					var data = result.data;
 					for(var i=0;i<data.length;i++){
-						var tr ="<option value="+data[i]+">"+data[i]+"</option>"
+						var tr ="<option value="+data[i]+">"+data[i]+"</option>";
 						$("#stu_enter_year").append($(tr));
 					}
 				}else{
@@ -40,7 +40,7 @@ function addStudentMajor(){//添加专业
 					var data = result.data;
 					var tr ="";
 					for(var i=0;i<data.length;i++){
-						tr +="<option value="+data[i]+">"+data[i]+"</option>"
+						tr +="<option value="+data[i]+">"+data[i]+"</option>";
 					}
 					$("#stu_major").append($(tr));
 				}else{

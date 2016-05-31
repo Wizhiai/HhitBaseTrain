@@ -32,7 +32,7 @@
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	    tr+='<td><a>批改作业</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
  			    	 	    $tr.data("wid",wid);
  			    	 	    $tr.data("file",file);
@@ -64,7 +64,7 @@
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	   tr+='<td><a >批改作业</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -113,7 +113,7 @@
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	   tr+='<td><a >批改作业</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -145,7 +145,7 @@
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	   tr+='<td><a >批改作业</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -177,7 +177,7 @@
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	   tr+='<td><a >批改作业</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -210,7 +210,7 @@
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	   tr+='<td><a >批改作业</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -260,7 +260,7 @@
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	   tr+='<td><a >批改作业</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -292,7 +292,7 @@
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	   tr+='<td><a >批改作业</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -342,7 +342,7 @@
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	   tr+='<td><a >批改作业</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -375,7 +375,7 @@
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	   tr+='<td><a >批改作业</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -433,7 +433,7 @@
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	   tr+='<td><a >批改作业</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -446,7 +446,7 @@
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
  			    	         $("#page a").remove();
- 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>"
+ 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>";
  			    	         $a=$(a);
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
@@ -465,7 +465,7 @@
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	   tr+='<td><a >批改作业</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -523,7 +523,7 @@
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	   tr+='<td><a >批改作业</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -535,7 +535,7 @@
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
- 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>"
+ 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>";
  			    	         $a=$(a);
  			    	         $a.insertAfter("#number");
  			            }else{
@@ -554,7 +554,7 @@
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	   tr+='<td><a >批改作业</a>&nbsp;</td></tr>';
+ 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	    $tr.data("file",file);

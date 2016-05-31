@@ -26,6 +26,8 @@ public class StudentLoadedCourseController {
 	@ResponseBody
 	public Result execute1(String cno,String base_class){
 		Result result=new Result();
+		System.out.println(cno);
+		System.out.println(base_class);
 		result=teachingService.showStudyCheckByCno(cno, base_class);
 		return result;
 	}

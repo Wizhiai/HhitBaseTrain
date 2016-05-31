@@ -92,5 +92,18 @@ public class TrainCourseLoadInfController {
 		return result;
 		
 	}
+	
+	@RequestMapping("/traincourse/searchCname")
+	@ResponseBody
+	public Result execute1(String cno){
+		Result result=trainCourseService.showCname(cno);
+		System.out.println(result.getData());
+		return result;
+		
+	}
+	
+	
+	
+	
 
 }

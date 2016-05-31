@@ -24,8 +24,8 @@ public class BaseTeacherModifySelfInfoController {
 	
 	@RequestMapping("/baseteacher/modifyselfInfo")
 	@ResponseBody
-	public Result execute(String tname, String sex, String phone,String tno){
-		Result result=baseTeacherService.modifySelInfo(tname, sex, phone,tno);
+	public Result execute(String tname, String sex, String phone,String tno,String profession){
+		Result result=baseTeacherService.modifySelInfo(tname, sex, phone,tno,profession);
 		return result;
 		
 	}

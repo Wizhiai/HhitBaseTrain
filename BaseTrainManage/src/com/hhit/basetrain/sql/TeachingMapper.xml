@@ -70,4 +70,23 @@
 		<select id="findBaseByTno" parameterType="string" resultType="map">
 			select b.base_no,t.base_class from baseteacher b,teaching t where b.t_no=t.t_no and t.t_no=#{t_no}
 		</select>
+		<!-- 删除授课老师 -->
+		<delete id="deleteTeaching" parameterType="string">
+			delete from teaching where t_no=#{t_no}
+		</delete>
+		
+		<!-- 查询授课信息 -->
+		<select id="findTeachingInfo" parameterType="string" resultType="string">
+			select t_no from teaching where t_no=#{t_no}
+		</select>
+		
+		<!-- 添加授课表 -->
+		<insert id="insertTeachingInfo" parameterType="com.hhit.basetrain.entity.Teaching">
+ 		insert into teaching(cno,t_no,base_class) values(#{cno},#{t_no},#{base_class})
+ 	    </insert>
+ 	    
+ 	    <!--更新授课表-->
+		<update id="updateTeaching" parameterType="com.hhit.basetrain.entity.Teaching">
+			update teaching set cno=#{cno},base_class=#{base_class} where t_no=#{t_no}
+		</update>
 </mapper>
