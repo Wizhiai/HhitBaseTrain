@@ -158,10 +158,10 @@ public class TeachingServiceImpl implements TeachingService{
 		map1.put("base_class", base_class);
 		System.out.println(map1);
 		map=teachingDao.findStudcheckbyCno(map1);
-	System.out.println(map.size());
-		if(map.size()==0){
+	System.out.println(map);
+		if(map==null){
 			result.setStatus(0);
-			result.setMsg("查找失败");
+			result.setMsg("对不起改班级还没有课程计划");
 		}else{
 			result.setMsg("查找成功");
 			result.setStatus(1);
@@ -181,6 +181,39 @@ public class TeachingServiceImpl implements TeachingService{
 		}else{
 			result.setStatus(0);
 			result.setMsg("查找失败");
+		}
+		return result;
+	}
+
+	public Result saveTeaching(String cno, String base_class, String t_no) {
+		Result result=new Result();
+		String tno=teachingDao.findTeachingInfo(t_no);
+		if(tno==null){
+			Teaching teach=new Teaching();
+			teach.setCno(cno);
+			teach.setBase_class(base_class);
+			teach.setT_no(t_no);
+			int count=teachingDao.insertTeachingInfo(teach);
+			if(count==0){
+				result.setStatus(0);
+				result.setMsg("教师分班失败！");
+			}else{
+				result.setStatus(1);
+				result.setMsg("教师分班成功！");
+			}
+		}else{
+			Teaching teach=new Teaching();
+			teach.setCno(cno);
+			teach.setBase_class(base_class);
+			teach.setT_no(t_no);
+			int count=teachingDao.updateTeaching(teach);
+			if(count==0){
+				result.setStatus(0);
+				result.setMsg("教师分班失败！");
+			}else{
+				result.setStatus(1);
+				result.setMsg("教师分班成功！");
+			}
 		}
 		return result;
 	}

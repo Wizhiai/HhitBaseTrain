@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.hhit.basetrain.entity.BaseAdmin;
+import com.hhit.basetrain.entity.BaseBean;
 
 /**
  * @author Jiya
@@ -28,5 +29,7 @@ public interface BaseAdminDao {
 
 	@Transactional(propagation = Propagation.REQUIRED)
 	public int saveBaseAdmin(String manager_no);
+	
+	public BaseBean loadBaseNameByNo(String manager_no);
 
 }

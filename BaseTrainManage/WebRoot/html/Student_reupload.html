@@ -3,7 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <title>高校实训学生管理系统</title>
+   <link rel="stylesheet" type="text/css" href="../css/common.css">
  <link rel="stylesheet" type="text/css" href="../css/input.css"/>
+
  <style type="text/css">
  	body{
  	 position:relative;
@@ -24,6 +26,9 @@
  	a:hover{
  	color:red;
  	}
+ 	table{
+ 		margin:0 auto;
+ 	}
 
  </style>
  <script type="text/javascript" src="../js/cookie_util.js"></script>
@@ -31,6 +36,10 @@
  <script type="text/javascript" src="../js/getParameter.js"></script>
  <script type="text/javascript">
  var stuno=getCookie("username");
+  if(stuno==null){
+ 		alert("由于您长时间没有登录，请重新登录!");
+ 		window.open("studentLogin1.jsp");
+ 	}
  var cno;
  var cname;
  var title;
@@ -130,7 +139,7 @@ document.write(strDate);
  </div>
  <div id="information">
  <form action="../reuploadwork.do" enctype="multipart/form-data" method="post" target="hidden_frame">
- 	<table cellpadding="10" cellspacing="0" align="center">
+ 	<table cellpadding="10" cellspacing="10px" align="center">
  		<tr>
  			<td><div id="d1" align="left">课&nbsp;&nbsp;&nbsp;程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:&nbsp;<input type="text" id="cno" name="cno"/><input type="hidden" id="stuno" name="stuno"/></div></td>
            
@@ -148,7 +157,7 @@ document.write(strDate);
           <td><div align="left">  
           
                     文&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;件:&nbsp;<input type="file" name="studywork" id="studywork"/>
-           <input type="submit" value="上传" id="upload"/>
+           <input type="submit" value="上传" id="upload" class="editBtn"/>
            </div></td>
           </tr>
  		

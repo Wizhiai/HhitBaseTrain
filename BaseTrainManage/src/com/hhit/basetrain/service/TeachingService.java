@@ -47,4 +47,12 @@ public interface TeachingService {
 	 * 查询基地号和班级
 	 */
 	public Result showBaseByTno(String t_no);
+	/**
+	 * 更新授课表
+	 * @param cno
+	 * @param base_class
+	 * @param t_no
+	 * @return
+	 */
+	public Result saveTeaching(String cno,String base_class,String t_no);
 }

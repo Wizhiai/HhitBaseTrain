@@ -53,12 +53,12 @@
 	  	<div id="searchInfo" class="personInfo">基地信息管理</div>
 	  	<ul class="secondMenu">
 	  		<li><a target="businessfrm">查询基地信息</a></li>
-	  		<li><a href="#" target="businessfrm">编辑基地信息</a></li>
+	  		<li><a href="" target="businessfrm">编辑基地信息</a></li>
     	</ul> 
     	<div id="searchInfo" class="personInfo">基地教师管理</div>
 	  	<ul class="secondMenu">
-	  		<li><a href="#" target="businessfrm">添加教师信息</a></li>
-	  		<li><a href="#" target="businessfrm">编辑教师信息</a></li>
+	  		<li><a href="../../html/JDTManager_addBaseTeacher.html" target="businessfrm">添加教师信息</a></li>
+	  		<li><a href="../../html/JDTManager_updateBaseTeacherInfo.html" target="businessfrm">编辑教师信息</a></li>
     	</ul> 
     	<div id="searchInfo" class="personInfo">公告管理</div>
 	  	<ul class="secondMenu">
@@ -67,12 +67,12 @@
     	</ul> 
     	<div id="searchInfo" class="personInfo">实训学生管理</div>
 	  	<ul class="secondMenu">
-	  		<li><a href="" target="businessfrm">添加实训学生</a></li>
+	  		<li><a href="../../html/JDTManager_addTrainStudentInfo.html" target="businessfrm">添加实训学生</a></li>
 	  		<li><a href="" target="businessfrm">编辑实训学生信息</a></li>
     	</ul> 
 	  	<ul id="signUp" class="personInfo">
 	  		<li>
-    			<a id="trainregist" target="businessfrm">学生实训统计</a>
+    			<a id="trainregist" href="../../html/JDTManager_tongjiTrainStudent.html" target="businessfrm" >学生实训统计</a>
     		</li>
     	</ul>	
 	  	</section>

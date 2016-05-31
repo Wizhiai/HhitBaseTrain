@@ -36,5 +36,11 @@ public interface TrainCourseDao {
 	 * 查询课程号
 	 */
 	public List<String> findCourse(String base_no);
+	/**
+	 * 查询课程名
+	 * @param cno
+	 * @return
+	 */
+	public String findCourseName(String cno);
 
 }

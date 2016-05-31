@@ -11,6 +11,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.hhit.basetrain.dao.BaseAdminDao;
+import com.hhit.basetrain.entity.BaseBean;
 import com.hhit.basetrain.entity.Result;
 import com.hhit.basetrain.service.BaseAdminService;
 
@@ -79,6 +80,25 @@ public class BaseAdminServiceImpl implements BaseAdminService{
 			result.setStatus(1);
 			result.setMsg("查询成功");
 			result.setData(baseAdminDao.findNameByNo(managerNo));
+		}
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.BaseAdminService#showBaseNameByNo(java.lang.String)
+	 */
+	public Result showBaseNameByNo(String managerNo) {
+		
+		Result result=new Result();
+		BaseBean base=new BaseBean();
+		base=baseAdminDao.loadBaseNameByNo(managerNo);
+		if(base==null){
+			result.setStatus(0);
+			result.setMsg("查找失败");
+		}else{
+			result.setMsg("查找成功");
+			result.setStatus(1);
+			result.setData(base);
 		}
 		return result;
 	}

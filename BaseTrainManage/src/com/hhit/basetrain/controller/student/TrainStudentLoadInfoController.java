@@ -38,6 +38,15 @@ public class TrainStudentLoadInfoController {
 		return result;
 	}
 	
+	@RequestMapping("/trainstudentlist/load")
+	@ResponseBody
+	public Result execute2(String sno){
+		Result result=studentservice.searchStudentInfo(sno);
+		System.out.println(result.getData());
+		System.out.println(result.getStatus());
+		return result;
+	}
+	
 	
 
 }

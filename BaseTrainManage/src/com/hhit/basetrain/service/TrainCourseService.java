@@ -32,4 +32,14 @@ public interface TrainCourseService {
 	 * 通过基地号查询课程号
 	 */
 	public Result showCno(String base_no);
+	/**
+	 *通过课程号查询课程名
+	 * @param cno
+	 * @return
+	 */
+	public Result showCname(String cno);
+	
+
+	
+	
 }

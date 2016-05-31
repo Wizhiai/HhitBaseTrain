@@ -58,6 +58,28 @@ public interface TeachingDao {
 	 * 通过基地教师号查询基地号和基地班级
 	 */
 	public Map findBaseByTno(String t_no);
-	
-	
+	/**
+	 * 删除授课信息
+	 * @param t_no
+	 * @return
+	 */
+	public int deleteTeaching(String t_no);
+	/**
+	 * 查询授课信息
+	 * @param t_no
+	 * @return
+	 */
+	public String findTeachingInfo(String t_no);
+    /**
+     * 插入授课信息
+     * @param teach
+     * @return
+     */
+	public int insertTeachingInfo(Teaching teach);
+	/**
+	 * 更新授课信息
+	 * @param teach
+	 * @return
+	 */
+	public int updateTeaching(Teaching teach);
 }

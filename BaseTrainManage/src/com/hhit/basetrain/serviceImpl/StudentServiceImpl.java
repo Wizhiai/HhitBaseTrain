@@ -3,6 +3,7 @@
  */
 package com.hhit.basetrain.serviceImpl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +18,7 @@ import com.hhit.basetrain.entity.Result;
 import com.hhit.basetrain.entity.Student;
 import com.hhit.basetrain.entity.StudentRegistCountBean;
 import com.hhit.basetrain.entity.StudentRegistCountInfoBean;
+import com.hhit.basetrain.entity.TrainStudent;
 import com.hhit.basetrain.service.StudentService;
 
 /**
@@ -327,6 +329,24 @@ public class StudentServiceImpl implements StudentService{
 			result.setStatus(1);
 			result.setData(list);
 			result.setMsg("学生信息查找成功");
+		}
+		return result;
+	}
+
+	public Result searchTrainStudent(Integer base_no,String cno) {
+		Result result =new Result();
+		List<TrainStudent> trainstudents=new ArrayList<TrainStudent>();
+		Map<String,Object> map=new HashMap<String,Object>();
+		map.put("base_no", base_no);
+		map.put("cno", cno);
+		trainstudents=studentDao.findTrainstudent(map);
+		if(trainstudents.size()==0){
+			result.setMsg("没有学生报该门课程!");
+			result.setStatus(0);
+		}else{
+			result.setMsg("加载成功");
+			result.setStatus(1);
+			result.setData(trainstudents);	
 		}
 		return result;
 	}

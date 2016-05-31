@@ -76,4 +76,10 @@ public interface StudentService {
 	 * 根据入学年份、专业、班级查找学生信息
 	 */
 	public Result searchStudentInfoAsUser(int enter_year,String major,String stu_class);
+	/**
+	 * 查询实训学生
+	 * @param base_no
+	 * @return
+	 */
+	public Result searchTrainStudent(Integer base_no,String cno);
 }

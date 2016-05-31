@@ -32,7 +32,7 @@
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
  			    	 	  tr+='  <td>'+works[i].endDate+'</td>';
-			    	 	   tr+='<td><a >重交作业</a>&nbsp;</td></tr>';
+			    	 	   tr+='<td><a href="javascript:void(0);">重交作业</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
  			    	 	  $tr.data("wid",wid);
 			    	 	    $tr.data("cno",cno);
@@ -64,7 +64,7 @@
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
  			    	 	  tr+='  <td>'+works[i].endDate+'</td>';
-			    	 	   tr+='<td><a >重交作业</a>&nbsp;</td></tr>';
+			    	 	   tr+='<td><a href="javascript:void(0);">重交作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	   $tr.data("wid",wid);
 			    	 	    $tr.data("cno",cno);
@@ -80,7 +80,7 @@
  			    	 a='<a id="head" class="dianji" onclick="toHomePage()">首页</a><a id="nextpage" onclick="nextPage()">下一页</a><a id="end" onclick="toEndpage()">尾页</a>';
  			    	 $a=$(a);
  			    	 $a.insertAfter("#number");
- 			        }		
+ 			        }
  			    	}
  			    }
  	});
@@ -113,7 +113,7 @@
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
  			    	 	  tr+='  <td>'+works[i].endDate+'</td>';
-			    	 	   tr+='<td><a >重交作业</a>&nbsp;</td></tr>';
+			    	 	   tr+='<td><a href="javascript:void(0);">重交作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	   $tr.data("wid",wid);
 			    	 	    $tr.data("cno",cno);
@@ -145,7 +145,7 @@
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
  			    	 	  tr+='  <td>'+works[i].endDate+'</td>';
-			    	 	   tr+='<td><a >重交作业</a>&nbsp;</td></tr>';
+			    	 	   tr+='<td><a href="javascript:void(0);">重交作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	   $tr.data("wid",wid);
 			    	 	    $tr.data("cno",cno);
@@ -177,7 +177,7 @@
 			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
 			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
 			    	 	   tr+='  <td>'+works[i].endDate+'</td>';
- 			    	 	   tr+='<td><a >重交作业</a>&nbsp;</td></tr>';
+ 			    	 	   tr+='<td><a href="javascript:void(0)">重交作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	   $tr.data("wid",wid);
 			    	 	    $tr.data("cno",cno);
@@ -210,7 +210,7 @@
 			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
 			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
 			    	 	   tr+='  <td>'+works[i].endDate+'</td>';
- 			    	 	   tr+='<td><a >重交作业</a>&nbsp;</td></tr>';
+ 			    	 	   tr+='<td><a href="javascript:void(0);">重交作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	   $tr.data("wid",wid);
 			    	 	    $tr.data("cno",cno);
@@ -222,11 +222,13 @@
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
  			    	 }
- 			    	 $("table tfoot td b").html(pagesize);
+ 			    	 $("table tfoot td b").html(works.length);
  			    	 	$("#page a").remove();
  			    	     a='<a id="head" class="dianji" onclick="toHomePage()">首页</a>';
  			    	     $a=$(a);
  			    	    $a.insertAfter("#number");
+ 			        }else if( currentpage>pagecounts){
+ 			        	 alert("你输入的页码超过最大页数，请重新输入");
  			        }
  			    	}
  			    }
@@ -260,7 +262,7 @@
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
  			    	 	  tr+='  <td>'+works[i].endDate+'</td>';
-			    	 	   tr+='<td><a >重交作业</a>&nbsp;</td></tr>';
+			    	 	   tr+='<td><a href="javascript:void(0);">重交作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	   $tr.data("wid",wid);
 			    	 	    $tr.data("cno",cno);
@@ -292,7 +294,7 @@
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
  			    	 	  tr+='  <td>'+works[i].endDate+'</td>';
-			    	 	   tr+='<td><a >重交作业</a>&nbsp;</td></tr>';
+			    	 	   tr+='<td><a href="javascript:void(0);">重交作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	   $tr.data("wid",wid);
 			    	 	    $tr.data("cno",cno);
@@ -342,7 +344,7 @@
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
  			    	 	  tr+='  <td>'+works[i].endDate+'</td>';
- 			    	 	   tr+='<td><a >重交作业</a>&nbsp;</td></tr>';
+ 			    	 	   tr+='<td><a href="javascript:void(0);">重交作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	   $tr.data("wid",wid);
 			    	 	    $tr.data("cno",cno);
@@ -375,7 +377,7 @@
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
  			    	 	  tr+='  <td>'+works[i].endDate+'</td>';
-			    	 	   tr+='<td><a >重交作业</a>&nbsp;</td></tr>';
+			    	 	   tr+='<td><a href="javascript:void(0);">重交作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	   $tr.data("wid",wid);
 			    	 	    $tr.data("cno",cno);
@@ -432,7 +434,7 @@
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
  			    	 	  tr+='  <td>'+works[i].endDate+'</td>';
-			    	 	   tr+='<td><a >重交作业</a>&nbsp;</td></tr>';
+			    	 	   tr+='<td><a href="javascript:void(0);">重交作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	    $tr.data("cno",cno);
@@ -445,7 +447,7 @@
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
  			    	         $("#page a").remove();
- 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>"
+ 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>";
  			    	         $a=$(a);
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
@@ -464,7 +466,7 @@
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
  			    	 	  tr+='  <td>'+works[i].endDate+'</td>';
-			    	 	   tr+='<td><a >重交作业</a>&nbsp;</td></tr>';
+			    	 	   tr+='<td><a href="javascript:void(0);">重交作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	   $tr.data("wid",wid);
 			    	 	    $tr.data("cno",cno);
@@ -521,7 +523,7 @@
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
  			    	 	  tr+='  <td>'+works[i].endDate+'</td>';
-			    	 	   tr+='<td><a >重交作业</a>&nbsp;</td></tr>';
+			    	 	   tr+='<td><a href="javascript:void(0);">重交作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	   $tr.data("wid",wid);
 			    	 	    $tr.data("cno",cno);
@@ -533,7 +535,7 @@
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
- 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>"
+ 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>";
  			    	         $a=$(a);
  			    	         $a.insertAfter("#number");
  			            }else{
@@ -552,7 +554,7 @@
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
  			    	 	  tr+='  <td>'+works[i].endDate+'</td>';
-			    	 	   tr+='<td><a >重交作业</a>&nbsp;</td></tr>';
+			    	 	   tr+='<td><a href="javascript:void(0);">重交作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	   $tr.data("wid",wid);
 			    	 	    $tr.data("cno",cno);

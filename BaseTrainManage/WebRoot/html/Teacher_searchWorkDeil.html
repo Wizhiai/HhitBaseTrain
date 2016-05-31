@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>高校实训学生管理系统</title>
+   <link rel="stylesheet" type="text/css" href="../css/common.css">
+ <link rel="stylesheet" type="text/css" href="../css/input.css"/>
+
+ <style type="text/css">
+ 	body{
+ 	 position:relative;
+ 	}
+ 	td{
+ 	border:0px ;
+ 	}
+ 	input{
+ 	width:150px;
+ 	}
+ 	#upload{
+ 	width:50px;
+ 	margin-left:10px;
+ 	}
+ 	#studyplan{
+       width:215px; 	
+ 	}
+ 	a:hover{
+ 	color:red;
+ 	}
+ 	table{
+ 		margin:0 auto;
+ 	}
+
+ </style>
+ <script type="text/javascript" src="../js/cookie_util.js"></script>
+ <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+ <script type="text/javascript" src="../js/getParameter.js"></script>
+ <script type="text/javascript">
+ var stuno=getCookie("username");
+   if(stuno==null){
+ 		alert("由于您长时间没有登录，请重新登录!");
+ 		window.open("studentLogin1.jsp");
+ 	}
+ var cname;
+ var title;
+ var content;
+ var stu;
+ var stuname;
+ var markedfile;
+ var comment;
+ var score;
+ $(function(){
+ 	var url=window.location;
+ 	cname=getUrlParam(url,"cname");
+ 	title=getUrlParam(url,"title");
+ 	stu=getUrlParam(url,"stuno");
+ 	stuname=getUrlParam(url,"stuname");
+ 	markedfile=getUrlParam(url,"markedFile");
+ 	alert(markedfile);
+ 	comment=getUrlParam(url,"comment");
+ 	result=getUrlParam(url,"result");
+ 	$("#stuno").val(stu);
+ 	$("#stuname").val(stuname);
+ 	$("#cname").val(cname);
+ 	$("#title").val(title);
+ 	$("#score").val(result);
+ 	$("#comment").val(comment);
+ 	
+ });
+ 
+ function download(){
+ 		var fileName=markedfile;
+ 		if(fileName==""){
+ 			alert("没有文件，请重新上传！");
+ 		}else{
+ 			window.location.href="../download.do?fileName="+fileName;
+ 		}
+ }
+ 
+ </script>
+ 
+</head>
+<body>
+	<div id="head1"><img  src="../image/info.png"/></div>
+    <div id="head2">当前位置：首页&nbsp;>>&nbsp;课程管理&nbsp;>><b>作业情况查询</b></div>
+    <div id="person"><img  src="../image/person.png"/></div>
+   <div id="welcome">您好：<b id="name"></b>欢迎登录外实训学生管理系统--学校教师管理子系统</div>
+   <div id="time"><img  src="../image/time.png"/>
+    <script type="text/javascript"> 
+var today=new Date(); 
+var strDate=(" "+today.getFullYear()+"年"+(today.getMonth()+1)+"月"+today.getDate()+"日"); 
+var n_day=today.getDay(); 
+switch(n_day){ 
+case 0: 
+{strDate=strDate+" 星期日 ";}break; 
+case 1: 
+{strDate=strDate+" 星期一 ";}break; 
+case 2: 
+{strDate=strDate+" 星期二 ";}break; 
+case 3: 
+{strDate=strDate+" 星期三 ";}break; 
+case 4: 
+{strDate=strDate+" 星期四 ";}break; 
+case 5: 
+{strDate=strDate+" 星期五 ";}break; 
+case 6: 
+{strDate=strDate+" 星期六 ";}break; 
+case 7: 
+{strDate=strDate+" 星期日 ";}break; 
+} 
+document.write(strDate); 
+</script> 
+ </div>
+ <div id="information">
+ <form action="../uploadwork.do" enctype="multipart/form-data" method="post">
+ 	<table cellpadding="10" cellspacing="10px" align="center">
+ 	        <tr>
+           	<td><div id="d2" align="left">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:&nbsp;<input type="text" id="stuno" name="stuno"/></div></td>
+           </tr>
+ 			<tr>
+           	<td><div id="d2" align="left">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:&nbsp;<input type="text" id="stuname" name="stuname"/></div></td>
+           </tr>
+           <tr>
+           	<td><div id="d2" align="left">课&nbsp;&nbsp;&nbsp;程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:&nbsp;<input type="text" id="cname" name="cname"/></div></td>
+           </tr>
+           <tr>
+            <td><div align="left">作&nbsp;&nbsp;业&nbsp;标&nbsp;&nbsp;题:&nbsp;<input type="text" id="title" name="title"/></div></td>
+           </tr>
+            <tr>
+            <td><div align="left">已&nbsp;&nbsp;批&nbsp;作&nbsp;&nbsp;业:&nbsp;<a href="javascript:void(0);" onclick="download();">附件下载</a></div></td>
+           </tr>
+            <tr>
+            <td><div align="left">成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;绩:&nbsp;<input type="text" disabled="disabled" id="score" name="score"/></div></td>
+           </tr>
+            <tr>
+            <td><div align="left">评&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;语:&nbsp;<textArea id="comment" name="comment" cols="20" rows="5"></textArea></div></td>
+            
+           </tr>
+ 		
+ 	</table>
+ 	</form>
+ </div>
+ </body>
+ </html>

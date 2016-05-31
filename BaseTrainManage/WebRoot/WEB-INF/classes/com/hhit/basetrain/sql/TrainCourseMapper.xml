@@ -26,4 +26,9 @@
 	<select id="findCourse" parameterType="string" resultType="string">
 		select cno from traincourse where base_no=#{base_no}
 	</select>
+	
+	<!-- 通过课程号查询课程名 -->
+	<select id="findCourseName" parameterType="string" resultType="string">
+		select cname from traincourse where cno=#{cno}
+	</select>
 </mapper>

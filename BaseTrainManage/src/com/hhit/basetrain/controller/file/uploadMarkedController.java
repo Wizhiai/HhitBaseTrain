@@ -31,7 +31,7 @@ public class uploadMarkedController {
 	
 	@RequestMapping("/uploadmarkwork.do")
 	@ResponseBody
-	 public void uploadFile(HttpServletRequest request,HttpServletResponse response) throws Exception {  
+	 public Object uploadFile(HttpServletRequest request,HttpServletResponse response) throws Exception {  
 		//ModelAndView mav=new ModelAndView();
 		Map<String,String> map=new HashMap<String,String>();
 	       /* String path = Thread.currentThread()
@@ -44,7 +44,9 @@ public class uploadMarkedController {
 	            file.mkdirs();  
 	        }  
 	        //获取图片url地址  
-	        String fileName = "";// 文件名称  
+	        String fileName = "";// 文件名称 
+	        boolean flag=false;
+	        boolean flag1=false;
 	        /**上传文件处理内容**/  
 	        DiskFileItemFactory factory = new DiskFileItemFactory();  
 	        ServletFileUpload sfu = new ServletFileUpload(factory);  
@@ -71,18 +73,19 @@ public class uploadMarkedController {
 	            String uploadDate=TimeUtil.getFormatCurrentTime();
 	            String markedfile=fileName;
 	            String comment=map.get("comment");
-	            boolean flag1=workService.saveMarked(stuno, wid, uploadDate, result, comment, markedfile);
-	            boolean flag=workService.upDateIden(stuno, wid);
-	            if(flag1 && flag){
-		            response.sendRedirect("html/JDT_pigaiWork.html");
-	            }else{
-		            response.sendRedirect("html/JDT_uploadStudyplan2.html");
-	            }
+	             flag1=workService.saveMarked(stuno, wid, uploadDate, result, comment, markedfile);
+	            flag=workService.upDateIden(stuno, wid);
+	           
 	            
 	        } catch (Exception e) {  
 	            e.printStackTrace(); 
 	            System.out.println("文件上传出错");
 	        }  
+	        if(flag1 && flag){
+	        	 return "<script>window.parent.uploadSucced();</script>";
+            }else{
+            	 return "<script>window.parent.uploadFailed();</script>";
+            }
 	      
 	    }  
 	

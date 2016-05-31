@@ -32,7 +32,7 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	  tr+=' <td><a>录入成绩</a></td>';
+ 			    	 	  tr+='  <td><a href="JDT_addGrade.html?stuno='+stu+'&name='+name+'&base_name='+base_name+'"  target="businessfrm">录入成绩</a></td>';
 			    	 	    $tr=$(tr);
 			    	 	  $tr.data("stu",stu);
 			    	 	 $tr.data("name",name);
@@ -42,7 +42,7 @@
  			    	      }
  			    	        $("table tfoot td b").html(students.length);
  			    			$("#page a").remove();
- 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>"
+ 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>";
  			    	         $a=$(a);
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
@@ -59,7 +59,7 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	  tr+='  <td><a>录入成绩</a></td>';
+ 			    	 	  tr+='  <td><a href="JDT_addGrade.html?stuno='+stu+'&name='+name+'&base_name='+base_name+'"  target="businessfrm">录入成绩</a></td>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("stu",stu);
 			    	 	    $tr.data("name",name);
@@ -103,7 +103,7 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	   tr+='  <td><a>录入成绩</a></td>';
+ 			    	 	  tr+='  <td><a href="JDT_addGrade.html?stuno='+stu+'&name='+name+'&base_name='+base_name+'"  target="businessfrm">录入成绩</a></td>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("stu",stu);
 			    	 	    $tr.data("name",name);
@@ -130,7 +130,7 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	    tr+='  <td><a>录入成绩</a></td>';
+ 			    	 	  tr+='  <td><a href="JDT_addGrade.html?stuno='+stu+'&name='+name+'&base_name='+base_name+'"  target="businessfrm">录入成绩</a></td>';
 			    	 	    $tr=$(tr);
 			    	 	  $tr.data("stu",stu);
 			    	 	 $tr.data("name",name);
@@ -157,7 +157,7 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	  tr+='  <td><a>录入成绩</a></td>';
+ 			    	 	  tr+='  <td><a href="JDT_addGrade.html?stuno='+stu+'&name='+name+'&base_name='+base_name+'"  target="businessfrm">录入成绩</a></td>';
 			    	 	    $tr=$(tr);
 			    	 	  $tr.data("stu",stu);
 			    	 	 $tr.data("name",name);
@@ -183,7 +183,7 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	  tr+='  <td><a>录入成绩</a></td>';
+ 			    	 	  tr+='  <td><a href="JDT_addGrade.html?stuno='+stu+'&name='+name+'&base_name='+base_name+'"  target="businessfrm">录入成绩</a></td>';
 			    	 	    $tr=$(tr);
 			    	 	  $tr.data("stu",stu);
 			    	 	 $tr.data("name",name);
@@ -229,7 +229,7 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	  tr+='  <td><a>录入成绩</a></td>';
+ 			    	 	  tr+='  <td><a href="JDT_addGrade.html?stuno='+stu+'&name='+name+'&base_name='+base_name+'"  target="businessfrm">录入成绩</a></td>';
 			    	 	    $tr=$(tr);
 			    	 	  $tr.data("stu",stu);
 			    	 	 $tr.data("name",name);
@@ -256,7 +256,7 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	  tr+='  <td><a>录入成绩</a></td>';
+ 			    	 	  tr+='  <td><a href="JDT_addGrade.html?stuno='+stu+'&name='+name+'&base_name='+base_name+'"  target="businessfrm">录入成绩</a></td>';
 			    	 	    $tr=$(tr);
 			    	 	  $tr.data("stu",stu);
 			    	 	 $tr.data("name",name);
@@ -301,7 +301,7 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	  tr+='  <td><a>录入成绩</a></td>';
+ 			    	 	  tr+='  <td><a href="JDT_addGrade.html?stuno='+stu+'&name='+name+'&base_name='+base_name+'"  target="businessfrm">录入成绩</a></td>';
 			    	 	    $tr=$(tr);
 			    	 	  $tr.data("stu",stu);
 			    	 	 $tr.data("name",name);
@@ -329,7 +329,7 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	  tr+='  <td><a>录入成绩</a></td>';
+ 			    	 	  tr+='  <td><a href="JDT_addGrade.html?stuno='+stu+'&name='+name+'&base_name='+base_name+'"  target="businessfrm">录入成绩</a></td>';
 			    	 	    $tr=$(tr);
 			    	 	  $tr.data("stu",stu);
 			    	 	 $tr.data("name",name);
@@ -373,7 +373,7 @@
  			    	    	    var name=students[i].stu_name;
  			    	    		 var base_name=students[i].base_name;
  			    	    		 
- 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="30px">';
  			    	 	    tr+='  <td>'+students[i].stuno+'</td>';
  			    	 	    tr+='  <td>'+students[i].stu_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].stu_sex+'</td>';
@@ -382,8 +382,9 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	     tr+='  <td><a>录入成绩</a></td>';
- 			    	 	    $tr=$(tr);
+ 			    	 	  //tr+='<td> <a>录入成绩</a></td>';
+ 			    	 	  tr+='  <td><a href="JDT_addGrade.html?stuno='+stu+'&name='+name+'&base_name='+base_name+'"  target="businessfrm">录入成绩</a></td>';
+			    	 	    $tr=$(tr);
  			    	 	  $tr.data("stu",stu);
   			    	 	 $tr.data("name",name);
   			    	 	 $tr.data("base_name",base_name);
@@ -392,7 +393,7 @@
  			    	      }
  			    	        $("table tfoot td b").html(students.length);
  			    	         $("#page a").remove();
- 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>"
+ 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>";
  			    	         $a=$(a);
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
@@ -400,7 +401,7 @@
  			        		   stu=students[i].stuno;
  			        		   name=students[i].stu_name;
  			    	    	  base_name=students[i].base_name;
- 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="30px">';
  			    	 	    tr+='<td>'+students[i].stuno+'</td>';
  			    	 	    tr+='  <td>'+students[i].stu_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].stu_sex+'</td>';
@@ -409,7 +410,8 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	  tr+='  <td><a>录入成绩</a></td>';
+ 			    	 	   // tr+='<td> <a>录入成绩</a></td>';
+ 			    	 	 tr+='  <td><a href="JDT_addGrade.html?stuno='+stu+'&name='+name+'&base_name='+base_name+'"  target="businessfrm">录入成绩</a></td>';
 			    	 	    $tr=$(tr);
 			    	 	  $tr.data("stu",stu);
 			    	 	 $tr.data("name",name);
@@ -425,7 +427,7 @@
  			    	 a='<a id="head" class="dianji" onclick="toHomePage()">首页</a><a id="nextpage" onclick="nextPage()">下一页</a><a id="end" onclick="toEndpage()">尾页</a>';
  			    	 $a=$(a);
  			    	 $a.insertAfter("#number");
- 			        }		
+ 			        }
  			    	}else{
  			    		$("table tbody").html("");
  			    		
@@ -464,7 +466,7 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	  tr+='  <td><a>录入成绩</a></td>';
+ 			    	 	  tr+='  <td><a href="JDT_addGrade.html?stuno='+stu+'&name='+name+'&base_name='+base_name+'"  target="businessfrm">录入成绩</a></td>';
 			    	 	    $tr=$(tr);
 			    	 	  $tr.data("stu",stu);
 			    	 	 $tr.data("name",name);
@@ -473,7 +475,7 @@
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(students.length);
- 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>"
+ 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>";
  			    	         $a=$(a);
  			    	         $a.insertAfter("#number");
  			            }else{
@@ -490,7 +492,7 @@
  			    	 	    tr+='  <td>'+students[i].base_name+'</td>';
  			    	 	    tr+='  <td>'+students[i].base_class+'</td>';
  			    	 	    tr+='  <td>'+students[i].cname+'</td>';
- 			    	 	  tr+='  <td><a>录入成绩</a></td>';
+ 			    	 	  tr+='  <td><a href="JDT_addGrade.html?stuno='+stu+'&name='+name+'&base_name='+base_name+'"  target="businessfrm">录入成绩</a></td>';
 			    	 	    $tr=$(tr);
 			    	 	  $tr.data("stu",stu);
 			    	 	 $tr.data("name",name);

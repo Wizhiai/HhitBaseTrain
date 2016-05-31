@@ -18,13 +18,21 @@
  			    	    var works=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<works.length;i++){
+ 			    	    		var markedFile=works[i].markedfile;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stuname=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var title=works[i].title;
+ 			    	    		var result=works[i].result;
+ 			    	    		var comment=works[i].comment;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	    tr+='<td>'+works[i].stuno+'</td>';
 			    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
  			    	 	    tr+='<td>'+works[i].cno+'</td>';
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 			    	 	 tr+='  <td>'+works[i].result+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].result+'</td>';
+ 			    	 	    tr+='<td><a href="Teacher_searchWorkDeil.html?stuno='+stuno+'&stuname='+stuname+'&cname='+cname+'&title='+title+'&result='+result+'&comment='+comment+'&markedFile='+markedFile+'">详细信息</a></td></tr>';
  			    	 	    $tr=$(tr);
  			    	 	     $("table tbody").append($tr);
  			    	      }
@@ -35,14 +43,22 @@
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			            	for(var i=0;i<works.length;i++){
- 			            		  var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 		 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
- 					    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
- 		 			    	 	    tr+='<td>'+works[i].cno+'</td>';
- 		 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
- 		 			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 		 			    	 	 tr+='<td>'+works[i].result+'</td>';
- 		 			    	 	 $tr=$(tr);
+ 			            		var markedFile=works[i].markedfile;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stuname=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var title=works[i].title;
+ 			    	    		var result=works[i].result;
+ 			    	    		var comment=works[i].comment;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
+			    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].result+'</td>';
+ 			    	 	    tr+='<td><a href="Teacher_searchWorkDeil.html?stuno='+stuno+'&stuname='+stuname+'&cname='+cname+'&title='+title+'&result='+result+'&comment='+comment+'&markedFile='+markedFile+'">详细信息</a></td></tr>';
+ 			    	 	    $tr=$(tr);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -51,6 +67,9 @@
  			    	 $a=$(a);
  			    	 $a.insertAfter("#number");
  			        }		
+ 			    	}else{
+ 			    		alert(result.msg);
+ 			    		
  			    	}
  			    }
  	});
@@ -69,14 +88,22 @@
  			    	    var works=result.data;
  			    	    if(currentpage==1 && currentpage<pagecounts){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		 var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
-		 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
-					    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
-		 			    	 	    tr+='<td>'+works[i].cno+'</td>';
-		 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
-		 			    	 	    tr+='  <td>'+works[i].title+'</td>';
-		 			    	 	 tr+='<td>'+works[i].result+'</td>';
-		 			    	 	 $tr=$(tr);
+ 			    	    		var markedFile=works[i].markedfile;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stuname=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var title=works[i].title;
+ 			    	    		var result=works[i].result;
+ 			    	    		var comment=works[i].comment;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
+			    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].result+'</td>';
+ 			    	 	    tr+='<td><a href="Teacher_searchWorkDeil.html?stuno='+stuno+'&stuname='+stuname+'&cname='+cname+'&title='+title+'&result='+result+'&comment='+comment+'&markedFile='+markedFile+'">详细信息</a></td></tr>';
+ 			    	 	    $tr=$(tr);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
@@ -86,14 +113,22 @@
  			    	          $a.insertAfter("#number");
  			            }else if(1<currentpage && currentpage<pagecounts){
  			            	for(var i=0;i<works.length;i++){
- 			            		 var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
-		 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
-					    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
-		 			    	 	    tr+='<td>'+works[i].cno+'</td>';
-		 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
-		 			    	 	    tr+='  <td>'+works[i].title+'</td>';
-		 			    	 	 tr+='<td>'+works[i].result+'</td>';
-		 			    	 	 $tr=$(tr);
+ 			            		var markedFile=works[i].markedfile;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stuname=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var title=works[i].title;
+ 			    	    		var result=works[i].result;
+ 			    	    		var comment=works[i].comment;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
+			    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].result+'</td>';
+ 			    	 	    tr+='<td><a href="Teacher_searchWorkDeil.html?stuno='+stuno+'&stuname='+stuname+'&cname='+cname+'&title='+title+'&result='+result+'&comment='+comment+'&markedFile='+markedFile+'">详细信息</a></td></tr>';
+ 			    	 	    $tr=$(tr);
 			    	 
  			    	 			$("table tbody").append($tr);
  			    	 }
@@ -104,14 +139,22 @@
  			    	   $a.insertAfter("#number");
  			        }else if( currentpage>1 && currentpage==pagecounts){
  			        	for(var i=0;i<works.length;i++){
- 			        		 var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
-	 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
-				    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
-	 			    	 	    tr+='<td>'+works[i].cno+'</td>';
-	 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
-	 			    	 	    tr+='  <td>'+works[i].title+'</td>';
-	 			    	 	 tr+='<td>'+works[i].result+'</td>';
-	 			    	 	 $tr=$(tr);
+ 			        		var markedFile=works[i].markedfile;
+			    	    		var stuno=works[i].stuno;
+			    	    		var stuname=works[i].stu_name;
+			    	    		var cname=works[i].cname;
+			    	    		var title=works[i].title;
+			    	    		var result=works[i].result;
+			    	    		var comment=works[i].comment;
+			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+			    	 	    tr+='<td>'+works[i].stuno+'</td>';
+		    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
+			    	 	    tr+='<td>'+works[i].cno+'</td>';
+			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+			    	 	    tr+='  <td>'+works[i].title+'</td>';
+			    	 	    tr+='  <td>'+works[i].result+'</td>';
+			    	 	    tr+='<td><a href="Teacher_searchWorkDeil.html?stuno='+stuno+'&stuname='+stuname+'&cname='+cname+'&title='+title+'&result='+result+'&comment='+comment+'&markedFile='+markedFile+'">详细信息</a></td></tr>';
+			    	 	    $tr=$(tr);
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
  			    	 }
@@ -122,23 +165,37 @@
  			    	   $a.insertAfter("#number");
  			        }else if(currentpage==1 && currentpage==pagecounts)	{
  			        	for(var i=0;i<works.length;i++){
- 			        		 var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
-	 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
-				    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
-	 			    	 	    tr+='<td>'+works[i].cno+'</td>';
-	 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
-	 			    	 	    tr+='  <td>'+works[i].title+'</td>';
-	 			    	 	 tr+='<td>'+works[i].result+'</td>';
-	 			    	 	 $tr=$(tr);
+ 			        		var markedFile=works[i].markedfile;
+			    	    		var stuno=works[i].stuno;
+			    	    		var stuname=works[i].stu_name;
+			    	    		var cname=works[i].cname;
+			    	    		var title=works[i].title;
+			    	    		var result=works[i].result;
+			    	    		var comment=works[i].comment;
+			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+			    	 	    tr+='<td>'+works[i].stuno+'</td>';
+		    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
+			    	 	    tr+='<td>'+works[i].cno+'</td>';
+			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+			    	 	    tr+='  <td>'+works[i].title+'</td>';
+			    	 	    tr+='  <td>'+works[i].result+'</td>';
+			    	 	    tr+='<td><a href="Teacher_searchWorkDeil.html?stuno='+stuno+'&stuname='+stuname+'&cname='+cname+'&title='+title+'&result='+result+'&comment='+comment+'&markedFile='+markedFile+'">详细信息</a></td></tr>';
+			    	 	    $tr=$(tr);
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
  			    	 }
- 			    	 $("table tfoot td b").html(pagesize);
+ 			    	 $("table tfoot td b").html(works.length);
  			    	 	$("#page a").remove();
  			    	     a='<a id="head" class="dianji" onclick="toHomePage()">首页</a>';
  			    	     $a=$(a);
  			    	    $a.insertAfter("#number");
+ 			        }else if(currentpage>pagecounts){
+ 			        	alert("页数超过总页数，请重新输入");
+ 			        	
  			        }
+ 			    	}else{
+ 			    		alert(result.msg);
+ 			    		
  			    	}
  			    }
  	});
@@ -157,14 +214,22 @@
  			    	    var works=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		 var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
-		 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
-					    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
-		 			    	 	    tr+='<td>'+works[i].cno+'</td>';
-		 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
-		 			    	 	    tr+='  <td>'+works[i].title+'</td>';
-		 			    	 	 tr+='<td>'+works[i].result+'</td>';
-		 			    	 	 $tr=$(tr);
+ 			    	    		var markedFile=works[i].markedfile;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stuname=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var title=works[i].title;
+ 			    	    		var result=works[i].result;
+ 			    	    		var comment=works[i].comment;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
+			    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].result+'</td>';
+ 			    	 	    tr+='<td><a href="Teacher_searchWorkDeil.html?stuno='+stuno+'&stuname='+stuname+'&cname='+cname+'&title='+title+'&result='+result+'&comment='+comment+'&markedFile='+markedFile+'">详细信息</a></td></tr>';
+ 			    	 	    $tr=$(tr);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
@@ -174,14 +239,22 @@
  			    	        $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			            	for(var i=0;i<works.length;i++){
- 			            		 var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
-		 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
-					    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
-		 			    	 	    tr+='<td>'+works[i].cno+'</td>';
-		 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
-		 			    	 	    tr+='  <td>'+works[i].title+'</td>';
-		 			    	 	 tr+='<td>'+works[i].result+'</td>';
-		 			    	 	 $tr=$(tr);
+ 			            		var markedFile=works[i].markedfile;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stuname=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var title=works[i].title;
+ 			    	    		var result=works[i].result;
+ 			    	    		var comment=works[i].comment;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
+			    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].result+'</td>';
+ 			    	 	    tr+='<td><a href="Teacher_searchWorkDeil.html?stuno='+stuno+'&stuname='+stuname+'&cname='+cname+'&title='+title+'&result='+result+'&comment='+comment+'&markedFile='+markedFile+'">详细信息</a></td></tr>';
+ 			    	 	    $tr=$(tr);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -190,7 +263,10 @@
  			    	  $a=$(a);
  			    	  $a.insertAfter("#number");
  			        }
- 			    	}	
+ 			    	}else{
+ 			    		alert(result.msg);
+ 			    		
+ 			    	}
  			    
  			    }
  	});
@@ -209,14 +285,22 @@
  			    	    var works=result.data;
  			    	    if(currentpage==1){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		 var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
-		 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
-					    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
-		 			    	 	    tr+='<td>'+works[i].cno+'</td>';
-		 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
-		 			    	 	    tr+='  <td>'+works[i].title+'</td>';
-		 			    	 	 tr+='<td>'+works[i].result+'</td>';
-		 			    	 	 $tr=$(tr);
+ 			    	    		var markedFile=works[i].markedfile;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stuname=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var title=works[i].title;
+ 			    	    		var result=works[i].result;
+ 			    	    		var comment=works[i].comment;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
+			    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].result+'</td>';
+ 			    	 	    tr+='<td><a href="Teacher_searchWorkDeil.html?stuno='+stuno+'&stuname='+stuname+'&cname='+cname+'&title='+title+'&result='+result+'&comment='+comment+'&markedFile='+markedFile+'">详细信息</a></td></tr>';
+ 			    	 	    $tr=$(tr);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
@@ -227,14 +311,22 @@
  			    			
  			            }else if(1<currentpage<pagecounts){
  			            	for(var i=0;i<works.length;i++){
- 			            		 var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
-		 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
-					    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
-		 			    	 	    tr+='<td>'+works[i].cno+'</td>';
-		 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
-		 			    	 	    tr+='  <td>'+works[i].title+'</td>';
-		 			    	 	 tr+='<td>'+works[i].result+'</td>';
-		 			    	 	 $tr=$(tr);
+ 			            		var markedFile=works[i].markedfile;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stuname=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var title=works[i].title;
+ 			    	    		var result=works[i].result;
+ 			    	    		var comment=works[i].comment;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
+			    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].result+'</td>';
+ 			    	 	    tr+='<td><a href="Teacher_searchWorkDeil.html?stuno='+stuno+'&stuname='+stuname+'&cname='+cname+'&title='+title+'&result='+result+'&comment='+comment+'&markedFile='+markedFile+'">详细信息</a></td></tr>';
+ 			    	 	    $tr=$(tr);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -243,7 +335,10 @@
  			    	  $a=$(a);
  			    	  $a.insertAfter("#number");
  			        }   		
- 			    	}    
+ 			    	} else{
+ 			    		alert(result.msg);
+ 			    		
+ 			    	}   
  			    }
  	});
  	}
@@ -269,31 +364,47 @@
  			    	    var works=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		 var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
-		 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
-					    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
-		 			    	 	    tr+='<td>'+works[i].cno+'</td>';
-		 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
-		 			    	 	    tr+='  <td>'+works[i].title+'</td>';
-		 			    	 	 tr+='<td>'+works[i].result+'</td>';
-		 			    	 	 $tr=$(tr);
+ 			    	    		var markedFile=works[i].markedfile;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stuname=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var title=works[i].title;
+ 			    	    		var result=works[i].result;
+ 			    	    		var comment=works[i].comment;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
+			    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].result+'</td>';
+ 			    	 	    tr+='<td><a href="Teacher_searchWorkDeil.html?stuno='+stuno+'&stuname='+stuname+'&cname='+cname+'&title='+title+'&result='+result+'&comment='+comment+'&markedFile='+markedFile+'">详细信息</a></td></tr>';
+ 			    	 	    $tr=$(tr);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
  			    	         $("#page a").remove();
- 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>"
+ 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>";
  			    	         $a=$(a);
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			            	for(var i=0;i<works.length;i++){
- 			            		 var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
-		 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
-					    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
-		 			    	 	    tr+='<td>'+works[i].cno+'</td>';
-		 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
-		 			    	 	    tr+='  <td>'+works[i].title+'</td>';
-		 			    	 	 tr+='<td>'+works[i].result+'</td>';
-		 			    	 	 $tr=$(tr);
+ 			            		var markedFile=works[i].markedfile;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stuname=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var title=works[i].title;
+ 			    	    		var result=works[i].result;
+ 			    	    		var comment=works[i].comment;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
+			    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].result+'</td>';
+ 			    	 	    tr+='<td><a href="Teacher_searchWorkDeil.html?stuno='+stuno+'&stuname='+stuname+'&cname='+cname+'&title='+title+'&result='+result+'&comment='+comment+'&markedFile='+markedFile+'">详细信息</a></td></tr>';
+ 			    	 	    $tr=$(tr);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -303,6 +414,7 @@
  			    	 $a.insertAfter("#number");
  			        }		
  			    	}else{
+ 			    		alert(result.msg);
  			    		$("table tbody").html("");
  			    		$("table tfoot td b").html(0);
  			    		
@@ -327,30 +439,46 @@
  			    		$("#page #head").addClass("dianji");
  			    	    if(pagecounts==1){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		 var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
-		 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
-					    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
-		 			    	 	    tr+='<td>'+works[i].cno+'</td>';
-		 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
-		 			    	 	    tr+='  <td>'+works[i].title+'</td>';
-		 			    	 	 tr+='<td>'+works[i].result+'</td>';
-		 			    	 	 $tr=$(tr);
+ 			    	    		var markedFile=works[i].markedfile;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stuname=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var title=works[i].title;
+ 			    	    		var result=works[i].result;
+ 			    	    		var comment=works[i].comment;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
+			    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].result+'</td>';
+ 			    	 	    tr+='<td><a href="Teacher_searchWorkDeil.html?stuno='+stuno+'&stuname='+stuname+'&cname='+cname+'&title='+title+'&result='+result+'&comment='+comment+'&markedFile='+markedFile+'">详细信息</a></td></tr>';
+ 			    	 	    $tr=$(tr);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
- 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>"
+ 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>";
  			    	         $a=$(a);
  			    	         $a.insertAfter("#number");
  			            }else{
  			            	for(var i=0;i<works.length;i++){
- 			            		 var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
-		 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
-					    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
-		 			    	 	    tr+='<td>'+works[i].cno+'</td>';
-		 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
-		 			    	 	    tr+='  <td>'+works[i].title+'</td>';
-		 			    	 	 tr+='<td>'+works[i].result+'</td>';
-		 			    	 	 $tr=$(tr);
+ 			            		var markedFile=works[i].markedfile;
+ 			    	    		var stuno=works[i].stuno;
+ 			    	    		var stuname=works[i].stu_name;
+ 			    	    		var cname=works[i].cname;
+ 			    	    		var title=works[i].title;
+ 			    	    		var result=works[i].result;
+ 			    	    		var comment=works[i].comment;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
+			    	 	    tr+='  <td>'+works[i].stu_name+'</td>'; 
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].result+'</td>';
+ 			    	 	    tr+='<td><a href="Teacher_searchWorkDeil.html?stuno='+stuno+'&stuname='+stuname+'&cname='+cname+'&title='+title+'&result='+result+'&comment='+comment+'&markedFile='+markedFile+'">详细信息</a></td></tr>';
+ 			    	 	    $tr=$(tr);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(works.length);
@@ -359,6 +487,9 @@
  			    	 $a=$(a);
  			    	 $a.insertAfter("#number");
  			        }		
+ 			    	}else{
+ 			    		alert(result.msg);
+ 			    		
  			    	}
  			    }
  	});

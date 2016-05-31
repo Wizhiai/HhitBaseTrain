@@ -26,7 +26,7 @@
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
- 			    	 	   tr+='<td><a >删除</a>&nbsp;</td></tr>';
+ 			    	 	  tr+='<td><a href="javascript:void(0)">删除</a>&nbsp;</td></tr>';
  			    	 	    $tr=$(tr);
  			    	 	    $tr.data("wid",wid);
  			    	 	  $tr.data("file",file);
@@ -47,7 +47,7 @@
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
- 			    	 	  tr+='<td><a >删除</a>&nbsp;</td></tr>';
+ 			    	 	 tr+='<td><a href="javascript:void(0)">删除</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -85,7 +85,7 @@
  			    	 	    tr+='  <td><a href="">'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
- 			    	 	  tr+='<td><a >删除</a>&nbsp;</td></tr>';
+ 			    	 	  tr+='<td><a href="javascript:void(0)">删除</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -106,7 +106,7 @@
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
- 			    	 	  tr+='<td><a >删除</a>&nbsp;</td></tr>';
+ 			    	 	 tr+='<td><a href="javascript:void(0)">删除</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -127,7 +127,7 @@
 			    	 	    tr+='  <td>'+works[i].title+'</td>';
 			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
 			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
-			    	 	    tr+='<td><a >删除</a>&nbsp;</td></tr>';
+			    	 	   tr+='<td><a href="javascript:void(0)">删除</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -149,7 +149,7 @@
 			    	 	    tr+='  <td>'+works[i].title+'</td>';
 			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
 			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
-			    	 	   tr+='<td><a >删除</a>&nbsp;</td></tr>';
+			    	 	  tr+='<td><a href="javascript:void(0)">删除</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -188,7 +188,7 @@
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
- 			    	 	  tr+='<td><a >删除</a>&nbsp;</td></tr>';
+ 			    	 	 tr+='<td><a href="javascript:void(0)">删除</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -209,7 +209,7 @@
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
- 			    	 	  tr+='<td><a >删除</a>&nbsp;</td></tr>';
+ 			    	 	 tr+='<td><a href="javascript:void(0)">删除</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -248,7 +248,7 @@
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
- 			    	 	  tr+='<td><a >删除</a>&nbsp;</td></tr>';
+ 			    	 	 tr+='<td><a href="javascript:void(0)">删除</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -270,7 +270,7 @@
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
- 			    	 	  tr+='<td><a >删除</a>&nbsp;</td></tr>';
+ 			    	 	 tr+='<td><a href="javascript:void(0)">删除</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -316,7 +316,7 @@
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
- 			    	 	  tr+='<td><a >删除</a>&nbsp;</td></tr>';
+ 			    	 	 tr+='<td><a href="javascript:void(0)">删除</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -337,7 +337,7 @@
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
- 			    	 	  tr+='<td><a >删除</a>&nbsp;</td></tr>';
+ 			    	 	 tr+='<td><a href="javascript:void(0)">删除</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -383,7 +383,7 @@
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
- 			    	 	  tr+='<td><a >删除</a>&nbsp;</td></tr>';
+ 			    	 	 tr+='<td><a href="javascript:void(0)">删除</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	   $tr.data("file",file);
@@ -403,7 +403,7 @@
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
  			    	 	    tr+='  <td>'+works[i].uploadNo+'</td>';
- 			    	 	  tr+='<td><a >删除</a>&nbsp;</td></tr>';
+ 			    	 	 tr+='<td><a href="javascript:void(0)">删除</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
 			    	 	    $tr.data("wid",wid);
 			    	 	    $tr.data("file",file);

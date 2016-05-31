@@ -26,14 +26,6 @@ public interface UserService {
 	 * @return
 	 */
 	public Result modifyPwd(String username,String oldPwd,String newPwd);
-	/**
-	 * 插入基地教师
-	 * @param username
-	 * @param password
-	 * @param identity
-	 * @return
-	 */
-	public Result InputInfo(String username,String password,String identity);
 	 
 	/** 添加用户
 	 * @param username
@@ -65,4 +57,5 @@ public interface UserService {
 	 * @return
 	 */
 	public Result resetUserPwdByNo(String username);
+	
 }

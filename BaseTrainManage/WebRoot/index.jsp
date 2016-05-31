@@ -11,6 +11,10 @@
   	<script type="text/javascript">
   		var placardLength = parseInt(6);
   		$(function(){
+  		/*检测屏幕高度，设置页脚位置*/
+  		$Height=$(window).height();
+  		mainHeight=$Height-390;
+  		$(".main").height(mainHeight);
   			showSchoolPagePlacard();
   			$("#getMore").click(function(){
   				window.location.href="jsp/placard/schoolPlacardInfromList.jsp";
@@ -25,7 +29,7 @@
   				window.location.href="jsp/baseInformLogin.jsp";
   			});
   			$("#baseTrainLogin").click(function(){
-  				window.location.href="jsp/baseTrainLogin.jsp";
+  				window.location.href="html/studentLogin1.jsp";
   			});
   			$("#baseValueLogin").click(function(){
   				window.location.href="jsp/baseValueLogin.jsp";
