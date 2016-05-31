@@ -50,7 +50,7 @@
 		where binary stuno = #{username}
 	</select>
 	
-	<!-- 根据用户名查找教师信息 -->
+	<!-- 根据用户名查找教师详细信息 -->
 	<select id="findCollegeTeacherUserByNo" parameterType="string" resultType="com.hhit.basetrain.entity.CollegeTeacher">
 		select ct_no,ct_name,ct_birthday,ct_sex,academy_no,ct_phone,ct_profession from collegeteacher
 		where binary ct_no = #{username}
