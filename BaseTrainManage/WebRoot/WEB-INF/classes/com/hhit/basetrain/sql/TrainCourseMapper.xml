@@ -17,7 +17,6 @@
 		a.cost as cost,a.term as term from traincourse a,base b where a.base_no = b.base_no
 	</select>
 	
-<<<<<<< HEAD
 	<!-- 添加基地课程 -->
 	<insert id="saveCourse" parameterType="map">
 		insert into traincourse(cno,base_no,cname,cost,term)
@@ -55,7 +54,6 @@
 		where cno = #{cno}
 	</select>
 	
-=======
 	<!-- 查询课程信息 -->
 	<select id="findCourseInfoByTno" parameterType="string" resultType="com.hhit.basetrain.entity.TrainCourse">
 		select base_no ,cno,cname,term from traincourse where cno=(select cno from teaching where t_no=#{t_no})	
@@ -65,5 +63,4 @@
 	<select id="findCourse" parameterType="string" resultType="string">
 		select cno from traincourse where base_no=#{base_no}
 	</select>
->>>>>>> 945d2b75460f000516705e1dd40c9ea8b8dd71dd
 </mapper>
