@@ -48,6 +48,7 @@ public interface BaseTeacherDao {
 	 * @return
 	 */
 	public int modifySelfInfo(BaseTeacher teacher);
+	@Transactional(propagation = Propagation.REQUIRED)
 	public int deleteBaseTeacherByBaseNo(int base_no);
 	public List<String> findBaseTeacherNoByBaseNo(int base_no);
 

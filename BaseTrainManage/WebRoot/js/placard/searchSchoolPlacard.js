@@ -74,7 +74,6 @@ function gotoPage(pageSize,pageIndex,data){//页数跳转
 	}
 	function searchSchoolPlacardByTitle(){
 		var placard_title = $("#title").val();
-		alert(placard_title);
 		$.ajax({
   			url:"http://localhost:8080/BaseTrainManage/schoolPlacard/searchSchoolPlacardByTitle.do",
 				type:"post",
@@ -97,7 +96,6 @@ function gotoPage(pageSize,pageIndex,data){//页数跳转
 	/*浏览按钮，当前页隐藏，浏览页显示*/
 function showSchoolPlacard(obj){
 		var placard_no = $(obj).parent("td").find("#placard_no").val();
-		alert(placard_no);
 		addCookie("placard_no",placard_no,2);
 		$("#editPlacard").hide();
 		$("#skinInfo").show();	

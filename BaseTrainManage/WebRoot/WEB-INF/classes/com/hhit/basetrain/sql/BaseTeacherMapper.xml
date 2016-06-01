@@ -32,13 +32,13 @@
  	</update>
  	
  	<!-- 通过基地号查询教师编号-->
- 	<select id="findBaseTeacherNoByBaseNo" parameterType="string" resultType="string">
+ 	<select id="findBaseTeacherNoByBaseNo" parameterType="int" resultType="string">
  		select t_no from baseteacher where base_no = #{base_no}
  	</select>
  	
  	<!--根据基地号删除基地教师 -->
  	<delete id="deleteBaseTeacherByBaseNo" parameterType="int">
- 		delete from baseteacher where base_no = #{baseteacher}
+ 		delete from baseteacher where base_no = #{base_no}
  	</delete>
  	<!-- 插入基地教师 -->
  	<insert id="saveBaseTeacher" parameterType="com.hhit.basetrain.entity.BaseTeacher">

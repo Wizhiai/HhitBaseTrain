@@ -38,13 +38,8 @@
 	  	</ul>
 	  	<div id="baseManage" class="personInfo">基地信息管理</div>
 	  	<ul class="secondMenu">
-<<<<<<< HEAD
-	  		<li><a target="businessfrm">查询基地信息</a></li>
-	  		<li><a href="" target="businessfrm">编辑基地信息</a></li>
-=======
 	  		<li><a id="searchBaseInfo" target="businessfrm">查询基地信息</a></li>
 	  		<li><a id="manageBaseInfo" target="businessfrm">编辑基地信息</a></li>
->>>>>>> 2972e53cf4a6cd56527b4accc063469c24d05e13
     	</ul> 
     	<div id="userInfo" class="personInfo">基地教师管理</div>
 	  	<ul class="secondMenu">

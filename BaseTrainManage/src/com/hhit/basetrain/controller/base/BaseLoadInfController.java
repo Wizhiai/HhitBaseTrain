@@ -64,7 +64,6 @@ public class BaseLoadInfController {
 	public Result searchName(){
 		
 		Result result = baseService.showAllBaseName();
-		System.out.println(result.getData());
 		return result;
 	}
 	
