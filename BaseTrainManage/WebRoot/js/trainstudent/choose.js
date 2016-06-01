@@ -47,7 +47,7 @@ $(function(){
 function loadCname(){
 	$("#couseName").empty();
 	if(cno=='请选择课程号'){
-		alert(2);
+		//alert(2);
 		var op="<option>无选择</option>";
 		var $op=$(op);
 		$("#couseName").append($op);
@@ -113,7 +113,7 @@ function resultAllLeftMove(){//全部左移
  */
 function loadBaseTeacher(){
 	if(cno=='请选择课程号'){
-		alert(1);
+		//alert(1);
 		$("#baseteacher").empty();
 		var op="<option>请选择教师</option>";
 		var $op=$(op);
@@ -150,8 +150,8 @@ function loadBaseTeacher(){
  * 按课程查询实训报名学习
  */
 function searchStudent(){
-	alert(cno);
-	alert(base_no);
+	//alert(cno);
+	//alert(base_no);
 	if(cno==null){
 		alert("请输入课程号!");
 	}else{
@@ -219,6 +219,7 @@ function addTrainStudent(stuno, stu_name,
 			 "enter_year":enter_year,"birthday": birthday, "base_no":base_no,
 		"base_class": base_class,  "cno":cno,  "address":address, "train_date":train_date},
 		dataType:"json",
+		async:false,
 		success:function(result){
 			if(result.status==1){
 				
@@ -228,7 +229,7 @@ function addTrainStudent(stuno, stu_name,
 				//alert(addResult);
 			
 			}else{
-				inResult=0;
+				insertResult=0;
 				//	alert(result.msg);
 				alert(stu_name+result.msg);
 		
@@ -256,6 +257,7 @@ function addStudent(){
 				type:"post",
 				data:{"stuno":username},
 				dataType:"json",
+				async:false,
 				success:function(result){
 					var data=result.data;
 					var stuno=data.stuno;
@@ -273,7 +275,7 @@ function addStudent(){
 					 enter_year, birthday,  base_no,
 					base_class,  cno,  address, train_date);
 					//alert(addResult);
-					alert(insertResult);
+					//alert(insertResult);
 					if(insertResult==1){
 						$(this).parent("tr").remove();
 					}		
@@ -283,7 +285,8 @@ function addStudent(){
 			});
 			
 		});
-		//alert("需要添加的总用户记录条数为："+length+",添加成功的记录条数为："+addResult);
+		$("#insertResult tr").remove();
+		alert("需要添加的总用户记录条数为："+length+",添加成功的记录条数为："+addResult);
 	}
 	
 	
@@ -378,6 +381,7 @@ function deleteStudent(stuno){
 		type:"post",
 		data:{"stuno":stuno},
 		dataType:"json",
+		async:false,
 		success:function(result){
 			if(result.status==1){
 				delResult=1;
