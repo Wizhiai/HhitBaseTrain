@@ -9,6 +9,10 @@ body{
     height:100%;
     width:100%;  
 }
+table {
+     border-collapse:collapse;
+     border-spacing:0;
+}
 /* 学生浏览基地信息首页 */
 html{
 	height:100%;

@@ -38,6 +38,10 @@
 	  	</ul>
 	  	<div id="baseManage" class="personInfo">基地信息管理</div>
 	  	<ul class="secondMenu">
+<<<<<<< HEAD
+	  		<li><a id="searchBaseInfo" target="businessfrm">查询基地信息</a></li>
+	  		<li><a id="manageBaseInfo" target="businessfrm">编辑基地信息</a></li>
+=======
 
 	  		<li><a target="businessfrm">查询基地信息</a></li>
 	  		<li><a href="" target="businessfrm">编辑基地信息</a></li>
@@ -45,6 +49,7 @@
 	  		<li><a id="searchBaseInfo" target="businessfrm">查询基地信息</a></li>
 	  		<li><a id="manageBaseInfo" target="businessfrm">编辑基地信息</a></li>
 
+>>>>>>> e7a70f1b8de7a4151f03ee5bf1d196154bffbbbb
     	</ul> 
     	<div id="userInfo" class="personInfo">基地教师管理</div>
 	  	<ul class="secondMenu">

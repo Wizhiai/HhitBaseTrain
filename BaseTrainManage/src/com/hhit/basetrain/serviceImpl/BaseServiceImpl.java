@@ -454,7 +454,7 @@ public class BaseServiceImpl implements BaseService{
 					
 					result.setStatus(0);
 					result.setMsg("基地管理员从用户表中删除失败！");
-					throw new RuntimeException("基地管理员插入用户表失败！");
+					throw new RuntimeException("基地管理员从用户表中删除失败失败！");
 					
 				}else{//将基地管理员从基地关系表中删除成功
 					

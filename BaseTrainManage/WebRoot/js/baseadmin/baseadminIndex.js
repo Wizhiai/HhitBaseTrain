@@ -38,7 +38,6 @@ function showBaseInfo(){
 			success:function(result){
 				if(result.status == 1){
 					var base_no = result.data;
-					alert(base_no);
 					addCookie("base_no",base_no,2);
 					window.open("../base/base.jsp");
 				}else{

@@ -48,7 +48,7 @@
   			<section class="btnLists">
 	  			<input type="button" id="rightMove" value="&gt;"/><br/>
 	  			<input type="button" id="rightAllMove" value="&gt;&gt;"/><br/>
-	  			<input type="button" id="leftMove" value="&lt;"/>;<br/>
+	  			<input type="button" id="leftMove" value="&lt;"/><br/>
 	  			<input type="button" id="leftAllMove" value="&lt;&lt;"/><br/>
 	  			<input type="button" value="删除" id="deleteUser"/>
 	  		</section>

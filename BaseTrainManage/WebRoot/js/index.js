@@ -1,4 +1,4 @@
-var placardLength = parseInt(6);
+var placardLength = parseInt(5);
 $(function(){
 /*检测屏幕高度*/
 Height=$(window).height();

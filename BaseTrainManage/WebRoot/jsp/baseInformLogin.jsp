@@ -14,7 +14,7 @@
 		<div class="center">
 			 <div class="login_left"><img src="../images/mm.png"></div>
 		    <div class="login">
-		     <div class="logo">高校基地管理系统</div>
+		     <div class="logo">基地信息查询系统</div>
 		    	<div class="inp_text username">
 		    		用户名:<input type="text" id="username">
 		    	</div>

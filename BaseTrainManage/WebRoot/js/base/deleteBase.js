@@ -54,7 +54,6 @@ function gotoPage(pageSize,pageIndex,data){//页数跳转
 function deleteBase(obj){
 	if(confirm("确定删除该基地？")){
 		var base_no = $(obj).parent("td").find("#base_no").val();
-		alert(base_no);
 		$.ajax({
 			url:"http://localhost:8080/BaseTrainManage/base/deleteBase.do",
 			type:"post",
