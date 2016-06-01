@@ -66,8 +66,14 @@ var resultdata = new Object();
  	var type=$("#operateType option:selected").val();
  	if(type=="1"){
  	    stuno=$("#stuno").val();
- 	   // alert(stuno);
- 		searchTrainStudentByNo();
+ 	    alert(stuno);
+ 	    if(stuno==""){
+ 	    	alert("请输入学号");
+ 	    }
+ 	   else{
+ 	   	searchTrainStudentByNo();
+ 	   }
+ 		
  	}else if(type==2){
  		base_class=$("#baseclass option:selected").val();
  		if(base_class=="1"){
@@ -121,7 +127,7 @@ $("#leftAllMove").click(function(){//全部左移
 	  			<option value="1">修改学生信息</option>
 	  			<option value="2">删除学生信息</option>
 	  		</select>
-	  		<input type="text" id="stuno" value="请输入学号">
+	  		<input type="text" id="stuno" placeholder="请输入学号">
 	  		<select id="baseclass">
 	  			<option value="1">请输入班级</option>
 	  		</select>
