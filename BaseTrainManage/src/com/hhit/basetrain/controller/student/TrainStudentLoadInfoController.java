@@ -15,7 +15,7 @@ import com.hhit.basetrain.service.TrainStudentService;
 /**
  * @author Mayu
  * @date 2016-4-25t下午12:51:02
- * TODO
+ * 
  */
 @Controller
 public class TrainStudentLoadInfoController {
@@ -26,8 +26,6 @@ public class TrainStudentLoadInfoController {
 	@ResponseBody
 	public Result execute(String sno){
 		Result result=studentservice.showInfo(sno);
-		System.out.println(result.getData());
-		System.out.println(result.getStatus());
 		return result;
 	}
 	
@@ -42,8 +40,6 @@ public class TrainStudentLoadInfoController {
 	@ResponseBody
 	public Result execute2(String sno){
 		Result result=studentservice.searchStudentInfo(sno);
-		System.out.println(result.getData());
-		System.out.println(result.getStatus());
 		return result;
 	}
 	

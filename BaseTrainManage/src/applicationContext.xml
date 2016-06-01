@@ -18,9 +18,16 @@
 		<property name="url" value="jdbc:mysql://120.27.112.49:3306/trainproject?useUnicode=true&amp;characterEncoding=utf-8"></property>
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 	</bean>-->
+	<!--
+	<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
+
+		<property name="username" value="hulijie"></property>
+		<property name="password" value="lijiehu"></property>
+		<property name="url" value="jdbc:mysql://120.27.112.49:3306/trainproject?useUnicode=true&amp;characterEncoding=utf-8"></property>
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+	</bean>
 	
-	
-	
+	-->
 	<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="username" value="root"></property>
 		<property name="password" value="123456"></property>
