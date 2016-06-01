@@ -14,7 +14,7 @@
 			var pageSize = 1;
 			var resultdata = new Object();
 			$(function(){
-			alert(1);
+			//alert(1);
 				$("#studnetRegistCountInform").hide();
 				
 				$("#search").click(function(){
@@ -88,14 +88,14 @@
 					    var cno=data[i].cno;
 					    var base_no=data[i].base_no;
 						tr += "<tr><td>"+(i+1)+"</td><td>"+data[i].base_name+"</td><td>"+data[i].cno+"</td><td>"+data[i].cname+"</td><td>"+data[i].count+"</td>";
-						tr += "<td><a href='ClearInfoCountByCon.html?cno="+cno+"&base_no="+base_no+"' target='_blank'>详情信息</a></td></tr>";
+						tr += "<td><a href='ClearInfoCountByCon.html?cno="+cno+"&base_no="+base_no+"'>详情信息</a></td></tr>";
 					}
 				}else if(countType ==2){//按实训单位划分页数跳转
 					for(var i=(pageIndex-1)*pageSize;i<=parseInt(pageIndex)*parseInt(pageSize)-1&& i<data.length;i++){
 						var base_class=data[i].base_class;
 					    var base_no=data[i].base_no;
 						tr += "<tr><td>"+(i+1)+"</td><td>"+data[i].base_name+"</td><td>"+data[i].cno+"</td><td>"+data[i].cname+"</td><td>"+data[i].base_class+"</td><td>"+data[i].count+"</td>";
-						tr += "<td><a href='ClearInfoCountByClass.html?base_class="+base_class+"&base_no="+base_no+"'  target='_blank'>详情信息</a></td></tr>";
+						tr += "<td><a href='ClearInfoCountByClass.html?base_class="+base_class+"&base_no="+base_no+"'>详情信息</a></td></tr>";
 					}
 				}
 				

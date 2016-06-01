@@ -19,9 +19,9 @@
 <script type="text/javascript" src="../js/cookie_util.js"></script>
  <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
  <script type="text/javascript" src="../js/trainstudent/choose.js"></script>
- <script type="text/javascript" src="../js/page_util.js"></script>
+ <script type="text/javascript" src="../js/page_util.js"></script><!--
  <script type="text/javascript" src="../js/userManage.js"></script>
- <script type="text/javascript">
+ --><script type="text/javascript">
 var bno=getCookie("username");
  var base_no=null;
  var cno=null;
@@ -46,7 +46,7 @@ var resultdata = new Object();
 	});
  	$("#operateType").change(function(){
  		var type=$("#operateType option:selected").val();
- 		alert(type);
+ 		//alert(type);
  		if(type=="0"){
  			hide();
  		}else if(type=="1"){
@@ -66,7 +66,7 @@ var resultdata = new Object();
  	var type=$("#operateType option:selected").val();
  	if(type=="1"){
  	    stuno=$("#stuno").val();
- 	    alert(stuno);
+ 	   // alert(stuno);
  		searchTrainStudentByNo();
  	}else if(type==2){
  		base_class=$("#baseclass option:selected").val();

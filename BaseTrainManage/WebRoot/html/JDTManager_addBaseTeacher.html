@@ -74,7 +74,7 @@
          	success:function(result){
          		if(result.status>0){
          		    var data=result.data;
-         		    alert(data.base_name);
+         		   // alert(data.base_name);
          			$("#danwei").val(data.base_name);
          			
          			base_no=data.base_no;
@@ -95,7 +95,7 @@
          var sex=$("#sex").val();
          var identity=$("#power").val();
          var t_no=$("#tno").val();
-         alert(t_no);
+        // alert(t_no);
          var profession=$("#profession option:selected").text();
          $.ajax({
          	url:"http://localhost:8080/BaseTrainManage/baseadmin/addBaseTeacher.do",

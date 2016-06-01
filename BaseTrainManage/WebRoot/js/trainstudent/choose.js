@@ -1,3 +1,4 @@
+
 $(function(){
 	 $.ajax({
       	url:"http://localhost:8080/BaseTrainManage/baseadmin/loadbaseName.do",
@@ -72,6 +73,40 @@ function loadCname(){
 			}
 	});
 	}	
+}
+function chooseSearchResult(obj){
+	$(obj).toggleClass("changeColor");
+}
+function resultRightMove(){//右移
+
+	$("#searchResult td").each(function(){
+		if($(this).hasClass("changeColor")){
+			$(this).removeClass("changeColor").parent().clone().appendTo("#insertResult");
+			$(this).remove();
+		}
+	});
+}
+function insertLeftMove(){//左移
+	$("#insertResult td").each(function(){
+		if($(this).hasClass("changeColor")){
+			$(this).removeClass("changeColor").parent().clone().appendTo("#searchResult");
+			$(this).remove();
+		}
+	});
+}
+function resultAllRightMove(){//全部右移
+	
+	$("#searchResult td").each(function(){
+		
+		$(this).removeClass("changeColor").parent().clone().appendTo("#insertResult");
+		$(this).remove();
+	});
+}
+function resultAllLeftMove(){//全部左移
+	$("#insertResult td").each(function(){
+		$(this).removeClass("changeColor").parent().clone().appendTo("#searchResult");
+		$(this).remove();
+	});
 }
 /**
  * 加载基地教师
@@ -170,6 +205,41 @@ function addTeaching(){
 });
 }
 /**
+ * 将学生插入数据
+ */
+function addTrainStudent(stuno, stu_name,
+		stu_sex,  stu_class, major, phone,
+		 enter_year, birthday,  base_no,
+	 base_class,  cno,  address, train_date){
+	$.ajax({
+		url:"http://localhost:8080/BaseTrainManage/trainstudent/inputinfo.do",
+		type:"post",
+		data:{"stuno":stuno, "stu_name":stu_name,
+			"stu_sex":stu_sex, "stu_class":stu_class,"major": major,"phone": phone,
+			 "enter_year":enter_year,"birthday": birthday, "base_no":base_no,
+		"base_class": base_class,  "cno":cno,  "address":address, "train_date":train_date},
+		dataType:"json",
+		success:function(result){
+			if(result.status==1){
+				
+				insertResult=1;
+				//alert(insertResult);
+				addResult=addResult+parseInt(1);
+				//alert(addResult);
+			
+			}else{
+				inResult=0;
+				//	alert(result.msg);
+				alert(stu_name+result.msg);
+		
+				
+			}
+			
+		}
+		
+	});
+}
+/**
  * 添加实训学生
  */
 function addStudent(){
@@ -197,14 +267,14 @@ function addStudent(){
 					var enter_year=data.enter_year;
 					var birthday=data.birthday;
 					var address=data.address;
-					//inResult =-1;
+					//insertResult =-1;
 					addTrainStudent(stuno, stu_name,
 					stu_sex,  stu_class, major, phone,
 					 enter_year, birthday,  base_no,
 					base_class,  cno,  address, train_date);
 					//alert(addResult);
-					alert(inResult);
-					if(inResult==1){
+					alert(insertResult);
+					if(insertResult==1){
 						$(this).parent("tr").remove();
 					}		
 					
@@ -213,44 +283,12 @@ function addStudent(){
 			});
 			
 		});
-		//alert("需要添加的总用户记录条数为："+length+",添加成功的记录条数为："+aResult);
+		//alert("需要添加的总用户记录条数为："+length+",添加成功的记录条数为："+addResult);
 	}
 	
 	
 }
-/**
- * 将学生插入数据
- */
-function addTrainStudent(stuno, stu_name,
-		stu_sex,  stu_class, major, phone,
-		 enter_year, birthday,  base_no,
-	 base_class,  cno,  address, train_date){
-	$.ajax({
-		url:"http://localhost:8080/BaseTrainManage/trainstudent/inputinfo.do",
-		type:"post",
-		data:{"stuno":stuno, "stu_name":stu_name,
-			"stu_sex":stu_sex, "stu_class":stu_class,"major": major,"phone": phone,
-			 "enter_year":enter_year,"birthday": birthday, "base_no":base_no,
-		"base_class": base_class,  "cno":cno,  "address":address, "train_date":train_date},
-		dataType:"json",
-		success:function(result){
-			if(result.status==1){
-				//alert(2);
-				inResult=1;
-				aResult=aResult+parseInt(1);
-			
-			}else{
-				inResult=0;
-				//	alert(result.msg);
-				alert(stu_name+result.msg);
-		
-				
-			}
-			
-		}
-		
-	});
-}
+
 function hide(){
 	 $("#stuno").hide();
 	    $("#baseclass").hide();
@@ -294,7 +332,6 @@ function searchTrainStudentByNo(){
 				var tr = "<tr><th>序号</th><th>学号</th><th>姓名</th><th>性别</th><th>学校班级</th><th>基地班级</th><th>课程号</th><th>培训时间</th><th>操作</th></tr>";
 				$("#showInform thead tr").remove();
 				$("#showInform thead").append($(tr));
-				
 						resultdata= result.data;
 						pageCalculate(resultdata,pageSize);
 						firstPage(resultdata,pageSize);//显示首页
@@ -344,7 +381,7 @@ function deleteStudent(stuno){
 		success:function(result){
 			if(result.status==1){
 				delResult=1;
-				alert(delResult);
+				//alert(delResult);
 				deleteResult=deleteResult+parseInt(1);
 		}else{
 			delResult=0;
@@ -368,7 +405,7 @@ function deleteUser1(){
 			var username = $(this).find("input").val();
 			//delResult=-1;
 			deleteStudent(username);
-			alert(delResult);
+			//alert(delResult);
 			if(delResult == 1){
 				$(this).parent("tr").remove();
 			}		
