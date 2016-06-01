@@ -48,10 +48,6 @@
 	  			<input type="button" id="rightMove" value="&gt;"/><br/>
 	  			<input type="button" id="rightAllMove" value="&gt;&gt;"/><br/>
 	  			<input type="button" id="leftMove" value="&lt;"/><br/>
-<<<<<<< HEAD
-=======
-	  			<input type="button" id="leftMove" value="&lt;"/><<br/>
->>>>>>> e7a70f1b8de7a4151f03ee5bf1d196154bffbbbb
 	  			<input type="button" id="leftAllMove" value="&lt;&lt;"/><br/>
 	  			<input type="button" value="添加" id="addUser"/>
 	  		</section>
