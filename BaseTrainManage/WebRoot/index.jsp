@@ -10,8 +10,7 @@
   	<script type="text/javascript" src="js/cookie_util.js"></script>
   	<script type="text/javascript" src="js/index.js"></script>
   	<script type="text/javascript">
-<<<<<<< HEAD
-  		var placardLength = parseInt(6);
+  	/*	var placardLength = parseInt(6);
   		$(function(){
   		/*检测屏幕高度，设置页脚位置*/
   		$Height=$(window).height();
@@ -63,9 +62,7 @@
   			var placard_no = $("#placard_no").val();
 				addCookie("placard_no",placard_no,2);
 				window.open("jsp/placard/schoolplacard.jsp");
-  		}
-=======
->>>>>>> 2972e53cf4a6cd56527b4accc063469c24d05e13
+  		}*/
   	</script>
   </head>
   <body style="background:url(images/background.png) 100% 100%">

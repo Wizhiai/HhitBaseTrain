@@ -61,8 +61,8 @@
 	    $("table tbody").on("click","tr",function(){
 		  var wid=$(this).data("wid");
 		  var file=$(this).data("file");
-		  alert(wid);
-		  alert(file);
+		  //alert(wid);
+		 // alert(file);
 		  $.ajax({
  		        url:"http://localhost:8080/BaseTrainManage/work/deletework.do",
  		 		type:"post",

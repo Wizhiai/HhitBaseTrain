@@ -102,7 +102,7 @@
  	}); 
  	function download(){
  			var fileName=studydata;
- 			alert(fileName);
+ 			//alert(fileName);
  			if(fileName==""){
  				alert("没有文件，请重新上传！");
  			}else{
@@ -111,8 +111,8 @@
  			}
  	function deletedata(id,studydata){
  	
- 	alert(studydata);
- 	alert(id);
+ 	//alert(studydata);
+ 	//alert(id);
  		$.ajax({
  			url:"http://localhost:8080/BaseTrainManage/file/deletefiledata.do",
  			type:"post",

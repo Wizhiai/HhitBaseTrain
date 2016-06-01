@@ -18,23 +18,23 @@
 </style>
 <script type="text/javascript" src="../js/cookie_util.js"></script>
  <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
- <script type="text/javascript" src="../js/trainstudent/choose.js"></script>
+ <script type="text/javascript" src="../js/trainstudent/choose.js"></script><!--
  <script type="text/javascript" src="../js/userManage.js"></script>
-  <script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script>
+  --><script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script>
  <script type="text/javascript">
 var bno=getCookie("username");
  var base_no=null;
  var cno=null;
- var inResult=parseInt(0);
-var aResult = parseInt(0);
  var tno=null;
  var base_class=null;
  var train_date=null;
+ var addResult = parseInt(0);
+var insertResult = -1;
  $(function(){
  
  	$("#courseId").change(function(){
  	cno=$("#courseId option:selected").text();
- 	alert(cno);
+ 	//alert(cno);
  	loadCname();
  	loadBaseTeacher();
  	if(cno=="请选择课程号"){
@@ -60,7 +60,7 @@ var aResult = parseInt(0);
  	base_class=$("#bclass").val();
  	train_date=$("#trainday").val();
  	cno=$("#courseId option:selected").text();
- 	alert(cno);
+ 	//alert(cno);
  	 addStudent();
  	
  });

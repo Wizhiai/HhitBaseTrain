@@ -47,11 +47,8 @@
   			<section class="btnLists">
 	  			<input type="button" id="rightMove" value="&gt;"/><br/>
 	  			<input type="button" id="rightAllMove" value="&gt;&gt;"/><br/>
-<<<<<<< HEAD
 	  			<input type="button" id="leftMove" value="&lt;"/><br/>
-=======
 	  			<input type="button" id="leftMove" value="&lt;"/><<br/>
->>>>>>> 945d2b75460f000516705e1dd40c9ea8b8dd71dd
 	  			<input type="button" id="leftAllMove" value="&lt;&lt;"/><br/>
 	  			<input type="button" value="添加" id="addUser"/>
 	  		</section>

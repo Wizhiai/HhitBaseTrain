@@ -37,5 +37,21 @@ public class BaseAdminTongjiTrainStudentController {
 		System.out.println(result.getData());
 		return result;
 	}
+	
+	@RequestMapping("baseadmin/counttrainstudentbyclass")
+	@ResponseBody
+	public Result execute1(String manager_no){
+		Result result=trainStudentService.countTrainStudentByClass(manager_no);
+		System.out.println(result.getData());
+		return result;
+	}
+	
+	@RequestMapping("baseadmin/counttrainstudentclassdetail")
+	@ResponseBody
+	public Result execute1(Integer base_no,String base_class){
+		Result result=trainStudentService.TrainStudentByClassDetail(base_no, base_class);
+		System.out.println(result.getData());
+		return result;
+	}
 
 }
