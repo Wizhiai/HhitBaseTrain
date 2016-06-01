@@ -19,7 +19,7 @@ $(".main").height(mainHeight);
 		window.location.href="jsp/baseInformLogin.jsp";
 	});
 	$("#baseTrainLogin").click(function(){
-		window.location.href="html/studentLogin.jsp";
+		window.location.href="html/studentLogin1.jsp";
 	});
 	$("#baseValueLogin").click(function(){
 		window.location.href="jsp/baseValueLogin.jsp";

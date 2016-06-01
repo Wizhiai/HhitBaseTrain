@@ -59,7 +59,7 @@ var title;
  	stuno=getUrlParam(url,"stuno");
  	stu_name=getUrlParam(url,"stu_name");
  	finishedfile=getUrlParam(url,"finishedfile");
- 	alert(finishedfile);
+ 	//alert(finishedfile);
  	$("#cname").val(cname);
  	$("#title").val(title);
  	$("#stuno").val(stuno);
@@ -72,7 +72,7 @@ var title;
    		success:function(result){
    			if(result.status==1){
    				var data=result.data;
-   				alert(data.length);
+   				//alert(data.length);
    				for(var i=0;i<data.length;i++){
    					var op="<option>"+data[i]+"</option>";
    					var $op=$(op);

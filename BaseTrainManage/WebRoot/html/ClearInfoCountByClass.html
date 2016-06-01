@@ -21,8 +21,8 @@
 		    var base_no=getUrlParam(url,"base_no");
 		    var base_class=getUrlParam(url,"base_class");
 			var pageSize = 1;
-			alert(base_no);
-			alert(base_class);
+			//alert(base_no);
+			//alert(base_class);
 			var resultdata = new Object();
 			$(function(){
 				showCountInfo();
@@ -36,7 +36,7 @@
 					nextPage(resultdata,pageSize);
 				});
 				$("#close").click(function(){
-				    closeCurrentWindow();
+				    window.location.href='JDTManager_tongjiTrainStudent.html';
 				});
 			});
 			function showCountInfo(){

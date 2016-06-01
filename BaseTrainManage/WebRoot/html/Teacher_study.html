@@ -70,7 +70,7 @@
  		$("table tfoot td b").html(0);
  	    // alert(1);
  		var basename=$("#baseno option:selected").val();
- 		alert(basename);
+ 	//	alert(basename);
  	    var op="<option selected>"+basename+"</option>";
  		var $op=$(op); 
  		$("#basename").append($op);
@@ -95,7 +95,7 @@
 	    $("table tbody").on("click","tr",function(){
 	      var studyplan= $(this).data("studyplan");
 	       var fileName=studyplan;
- 			alert(fileName);
+ 			//alert(fileName);
  			if(fileName==""){
  				alert("该基地该课程没有上传文件呢！");
  			}else{
@@ -105,7 +105,7 @@
  });
  function download(){
  			var fileName=studyplan;
- 			alert(fileName);
+ 			//alert(fileName);
  			if(fileName==""){
  				alert("该基地该课程没有上传文件呢！");
  			}else{

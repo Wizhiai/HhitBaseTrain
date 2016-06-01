@@ -38,13 +38,23 @@
 	  	</ul>
 	  	<div id="baseManage" class="personInfo">基地信息管理</div>
 	  	<ul class="secondMenu">
+<<<<<<< HEAD
 	  		<li><a id="searchBaseInfo" target="businessfrm">查询基地信息</a></li>
 	  		<li><a id="manageBaseInfo" target="businessfrm">编辑基地信息</a></li>
+=======
+
+	  		<li><a target="businessfrm">查询基地信息</a></li>
+	  		<li><a href="" target="businessfrm">编辑基地信息</a></li>
+
+	  		<li><a id="searchBaseInfo" target="businessfrm">查询基地信息</a></li>
+	  		<li><a id="manageBaseInfo" target="businessfrm">编辑基地信息</a></li>
+
+>>>>>>> e7a70f1b8de7a4151f03ee5bf1d196154bffbbbb
     	</ul> 
     	<div id="userInfo" class="personInfo">基地教师管理</div>
 	  	<ul class="secondMenu">
 	  		<li><a href="../../html/JDTManager_addBaseTeacher.html" target="businessfrm">添加教师信息</a></li>
-	  		<li><a href="../../html/JDTManager_updateBaseTeacherInfo.html" target="businessfrm">编辑教师信息</a></li>
+	  		<li><a href="../../html/JDTManager_updateBaseTeacher1.html" target="businessfrm">编辑教师信息</a></li>
     	</ul> 
     	<div id="searchInfo" class="personInfo">公告管理</div>
 	  	<ul class="secondMenu">
@@ -54,7 +64,7 @@
     	<div id="userInfo" class="personInfo">实训学生管理</div>
 	  	<ul class="secondMenu">
 	  		<li><a href="../../html/JDTManager_addTrainStudentInfo.html" target="businessfrm">添加实训学生</a></li>
-	  		<li><a href="" target="businessfrm">编辑实训学生信息</a></li>
+	  		<li><a href="../../html/JDTManager_updateTrainStudent.html" target="businessfrm">编辑实训学生信息</a></li>
     	</ul> 
     	<div id="basePlacardAccess" class="personInfo">基地开设课程管理</div>
 	  	<ul class="secondMenu">

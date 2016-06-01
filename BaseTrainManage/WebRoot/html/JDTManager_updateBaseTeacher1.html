@@ -54,7 +54,7 @@
 			});
 			function search(){
 				var tno = $("#tno").val();
-				alert(1);
+				//alert(1);
 					var tr = "<tr><th>序号</th><th>工号</th><th>姓名</th><th>电话</th><th>职称</th><th>实训单位</th><th>操作</th></tr>";
 					$("#showInform thead tr").remove();
 					$("#showInform thead").append($(tr));
@@ -65,7 +65,7 @@
 						dataType:"json",
 						success:function(result){
 							if(result.status == 1){
-							alert(2);
+							//alert(2);
 								resultdata = result.data;
 								pageCalculate(resultdata,pageSize);
 								firstPage(resultdata,pageSize);//显示首页

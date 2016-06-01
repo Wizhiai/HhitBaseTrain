@@ -106,10 +106,10 @@ body{
  $("#btnAdd").click(function(){
  	 week=$("#week option:selected").text();
  	 month=$("#month option:selected").text();
- 	 alert(week);
- 	 alert(month);
+ 	 //alert(week);
+ 	 //alert(month);
  	var grade=parseFloat($("#grade").val());
- 	alert(grade);
+ 	//alert(grade);
  	$.ajax({
  		url:"http://localhost:8080/BaseTrainManage/trainstudent/saveGradeInfo.do",
  		type:"post",

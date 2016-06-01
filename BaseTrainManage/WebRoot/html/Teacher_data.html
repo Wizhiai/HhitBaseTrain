@@ -69,9 +69,9 @@
  		$("table tbody").html("");
  	    $("table tfoot td b").html(0);
  		base_no=$("#baseno option:selected").text();
- 	     alert(base_no);
+ 	   //  alert(base_no);
  		var basename=$("#baseno option:selected").val();
- 		alert(basename);
+ 		//alert(basename);
  	    var op="<option selected>"+basename+"</option>";
  		var $op=$(op); 
  		$("#basename").append($op);
@@ -91,7 +91,7 @@
  			    	if(result.status==1){
  			    		var data=result.data;
  			    		for(var i=0;i<data.length;i++){
- 			    		alert(data[i].cno);
+ 			    		//alert(data[i].cno);
  			    			 var op="<option value="+data[i]+">"+data[i]+"</option>";
  						     var $op=$(op);
  						     $("#cno").append($op);
@@ -116,7 +116,7 @@
  	   $("table tbody").on("click","tr",function(){
  	       var studydata=$(this).data("studydata");
 	      	var fileName=studydata;
- 			alert(fileName);
+ 			//alert(fileName);
  			if(fileName==""){
  				alert("该基地该课程没有上传文件呢！");
  			}else{
