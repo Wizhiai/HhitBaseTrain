@@ -5,6 +5,7 @@ $(function(){
  				alert("页面已失效，请重新登录！");
  			}else{
         showBaseBasicInfo();
+        $("#baseManage").attr("src","modifyBaseBuild.jsp");
         $("#establish_time").datepicker({
             language: "en",
             dateFormat: "yyyy-mm-dd"

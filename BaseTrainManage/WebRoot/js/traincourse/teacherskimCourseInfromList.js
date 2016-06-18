@@ -72,7 +72,6 @@ function gotoPage(pageSize,pageIndex,data){//页数跳转
 	}
 function searchCourseByBaseNo(){
 	var base_no = $("#baseName").val();
-	alert(base_no);
 	$.ajax({
 		url:"http://localhost:8080/BaseTrainManage/traincourse/searchCourseInfByBaseNo.do",
 		type:"post",

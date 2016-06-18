@@ -99,7 +99,7 @@
 	<select id="findStudentAsUser" parameterType="map" resultType="com.hhit.basetrain.entity.Student">
 		select stuno,stu_name from student  
 		<where>  
-			enter_year = enter_year
+			enter_year = #{enter_year}
 			<if test="major != null and major !=''">
 				and major = #{major}
 			</if>

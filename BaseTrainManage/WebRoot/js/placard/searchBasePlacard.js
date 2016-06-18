@@ -25,10 +25,16 @@ var resultdata = new Object();
 		showAllBasePlacard();//显示所有基地公告
 		$("#search").click(function(){
 			var title = $("#title").val();
+			var searchType = $("#search_placard_type").val();
 			if(title == ""){
 				alert("标题不能为空！");
 			}else{
-				searchBasePlacardByTitle();
+				if(searchType == "" ||searchType == null){
+					alert("请选择公告类型！");
+				}else{
+					$(".mainContent").hide();
+					searchBasePlacardByTitle();
+				}
 			}
 			$("#title").val("");
 		});
@@ -61,7 +67,9 @@ var resultdata = new Object();
 					resultdata = result.data;
 					pageCalculate(resultdata,pageSize);
 					firstPage(resultdata,pageSize);//显示首页
+					$(".mainContent").show();
 				}else{
+					$(".mainContent").hide();
 					alert(result.msg);
 				}
 			},
@@ -101,7 +109,9 @@ function gotoPage(pageSize,pageIndex,data){//页数跳转
 						resultdata = result.data;
 						pageCalculate(resultdata,pageSize);
 						firstPage(resultdata,pageSize);//显示首页
+						$(".mainContent").show();
 					}else{
+						$(".mainContent").hide();
 						alert(result.msg);
 					}
 				},
@@ -187,7 +197,6 @@ function deleteBasePlacard(obj){//删除数据
 				data:{"placard_no":placard_no},
 				dataType:"json",
 				success:function(result){
-					alert(result.status);
 					if(result.status != 0){
 						showAllBasePlacard()();
 					}

@@ -22,7 +22,6 @@ $(function(){
 });
 function isBaseTitleExit(){
 	var placard_title = $("#title").val();
-	alert(placard_title);
 	var publish_author = getCookie("username");
 	var ok = true;
 	if(publish_author == "" ||publish_author == null){

@@ -22,6 +22,8 @@ function addBase(){
 			dataType:"json",
 			success:function(result){
 				if(result.status == 1){
+					$("#base_name").val(" ");
+					$("#base_address").val(" ");
 					alert(result.msg+"该基地管理员账号为"+result.data);
 				}else{
 					alert(result.msg);

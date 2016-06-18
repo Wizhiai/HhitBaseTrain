@@ -107,8 +107,11 @@ function searchCourseByBaseNo(){
 					resultdata = result.data;
 					pageCalculate(resultdata,pageSize);
 					firstPage(resultdata,pageSize);//显示首页
+					$("#courseInform").show();
 				}else{
+					$("#courseInform").hide();
 					alert(result.msg);
+					
 				}
 			},
 			error:function(){

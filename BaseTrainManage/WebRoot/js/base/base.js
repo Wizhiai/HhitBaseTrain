@@ -5,6 +5,7 @@ $(function(){
  				alert("页面已失效，请重新登录！");
  			}else{
 	 			showBaseBasicInfo();
+	 			$("#baseManage").attr("src","basebuild.jsp");
     	$("#base_build_manage").click(function(){
 	 				$("#base_build_manage").attr("href","basebuild.jsp");
 	 				$("#base_build_manage").attr("target","baseManage");

@@ -46,7 +46,9 @@ var resultdata = new Object();
 					resultdata = result.data;
 					pageCalculate(resultdata,pageSize);
 					firstPage(resultdata,pageSize);//显示首页
+					$(".mainContent").show();
 				}else{
+					$(".mainContent").hide();
 					alert(result.msg);
 				}
 			},
