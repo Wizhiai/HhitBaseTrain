@@ -147,17 +147,32 @@ public class WorkServiceImpl implements WorkService{
 	}
 
 	public boolean uploadWork(String stuno, String wid, String uploadDate,
-			String file) {
+			String file,String filename,String title) {
 		boolean flag=false;
 		FinishWorkBean work=new FinishWorkBean();
 		work.setFile(file);
 		work.setStuno(stuno);
 		work.setUploadDate(uploadDate);
 		work.setWid(wid);
+		work.setFilename(filename);
 		int count=workDao.insertFinished(work);
 		if(count!=0){
-			flag=true;
-			System.out.println("插入成功");
+			Map<String,String> map=new HashMap<String,String>();
+			map.put("stuno", stuno);
+			map.put("title", title);
+			Map<String,String> map1=workDao.findTixingInfo(map);
+			if(map1!=null){
+				int count1=workDao.deleteTixing(map1);
+				if(count1==0){
+					flag=false;
+				}else{
+					flag=true;
+				}
+			}else{
+				flag=true;
+				System.out.println("插入成功");
+			}
+			
 		}else{
 			System.out.println("插入失败");
 		}
@@ -378,18 +393,81 @@ public class WorkServiceImpl implements WorkService{
 	}
 
 	public boolean reUpload(String stuno, String uploadDate,
-			String file, String wid) {
+			String file, String wid,String filename) {
 		boolean flag=false;
 		FinishWorkBean finish=new FinishWorkBean();
 		finish.setStuno(stuno);
 		finish.setFile(file);
 		finish.setUploadDate(uploadDate);
 		finish.setWid(wid);
+		finish.setFilename(filename);
 		int count=workDao.updateFinshedWork(finish);
 		if(count!=0){
 			flag=true;
 		}
 		return flag;
 	}
+
+	public Result reUploadResult(String wid, String stuno) {
+		Result result=new Result();
+		Map<String,String> map=new HashMap<String,String>();
+		map.put("wid", wid);
+		map.put("stuno", stuno);
+		
+		Map<String,String> finish=workDao.findReuploadWork(map);
+		if(finish==null){
+			result.setMsg("没有记录");
+			result.setStatus(0);
+		}else{
+			result.setMsg("查找成功");
+			result.setStatus(1);
+			result.setData(finish);
+		}
+		return result;
+	}
+
+	public Result remindWork(String title, String stuno, String t_no) {
+		Result result=new Result();
+		Map<String,String> map=new HashMap<String,String>();
+		map.put("title", title);
+		map.put("stuno", stuno);
+		Map<String,String> map1=new HashMap<String,String>();
+		map1.put("title", title);
+		map1.put("stuno", stuno);
+		map1.put("t_no", t_no);
+		System.out.println(map);
+		Map<String,String> map3=workDao.findTixingInfo(map);
+		if(map3==null){
+			int count=workDao.insertTixingInfo(map1);
+			if(count==0){
+				result.setMsg("提醒失败");
+				result.setStatus(0);
+			}else{
+				result.setMsg("提醒成功");
+				result.setStatus(1);
+			}	
+		}else{
+			result.setMsg("不可重复提醒");
+			result.setStatus(0);
+		}
+		
+	return result;
+	}
+
+	public Result gainRemind(String stuno) {
+		Result result=new Result();
+		List<Map> map=workDao.findTixing(stuno);
+		if(map==null){
+			result.setStatus(0);
+			result.setMsg("没有提醒");
+		}else{
+			result.setStatus(1);
+			result.setMsg("有提醒");
+			result.setData(map);	
+		}
+		return result;
+		
+	}
+	
 	
 }

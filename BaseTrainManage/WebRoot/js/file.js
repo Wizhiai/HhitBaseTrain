@@ -11,8 +11,14 @@
         	success:function(result){
         		if(result.status==1){
         			fileName=result.data;
-        			 alert(fileName);
-        			 window.location.href=".s./download.do?fileName="+fileName;
+        			 //alert(fileName);
+        			if(fileName==null){
+        				alert("还没有上传试卷，请上传试卷");
+        				
+        			}else{
+        				 window.location.href="../download.do?fileName="+fileName;
+        			}
+        			
         		}else{
         			alert("还没有上传试卷，请上传试卷");
         			

@@ -32,4 +32,12 @@ public class WorkSearchedController {
 		Result result=workService.searchAllUnFinishedWork(base_class, base_no, title, page, pageSize);
 		return result;
 	}
+	
+	@RequestMapping("work/reuploadWork")
+	@ResponseBody
+	public Result execute1(String wid,String stuno){
+		Result result=workService.reUploadResult(wid, stuno);
+		System.out.println(result.getData());
+		return result;
+	}
 }

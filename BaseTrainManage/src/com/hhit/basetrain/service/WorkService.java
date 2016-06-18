@@ -36,7 +36,7 @@ public interface WorkService {
 	/**
 	 * 提交作业
 	 */
-	public boolean uploadWork(String stuno,String wid,String uploadDate,String file);
+	public boolean uploadWork(String stuno,String wid,String uploadDate,String file,String filename,String title);
 	/**
 	 * 已交作业
 	 */
@@ -81,6 +81,25 @@ public interface WorkService {
 	/**
 	 * 重交作业
 	 */
-	public boolean reUpload(String stuno,String uploadDate,String file,String wid);
+	public boolean reUpload(String stuno,String uploadDate,String file,String wid,String filename);
 	
+	/**
+	 * 查询重交作业
+	 */
+	public Result reUploadResult(String wid,String stuno);
+	/**
+	 * 提醒交作业
+	 * @param title
+	 * @param stuno
+	 * @param t_no
+	 * @return
+	 */
+	
+	public Result remindWork(String title,String stuno,String t_no);
+	/**
+	 * 获取提醒
+	 * @param stuno
+	 * @return
+	 */
+	public Result gainRemind(String stuno);
 }

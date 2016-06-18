@@ -55,7 +55,7 @@
  	    $("#cno").val(cno);
  	    $("#month").val(month);
  	    $("#week").val(week);
- 	    alert(week);
+ 	    //alert(week);
  	});
  
  </script>

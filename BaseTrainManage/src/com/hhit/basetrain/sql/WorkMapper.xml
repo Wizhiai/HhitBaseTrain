@@ -55,18 +55,18 @@
 	</select>
 	<!--插入完成表-->
 	<insert id="insertFinished" parameterType="com.hhit.basetrain.entity.FinishWorkBean">
-		insert into finished(stuno,wid,uploadDate,finishedfile) values(#{stuno},#{wid},#{uploadDate},#{file})
+		insert into finished(stuno,wid,uploadDate,finishedfile,filename) values(#{stuno},#{wid},#{uploadDate},#{file},#{filename})
 	</insert>
 	
 	<!-- 查询已交作业 -->
 	<select id="findWorkUpload" parameterType="string" resultType="map">
-		SELECT w.wid,w.cno,w.cname,w.title,w.content,w.uploadDate,w.uploadNo,w.endDate,w.file,f.finishedfile
+		SELECT w.wid,w.cno,w.cname,w.title,w.content,w.uploadDate,w.uploadNo,w.endDate,w.file,f.finishedfile,f.filename
         FROM work w,finished f where w.wid=f.wid and f.stuno=#{stuno} and f.identity=0
 	</select>
 	
 	<!-- 查询已交作业 分页-->
 	<select id="findWorkUploadPage" parameterType="map" resultType="map">
-		SELECT w.wid,w.cno,w.cname,w.title,w.content,w.uploadDate,w.uploadNo,w.endDate,w.file,f.finishedfile
+		SELECT w.wid,w.cno,w.cname,w.title,w.content,w.uploadDate,w.uploadNo,w.endDate,w.file,f.finishedfile,f.filename
         FROM work w,finished f where w.wid=f.wid and f.stuno=#{stuno} and f.identity=0 limit ${page},
         ${pagesize}
 	</select>
@@ -173,7 +173,29 @@ c.wid=f.wid
 		</select>
 		<!-- 学生重交作业 -->
 		<update id="updateFinshedWork" parameterType="com.hhit.basetrain.entity.FinishWorkBean">
-			update finished set uploadDate=#{uploadDate},finishedfile=#{file}
+			update finished set uploadDate=#{uploadDate},finishedfile=#{file},filename=#{filename}
 			where stuno=#{stuno} and wid=#{wid}
 		</update>
+		<!-- 再一次上传查询已交作业 -->
+		<select id="findReuploadWork" parameterType="map" resultType="map">
+			select filename,finishedfile from finished where wid=#{wid} and stuno=#{stuno}
+		</select>
+		
+		<!-- 提醒交作业 -->
+		<insert id="insertTixingInfo" parameterType="map">
+		insert into tixing(title,t_no,stuno) values(#{title},#{t_no},#{stuno})
+		</insert>
+		<!-- 查询是否已经提醒 -->
+		<select id="findTixingInfo" parameterType="map" resultType="map">
+			select title,t_no,stuno from tixing where stuno=#{stuno} and title=#{title}
+		</select>
+		
+		<!-- 查询提醒 -->
+		<select id="findTixing" parameterType="String" resultType="map">
+			select title,t_no,stuno from tixing where stuno=#{stuno}
+		</select>
+		<!-- 删除 -->
+		<delete id="deleteTixing" parameterType="map">
+			delete from tixing where stuno=#{stuno} and title=#{title}
+		</delete>
 </mapper>

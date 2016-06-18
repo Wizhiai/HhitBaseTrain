@@ -51,6 +51,7 @@ if(stuno==null){
  				cno=data.cno;
  				term=data.term;
  				studyplan=data.studyplan;
+ 				//alert(studyplan);
  				$("table tbody").html("");
  				var tr='<tr align="center" bgcolor="#FFFFFF" height="22"> ';
  				tr+='<td>'+data.cno+'</td>';
@@ -85,8 +86,10 @@ if(stuno==null){
  
  });
  function download(){
+              
  	            var fileName=studyplan;
- 				if(fileName==""){
+ 	            // alert(fileName);
+ 				if(fileName==""||fileName==null){
  					alert("没有文件，请重新上传！");
  				}else{
  					window.location.href="../download.do?fileName="+fileName;

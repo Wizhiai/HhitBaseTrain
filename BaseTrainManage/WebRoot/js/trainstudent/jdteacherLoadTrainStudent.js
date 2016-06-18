@@ -12,7 +12,7 @@
  		$.ajax({
  		        url:"http://localhost:8080/BaseTrainManage/baseteacher/loadInfo.do",
  			    type:"post",
- 			    data:{"t_no":t_no,"page":page,"pageSize":pagesize,"stuname":stuname},
+ 			     data:{"page":page,"pageSize":pagesize,"stuname":stuname,"tno":t_no},
  			    dataType:"json",
  			    success:function(result){
  			    	if(result.status!=0){
@@ -69,7 +69,7 @@
  		$.ajax({
  		        url:"http://localhost:8080/BaseTrainManage/baseteacher/loadInfo.do",
  			    type:"post",
- 			     data:{"t_no":t_no,"page":page,"pageSize":pagesize,"stuname":stuname},
+ 			      data:{"page":page,"pageSize":pagesize,"stuname":stuname,"tno":t_no},
  			    dataType:"json",
  			    success:function(result){
  			    	if(result.status!=0){
@@ -170,7 +170,7 @@
  		$.ajax({
  		        url:"http://localhost:8080/BaseTrainManage/baseteacher/loadInfo.do",
  			    type:"post",
- 			     data:{"t_no":t_no,"page":page,"pageSize":pagesize,"stuname":stuname},
+ 			      data:{"page":page,"pageSize":pagesize,"stuname":stuname,"tno":t_no},
  			    dataType:"json",
  			    success:function(result){
  			    	if(result.status!=0){
@@ -228,7 +228,7 @@
  	    $.ajax({
  		        url:"http://localhost:8080/BaseTrainManage/baseteacher/loadInfo.do",
  			    type:"post",
- 			     data:{"t_no":t_no,"page":page,"pageSize":pagesize,"stuname":stuname},
+ 			      data:{"page":page,"pageSize":pagesize,"stuname":stuname,"tno":t_no},
  			    dataType:"json",
  			    success:function(result){
  			    	if(result.status!=0){
@@ -287,7 +287,7 @@
  		$.ajax({
  		        url:"http://localhost:8080/BaseTrainManage/baseteacher/loadInfo.do",
  			    type:"post",
- 			    data:{"t_no":t_no,"page":page,"pageSize":pagesize,"stuname":stuname},
+ 			     data:{"page":page,"pageSize":pagesize,"stuname":stuname,"tno":t_no},
  			    dataType:"json",
  			    success:function(result){
  			    	if(result.status!=0){
@@ -358,7 +358,7 @@
  		$.ajax({
  		        url:"http://localhost:8080/BaseTrainManage/baseteacher/loadInfo.do",
  			    type:"post",
- 			     data:{"t_no":t_no,"page":page,"pageSize":pagesize,"stuname":stuname},
+ 			      data:{"page":page,"pageSize":pagesize,"stuname":stuname,"tno":t_no},
  			    dataType:"json",
  			    success:function(result){
  			    	if(result.status!=0){

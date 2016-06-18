@@ -41,7 +41,7 @@ public interface TrainStudentService {
     /**
      * 基地教师查询实训学生信息分页
      */
-    public Result loadTrainStudnetInfoByPage(String stuname,Integer page,Integer pageSize);
+    public Result loadTrainStudnetInfoByPage(String stuname,String tno,Integer page,Integer pageSize);
     
     /**
      * 插入学生成绩信息

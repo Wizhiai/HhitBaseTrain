@@ -115,6 +115,7 @@ s.base_no=(select base_no from trainstudent  where stuno=#{stuno})limit ${page},
 		where
 		r.base_no=s.base_no
 		and s.cno=tc.cno 
+		and s.base_class=(select base_class from teaching where t_no=#{tno})
 		<if test="stuname!=null and stuname!=''">
 		and s.stu_name like  CONCAT(CONCAT('%', #{stuname}),'%')
 		</if>
@@ -126,6 +127,7 @@ s.base_no=(select base_no from trainstudent  where stuno=#{stuno})limit ${page},
 		where
 		r.base_no=s.base_no
 		and s.cno=tc.cno 
+		and s.base_class=(select base_class from teaching where t_no=#{tno})
 		<if test="stuname!=null and stuname!=''">
 		and s.stu_name like  CONCAT(CONCAT('%', #{stuname}),'%')
 		</if>

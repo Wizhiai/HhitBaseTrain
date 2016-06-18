@@ -88,7 +88,7 @@
  });
  function download(){
  	            var fileName=studycheck;
- 				if(fileName==""){
+ 				if(fileName==""||fileName==null){
  					alert("没有文件，请重新上传！");
  				}else{
  					window.location.href="../download.do?fileName="+fileName;

@@ -59,7 +59,6 @@ var title;
  	stuno=getUrlParam(url,"stuno");
  	stu_name=getUrlParam(url,"stu_name");
  	finishedfile=getUrlParam(url,"finishedfile");
- 	//alert(finishedfile);
  	$("#cname").val(cname);
  	$("#title").val(title);
  	$("#stuno").val(stuno);
@@ -97,7 +96,9 @@ var title;
  }
  function downloadfinishedfile(){
  	var fileName=finishedfile;
- 		if(fileName==""){
+ 	//alert(finishedfile);
+ 	
+ 		if(fileName==""||fileName==null){
  			alert("没有文件，请重新上传！");
  		}else{
  			window.location.href="../download.do?fileName="+fileName;

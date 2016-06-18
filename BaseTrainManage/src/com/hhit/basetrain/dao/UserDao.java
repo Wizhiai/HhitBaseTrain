@@ -77,4 +77,12 @@ public interface UserDao {
 	 * @return
 	 */
 	public CollegeTeacher findCollegeTeacherUserByNo(String username);
+	
+	/**
+	 * 更新权限
+	 * @param username
+	 * @return
+	 */
+	@Transactional(propagation = Propagation.REQUIRED)
+	public int updateIdentity(String username);
 }

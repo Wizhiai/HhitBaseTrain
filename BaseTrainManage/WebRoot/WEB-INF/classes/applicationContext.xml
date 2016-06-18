@@ -28,6 +28,10 @@
 	</bean>
 	
 	-->
+
+	
+	
+	
 	<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="username" value="root"></property>
 		<property name="password" value="123456"></property>

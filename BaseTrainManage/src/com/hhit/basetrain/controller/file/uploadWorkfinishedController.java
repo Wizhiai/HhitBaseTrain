@@ -35,7 +35,8 @@ public class uploadWorkfinishedController {
 	            file1.mkdirs();  
 	        }  
 	        //获取图片url地址  
-	        String fileName = "";// 文件名称 
+	        String fileName = "";// 文件名称
+	        String filename="";
 	        boolean result=false;
 	        /**上传文件处理内容**/  
 	        DiskFileItemFactory factory = new DiskFileItemFactory();  
@@ -47,10 +48,12 @@ public class uploadWorkfinishedController {
 	            for (FileItem fi : fileItems) {  
 	            	if(fi.isFormField()){
 	            		map.put(fi.getFieldName(),fi.getString("utf-8") );
-	            		/*System.out.println(fi.getFieldName());
-	            		System.out.println(fi.getString());*/
+	            		System.out.println(fi.getFieldName());
+	            		System.out.println(fi.getString());
 	            	}
 	            	else{
+	            		filename=fi.getName().substring(fi.getName().lastIndexOf(File.separator)+1, fi.getName().length());
+	            		System.out.println(filename);
 	            		fileName = "finished"+File.separator+UUID.randomUUID() + fi.getName().substring(fi.getName().lastIndexOf("."), fi.getName().length());  
 	            		fi.write(new File(path, fileName));  
 	            	}
@@ -63,7 +66,9 @@ public class uploadWorkfinishedController {
 	            System.out.println(wid);
 	            String uploadDate=TimeUtil.getFormatCurrentTime();
 	            String file=fileName;
-	             result=workService.uploadWork(stuno, wid, uploadDate,file);
+	            String title=map.get("title");
+	            System.out.println(title);
+	             result=workService.uploadWork(stuno, wid, uploadDate,file,filename,title);
 	           
 	           
 	        } catch (Exception e) {  

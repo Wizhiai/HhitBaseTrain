@@ -346,7 +346,7 @@
  function toHomePage(){
  		page=0;
  		currentpage=1;
- 		alert(1);
+ 		//alert(1);
  		$.ajax({
  		        url:url,
  			    type:"post",

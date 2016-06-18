@@ -35,7 +35,9 @@ public class ReuploadFinishedWorkController {
 	            file1.mkdirs();  
 	        }  
 	        //获取图片url地址  
-	        String fileName = "";// 文件名称 
+	        String fileName = "";// 文件名称
+	        String filename="";
+	        String file="";
 	        boolean result=false;
 	        /**上传文件处理内容**/  
 	        DiskFileItemFactory factory = new DiskFileItemFactory();  
@@ -51,6 +53,9 @@ public class ReuploadFinishedWorkController {
 	            		System.out.println(fi.getString());*/
 	            	}
 	            	else{
+	            		filename=fi.getName().substring(fi.getName().lastIndexOf(File.separator)+1, fi.getName().length());
+	            		System.out.println(filename);
+	            		//filename=new String(filename.getBytes(),"utf-8");
 	            		fileName = "finished"+File.separator+UUID.randomUUID() + fi.getName().substring(fi.getName().lastIndexOf("."), fi.getName().length());  
 	            		fi.write(new File(path, fileName));  
 	            	}
@@ -62,8 +67,8 @@ public class ReuploadFinishedWorkController {
 	            String wid=map.get("wid");
 	            System.out.println(wid);
 	            String uploadDate=TimeUtil.getFormatCurrentTime();
-	            String file=fileName;
-	             result=workService.reUpload(stuno, uploadDate,file, wid);
+	            file=fileName;
+	             result=workService.reUpload(stuno, uploadDate,file, wid,filename);
 	           
 	           
 	        } catch (Exception e) {  
@@ -71,7 +76,10 @@ public class ReuploadFinishedWorkController {
 	            System.out.println("文件上传出错");
 	        }  
 	        if(result){
-	              return "<script>window.parent.uploadSucced();</script>";
+	        	//filename=new String(filename.getBytes(),"utf-8");
+	        	//System.out.println(filename);
+	        	String url="<script>window.parent.uploadSucced('"+filename+"','"+file+"');</script>";
+	              return url;
 	              
         }else{
 	             return "<script>window.parent.uploadFailed();</script>";

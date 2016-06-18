@@ -49,7 +49,7 @@ $(function(){
 		var base_class = $("#class").val();
 		var phone = $("#telephone").val();
 		var cno = $("#cno").val();
-		alert(phone);
+		//alert(phone);
 		
 		if(phone ==""||train_date==""){
 			alert("联系方式不能为空！");

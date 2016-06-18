@@ -1,4 +1,4 @@
- function setpageSize(){
+ function setpageSize1(){
  	      pagesize=parseInt($("#pagesizes").val());
  		 page=0;
  		  currentpage=1;
@@ -8,39 +8,31 @@
  		  	pagecounts=parseInt(count/pagesize)+1;
  		  }
  		$.ajax({
- 		        url:"http://localhost:8080/BaseTrainManage/work/btshowfinshedwork.do",
+ 		        url:url,
  			    type:"post",
  			    data:{"base_no":base_no,"base_class":base_class,"page":page,"pageSize":pagesize,"title":title},
  			    dataType:"json",
  			    success:function(result){
  			    	if(result.status!=0){
+ 			    		$("table thead").html("");
  			    	    $("table tbody").html("");
+ 			    	    var th="<tr align='center' bgcolor='#E7FDFE' height='30' class='titleInfo'>";
+                            th+=" <th width='10%'><b>学号</b></th>";
+                            th+="<th width='10%'><b>姓名</b></th>"; 
+	                        th+="<th width='10%'><b>课程号</b></th>" ;
+	                        th+="<th width='10%'><b>课程名</b></th>";
+	                        th+=" <th width='15%'><b>作业标题</b></th></tr>";    
+ 			    	   $("table thead").html($(th));
  			    	    var works=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		var file=works[i].file;
- 			    	    		var wid=works[i].wid;
- 			    	    		var stuno=works[i].stuno;
- 			    	    		var stu_name=works[i].stu_name;
- 			    	    		var cname=works[i].cname;
- 			    	    		var finishedfile=works[i].finishedfile;
- 			    	    		var title=works[i].title;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	      tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
  			    	 	    tr+='<td>'+works[i].cno+'</td>';
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
- 			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
- 			    	 	    $tr=$(tr);
- 			    	 	    $tr.data("wid",wid);
- 			    	 	    $tr.data("file",file);
- 	 			    	    $tr.data("stu_name",stu_name);
- 	 			    	 	  $tr.data("stuno",stuno);
- 	 			    	 	  $tr.data("cname",cname);
- 	 			    	 	 $tr.data("finishedfile",finishedfile);
- 	 			    	 	 $tr.data("title",title);
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';    	
+			    	 	    $tr=$(tr);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
@@ -50,29 +42,15 @@
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			            	for(var i=0;i<works.length;i++){
- 			            		var file=works[i].file;
- 			    	    		var wid=works[i].wid;
- 			    	    		var stuno=works[i].stuno;
- 			    	    		var stu_name=works[i].stu_name;
- 			    	    		var cname=works[i].cname;
- 			    	    		var finishedfile=works[i].finishedfile;
- 			    	    		var title=works[i].title;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
  			    	 	    tr+='<td>'+works[i].cno+'</td>';
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
-			    	 	    $tr.data("wid",wid);
-			    	 	   $tr.data("file",file);
-			    	 	  $tr.data("stu_name",stu_name);
-	 			    	 	  $tr.data("stuno",stuno);
-	 			    	 	  $tr.data("cname",cname);
-	 			    	 	  $tr.data("finishedfile",finishedfile);
-	 			    	 	 $tr.data("title",title);
+			    	 	  $tr.data("title",title);
+			    	 	  $tr.data("stuno",stuno);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -80,48 +58,40 @@
  			    	 a='<a id="head" class="dianji" onclick="toHomePage()">首页</a><a id="nextpage" onclick="nextPage()">下一页</a><a id="end" onclick="toEndpage()">尾页</a>';
  			    	 $a=$(a);
  			    	 $a.insertAfter("#number");
- 			        }		
+ 			            }
  			    	}
  			    }
  	});
  }
- function setPages(){
+ function setPages1(){
  		currentpage=parseInt($("#pages").val());
  		page=(currentpage-1)*pagesize;
  		$.ajax({
- 		        url:"http://localhost:8080/BaseTrainManage/work/btshowfinshedwork.do",
+ 		        url:url,
  			    type:"post",
  			     data:{"base_no":base_no,"base_class":base_class,"page":page,"pageSize":pagesize,"title":title},
  			    dataType:"json",
  			    success:function(result){
  			    	if(result.status!=0){
+ 			    		$("table thead").html("");
  			    	    $("table tbody").html("");
+ 			    	    var th="<tr align='center' bgcolor='#E7FDFE' height='30' class='titleInfo'>";
+                            th+=" <th width='10%'><b>学号</b></th>";
+                            th+="<th width='10%'><b>姓名</b></th>"; 
+	                        th+="<th width='10%'><b>课程号</b></th>" ;
+	                        th+="<th width='10%'><b>课程名</b></th>";
+	                        th+=" <th width='15%'><b>作业标题</b></th></tr>";    
+ 			    	   $("table thead").html($(th));
  			    	    var works=result.data;
  			    	    if(currentpage==1 && currentpage<pagecounts){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		var file=works[i].file;
- 			    	    		var wid=works[i].wid;
- 			    	    		var stuno=works[i].stuno;
- 			    	    		var stu_name=works[i].stu_name;
- 			    	    		var cname=works[i].cname;
- 			    	    		var finishedfile=works[i].finishedfile;
- 			    	    		var title=works[i].title;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
  			    	 	    tr+='<td>'+works[i].cno+'</td>';
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
-			    	 	    $tr.data("wid",wid);
-			    	 	   $tr.data("file",file);
-			    	 	  $tr.data("stu_name",stu_name);
-	 			    	 	  $tr.data("stuno",stuno);
-	 			    	 	  $tr.data("cname",cname);
-	 			    	 	  $tr.data("finishedfile",finishedfile);
-	 			    	 	 $tr.data("title",title);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
@@ -131,29 +101,13 @@
  			    	          $a.insertAfter("#number");
  			            }else if(1<currentpage && currentpage<pagecounts){
  			            	for(var i=0;i<works.length;i++){
- 			            		var file=works[i].file;
- 			    	    		var wid=works[i].wid;
- 			    	    		var stuno=works[i].stuno;
- 			    	    		var stu_name=works[i].stu_name;
- 			    	    		var cname=works[i].cname;
- 			    	    		var finishedfile=works[i].finishedfile;
- 			    	    		var title=works[i].title;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	   tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
  			    	 	    tr+='<td>'+works[i].cno+'</td>';
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
 			    	 	    $tr=$(tr);
-			    	 	    $tr.data("wid",wid);
-			    	 	   $tr.data("file",file);
-			    	 	  $tr.data("stu_name",stu_name);
-	 			    	 	  $tr.data("stuno",stuno);
-	 			    	 	  $tr.data("cname",cname);
-	 			    	     $tr.data("finishedfile",finishedfile);
-	 			    	    $tr.data("title",title);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -163,29 +117,13 @@
  			    	   $a.insertAfter("#number");
  			        }else if( currentpage>1 && currentpage==pagecounts){
  			        	for(var i=0;i<works.length;i++){
- 			        		var file=works[i].file;
-			    	    		var wid=works[i].wid;
-			    	    		var stuno=works[i].stuno;
-			    	    		var stu_name=works[i].stu_name;
-			    	    		var cname=works[i].cname;
-			    	    		var finishedfile=works[i].finishedfile;
-			    	    		var title=works[i].title;
 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
-			    	 	    tr+='<td>'+works[i].stuno+'</td>';
- 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
- 			    	 	    tr+='<td>'+works[i].cno+'</td>';
- 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
- 			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
+			    	 	      tr+='<td>'+works[i].stuno+'</td>';
+			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
+			    	 	    tr+='<td>'+works[i].cno+'</td>';
+			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+			    	 	    tr+='  <td>'+works[i].title+'</td>';
 			    	 	    $tr=$(tr);
-			    	 	    $tr.data("wid",wid);
-			    	 	   $tr.data("file",file);
-			    	 	  $tr.data("stu_name",stu_name);
-	 			    	 	  $tr.data("stuno",stuno);
-	 			    	 	  $tr.data("cname",cname);
-	 			    	 	  $tr.data("finishedfile",finishedfile);
-	 			    	 	$tr.data("title",title);
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
  			    	 }
@@ -196,29 +134,16 @@
  			    	   $a.insertAfter("#number");
  			        }else if(currentpage==1 && currentpage==pagecounts)	{
  			        	for(var i=0;i<works.length;i++){
- 			        		var file=works[i].file;
-			    	    		var wid=works[i].wid;
-			    	    		var stuno=works[i].stuno;
-			    	    		var stu_name=works[i].stu_name;
-			    	    		var cname=works[i].cname;
-			    	    		var finishedfile=works[i].finishedfile;
-			    	    		var title=works[i].title;
+ 			        		
 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
-			    	 	   tr+='<td>'+works[i].stuno+'</td>';
- 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
- 			    	 	    tr+='<td>'+works[i].cno+'</td>';
- 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
- 			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
+			    	 	      tr+='<td>'+works[i].stuno+'</td>';
+			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
+			    	 	    tr+='<td>'+works[i].cno+'</td>';
+			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+			    	 	    tr+='  <td>'+works[i].title+'</td>';
+			    	 	
 			    	 	    $tr=$(tr);
-			    	 	    $tr.data("wid",wid);
-			    	 	   $tr.data("file",file);
-			    	 	  $tr.data("stu_name",stu_name);
-	 			    	 	  $tr.data("stuno",stuno);
-	 			    	 	  $tr.data("cname",cname);
-	 			    	 	  $tr.data("finishedfile",finishedfile);
-	 			    	 	$tr.data("title",title);
+			    	 	 
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
  			    	 }
@@ -232,43 +157,38 @@
  			    }
  	});
  	}
- function nextPage(){
+ function nextPage1(){
  	    currentpage=currentpage+1;
  		page=(currentpage-1)*pagesize;
  		$.ajax({
- 		        url:"http://localhost:8080/BaseTrainManage/work/btshowfinshedwork.do",
+ 		        url:url,
  			    type:"post",
  			     data:{"base_no":base_no,"base_class":base_class,"page":page,"pageSize":pagesize,"title":title},
  			    dataType:"json",
  			    success:function(result){
  			    	if(result.status!=0){
+ 			    		$("table thead").html("");
  			    	    $("table tbody").html("");
+ 			    	    var th="<tr align='center' bgcolor='#E7FDFE' height='30' class='titleInfo'>";
+                            th+=" <th width='10%'><b>学号</b></th>";
+                            th+="<th width='10%'><b>姓名</b></th>"; 
+	                        th+="<th width='10%'><b>课程号</b></th>" ;
+	                        th+="<th width='10%'><b>课程名</b></th>";
+	                        th+=" <th width='15%'><b>作业标题</b></th></tr>";    
+ 			    	   $("table thead").html($(th));
  			    	    var works=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		var file=works[i].file;
- 			    	    		var wid=works[i].wid;
- 			    	    		var stuno=works[i].stuno;
- 			    	    		var stu_name=works[i].stu_name;
- 			    	    		var cname=works[i].cname;
- 			    	    		var finishedfile=works[i].finishedfile;
- 			    	    		var title=works[i].title;
+ 			    	    		
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	   tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
  			    	 	    tr+='<td>'+works[i].cno+'</td>';
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
+ 			    	 	  
 			    	 	    $tr=$(tr);
-			    	 	    $tr.data("wid",wid);
-			    	 	   $tr.data("file",file);
-			    	 	  $tr.data("stu_name",stu_name);
-	 			    	 	  $tr.data("stuno",stuno);
-	 			    	 	  $tr.data("cname",cname);
-	 			    	 	  $tr.data("finishedfile",finishedfile);
-	 			    	 	$tr.data("title",title);
+			    	 	 
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
@@ -278,29 +198,16 @@
  			    	        $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			            	for(var i=0;i<works.length;i++){
- 			            		var file=works[i].file;
- 			    	    		var wid=works[i].wid;
- 			    	    		var stuno=works[i].stuno;
- 			    	    		var stu_name=works[i].stu_name;
- 			    	    		var cname=works[i].cname;
- 			    	    		var finishedfile=works[i].finishedfile;
- 			    	    		var title=works[i].title;
+ 			            		
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	  tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
  			    	 	    tr+='<td>'+works[i].cno+'</td>';
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
+ 			    	 	 
 			    	 	    $tr=$(tr);
-			    	 	    $tr.data("wid",wid);
-			    	 	   $tr.data("file",file);
-			    	 	  $tr.data("stu_name",stu_name);
-	 			    	 	  $tr.data("stuno",stuno);
-	 			    	 	  $tr.data("cname",cname);
-	 			    	 	 $tr.data("finshedfile",finishedfile);
-	 			    	 	$tr.data("title",title);
+			    	 	 
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -314,43 +221,38 @@
  			    }
  	});
  	}
- function frontpage(){
+ function frontpage1(){
  		currentpage=currentpage-1;
  		page=(currentpage-1)*pagesize;
  	    $.ajax({
- 		        url:"http://localhost:8080/BaseTrainManage/work/btshowfinshedwork.do",
+ 		        url:url,
  			    type:"post",
  			     data:{"base_no":base_no,"base_class":base_class,"page":page,"pageSize":pagesize,"title":title},
  			    dataType:"json",
  			    success:function(result){
  			    	if(result.status!=0){
+ 			    		$("table thead").html("");
  			    	    $("table tbody").html("");
+ 			    	    var th="<tr align='center' bgcolor='#E7FDFE' height='30' class='titleInfo'>";
+                            th+=" <th width='10%'><b>学号</b></th>";
+                            th+="<th width='10%'><b>姓名</b></th>"; 
+	                        th+="<th width='10%'><b>课程号</b></th>" ;
+	                        th+="<th width='10%'><b>课程名</b></th>";
+	                        th+=" <th width='15%'><b>作业标题</b></th></tr>";    
+ 			    	   $("table thead").html($(th));
  			    	    var works=result.data;
  			    	    if(currentpage==1){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		var file=works[i].file;
- 			    	    		var wid=works[i].wid;
- 			    	    		var stuno=works[i].stuno;
- 			    	    		var stu_name=works[i].stu_name;
- 			    	    		var cname=works[i].cname;
- 			    	    		var finishedfile=works[i].finishedfile;
- 			    	    		var title=works[i].title;
+ 			    	    	
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	   tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
  			    	 	    tr+='<td>'+works[i].cno+'</td>';
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
+ 			    	 	 
 			    	 	    $tr=$(tr);
-			    	 	    $tr.data("wid",wid);
-			    	 	   $tr.data("file",file);
-			    	 	  $tr.data("stu_name",stu_name);
-	 			    	 	  $tr.data("stuno",stuno);
-	 			    	 	  $tr.data("cname",cname);
-	 			    	 	 $tr.data("finshedfile",finishedfile);
-	 			    	 	$tr.data("title",title);
+			    	 
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
@@ -361,29 +263,16 @@
  			    			
  			            }else if(1<currentpage<pagecounts){
  			            	for(var i=0;i<works.length;i++){
- 			            		var file=works[i].file;
- 			    	    		var wid=works[i].wid;
- 			    	    		var stuno=works[i].stuno;
- 			    	    		var stu_name=works[i].stu_name;
- 			    	    		var cname=works[i].cname;
- 			    	    		var finishedfile=works[i].finishedfile;
- 			    	    		var title=works[i].title;
+ 			            
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	   tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
  			    	 	    tr+='<td>'+works[i].cno+'</td>';
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
-			    	 	    $tr=$(tr);
-			    	 	    $tr.data("wid",wid);
-			    	 	   $tr.data("file",file);
-			    	 	  $tr.data("stu_name",stu_name);
-	 			    	 	  $tr.data("stuno",stuno);
-	 			    	 	  $tr.data("cname",cname);
-	 			    	 	 $tr.data("finshedfile",finishedfile);
-	 			    	 	$tr.data("title",title);
+ 			    	 	 
+ 			    	 	    $tr=$(tr);
+ 			    	 	 
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -397,18 +286,26 @@
  	});
  	}
  	
- function toHomePage(){
+ function toHomePage1(){
  		page=0;
  		currentpage=1;
  		//alert(1);
  		$.ajax({
- 		        url:"http://localhost:8080/BaseTrainManage/work/btshowfinshedwork.do",
+ 		        url:url,
  			    type:"post",
  			    data:{"base_no":base_no,"base_class":base_class,"page":page,"pageSize":pagesize,"title":title},
  			    dataType:"json",
  			    success:function(result){
  			    	if(result.status!=0){
+ 			    		$("table thead").html("");
  			    	    $("table tbody").html("");
+ 			    	    var th="<tr align='center' bgcolor='#E7FDFE' height='30' class='titleInfo'>";
+                            th+=" <th width='10%'><b>学号</b></th>";
+                            th+="<th width='10%'><b>姓名</b></th>"; 
+	                        th+="<th width='10%'><b>课程号</b></th>" ;
+	                        th+="<th width='10%'><b>课程名</b></th>";
+	                        th+=" <th width='15%'><b>作业标题</b></th></tr>";    
+ 			    	   $("table thead").html($(th));
  			    	    count=result.status;
  			    	    if(count%pagesize==0){
  		  	                 pagecounts=count/pagesize;
@@ -418,30 +315,16 @@
  			    	    var works=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		var file=works[i].file;
- 			    	    		var wid=works[i].wid;
- 			    	    		var stuno=works[i].stuno;
- 			    	    		var stu_name=works[i].stu_name;
- 			    	    		var cname=works[i].cname;
- 			    	    		var finishedfile=works[i].finishedfile;
- 			    	    		var title=works[i].title;
- 			    	    		//alert(finishedfile);
+ 			    	    		
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	    tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
  			    	 	    tr+='<td>'+works[i].cno+'</td>';
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
+ 			    	 	 
 			    	 	    $tr=$(tr);
-			    	 	    $tr.data("wid",wid);
-			    	 	   $tr.data("file",file);
-			    	 	  $tr.data("stu_name",stu_name);
-	 			    	 	  $tr.data("stuno",stuno);
-	 			    	 	  $tr.data("cname",cname);
-	 			    	 	 $tr.data("finishedfile",finishedfile);
-	 			    	 	$tr.data("title",title);
+			    	 	
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
@@ -451,29 +334,16 @@
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			            	for(var i=0;i<works.length;i++){
- 			            		var file=works[i].file;
- 			    	    		var wid=works[i].wid;
- 			    	    		var stuno=works[i].stuno;
- 			    	    		var stu_name=works[i].stu_name;
- 			    	    		var cname=works[i].cname;
- 			    	    		var finishedfile=works[i].finishedfile;
- 			    	    		var title=works[i].title;
+ 			            		
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	   tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
  			    	 	    tr+='<td>'+works[i].cno+'</td>';
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
+ 			    	 	 
 			    	 	    $tr=$(tr);
-			    	 	    $tr.data("wid",wid);
-			    	 	   $tr.data("file",file);
-			    	 	  $tr.data("stu_name",stu_name);
-	 			    	 	  $tr.data("stuno",stuno);
-	 			    	 	  $tr.data("cname",cname);
-	 			    	 	 $tr.data("finshedfile",finishedfile);
-	 			    	 	$tr.data("title",title);
+			    	 	 
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -492,46 +362,40 @@
  			    }
  	});
  	}
- function toEndpage(){
+ function toEndpage1(){
  	    
  		currentpage=pagecounts;
  		page=(currentpage-1)*pagesize;
  		$.ajax({
- 		        url:"http://localhost:8080/BaseTrainManage/work/btshowfinshedwork.do",
+ 		        url:url,
  			    type:"post",
  			    data:{"base_no":base_no,"base_class":base_class,"page":page,"pageSize":pagesize,"title":title},
  			    dataType:"json",
  			    success:function(result){
  			    	if(result.status!=0){
+ 			    		$("table thead").html("");
  			    	    $("table tbody").html("");
+ 			    	    var th="<tr align='center' bgcolor='#E7FDFE' height='30' class='titleInfo'>";
+                            th+=" <th width='10%'><b>学号</b></th>";
+                            th+="<th width='10%'><b>姓名</b></th>"; 
+	                        th+="<th width='10%'><b>课程号</b></th>" ;
+	                        th+="<th width='10%'><b>课程名</b></th>";
+	                        th+=" <th width='15%'><b>作业标题</b></th></tr>";
+ 			    	   $("table thead").html($(th));
  			    	    var works=result.data;
  			    		$("#page #head").addClass("dianji");
  			    	    if(pagecounts==1){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		var file=works[i].file;
- 			    	    		var wid=works[i].wid;
- 			    	    		var stuno=works[i].stuno;
- 			    	    		var stu_name=works[i].stu_name;
- 			    	    		var cname=works[i].cname;
- 			    	    		var finishedfile=works[i].finishedfile;
- 			    	    		var title=works[i].title;
- 			    	    	
+ 			    	    		
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	   tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
  			    	 	    tr+='<td>'+works[i].cno+'</td>';
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
+ 			    	 	
 			    	 	    $tr=$(tr);
-			    	 	    $tr.data("wid",wid);
-			    	 	   $tr.data("file",file);
-			    	 	  $tr.data("stu_name",stu_name);
-	 			    	 	  $tr.data("stuno",stuno);
-	 			    	 	  $tr.data("cname",cname);
-	 			    	 	 $tr.data("finshedfile",finishedfile);
-	 			    	 	$tr.data("title",title);
+			    	 	  
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
@@ -540,29 +404,16 @@
  			    	         $a.insertAfter("#number");
  			            }else{
  			            	for(var i=0;i<works.length;i++){
- 			            		var file=works[i].file;
- 			    	    		var wid=works[i].wid;
- 			    	    		var stuno=works[i].stuno;
- 			    	    		var stu_name=works[i].stu_name;
- 			    	    		var cname=works[i].cname;
- 			    	    		var finishedfile=works[i].finishedfile;
- 			    	    		var title=works[i].title;
+ 			            		
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 			    	 	   tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
  			    	 	    tr+='<td>'+works[i].cno+'</td>';
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 			    	 	    tr+='  <td>'+works[i].uploadDate+'</td>';
- 			    	 	    tr+='<td><a href="javascript:void(0)">批改作业</a>&nbsp;</td></tr>';
+ 			    	 	  
 			    	 	    $tr=$(tr);
-			    	 	    $tr.data("wid",wid);
-			    	 	    $tr.data("file",file);
-			    	 	   $tr.data("stu_name",stu_name);
-	 			    	 	  $tr.data("stuno",stuno);
-	 			    	 	  $tr.data("cname",cname);
-	 			    	 	 $tr.data("finshedfile",finishedfile);
-	 			    	 	$tr.data("title",title);
+			    	 	 
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(works.length);
@@ -575,3 +426,4 @@
  			    }
  	});
  	}
+ 

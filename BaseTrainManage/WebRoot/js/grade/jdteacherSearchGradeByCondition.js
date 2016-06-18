@@ -343,7 +343,7 @@
  	}
  	
  function toHomePage(){
-	 alert(userId);
+	 //alert(userId);
  		page=0;
  		currentpage=1;
  		$.ajax({

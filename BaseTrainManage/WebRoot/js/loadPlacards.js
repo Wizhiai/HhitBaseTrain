@@ -14,7 +14,7 @@ $(function(){
    	   	for(var i=0;i<placards.length;i++){
    	   		var placardsTitle=placards[i].placard_title;
    	   		var placardContent=placards[i].placard_content;
-   	   		var li='<li class="card" ><a href>'+placardsTitle+'</a></li>';
+   	   		var li='<li class="card" ><a href="javascript:void(0);">'+placardsTitle+'</a></li>';
    	   		$li=$(li);
    	   		$li.data("placardContent",placardContent);
    	   		$("#palard_list").append($li);
@@ -41,7 +41,7 @@ $(function(){
    	   	for(var i=0;i<=placards.length-1;i++){
    	   		var placardsTitle=placards[i].placard_title;
    	   		var placardContent=placards[i].placard_content;
-   	     	var li='<li class="card" ><a href>'+placardsTitle+'</a></li>';
+   	     	var li='<li class="card" ><a  href="javascript:void(0);">'+placardsTitle+'</a></li>';
    	   		//var li='<li class="card" onclick="loadContent();">'+placardsTitle+'</li>';
    	   		$li=$(li);
    	   		$li.data("placardContent",placardContent);
@@ -68,7 +68,7 @@ $(function(){
    	   	for(var i=0;i<=placards.length-1;i++){
    	   		var placardsTitle=placards[i].placard_title;
    	   		var placardContent=placards[i].placard_content;
-   	   	    var li='<li class="card" ><a href>'+placardsTitle+'</a></li>';
+   	   	    var li='<li class="card" ><a href href="javascript:void(0);">'+placardsTitle+'</a></li>';
    	   		$li=$(li);
    	   		$li.data("placardContent",placardContent);
    	   		$("#palard_list").append($li);

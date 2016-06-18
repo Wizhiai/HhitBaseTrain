@@ -104,6 +104,9 @@
          });
     
     });
+    $("#close").click(function(){
+		 window.location.href='JDTManager_updateBaseTeacher1.html';
+	});
      
  });
  
@@ -144,22 +147,23 @@ document.write(strDate);
 <form>
   <div id="test">
 	<div id="id4">
-	   <div id="id3">性&nbsp;&nbsp;别&nbsp;<input id="sex" type="text" value=""/></div>
-	   <div id="id3">电&nbsp;&nbsp;&nbsp;&nbsp;话&nbsp;<input id="telephone" type="text"  value=""/></div>        	  	   
+	   <div id="id3">性&nbsp;&nbsp;别&nbsp;<input id="sex" type="text" value="" class="inputInfo"/></div>
+	   <div id="id3">电&nbsp;&nbsp;&nbsp;&nbsp;话&nbsp;<input id="telephone" type="text"  value=""  class="inputInfo"/></div>        	  	   
 	</div>
 	<div id="id5">
-         <div id="id3">工&nbsp;&nbsp;号&nbsp;<input type="text" disabled="disabled" id="tno" /></div>
-	     <div id="id3">姓&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;<input id="tname" type="text"/></div>
+         <div id="id3">工&nbsp;&nbsp;号&nbsp;<input type="text" disabled="disabled" id="tno"  class="inputInfo"/></div>
+	     <div id="id3">姓&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;<input id="tname" type="text"  class="inputInfo"></div>
 	</div>
 	<div id="id6"> 
 	   <div id="id3">职&nbsp;&nbsp;称&nbsp;
-           <select id="profession">
+           <select id="profession" class="selectInfo">
            	<option>讲师</option>
            	<option>项目经理</option>
            </select>
 	   </div>
 	   <div id="id3"> 
-	   <input  type="button" value="修改信息" id="modify"/>
+	   <input  type="button" value="修改信息" id="modify" class="editBtn"/>
+	   <input type="button" value="关闭" id="close" class="editBtn" />
 	</div>
 	</div>
 	

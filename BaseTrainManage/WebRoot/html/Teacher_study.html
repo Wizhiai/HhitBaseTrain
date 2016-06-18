@@ -96,7 +96,7 @@
 	      var studyplan= $(this).data("studyplan");
 	       var fileName=studyplan;
  			//alert(fileName);
- 			if(fileName==""){
+ 			if(fileName==""|| fileName==null){
  				alert("该基地该课程没有上传文件呢！");
  			}else{
  				window.location.href="../download.do?fileName="+fileName;
@@ -106,7 +106,7 @@
  function download(){
  			var fileName=studyplan;
  			//alert(fileName);
- 			if(fileName==""){
+ 			if(fileName==""||fileName==null){
  				alert("该基地该课程没有上传文件呢！");
  			}else{
  				window.location.href="../download.do?fileName="+fileName;
