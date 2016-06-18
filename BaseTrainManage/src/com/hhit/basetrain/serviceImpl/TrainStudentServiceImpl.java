@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.hhit.basetrain.dao.StudentDao;
 import com.hhit.basetrain.dao.TrainStudentDao;
+import com.hhit.basetrain.dao.UserDao;
 import com.hhit.basetrain.entity.Result;
 import com.hhit.basetrain.entity.Student;
 import com.hhit.basetrain.entity.TrainStudent;
@@ -33,6 +34,9 @@ public class TrainStudentServiceImpl implements TrainStudentService{
 	
 	@Resource
 	private StudentDao studentDao;
+	
+	@Resource
+	private UserDao userDao;
 
 	/* (non-Javadoc)
 	 * @see com.hhit.basetrain.service.TrainStudentService#showInfo(java.lang.String)
@@ -167,7 +171,7 @@ public class TrainStudentServiceImpl implements TrainStudentService{
 	/* (non-Javadoc)
 	 * @see com.hhit.basetrain.service.TrainStudentService#loadTrainStudnetInfoByPage(java.lang.String, java.lang.Integer, java.lang.Integer)
 	 */
-	public Result loadTrainStudnetInfoByPage( String stuname,Integer page,
+	public Result loadTrainStudnetInfoByPage( String stuname,String tno,Integer page,
 			Integer pageSize) {
 		Result result =new Result();
 		Map<String,Object> map=new HashMap<String,Object>();
@@ -175,7 +179,9 @@ public class TrainStudentServiceImpl implements TrainStudentService{
 		map.put("page", page);
 		map.put("pagesize", pageSize);
 		map.put("stuname", stuname);
+		map.put("tno", tno);
 		map1.put("stuname", stuname);
+		map1.put("tno", tno);
 		List<Map> student=trainstudentDao.findTrainStudentInfo(map1);
 		List<Map> students=trainstudentDao.findTrainStudentInfoPage(map);
 		System.out.println(map);
@@ -378,15 +384,15 @@ public class TrainStudentServiceImpl implements TrainStudentService{
 				result.setMsg("学生录入失败");
 				throw new RuntimeException("学生录入失败");
 			}else{
-				/*int delcount=studentDao.deleteRegister(stuno);
-				if(delcount==0){
+				int upcount=userDao.updateIdentity(stuno);
+				if(upcount==0){
 					result.setStatus(0);
-					result.setMsg("报名表删除失败");
+					result.setMsg("权限更新失败");
 					throw new RuntimeException("报名表删除失败");
-				}else{*/
+				}else{
 					result.setStatus(1);
-					result.setMsg("录入成功");
-				/*}*/
+					result.setMsg("更新成功");
+				}
 			}
 			
 			

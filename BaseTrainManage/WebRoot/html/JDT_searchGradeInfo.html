@@ -59,7 +59,7 @@
  		window.location.href="studentLogin1.jsp";
  	}
  	var count;
-    var pagesize=1;
+    var pagesize=5;
     var page;
     var stuno;
     var stuno1;
@@ -114,7 +114,12 @@
         		if(result.status==1){
         			fileName=result.data;
         			// alert(fileName);
-        			 window.location.href="../download.do?fileName="+fileName;
+        			if(fileName==null){
+        				alert("还没有上传试卷，请上传试卷");
+        			}else{
+        				 window.location.href="../download.do?fileName="+fileName;
+        			}
+        			
         		}else{
         			alert("还没有上传试卷，请上传试卷");
         			

@@ -20,6 +20,12 @@ public class FinishWorkBean {
 	 * 文件
 	 */
 	private String file;
+	/**
+	 * 文件名
+	 * @return
+	 */
+	private String filename;
+	
 	public String getStuno() {
 		return stuno;
 	}
@@ -45,6 +51,12 @@ public class FinishWorkBean {
 	}
 	public void setFile(String file) {
 		this.file = file;
+	}
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
 	}
 	@Override
 	public String toString() {

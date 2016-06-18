@@ -47,6 +47,12 @@ public class Work {
 	 * 文件
 	 */
 	private String file;
+	/**
+	 * 文件名
+	 * @return
+	 */
+	private String filename;
+	
 	public String getWid() {
 		return wid;
 	}
@@ -113,14 +119,21 @@ public class Work {
 	public void setFile(String file) {
 		this.file = file;
 	}
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
 	@Override
 	public String toString() {
 		return "Work [wid=" + wid + ", cno=" + cno + ", cname=" + cname
 				+ ", base_no=" + base_no + ", title=" + title + ", content="
 				+ content + ", uploadDate=" + uploadDate + ", uploadNo="
 				+ uploadNo + ", base_class=" + base_class + ", endDate="
-				+ endDate + ", file=" + file + "]";
+				+ endDate + ", file=" + file + ", filename=" + filename + "]";
 	}
+
 	
 	
 }

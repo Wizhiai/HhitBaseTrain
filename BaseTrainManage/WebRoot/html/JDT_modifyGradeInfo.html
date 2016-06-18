@@ -112,7 +112,7 @@ $(function(){
 	            tr+="<td>"+month+"</td>";
 	            tr+="<td>"+week+"</td>";
 	            tr+="<td>"+grade+"</td>";
-	            tr+="<td><img  src='../image/upload.png'/> <a href='JDT_uploadexampper1.html?stuno="+stuno+"&name="+name+"&cno="+cno+"&week="+week+"&month="+month+"'>上传卷面</a>&nbsp;<img  src='../image/min.png'/><a href='javascript:void(0)' onclick='download();'>查看卷面</a> </td> </tr>";
+	            tr+="<td><img  src='../image/upload.png'/> <a href='JDT_uploadexampper1.html?stuno="+stuno+"&name="+name+"&cno="+cno+"&week="+week+"&month="+month+"'>上传卷面</a>&nbsp;<img  src='../image/min.png'/><a href='javascript:void(0);' onclick='download();'>查看卷面</a> </td> </tr>";
 	            $tr=$(tr);
 	            $("table tbody").append($tr);
 	            $("table tfoot td b").html(1);

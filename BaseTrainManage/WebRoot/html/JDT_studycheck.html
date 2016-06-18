@@ -80,7 +80,7 @@
  			if(result.status==1){
  				var data=result.data;
  				var fileName=data.studycheck;
- 				if(fileName==""){
+ 				if(fileName==null){
  					alert("没有文件，请重新上传！");
  				}else{
  					window.location.href="../download.do?fileName="+fileName;

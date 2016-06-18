@@ -21,7 +21,7 @@
  			    	  if(currentpage==pagecounts){
  			for(var i=0;i<datas.length;i++){
  				var tn=datas[i].t_no;
- 	    		alert(tn);
+ 	    		//alert(tn);
  				var tr='<tr align="center" bgcolor="#FFFFFF" height="22"><td>'+datas[i].t_no+'</td>';
  				tr+='<td>'+datas[i].t_name+'</td>';
  				tr+='<td>'+datas[i].t_sex+'</td>';
@@ -40,7 +40,7 @@
  			            }else if(currentpage<pagecounts){
  			        	   for(var i=0;i<datas.length;i++){
  			        		  var tn=datas[i].t_no;
-			    	    		alert(tn);
+			    	    		//alert(tn);
 			    				var tr='<tr align="center" bgcolor="#FFFFFF" height="22"><td>'+datas[i].t_no+'</td>';
 			    				tr+='<td>'+datas[i].t_name+'</td>';
 			    				tr+='<td>'+datas[i].t_sex+'</td>';
@@ -76,7 +76,7 @@
  			    	    if(currentpage==1 && currentpage<pagecounts){
  			    	    	for(var i=0;i<datas.length;i++){
  			    	    		var tn=datas[i].t_no;
- 			    	    		alert(tn);
+ 			    	    		//alert(tn);
  			    				var tr='<tr align="center" bgcolor="#FFFFFF" height="22"><td>'+datas[i].t_no+'</td>';
  			    				tr+='<td>'+datas[i].t_name+'</td>';
  			    				tr+='<td>'+datas[i].t_sex+'</td>';
@@ -95,7 +95,7 @@
  			            }else if(1<currentpage && currentpage<pagecounts){
  			        	  for(var i=0;i<datas.length;i++){
  			        		 var tn=datas[i].t_no;
-			    	    		alert(tn);
+			    	    		//alert(tn);
 			    				var tr='<tr align="center" bgcolor="#FFFFFF" height="22"><td>'+datas[i].t_no+'</td>';
 			    				tr+='<td>'+datas[i].t_name+'</td>';
 			    				tr+='<td>'+datas[i].t_sex+'</td>';
@@ -114,7 +114,7 @@
  			        }else if( currentpage>1 && currentpage==pagecounts){
  			              for(var i=0;i<datas.length;i++){
  			            	 var tn=datas[i].t_no;
-			    	    		alert(tn);
+			    	    		//alert(tn);
 			    				var tr='<tr align="center" bgcolor="#FFFFFF" height="22"><td>'+datas[i].t_no+'</td>';
 			    				tr+='<td>'+datas[i].t_name+'</td>';
 			    				tr+='<td>'+datas[i].t_sex+'</td>';
@@ -133,7 +133,7 @@
  			        }else if(currentpage==1 && currentpage==pagecounts)	{
  			        	 for(var i=0;i<datas.length;i++){
  			        		var tn=datas[i].t_no;
-			    	    		alert(tn);
+			    	    		//alert(tn);
 			    				var tr='<tr align="center" bgcolor="#FFFFFF" height="22"><td>'+datas[i].t_no+'</td>';
 			    				tr+='<td>'+datas[i].t_name+'</td>';
 			    				tr+='<td>'+datas[i].t_sex+'</td>';
@@ -170,7 +170,7 @@
 			    	    if(currentpage==pagecounts){
 			    	    	for(var i=0;i<datas.length;i++){
  			    	    		var tn=datas[i].t_no;
- 			    	    		alert(tn);
+ 			    	    		//alert(tn);
  			    				var tr='<tr align="center" bgcolor="#FFFFFF" height="22"><td>'+datas[i].t_no+'</td>';
  			    				tr+='<td>'+datas[i].t_name+'</td>';
  			    				tr+='<td>'+datas[i].t_sex+'</td>';
@@ -189,7 +189,7 @@
 			            }else if(currentpage<pagecounts){
 			            	for(var i=0;i<datas.length;i++){
  			    	    		var tn=datas[i].t_no;
- 			    	    		alert(tn);
+ 			    	    		//alert(tn);
  			    				var tr='<tr align="center" bgcolor="#FFFFFF" height="22"><td>'+datas[i].t_no+'</td>';
  			    				tr+='<td>'+datas[i].t_name+'</td>';
  			    				tr+='<td>'+datas[i].t_sex+'</td>';
@@ -226,7 +226,7 @@
  			    	    if(currentpage==1){
  			    	    	for(var i=0;i<datas.length;i++){
  			    	    		var tn=datas[i].t_no;
- 			    	    		alert(tn);
+ 			    	    		//alert(tn);
  			    				var tr='<tr align="center" bgcolor="#FFFFFF" height="22"><td>'+datas[i].t_no+'</td>';
  			    				tr+='<td>'+datas[i].t_name+'</td>';
  			    				tr+='<td>'+datas[i].t_sex+'</td>';
@@ -246,7 +246,7 @@
  			            }else if(1<currentpage<pagecounts){
  			        	   for(var i=0;i<datas.length;i++){
  			        		  var tn=datas[i].t_no;
-			    	    		alert(tn);
+			    	    		//alert(tn);
 			    				var tr='<tr align="center" bgcolor="#FFFFFF" height="22"><td>'+datas[i].t_no+'</td>';
 			    				tr+='<td>'+datas[i].t_name+'</td>';
 			    				tr+='<td>'+datas[i].t_sex+'</td>';
@@ -352,7 +352,7 @@
  			    	    if(pagecounts==1){
  			    	    	for(var i=0;i<datas.length;i++){
  			    	    		var tn=datas[i].t_no;
- 			    	    		alert(tn);
+ 			    	    		//alert(tn);
  			    				var tr='<tr align="center" bgcolor="#FFFFFF" height="22"><td>'+datas[i].t_no+'</td>';
  			    				tr+='<td>'+datas[i].t_name+'</td>';
  			    				tr+='<td>'+datas[i].t_sex+'</td>';
@@ -370,7 +370,7 @@
  			            }else{
  			        	  for(var i=0;i<datas.length;i++){
  			        		 var tn=datas[i].t_no;
-			    	    		alert(tn);
+			    	    		//alert(tn);
 			    				var tr='<tr align="center" bgcolor="#FFFFFF" height="22"><td>'+datas[i].t_no+'</td>';
 			    				tr+='<td>'+datas[i].t_name+'</td>';
 			    				tr+='<td>'+datas[i].t_sex+'</td>';

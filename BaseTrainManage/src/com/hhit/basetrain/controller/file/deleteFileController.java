@@ -21,11 +21,12 @@ import com.hhit.basetrain.util.DeleteFileUtil;
  */
 @Controller
 public class deleteFileController {
-	@Resource
-	private WorkService workService;
+	/*@Resource
+	private WorkService workService;*/
 	@RequestMapping("/work/deleteworkfile")
 	@ResponseBody
-	public Result execute(String filename,String stuno,String wid){
+	public Result execute(String filename){
+		System.out.println(filename);
 		Result result=new Result();
 		String path=Thread.currentThread()
 	            .getContextClassLoader().getResource("").getPath(); 

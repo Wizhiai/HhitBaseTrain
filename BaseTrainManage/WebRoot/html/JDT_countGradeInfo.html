@@ -46,12 +46,13 @@
 <script type="text/javascript" src="../js/trainstudent/jdteacherLoadTrainStudent.js"></script>
  <script type="text/javascript">
   var t_no=getCookie("username");
+ // alert(t_no);
    if(t_no==null){
  		alert("由于您长时间没有登录，请重新登录!");
  		window.open("studentLogin1.jsp");
  	}
     var count;
-    var pagesize=1;
+    var pagesize=5;
     var page;
     var stuno;
     var currentpage;

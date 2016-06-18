@@ -113,4 +113,27 @@ public interface WorkDao {
 	 * 重交作业
 	 */
 	public int updateFinshedWork(FinishWorkBean finish);
+	/**
+	 * 查询重交的作业
+	 * 
+	 */
+	public Map findReuploadWork(Map map);
+	
+	/**
+	 * 提醒交作业
+	 */
+	public int insertTixingInfo(Map map);
+	
+	/**
+	 * 查询是否重复提醒
+	 */
+	public Map findTixingInfo(Map map);
+	/**
+	 * 收到提醒
+	 */
+	public List<Map> findTixing(String stuno);
+	/**
+	 * 删除提醒
+	 */
+	public int deleteTixing(Map map);
 }

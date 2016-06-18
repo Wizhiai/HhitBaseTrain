@@ -382,7 +382,7 @@
  function toHomePage(){
  		page=0;
  		currentpage=1;
- 		alert(1);
+ 		//alert(1);
  		$.ajax({
  		        url:"http://localhost:8080/BaseTrainManage/work/shownewwork.do",
  			    type:"post",

@@ -14,17 +14,32 @@
  			    dataType:"json",
  			    success:function(result){
  			    	if(result.status!=0){
+ 			    		$("table thead").html("");
  			    	    $("table tbody").html("");
+ 			    	    var th="<tr align='center' bgcolor='#E7FDFE' height='30' class='titleInfo'>";
+                            th+=" <th width='10%'><b>学号</b></th>";
+                            th+="<th width='10%'><b>姓名</b></th>"; 
+	                        th+="<th width='10%'><b>课程号</b></th>" ;
+	                        th+="<th width='10%'><b>课程名</b></th>";
+	                        th+=" <th width='15%'><b>作业标题</b></th>";  
+	                        th+=" <th width='15%'><b><a href='javascript:void(0);'>提醒</a></b></th></tr>";
+ 			    	   $("table thead").html($(th));
  			    	    var works=result.data;
  			    	    if(currentpage==pagecounts){
+ 			    	    	
  			    	    	for(var i=0;i<works.length;i++){
+ 			    	    		var title=works[i].title;
+ 	 			    	    	var stuno=works[i].stuno;
  			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
  			    	 	      tr+='<td>'+works[i].stuno+'</td>';
  			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
  			    	 	    tr+='<td>'+works[i].cno+'</td>';
  			    	 	    tr+='  <td>'+works[i].cname+'</td>';
  			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 			    	 	    $tr=$(tr);
+ 			    	 	  tr+='  <td><a href="javascript:void(0);">提醒</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("title",title);
+			    	 	  $tr.data("stuno",stuno);
  			    	 	   
  			    	 	     $("table tbody").append($tr);
  			    	      }
@@ -35,14 +50,18 @@
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			            	for(var i=0;i<works.length;i++){
- 			            		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
- 	 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
- 	 			    	 	    tr+='<td>'+works[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 	 			    	 	   
- 	 			    	 	    $tr=$(tr);
+ 			            		var title=works[i].title;
+ 	 			    	    	var stuno=works[i].stuno;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	  tr+='  <td><a href="javascript:void(0);">提醒</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("title",title);
+			    	 	  $tr.data("stuno",stuno);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -65,18 +84,31 @@
  			    dataType:"json",
  			    success:function(result){
  			    	if(result.status!=0){
+ 			    		$("table thead").html("");
  			    	    $("table tbody").html("");
+ 			    	    var th="<tr align='center' bgcolor='#E7FDFE' height='30' class='titleInfo'>";
+                            th+=" <th width='10%'><b>学号</b></th>";
+                            th+="<th width='10%'><b>姓名</b></th>"; 
+	                        th+="<th width='10%'><b>课程号</b></th>" ;
+	                        th+="<th width='10%'><b>课程名</b></th>";
+	                        th+=" <th width='15%'><b>作业标题</b></th>";  
+	                        th+=" <th width='15%'><b><a href='javascript:void(0);'>提醒</a></b></th></tr>";
+ 			    	   $("table thead").html($(th));
  			    	    var works=result.data;
  			    	    if(currentpage==1 && currentpage<pagecounts){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
- 	 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
- 	 			    	 	    tr+='<td>'+works[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 	 			    	 	 
- 	 			    	 	    $tr=$(tr);
+ 			    	    		var title=works[i].title;
+ 	 			    	    	var stuno=works[i].stuno;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	  tr+='  <td><a href="javascript:void(0);">提醒</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("title",title);
+			    	 	  $tr.data("stuno",stuno);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
@@ -86,14 +118,18 @@
  			    	          $a.insertAfter("#number");
  			            }else if(1<currentpage && currentpage<pagecounts){
  			            	for(var i=0;i<works.length;i++){
- 			            		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
- 	 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
- 	 			    	 	    tr+='<td>'+works[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 	 			    	 	  
- 	 			    	 	    $tr=$(tr);
+ 			            		var title=works[i].title;
+ 	 			    	    	var stuno=works[i].stuno;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	  tr+='  <td><a href="javascript:void(0);">提醒</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("title",title);
+			    	 	  $tr.data("stuno",stuno);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -103,14 +139,18 @@
  			    	   $a.insertAfter("#number");
  			        }else if( currentpage>1 && currentpage==pagecounts){
  			        	for(var i=0;i<works.length;i++){
- 			        		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			        		var title=works[i].title;
+	 			    	    	var stuno=works[i].stuno;
+			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
 			    	 	    tr+='<td>'+works[i].cno+'</td>';
 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
 			    	 	    tr+='  <td>'+works[i].title+'</td>';
-			    	 	   
+			    	 	   tr+='  <td><a href="javascript:void(0);">提醒</a></td>';
 			    	 	    $tr=$(tr);
+			    	 	  $tr.data("title",title);
+			    	 	  $tr.data("stuno",stuno);
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
  			    	 }
@@ -121,15 +161,18 @@
  			    	   $a.insertAfter("#number");
  			        }else if(currentpage==1 && currentpage==pagecounts)	{
  			        	for(var i=0;i<works.length;i++){
- 			        		var file=works[i].file;
- 			        		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			        		var title=works[i].title;
+	 			    	    	var stuno=works[i].stuno;
+			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
 			    	 	    tr+='<td>'+works[i].cno+'</td>';
 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
 			    	 	    tr+='  <td>'+works[i].title+'</td>';
-			    	 	    
+			    	 	   tr+='  <td><a href="javascript:void(0);">提醒</a></td>';
 			    	 	    $tr=$(tr);
+			    	 	  $tr.data("title",title);
+			    	 	  $tr.data("stuno",stuno);
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
  			    	 }
@@ -153,18 +196,31 @@
  			    dataType:"json",
  			    success:function(result){
  			    	if(result.status!=0){
+ 			    		$("table thead").html("");
  			    	    $("table tbody").html("");
+ 			    	    var th="<tr align='center' bgcolor='#E7FDFE' height='30' class='titleInfo'>";
+                            th+=" <th width='10%'><b>学号</b></th>";
+                            th+="<th width='10%'><b>姓名</b></th>"; 
+	                        th+="<th width='10%'><b>课程号</b></th>" ;
+	                        th+="<th width='10%'><b>课程名</b></th>";
+	                        th+=" <th width='15%'><b>作业标题</b></th>";  
+	                        th+=" <th width='15%'><b><a href='javascript:void(0);'>提醒</a></b></th></tr>";
+ 			    	   $("table thead").html($(th));
  			    	    var works=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
- 	 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
- 	 			    	 	    tr+='<td>'+works[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 	 			    	 	   
- 	 			    	 	    $tr=$(tr);
+ 			    	    		var title=works[i].title;
+ 	 			    	    	var stuno=works[i].stuno;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	  tr+='  <td><a href="javascript:void(0);">提醒</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("title",title);
+			    	 	  $tr.data("stuno",stuno);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
@@ -174,14 +230,18 @@
  			    	        $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			            	for(var i=0;i<works.length;i++){
- 			            		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
- 	 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
- 	 			    	 	    tr+='<td>'+works[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 	 			    	 	   
- 	 			    	 	    $tr=$(tr);
+ 			            		var title=works[i].title;
+ 	 			    	    	var stuno=works[i].stuno;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	  tr+='  <td><a href="javascript:void(0);">提醒</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("title",title);
+			    	 	  $tr.data("stuno",stuno);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -205,18 +265,31 @@
  			    dataType:"json",
  			    success:function(result){
  			    	if(result.status!=0){
+ 			    		$("table thead").html("");
  			    	    $("table tbody").html("");
+ 			    	    var th="<tr align='center' bgcolor='#E7FDFE' height='30' class='titleInfo'>";
+                            th+=" <th width='10%'><b>学号</b></th>";
+                            th+="<th width='10%'><b>姓名</b></th>"; 
+	                        th+="<th width='10%'><b>课程号</b></th>" ;
+	                        th+="<th width='10%'><b>课程名</b></th>";
+	                        th+=" <th width='15%'><b>作业标题</b></th>";  
+	                        th+=" <th width='15%'><b><a href='javascript:void(0);'>提醒</a></b></th></tr>";
+ 			    	   $("table thead").html($(th));
  			    	    var works=result.data;
  			    	    if(currentpage==1){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
- 	 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
- 	 			    	 	    tr+='<td>'+works[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 	 			    	 	   
- 	 			    	 	    $tr=$(tr);
+ 			    	    		var title=works[i].title;
+ 	 			    	    	var stuno=works[i].stuno;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	  tr+='  <td><a href="javascript:void(0);">提醒</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("title",title);
+			    	 	  $tr.data("stuno",stuno);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
@@ -227,14 +300,18 @@
  			    			
  			            }else if(1<currentpage<pagecounts){
  			            	for(var i=0;i<works.length;i++){
- 			            		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
- 	 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
- 	 			    	 	    tr+='<td>'+works[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 	 			    	 	   
- 	 			    	 	    $tr=$(tr);
+ 			            		var title=works[i].title;
+ 	 			    	    	var stuno=works[i].stuno;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	  tr+='  <td><a href="javascript:void(0);">提醒</a></td>';
+ 			    	 	    $tr=$(tr);
+ 			    	 	  $tr.data("title",title);
+ 			    	 	  $tr.data("stuno",stuno);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -251,7 +328,7 @@
  function toHomePage(){
  		page=0;
  		currentpage=1;
- 		alert(1);
+ 		//alert(1);
  		$.ajax({
  		        url:url,
  			    type:"post",
@@ -259,7 +336,16 @@
  			    dataType:"json",
  			    success:function(result){
  			    	if(result.status!=0){
+ 			    		$("table thead").html("");
  			    	    $("table tbody").html("");
+ 			    	    var th="<tr align='center' bgcolor='#E7FDFE' height='30' class='titleInfo'>";
+                            th+=" <th width='10%'><b>学号</b></th>";
+                            th+="<th width='10%'><b>姓名</b></th>"; 
+	                        th+="<th width='10%'><b>课程号</b></th>" ;
+	                        th+="<th width='10%'><b>课程名</b></th>";
+	                        th+=" <th width='15%'><b>作业标题</b></th>";  
+	                        th+=" <th width='15%'><b><a href='javascript:void(0);'>提醒</a></b></th></tr>";
+ 			    	   $("table thead").html($(th));
  			    	    count=result.status;
  			    	    if(count%pagesize==0){
  		  	                 pagecounts=count/pagesize;
@@ -269,31 +355,39 @@
  			    	    var works=result.data;
  			    	    if(currentpage==pagecounts){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
- 	 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
- 	 			    	 	    tr+='<td>'+works[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 	 			    	 	   
- 	 			    	 	    $tr=$(tr);
+ 			    	    		var title=works[i].title;
+ 	 			    	    	var stuno=works[i].stuno;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	  tr+='  <td><a href="javascript:void(0);">提醒</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("title",title);
+			    	 	  $tr.data("stuno",stuno);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
  			    	         $("#page a").remove();
- 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>"
+ 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>";
  			    	         $a=$(a);
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
  			            	for(var i=0;i<works.length;i++){
- 			            		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
- 	 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
- 	 			    	 	    tr+='<td>'+works[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 	 			    	 	   
- 	 			    	 	    $tr=$(tr);
+ 			            		var title=works[i].title;
+ 	 			    	    	var stuno=works[i].stuno;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	  tr+='<td><a href="javascript:void(0);" onclick="tixing();">提醒</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("title",title);
+			    	 	  $tr.data("stuno",stuno);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(pagesize);
@@ -323,35 +417,52 @@
  			    dataType:"json",
  			    success:function(result){
  			    	if(result.status!=0){
+ 			    		$("table thead").html("");
  			    	    $("table tbody").html("");
+ 			    	    var th="<tr align='center' bgcolor='#E7FDFE' height='30' class='titleInfo'>";
+                            th+=" <th width='10%'><b>学号</b></th>";
+                            th+="<th width='10%'><b>姓名</b></th>"; 
+	                        th+="<th width='10%'><b>课程号</b></th>" ;
+	                        th+="<th width='10%'><b>课程名</b></th>";
+	                        th+=" <th width='15%'><b>作业标题</b></th>";  
+	                        th+=" <th width='15%'><b><a href='javascript:void(0);'>提醒</a></b></th></tr>";
+ 			    	   $("table thead").html($(th));
  			    	    var works=result.data;
  			    		$("#page #head").addClass("dianji");
  			    	    if(pagecounts==1){
  			    	    	for(var i=0;i<works.length;i++){
- 			    	    		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
- 	 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
- 	 			    	 	    tr+='<td>'+works[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 	 			    	 	   
- 	 			    	 	    $tr=$(tr);
+ 			    	    		var title=works[i].title;
+ 	 			    	    	var stuno=works[i].stuno;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	  tr+='  <td><a href="javascript:void(0);">提醒</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("title",title);
+			    	 	  $tr.data("stuno",stuno);
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(works.length);
- 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>"
+ 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>";
  			    	         $a=$(a);
  			    	         $a.insertAfter("#number");
  			            }else{
  			            	for(var i=0;i<works.length;i++){
- 			            		var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
- 	 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
- 	 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
- 	 			    	 	    tr+='<td>'+works[i].cno+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
- 	 			    	 	    tr+='  <td>'+works[i].title+'</td>';
- 	 			    	 	  
- 	 			    	 	    $tr=$(tr);
+ 			            		var title=works[i].title;
+ 	 			    	    	var stuno=works[i].stuno;
+ 			    	 	    var tr='<tr align="center" bgcolor="#FFFFFF" height="22">';
+ 			    	 	      tr+='<td>'+works[i].stuno+'</td>';
+ 			    	 	        tr+='<td>'+works[i].stu_name+'</td>';
+ 			    	 	    tr+='<td>'+works[i].cno+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].cname+'</td>';
+ 			    	 	    tr+='  <td>'+works[i].title+'</td>';
+ 			    	 	  tr+='  <td><a href="javascript:void(0);">提醒</a></td>';
+			    	 	    $tr=$(tr);
+			    	 	  $tr.data("title",title);
+			    	 	  $tr.data("stuno",stuno);
  			    	 			$("table tbody").append($tr);
  			    	 }
  			    	 $("table tfoot td b").html(works.length);
@@ -364,3 +475,4 @@
  			    }
  	});
  	}
+ 

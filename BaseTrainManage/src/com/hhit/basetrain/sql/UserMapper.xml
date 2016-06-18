@@ -56,4 +56,9 @@
 		where binary ct_no = #{username}
 	</select>
 	
+	<!-- 更新用户权限 -->
+	<update id="updateIdentity" parameterType="string">
+		update user set identity='5' where username=#{username}
+	</update>
+	
 </mapper>

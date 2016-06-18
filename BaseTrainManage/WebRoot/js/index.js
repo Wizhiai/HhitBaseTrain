@@ -22,7 +22,8 @@ $(".main").height(mainHeight);
 		window.location.href="html/studentLogin1.jsp";
 	});
 	$("#baseValueLogin").click(function(){
-		window.location.href="jsp/baseValueLogin.jsp";
+		//window.location.href="jsp/baseValueLogin.jsp";
+		window.location.href="http://120.27.112.49:8181/BaseTrainManage/jsp/baseValueLogin.jsp";
 	});
 })
 function showSchoolPagePlacard(){//显示学校公告基本信息
