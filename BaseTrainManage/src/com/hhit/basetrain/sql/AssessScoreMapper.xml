@@ -4,50 +4,10 @@
  
 <mapper namespace="com.hhit.basetrain.dao.AssessScoreDao">
 
-	<!-- 根据用户名和类型ID查找用户 -->
-	<select id="findByUserIdAndbaseTypeId"  resultType="com.hhit.entity.assess.AssessScore">
-		select * from assessscore where userId = #{0} and basetypeid= #{1}
-	</select>
 	<!-- 根据用户名查找用户 -->
-	<select id="findByUserName"  resultType="String">
-		select expertId from expert where username = #{userName} 
+	<select id="findByName" parameterType="string" resultType="com.hhit.basetrain.entity.User">
+		select username,password,identity from user where username = #{name}
 	</select>
-	
-	<!-- 根据用户名查找用户 -->
-	<select id="getScore"  resultType="com.hhit.entity.assess.AssessScore">
-		select * from assessscore where basetypeid= #{0} 
-	</select>
-	<!-- 根据用户名查找用户 -->
-	<select id="findVideo"  resultType="string">
-		select username from basevideourl where username= #{0} 
-	</select>
-	<!-- 更新 -->
-	<select id="updateVideo"  >
-			update basevideourl
-		set url = #{1}
-		where username = #{0}
-		
-	</select>
-	<!-- 添加到专家库 -->
-	<insert id="insertToExpert" parameterType="String">
-		insert into expert(username,expertType)
-		values
-		(#{0},#{1})
-	</insert>
-	
-		<!-- 添加到专家库 -->
-	<insert id="insertVideo" parameterType="String">
-		insert into basevideourl(username,url)
-		values
-		(#{0},#{1})
-	</insert>
-	
-	
-	
-	
-	
-	
-	
 	
 	<!-- 添加分数 -->
 	<insert id="save" parameterType="map">
@@ -56,14 +16,14 @@
 		threeone,threetwo,threethree,threefour,threefive,threesix,
 		fourone,fourtwo,fourthree,fourfour,fourfive,
 		fiveone,fivetwo,fivethree,fivefour,fivefive,
-		sixone,sixtwo,sixthree,sixfour,sixfive,sixsix,basetypeid,userId,allScore,basename)
+		sixone,sixtwo,sixthree,sixfour,sixfive,sixsix)
 		values
 		(#{s11},#{s12},#{s13},
 		#{s21},#{s22},#{s23},#{s24},#{s25},#{s26},#{s27},
 		#{s31},#{s32},#{s33},#{s34},#{s35},#{s36},
 		#{s41},#{s42},#{s43},#{s44},#{s45},
 		#{s51},#{s52},#{s53},#{s54},#{s55},
-		#{s61},#{s62},#{s63},#{s64},#{s65},#{s66},#{basetypeid},#{userId},#{allScore},#{basename})
+		#{s61},#{s62},#{s63},#{s64},#{s65},#{s66})
 	</insert>
 	
 	<!-- 删除用户 -->

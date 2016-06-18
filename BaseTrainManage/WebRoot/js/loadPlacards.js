@@ -5,7 +5,7 @@ $(function(){
       if(iden==3){
       	$.ajax({
    	   type:"post",
-   	   url:"/BaseTrainManage/load.do",
+   	   url:"http://localhost:8080/BaseTrainManage/load.do",
    	   data:{"id":id},
    	   dataType:"json",
    	   success:function(result){//回调函数
@@ -14,7 +14,7 @@ $(function(){
    	   	for(var i=0;i<placards.length;i++){
    	   		var placardsTitle=placards[i].placard_title;
    	   		var placardContent=placards[i].placard_content;
-   	   		var li='<li class="card" href=><a>'+placardsTitle+'</a></li>';
+   	   		var li='<li class="card" ><a href>'+placardsTitle+'</a></li>';
    	   		$li=$(li);
    	   		$li.data("placardContent",placardContent);
    	   		$("#palard_list").append($li);
@@ -32,7 +32,7 @@ $(function(){
      if(iden==2){
      	$.ajax({
    	   type:"post",
-   	   url:"/BaseTrainManage/loadschoolPlacard.do",
+   	   url:"http://localhost:8080/BaseTrainManage/loadschoolPlacard.do",
    	   
    	   dataType:"json",
    	   success:function(result){//回调函数
@@ -41,7 +41,8 @@ $(function(){
    	   	for(var i=0;i<=placards.length-1;i++){
    	   		var placardsTitle=placards[i].placard_title;
    	   		var placardContent=placards[i].placard_content;
-   	   		var li='<li class="card" onclick="loadContent();">'+placardsTitle+'</li>';
+   	     	var li='<li class="card" ><a href>'+placardsTitle+'</a></li>';
+   	   		//var li='<li class="card" onclick="loadContent();">'+placardsTitle+'</li>';
    	   		$li=$(li);
    	   		$li.data("placardContent",placardContent);
    	   		$("#palard_list").append($li);
@@ -58,7 +59,7 @@ $(function(){
   	if(iden==5){
   	 	$.ajax({
    	   type:"post",
-   	   url:"/BaseTrainManage/loadstudentPlacard.do",
+   	   url:"http://localhost:8080/BaseTrainManage/loadstudentPlacard.do",
    	   data:{"id":id},
    	   dataType:"json",
    	   success:function(result){//回调函数
@@ -67,7 +68,7 @@ $(function(){
    	   	for(var i=0;i<=placards.length-1;i++){
    	   		var placardsTitle=placards[i].placard_title;
    	   		var placardContent=placards[i].placard_content;
-   	   		var li='<li class="card">'+placardsTitle+'</li>';
+   	   	    var li='<li class="card" ><a href>'+placardsTitle+'</a></li>';
    	   		$li=$(li);
    	   		$li.data("placardContent",placardContent);
    	   		$("#palard_list").append($li);
@@ -89,7 +90,7 @@ $(function(){
    });
    $("#palard_list").on("mouseover","li",function(){
 	   $(this).css("color","red"); 
-	    $(this).css("font-size","18px");
+	    $(this).css("font-size","16px");
 	   
    });
     $("#palard_list").on("mouseout","li",function(){

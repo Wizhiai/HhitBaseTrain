@@ -1,13 +1,22 @@
 /*****************************门户网站设计开始*****************************/
+ table {
+     border-collapse:collapse;
+     border-spacing:0;
+}
 body{
-	background-image: url("../images/background.png");
-	box-sizing:border-content;
+	background:-moz-linear-gradient(top,#edf5fd 0%,#fcfdfe 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#edf5fd), color-stop(100%,#fcfdfe));
+    background: -webkit-linear-gradient(top, #edf5fd 0%,#fcfdfe 100%);
+    background: -o-linear-gradient(top, #edf5fd 0%,#fcfdfe 100%);
+    background: -ms-linear-gradient(top, #edf5fd  0%,#fcfdfe 100%);
+    background: linear-gradient(to bottom right, #edf5fd  0%,#fcfdfe 100%);
+    height:100%;
+    width:100%;  
 }
 .total{
 	width:1000px;
 	height:100%;
 	margin:0 auto;
-	/* border:1px solid #fff; */
 }
 .total header{
 	width:100%;
@@ -31,13 +40,16 @@ body{
 	border-right:1px solid #ccc;
 	margin-right:10px;
 	background:#ddeeff;
+	border-radius:4px;
+	box-shadow:3px 3px 2px #f0f0f0;
 }
 .announcement article{
 	margin:10px 10px;
 	height:88%;
-	background:#d1efec;
+	background:#f5fff5;
 	padding:10px 10px;
 	border-radius:10px;
+	box-shadow:3px 0 2px #f7f7f7;
 }
 .announcement article h1{
 	line-height:30px;
@@ -55,7 +67,7 @@ body{
 	margin-top:10px;
 }
 .announcement ul li{
-	line-height:30px;
+	line-height:40px;
 	padding-left:70px;
 }
 .announcement ul a{
@@ -65,55 +77,74 @@ body{
 	cursor:pointer;
 }
 .titleOfannounce{
+	display:inline-block;
 	width:300px;
 	overflow:hidden;
-	white-spacing:no-wrap;
+	white-space:nowrap;
+	vertical-align:middle;
 	text-overflow:ellipsis;
+	
 }
 .dateOfannounce{
-	margin-left:30px;
+	margin-left:34px;
 }
 /*系统登录 */
 .main .program{
 	float:left;
 	width:289px;
-	height:300px;
-	background:#d4e2f0;
-}
-.program ul li .loginTitle{
-	cursor:default;
 }
 .program ul li span:hover{
 	cursor:pointer;
 }
 .loginTitle{
-	width:80px;
+	width:289px;
 	display:inline-block;
-	border-radius:10px;
-	line-height:36px;
-	height:36px;
-	background:#4c9df0;
+	border-radius:6px;
+	line-height:40px;
+	height:40px;
+	text-align:center;
 	color:#fff;
-	padding-left:20px;
-	cursor:default !important;
+	font-size:16px;
+	letter-spacing:2px;
+	border-bottom:1px solid #edf5fd;
+	background:-moz-linear-gradient(top,#59a4e7 0%,#6cabd2 25%,#298fcf 50%,#48b5f4 95%,#fcfdfe 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#edf5fd),color-stop(25%,#6cabd2),
+  color-stop(50%,#298fcf),  color-stop(95%,#48b5f4),color-stop(100%,#fcfdfe));
+    background: -webkit-linear-gradient(top, #edf5fd 0%,#6cabd2 25%,#298fcf 50%,#48b5f4 95%,#fcfdfe 100%);
+    background: -o-linear-gradient(top, #edf5fd 0%,#6cabd2 25%,#298fcf 50%,#48b5f4 95%,#fcfdfe 100%);
+    background: -ms-linear-gradient(top, #edf5fd  0%,#6cabd2 25%,#298fcf 50%,#48b5f4 95%,#fcfdfe 100%);
+    background: linear-gradient(to bottom, #59a4e7  0%,#6cabd2 25%,#298fcf 50%,#48b5f4 95%,#4992bb 100%);
 }
 .program ul li{
-	height:40px;
-	border-bottom:1px solid #ccc;
+	height:50px;
+	border-bottom:2px solid #ccc;
+	border-radius:4px;
+	box-shadow:2px 2px 2px #fcfdfe;
+	background:-moz-linear-gradient(top,#f8f8ff 0%,#e0ffff 25%,#f0f8ff 65%,#48b5f4 95%,#00ccff 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8ff),color-stop(25%,#e0ffff),
+  color-stop(65%,#f0f8ff),  color-stop(95%,#48b5f4),color-stop(100%,#00ccff));
+    background: -webkit-linear-gradient(top, #f8f8ff 0%,#e0ffff 25%,#f0f8ff 65%,#48b5f4 95%,#00ccff 100%);
+    background: -o-linear-gradient(top, #f8f8ff 0%,#e0ffff 25%,#f0f8ff 50%,#48b5f4 95%,#00ccff 100%);
+    background: -ms-linear-gradient(top, #f8f8ff  0%,#e0ffff 25%,#f0f8ff 65%,#48b5f4 95%,#00ccff 100%);
+    background: linear-gradient(to bottom, #f8f8ff  0%,#e0ffff 25%,#f0f8ff 65%,#48b5f4 95%,#00ccff 100%);
 }
+
 .program ul li img{
 	height:30px;
-	width:100px;
+	width:30px;
 	padding:10px 0 0 10px;
 	vertical-align:middle;
 }
 .program ul li span{
 	display:inline-block;
 	vertical-align:middle;
-	margin-left:5px;
-	font-size:14px;
-	text-shadow:2px 5px 3px #8ebbe9;
-	letter-spacing:4px;
+	margin-left:16px;
+	color:#333;
+	font-family: 'Arial Black', Gadget, sans-serif;
+	font-size:18px;
+	font-weight:bolder;
+	text-shadow:3px 5px 5px #ffefff;
+	letter-spacing:6px;
 }
 
 /*页脚  */
@@ -148,15 +179,14 @@ html{
 	min-width:1000px;
 	height:75px;
 	border-radius:2px;
-	background:url("../images/HeaderBG.png") no-repeat;
+	background:url("../images/logo.png") no-repeat;
 	background-size:100% 100%;
 }
 .userLogin{
-	height:30px;
 	line-height:30px;
-	width:100%;
-	border-radius:2px;
-	background:#42b3f4;
+	width:600px;
+	float:right;
+	margin:40px 30px 0 0;
 }
 .showUserName #name_show{
 	float:right;
@@ -180,22 +210,37 @@ html{
 }
 /*  管理左侧菜单*/
 .userMenuLeft{
-	width:200px;
+	width:15%;
 	height:100%;
 	float:left;
 	min-height:300px;
 	border:1px solid #6DA3EC;
 	border-top:none;
+/*	background:-moz-linear-gradient(top,#edf5fd 0%,#fcfdfe 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#edf5fd), color-stop(100%,#fcfdfe));
+    background: -webkit-linear-gradient(top, #edf5fd 0%,#fcfdfe 100%);
+    background: -o-linear-gradient(top, #edf5fd 0%,#fcfdfe 100%);
+    background: -ms-linear-gradient(top, #edf5fd  0%,#fcfdfe 100%);
+    background: linear-gradient(to bottom, #edf5fd  0%,#fcfdfe 100%);*/
+    background-color:#edf5fd;
+
 }
 .userMenuLeft h1{
 	height:36px;
 	line-height:36px;
-	background:#6DA3EC;
+	background:#59a4e7;
 	border-radius:2px;
 	padding-left:10px;
 	text-align:center;
 	font-weight: bolder;
 	letter-spacing:2px;
+	background:-moz-linear-gradient(top,#59a4e7 0%,#6cabd2 25%,#298fcf 50%,#48b5f4 95%,#fcfdfe 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#edf5fd),color-stop(25%,#6cabd2),
+  color-stop(50%,#298fcf),  color-stop(95%,#48b5f4),color-stop(100%,#fcfdfe));
+    background: -webkit-linear-gradient(top, #edf5fd 0%,#6cabd2 25%,#298fcf 50%,#48b5f4 95%,#fcfdfe 100%);
+    background: -o-linear-gradient(top, #edf5fd 0%,#6cabd2 25%,#298fcf 50%,#48b5f4 95%,#fcfdfe 100%);
+    background: -ms-linear-gradient(top, #edf5fd  0%,#6cabd2 25%,#298fcf 50%,#48b5f4 95%,#fcfdfe 100%);
+    background: linear-gradient(to bottom, #59a4e7  0%,#6cabd2 25%,#298fcf 50%,#48b5f4 95%,#4992bb 100%);
 }
 .personInfo{
 	height:40px;
@@ -213,17 +258,36 @@ html{
 	border-bottom:1px dotted #ccc;
 	padding-left:60px;
 }
-.secondMenu li a{
-	color:#000;	
-}
+
 #personManage{
-	background:url(../images/1.png) no-repeat;
-	background-position:10px;
-}
-#searchInfo{
 	background:url(../images/2.png) no-repeat;
 	background-position:10px;
 }
+#searchInfo{
+	background:url(../images/8.png) no-repeat;
+	background-position:8px;
+	background-size:12% 56%;
+}
+#userInfo{
+  background:url(../images/3.png) no-repeat;
+	background-position:8px;
+	background-size:10% 47%;
+}
+#baseManage{
+  background:url(../images/1.png) no-repeat;
+	background-position:10px;
+}
+#registCount{
+	background:url(../images/4.png) no-repeat;
+	background-position:10px;
+	
+}
+#basePlacardAccess{
+	background:url(../images/7.png) no-repeat;
+	background-position:10px;
+	background-size:10% 47%;
+}
+
 .searchMenu{
 	height:120px;
 }
@@ -240,23 +304,23 @@ html{
 	border:1px solid #6DA3EC;
 	border-left:none;
 	height:100%;
-	overflow:scroll;
 	text-align:center;
-	overflow-x:scroll;
+	display:inline-block;
+	width:84%;
+	background:-moz-linear-gradient(top,#edf5fd 0%,#fcfdfe 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#edf5fd), color-stop(100%,#fcfdfe));
+  background: -webkit-linear-gradient(top, #edf5fd 0%,#fcfdfe 100%);
+  background: -o-linear-gradient(top, #edf5fd 0%,#fcfdfe 100%);
+  background: -ms-linear-gradient(top, #edf5fd  0%,#fcfdfe 100%);
+  background: linear-gradient(to bottom, #edf5fd  0%,#fcfdfe 100%);
 }
-.businessfrm{
-	margin-left:20px;
-	border:1px solid #ccc;
-	}
+
 /*******************************学生首页设计结束*****************************/
 /******************************管理员首页设置开始******************************/
 .userManageMenu{
-	height:160px;
+	height:120px;
 }
-#registCount,#userAccess{
-	background:url(../images/4.png) no-repeat;
-	background-position:10px;
-}
+
 /******************************管理员首页设置结束******************************/
 /******************************常见问题列表开始******************************/
 常见问题列表
@@ -264,14 +328,19 @@ html{
 	margin-left:20px;
 }
 .list{
-	width:1086px;
+	width:786px;
 	height:400px;
 	margin:0 auto;
-	
+/*	display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;垂直居中*/
 }
 .topContent{
-	margin-top:50px;
-	margin-bottom:40px;
+	margin-top:30px;
+	margin-bottom:20px;
 }
 .topContent h1{
 	width:100%;
@@ -286,7 +355,10 @@ html{
 	line-height:30px;
 	padding-left:5px;
 }
-.topContent #search{
+.topContent #regist{
+	margin-top:30px;
+}
+.editBtn{
 	width:60px;
 	height:30px;
 	line-height:30px;
@@ -297,8 +369,9 @@ html{
 	color:#fff;
 	letter-spacing:1px;
 	cursor:pointer;
+	padding:0;
 }
-#search:hover{
+.editBtn:hover{
 	background:#2aa8ce;
 }
 /*结果显示*/
@@ -319,16 +392,10 @@ html{
 	height:36px;
 	width:100%;
 	line-height:36px;
+	border:1px solid #ccc;
 }
 #showInform thead,th{
-	border:1px solid #ccc;
-	background:url(../images/level2bg.png);
-	font-weight:bold;
-	color:#000;
-	letter-spacing:4px;
-}
-thead,th{
-	border:1px solid #ccc;
+	border-right:1px solid #ccc;
 	background:url(../images/level2bg.png);
 	font-weight:bold;
 	color:#000;
@@ -339,13 +406,7 @@ thead,th{
 		max-width:200px;
 	}
 #showInform tfoot,td{
-	
-}
-.pp{
-position:fixed;left:43%;top:30%;margin-left:width/3;margin-top:height/3; 
-margin: 0 auto; 
-position: absolute;  
-z-index: 9999; 
+	border-right:1px solid #ccc;
 }
 .btn{
 	background:none;
@@ -373,14 +434,118 @@ z-index: 9999;
 		margin-left:30px;
 		margin-right:30px;
 	}
-.btn_disabled{/*按钮不可用*/
-	color:#ccc;
-}
+
 /******************************表格设置结束******************************/
-#placardInform{
-	margin-top:50px;
-}
 button:disabled{
-	color:#ccc;	
+	color:#ccc !important;	
+}
+/******************************添加用户设置开始******************************/
+/*添加学生*/
+.searchResultInfo{
+	margin-left:60px;
+}
+.tableShow{
+	width:200px;
+	float:left;
+	border:1px solid #ccc;
+	height:300px;
+	text-align:center;
+	overflow-y:scroll;
+}
+.appendStu{
+	width:100%;
+	height:auto;
+  text-align:center;
+}
+.appendStu td{
+	height:36px;
+	line-height:36px;
+	cursor:pointer;
+	border:none;
+}
+.btnLists{
+	float:left;
+	width:100px;
+	margin:30px;
+	margin-right:0;
+	height:100px;
+}
+.btnLists input{
+	background:transparent;
+	width:50px;
+	height:40px;
+	font-size:18px;
+	color:#3B3B3B;
+	border:none;
+	cursor:pointer;
+}
+.changeColor{
+	color:#4876FF;
+}
+	/*修改个人信息*/
+.modifyInfo{
+	margin-top:60px;
+	margin-left:100px;
+}
+.modifyInfo span{
+	display:inline-block;
+	line-height:36px;
+	margin-bottom:20px;
 	
+}
+.modifyInfo input{
+border-radius:5px;
+padding-left:10px;
+}
+.modifyInfo .editBtn{
+	margin-top:10px;
+	margin-left:40px;
+	padding-left:0;
+}
+/******************************添加用户设置结束******************************/
+
+/******************************添加公告设置开始******************************/
+.modifyInfo .placardTitle{
+		width:300px;
+		height:35px;
+}
+.modifyInfo textarea{
+		width:300px;
+		height:100px;
+}
+.modifyInfo #add{
+		margin-top:20px;
+		margin-left:120px;
+		padding-left:0;
+}
+.schoolPlacardInfo #modify{
+		margin-top:20px;
+		margin-left:30px;
+		padding-left:0;
+}
+.modifyInfo #close{
+		margin-top:20px;
+		margin-left:100px;
+		padding-left:0;
+}
+.modifyInfo #date_choose{
+		background-image: url("../images/date_logo.gif");
+		background-size:100% 100%;
+		width:30px;
+		height:30px;
+}
+/******************************添加公告设置结束******************************/
+.collegeTeacherInfo #modify{
+		margin-left:80px;
+		padding-left:0;
+}
+.collegeTeacherInfo #back{
+		margin-left:200px;
+		padding-left:0;
+}
+.btn_disabled{/*按钮不可用*/
+	color:#ccc !important;
+}
+.hide{
+	display:none;
 }

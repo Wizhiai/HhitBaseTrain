@@ -29,4 +29,17 @@ public interface BaseAdminService {
 	 * @return
 	 */
 	public Result modifySelfInf(String manager_no,String manager_name,String manager_phone);
+	/**
+
+	 * 查找基地名称
+	 * @param manager_no
+	 * @return
+	 */
+	public Result showBaseNameByNo(String manager_no);
+     /**
+	 * 通过基地管理员账号找到基地编号
+	 * @param manager_no
+	 * @return
+	 */
+	public Result showBaseNoByManagerNo(String managerNo);
 }

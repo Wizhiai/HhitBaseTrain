@@ -27,7 +27,51 @@
  	
  	<!-- 修改个人信息 -->
  	<update id="modifySelfInfo" parameterType="com.hhit.basetrain.entity.BaseTeacher">
- 		update baseteacher set t_name=#{t_name},t_sex=#{t_sex},t_phone=#{t_phone} where 
+ 		update baseteacher set t_name=#{t_name},t_sex=#{t_sex},t_phone=#{t_phone},t_profession=#{t_profession} where 
  		t_no=#{t_no}
  	</update>
+ 	
+ 	<!-- 通过基地号查询教师编号-->
+ 	<select id="findBaseTeacherNoByBaseNo" parameterType="int" resultType="string">
+ 		select t_no from baseteacher where base_no = #{base_no}
+ 	</select>
+ 	
+ 	<!--根据基地号删除基地教师 -->
+ 	<delete id="deleteBaseTeacherByBaseNo" parameterType="int">
+ 		delete from baseteacher where base_no = #{base_no}
+ 	</delete>
+ 	<!-- 插入基地教师 -->
+ 	<insert id="saveBaseTeacher" parameterType="com.hhit.basetrain.entity.BaseTeacher">
+ 		insert into baseteacher(t_no,t_name,t_sex,t_phone,base_no,t_profession) 
+ 		values(#{t_no},#{t_name},#{t_sex},#{t_phone},#{base_no},#{t_profession})
+ 	</insert>
+ 	<!-- 删除基地教师 -->
+ 	<delete id="deleteBaseTeacher" parameterType="string">
+ 		delete from baseteacher where t_no=#{t_no}
+ 	</delete>
+ 	<!-- 查询基地教师信息 -->
+ 	<select id="findBaseTeacherByTno" parameterType="map" resultType="com.hhit.basetrain.entity.BaseTeacherBean">
+ 		select b.t_no,b.t_name,b.t_sex,b.t_phone,b.t_profession,r.base_name from baseteacher b,baserelation r
+ 		where r.base_no=b.base_no and r.manager_no=#{manager_no}
+ 		<if test="t_no!=null and t_no!=''">
+ 			and b.t_no like CONCAT(CONCAT('%', #{t_no}),'%') 
+ 		</if>
+ 	</select>
+ 	
+ 	<!-- 查询基地教师信息分页 -->
+ 	<select id="findBaseTeacherByTnoPage" parameterType="map" resultType="com.hhit.basetrain.entity.BaseTeacherBean">
+ 		select b.t_no,b.t_name,b.t_sex,b.t_phone,b.t_profession,r.base_name from baseteacher b,baserelation r
+ 		where r.base_no=b.base_no and r.manager_no=#{manager_no}
+ 		<if test="t_no!=null and t_no!=''">
+ 			and b.t_no like CONCAT(CONCAT('%', #{t_no}),'%') 
+ 		</if>
+ 		limit ${page},${pagesize}
+ 	</select>
+ 	
+ 	<!-- C查询教师姓名 -->
+ 	<select id="findBaseTeacherName" parameterType="string" resultType="com.hhit.basetrain.entity.BaseTeacher">
+ 		select t_no,t_name from baseteacher where base_no=#{base_no}
+ 	</select>
+ 	
+ 
  </mapper>

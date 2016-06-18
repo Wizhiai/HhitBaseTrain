@@ -3,58 +3,86 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title>My JSP 'base.jsp' starting page</title>
-		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->	
+    <title>实训项目目标及内容</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
 		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../../js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../js/slide.js"></script>
     <script type="text/javascript" src="../../js/menuchoose.js"></script>
 		<script type="text/javascript" src="../../js/cookie_util.js"></script>
+		<script type="text/javascript" src="../../js/base/basecontent.js"></script>
  	<script type="text/javascript">
- 		$(function(){
- 			showBaseBuildInfo();
- 		});
- 		function showBaseBuildInfo(){
- 			var base_no = getCookie("base_no");
- 			$.ajax({
-				url:"/BaseTrainManage/base/searchContentByBaseNo.do",
-				type:"post",
-				data:{"base_no":base_no},
-				dataType:"json",
-				success:function(result){
-					if(result.status == 1){//查询成功，显示基地基本信息
-						alert(result.data.train_price);
-					}else{
-						alert(result.msg);
-					}
-				},
-				error:function(){
-						alert("程序出错");
-				}
-			});
- 		}
+ 		
  	</script>
  	
   </head>
   
-  <body>
-    <div id="basicBuildInfo">
-    	<table border="1">
-    		<tr>
-    			<td>基地性质:</td>
-    			<td><input id="baseproperty" type="text"/></td>
-    		</tr>
-    		<tr>
-    			<td>基地管理:</td>
-    			<td><div id="basemanage"></div></td>
-    		</tr>
-    		<tr>
-    			<td>基地资格:</td>
-    			<td><input id="basequalification" type="text"/></td>
-    		</tr>
-    		<tr>
-    			<td>单位人数:</td>
-    			<td><textarea id="basepersonnum"/></td>
-    		</tr>
-    	</table>
-    </div>
-  </body>
+  <body style="background:#dfe9f7;height:100%;width:100%">
+		<div class="baseContent">
+		    <section class="column">
+		        <div class="term">
+		            <span class="imgBtn"></span><h1 class="resultTitle">实训大纲</h1>
+		            <div class="resultInfo">
+		                <span>现已编印制订好的实训实习大纲有哪些(详细列出名称)</span>
+		                <textarea class="editContent" id="internship_outline"></textarea><br/><br/>
+		                <span>拟制订和编印的实习实训大纲有哪些（详细列出名称)</span>
+		                <textarea class="editContent" id="outline_plan"></textarea>
+		                
+		            </div>
+		        </div>
+		        <div class="term">
+		            <span class="imgBtn"></span><h1 class="resultTitle">实训计划</h1>
+		            <div class="resultInfo">
+		                <span>已制订编印好的实习实训计划有哪些(详细列出名称)</span>
+		                <textarea class="editContent" id="train_plan"></textarea><br/><br/>
+		                <span>拟制订编印的实习实训计划有哪些(详细列出名称)</span>
+		                <textarea class="editContent" id="new_plan"></textarea>
+		            </div>
+		        </div>
+		    </section>
+		    <section class=" column">
+		        <div class="term">
+		            <span class="imgBtn"></span><h1 class="resultTitle">实训指导书</h1>
+		            <div class="resultInfo">
+		                <span>已制定编印好的实训指导书有哪些(详细列出名称)</span>
+		                <textarea class="editContent" id="guide_book"></textarea><br/><br/>
+		                <span>拟制定编印好的实训指导书有哪些(详细列出名称)</span>
+		                <textarea class="editContent" id="new_guidingbook"></textarea>
+		            </div>
+		        </div>
+		        <div class="term">
+		            <span class="imgBtn"></span><h1 class="resultTitle">实训教材</h1>
+		            <div class="resultInfo">
+		                <span>已编印的实训教材有哪些(详细列出名称)</span>
+		                <textarea class="editContent" id="teaching_material"></textarea><br/><br/>
+		                <span>拟编印的实训教材有哪些(详细列出名称)</span>
+		                <textarea class="editContent" id="new_material"></textarea><br/><br/>
+		                <span>选用出版图书有哪些(详细列出名称)</span>
+		                <textarea class="editContent" id="publish_book"></textarea>
+		            </div>
+		        </div>
+		    </section>
+		    <section class=" column">
+		        <div class="term">
+		            <span class="imgBtn"></span><h1 class="resultTitle">实训项目群(补强课程部分)</h1>
+		            <div class="resultInfo">
+		                <span>目前现实施的补强实训实习项目/课程名称(详细列出名称)</span>
+		                <textarea class="editContent" id="train_project"></textarea><br/><br/>
+		                <span>一般每项目/课程同时安排实训学生人数<input type="text" class="baseNeedInfo" id="student_num"/></span><br/>
+		                <span>每生实训费用</span><input type="text"class="baseNeedInfo" id="train_price" style="width:160px;"/><span></span><br/>
+		                <span>近期拟开拓的新实习项目名称/课程名称(详细列出名称)</span>
+		                <textarea class="editContent" id="new_project"></textarea>
+		            </div>
+		        </div>
+		        <div class="term">
+		            <span class="imgBtn"></span><h1 class="resultTitle">软件工程实训项目群</h1>
+		            <div class="resultInfo">
+		                <span>工程项目开发案例及其研发平台名称</span>
+		                <textarea class="editContent" id="develop_case"></textarea>
+		            </div>
+		        </div>
+		    </section>
+		</div>
+	</body>
 </html>

@@ -75,5 +75,54 @@
 		order by a.major,c.base_name,b.cname 
 	</select>
 	
+	<!-- 查找学生入学年份 -->
+	<select id="findEnterYear" resultType="int">
+		select distinct(enter_year) from student
+	</select>
+	
+	<!-- 查找学生专业 -->
+	<select id="findMajor" resultType="string">
+		select distinct(major) from student
+	</select>
+	
+	<!-- 根据专业查找学生班级 -->
+	<select id="findClass" parameterType="string" resultType="string">
+		select distinct(stu_class) from student 
+		<where> 
+			<if test="_parameter != null and _parameter !=''">
+				 major = #{_parameter}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 查找学生用户 -->
+	<select id="findStudentAsUser" parameterType="map" resultType="com.hhit.basetrain.entity.Student">
+		select stuno,stu_name from student  
+		<where>  
+			enter_year = #{enter_year}
+			<if test="major != null and major !=''">
+				and major = #{major}
+			</if>
+			<if test="stu_class != null and stu_class !=''">
+				and stu_class = #{stu_class}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 通过课程查询基地报名学生 -->
+	<select id="findTrainstudent" parameterType="map" resultType="com.hhit.basetrain.entity.TrainStudent">
+		select s.stuno,s.stu_name,s.stu_sex,s.stu_class,s.major,s.phone,s.enter_year,
+		date_format(s.birthday,'%Y-%m-%d') as birthday,s.address,r.cno,r.base_no,r.cno from
+		student s,register r where s.stuno=r.stuno and r.base_no=#{base_no} and r.cno=#{cno}
+	</select>
+	
+	<!--删除实训学生报名 -->
+	<delete id="deleteRegister" parameterType="string">
+		delete from register where stuno=#{stuno}
+	</delete>
+	
+	<update id="updateStudentInfo" parameterType="com.hhit.basetrain.entity.Student">
+		update student set phone=#{phone} where stuno=#{stuno}
+	</update>
 	
 </mapper>

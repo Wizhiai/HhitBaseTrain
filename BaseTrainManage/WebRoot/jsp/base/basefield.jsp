@@ -1,60 +1,84 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
   <head>
-    <title>My JSP 'base.jsp' starting page</title>
-		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->	
+    <title>场地与设施条件</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
 		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../../js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../js/slide.js"></script>
     <script type="text/javascript" src="../../js/menuchoose.js"></script>
 		<script type="text/javascript" src="../../js/cookie_util.js"></script>
+		<script type="text/javascript" src="../../js/base/basefield.js"></script>
  	<script type="text/javascript">
- 		$(function(){
- 			showBaseBuildInfo();
- 		});
- 		function showBaseBuildInfo(){
- 			var base_no = getCookie("base_no");
- 			$.ajax({
-				url:"/BaseTrainManage/base/searchFieldByBaseNo.do",
-				type:"post",
-				data:{"base_no":base_no},
-				dataType:"json",
-				success:function(result){
-					if(result.status == 1){//查询成功，显示基地基本信息
-						alert(result.data.base_area);
-					}else{
-						alert(result.msg);
-					}
-				},
-				error:function(){
-						alert("程序出错");
-				}
-			});
- 		}
+ 		
  	</script>
  	
   </head>
   
-  <body>
-    <div id="basicBuildInfo">
-    	<table border="1">
-    		<tr>
-    			<td>基地性质:</td>
-    			<td><input id="baseproperty" type="text"/></td>
-    		</tr>
-    		<tr>
-    			<td>基地管理:</td>
-    			<td><div id="basemanage"></div></td>
-    		</tr>
-    		<tr>
-    			<td>基地资格:</td>
-    			<td><input id="basequalification" type="text"/></td>
-    		</tr>
-    		<tr>
-    			<td>单位人数:</td>
-    			<td><textarea id="basepersonnum"/></td>
-    		</tr>
-    	</table>
-    </div>
-  </body>
+ <body style="background:#dfe9f7;height:100%;width:100%;">
+		<div class="baseField">
+		    <section class="baseCharacter column">
+		        <div class="term">
+		            <span class="imgBtn"></span><h1  class="resultTitle">实训场地</h1>
+		            <div class="resultInfo">
+		                <textarea class="editContent" id="base_area"></textarea>
+		            </div>
+		        </div>
+		        <div class="term">
+		            <span class="imgBtn"></span><h1  class="resultTitle">硬件设备</h1>
+		            <div class="resultInfo">
+		                <textarea class="editContent" id="handware"></textarea>
+		                <span>硬件设备状况:</span><p id="machine_situation" style="display:inline;margin-left: 5px;"></p><br/>
+		                
+		            </div>
+		        </div>
+		        <div class="term">
+		            <span class="imgBtn"></span><h1 class="resultTitle">软件设施</h1>
+		            <div class="resultInfo">
+		                <span>软件先进程度自我评价:</span><p id="software_selfevaluation" style="display:inline;margin-left: 5px;"></p><br/>
+		                <span>软件实训需求情况:</span><p id="software_demand" style="display:inline;margin-left: 5px;"></p><br/>
+		                
+		            </div>
+		        </div>
+		    </section>
+		    <section class="column">
+		        <div class="term">
+		            <span class="imgBtn"></span><h1 class="resultTitle">饮食住宿</h1>
+		            <div class="resultInfo">
+		                <span>食堂归属:</span><p id="canteen_belong" style="display:inline;margin-left: 5px;"></p><br/>
+		                <span>宿舍归属:</span><p id="dormitory_belong" style="display:inline;margin-left:5px;"></p><br/>
+		            </div>
+		        </div>
+		        <div class="term">
+		            <span class="imgBtn"></span><h1 class="resultTitle">学生管理现状</h1>
+		            <div class="resultInfo">
+		                <p id="student_manage"></p>
+		            </div>
+		        </div>
+		        <div class="term">
+		            <span class="imgBtn"></span><h1 class="resultTitle">清洁卫生</h1>
+		            <div class="resultInfo">
+		                <p id="clean_manage"></p>
+		            </div>
+		        </div>
+		    </section>
+		    <section class="column">
+		        <div class="term">
+		            <span class="imgBtn"></span><h1 class="resultTitle">环境状况</h1>
+		            <div class="resultInfo">
+		                <textarea class="editContent" id="environment"></textarea>
+		            </div>
+		        </div>
+		        <div class="term">
+		            <span class="imgBtn"></span><h1 class="resultTitle">安全状况</h1>
+		            <div class="resultInfo">
+		                <textarea class="editContent" id="safety"></textarea>
+		            </div>
+		        </div>
+		    </section>
+		</div>
+	</body>
 </html>

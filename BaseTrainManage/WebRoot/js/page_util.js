@@ -63,6 +63,7 @@ function pageJudge(){//判断上一页下一页是否可用
 }
 
 function prePage(data,pageSize){//上一页
+	
 	var pageIndex =$("#currentPage").text();//获取当前页
 	gotoPage(pageSize,parseInt(pageIndex)-1,data);//跳转至上一页
 	$("#currentPage").text(parseInt(pageIndex)-1);//改变当前页页数

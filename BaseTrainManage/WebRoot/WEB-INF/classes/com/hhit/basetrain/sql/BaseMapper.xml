@@ -4,19 +4,6 @@
  
 <mapper namespace="com.hhit.basetrain.dao.BaseDao">
 
-<!-- 搜索基地介绍视频 -->
-	<select id="findAllBaseUrlString"  resultType="String">
-		select url 
-		from basevideourl 
-		 
-	</select>
-	<!-- 根据基地号搜索基地名 -->
-	<select id="findBaseNameByNo"  resultType="String">
-		select base_name 
-		from base 
-		where base_no = #{0} 
-	</select>
-	
 	<!-- 根据基地名模糊查找 -->
 	<select id="findByName" parameterType="string" resultType="com.hhit.basetrain.entity.BaseBean">
 		select base_no,base_name,base_address,date_format(establish_time,'%Y-%m-%d') as establish_time from base where base_name like #{base_name}
@@ -44,14 +31,23 @@
 	</select>
 	
 	<!-- 根据基地号搜索基地基本信息 -->
-	<select id="findBasicInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.BaseBean">
+	<select id="findBasicInfoByNo" parameterType="int" resultType="com.hhit.basetrain.entity.BaseBean">
 		select base_no,base_name,base_address,date_format(establish_time,'%Y-%m-%d') as establish_time 
 		from base 
 		where base_no = #{base_no} 
 	</select>
 	
+	<!-- 根据基地号搜索基地基本信息和基地管理员信息 -->
+	<select id="findBasicBaseInfoByNo" parameterType="int" resultType="com.hhit.basetrain.entity.BaseBean">
+		select a.base_no as base_no,a.base_name as base_name,a.base_address as base_address,
+		date_format(a.establish_time,'%Y-%m-%d') as establish_time,b.manager_name as manager_name,
+		b.manager_phone as manager_phone
+		from base a,baseadmin b,baserelation c
+		where a.base_no = #{base_no} and a.base_no = c.base_no and c.manager_no = b.manager_no
+	</select>
+	
 	<!-- 根据基地号搜索基地建设与管理状况 -->
-	<select id="findBuildInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.BaseBuildBean">
+	<select id="findBuildInfoByNo" parameterType="int" resultType="com.hhit.basetrain.entity.BaseBuildBean">
 		select base_no,base_property,manage_institution,main_rule,development_plan,construction_funds,
 		financial_situation,base_qualification ,teacher_num,senior_num,intermediate_num,experienced_teacher,
 		manager_num,aid_num,developer_num from base 
@@ -59,36 +55,34 @@
 	</select>
 	
 	<!-- 根据基地号搜索基地场地与设施条件 -->
-	<select id="findFieldInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.BaseFieldBean">
-		select base_no,base_area,base_station,extension_area,new_station,equipment_total,machine_total,average_assets,
-		machine_average,mainstream_product,machine_situation,software_system,software_selfevaluation,software_demand,canteen_area,
-		canteen_seat,meal_num,canteen_belong,dormitory_area,bed_num,dormitory_bed,dormitory_price,dormitory_belong,student_manage,
-		clean_manage,environment,safety from base 
+	<select id="findFieldInfoByNo" parameterType="int" resultType="com.hhit.basetrain.entity.BaseFieldBean">
+		select base_no,base_area,handware,machine_situation,software_selfevaluation,software_demand,canteen_belong,
+		dormitory_belong,student_manage,clean_manage,environment,safety from base 
 		where base_no = #{base_no} 
 	</select>
 	
 	<!-- 根据基地号搜索基地实训项目目标及内容 -->
-	<select id="findContentInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.BaseTrainContentBean">
+	<select id="findContentInfoByNo" parameterType="int" resultType="com.hhit.basetrain.entity.BaseTrainContentBean">
 		select base_no,internship_outline,outline_plan,train_plan,new_plan,guide_book,new_guidingbook,teaching_material,
 		new_material,publish_book,train_project,new_project,student_num,train_price,develop_case from base 
 		where base_no = #{base_no} 
 	</select>
 	
 	<!-- 根据基地号搜索基地教师与辅导队伍-->
-	<select id="findCoachInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.BaseCoachBean">
+	<select id="findCoachInfoByNo" parameterType="int" resultType="com.hhit.basetrain.entity.BaseCoachBean">
 		select base_no,school_teacher,company_teacher from base 
 		where base_no = #{base_no} 
 	</select>
 	
 	<!-- 根据基地号搜索基地科研与技术活动-->
-	<select id="findResearchInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.BaseResearchBean">
+	<select id="findResearchInfoByNo" parameterType="int" resultType="com.hhit.basetrain.entity.BaseResearchBean">
 		select base_no,research_num,education_num,research_funding,scientific_research,typical_research,develop_project_num,
 		develop_project_funding,develop_project_staff,develop_project_student,typical_project from base 
 		where base_no = #{base_no} 
 	</select>
 	
 	<!-- 根据基地号搜索基地实践效果与能力开发-->
-	<select id="findEffectInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.BaseTrainEffectBean">
+	<select id="findEffectInfoByNo" parameterType="int" resultType="com.hhit.basetrain.entity.BaseTrainEffectBean">
 		select base_no,project_inuse,good_project,company_project,selfdevelop_project,evaluation_rule,postgraduate_proportion,
 		undergraduate_proportion,specialist_proportion,school_source,trainee_source,train_finish_num,train_employed_num,large_enterprise,
 		middle_enterprise,small_enterprise,salary_range,base_recommend,student_selfask from base 
@@ -96,16 +90,136 @@
 	</select>
 	
 	<!-- 根据基地号搜索基地企业联盟-->
-	<select id="findAllianceInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.BaseAllianceBean">
+	<select id="findAllianceInfoByNo" parameterType="int" resultType="com.hhit.basetrain.entity.BaseAllianceBean">
 		select base_no,cooperation_enterprise_num,cooperation_project_num,employment_alliance_num,actual_employment_num,
 		employment_alliance_proportion,cooperation_enterprise_name from base 
 		where base_no = #{base_no} 
 	</select>
 	
 	<!-- 根据基地号搜索基地特色-->
-	<select id="findAdvantageInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.BaseAdvantageBean">
+	<select id="findAdvantageInfoByNo" parameterType="int" resultType="com.hhit.basetrain.entity.BaseAdvantageBean">
 		select base_no,base_advantage from base 
 		where base_no = #{base_no} 
 	</select>
 	
+	<!-- 管理员添加基地 -->
+	<insert id="save" parameterType="map">
+		insert into base(base_name,base_address)
+		values 
+		(#{base_name},#{base_address})
+	</insert>
+	
+	<!-- 根据基地名精确查找基地 -->
+	<select id="findBaseByNameCarefully" parameterType="string" resultType="com.hhit.basetrain.entity.BaseNameBean">
+		select base_no,base_name from base where base_name = #{base_name}
+	</select>
+	
+	<!-- 管理员删除基地 -->
+	<delete id="deleteBase" parameterType="int">
+		delete from base where base_no = #{base_no}
+	</delete>
+	
+	<!-- 通过基地号查询基地管理员-->
+	<select id="findBaseAdminByBaseNo" parameterType="int" resultType="string">
+		select manager_no from baserelation where base_no = #{base_no}
+	</select>
+	
+	<!-- 管理员添加基地和基地管理员关系 -->
+	<insert id="saveBaseRelation" parameterType="map">
+		insert into baserelation(base_no,base_name,manager_no)
+		values
+		(#{base_no},#{base_name},#{manager_no})
+	</insert>
+	
+	<!-- 管理员删除基地和基地管理员关系 -->
+	<delete id="deleteBaseRelation" parameterType="int">
+		delete from baserelation where base_no = #{base_no}
+	</delete>
+	<!-- 根据基地号修改基地基本信息 -->
+	<update id="updateBasicInfoByNo" parameterType="com.hhit.basetrain.entity.BaseBean">
+		update base
+		set base_name = #{base_name},base_address = #{base_address},
+		establish_time = str_to_date(#{establish_time},'%Y-%m-%d')
+		where base_no = #{base_no} 
+	</update>
+	
+	<!-- 根据基地号修改基地建设与管理状况 -->
+	<update id="updateBuildInfoByNo" parameterType="com.hhit.basetrain.entity.BaseBuildBean">
+		update base
+		set base_property = #{base_property},manage_institution = #{manage_institution},
+		main_rule = #{main_rule},development_plan = #{development_plan},construction_funds = #{construction_funds},
+		financial_situation = #{financial_situation},base_qualification = #{base_qualification} ,teacher_num = #{teacher_num},
+		senior_num = #{senior_num},intermediate_num = #{intermediate_num},experienced_teacher = #{experienced_teacher},
+		manager_num = #{manager_num},aid_num = #{aid_num},developer_num = #{developer_num}  
+		where base_no = #{base_no} 
+	</update>
+	
+	<!-- 根据基地号修改基地场地与设施条件 -->
+	<update id="updateFieldInfoByNo" parameterType="com.hhit.basetrain.entity.BaseFieldBean">
+		update base
+		set base_area = #{base_area},handware = #{handware},machine_situation = #{machine_situation},
+		software_selfevaluation = #{software_selfevaluation},software_demand = #{software_demand},
+		canteen_belong = #{canteen_belong},dormitory_belong = #{dormitory_belong},student_manage = #{student_manage},
+		clean_manage = #{clean_manage},environment = #{environment},safety = #{safety}  
+		where base_no = #{base_no} 
+	</update>
+	
+	<!-- 根据基地号修改基地实训项目目标及内容 -->
+	<update id="updateContentInfoByNo" parameterType="com.hhit.basetrain.entity.BaseTrainContentBean">
+		update base
+		set internship_outline = #{internship_outline},outline_plan = #{outline_plan},train_plan = #{train_plan},
+		new_plan = #{new_plan},guide_book = #{guide_book},new_guidingbook = #{new_guidingbook},
+		teaching_material = #{teaching_material},new_material = #{new_material},
+		publish_book = #{publish_book},train_project = #{train_project},new_project = #{new_project},
+		student_num = #{student_num},train_price = #{train_price},develop_case = #{develop_case}  
+		where base_no = #{base_no} 
+	</update>
+	
+	<!-- 根据基地号修改基地教师与辅导队伍-->
+	<update id="updateCoachInfoByNo" parameterType="com.hhit.basetrain.entity.BaseCoachBean">
+		update base
+		set school_teacher = #{school_teacher},company_teacher = #{company_teacher}
+		where base_no = #{base_no} 
+	</update>
+	
+	<!-- 根据基地号修改基地科研与技术活动-->
+	<update id="updateResearchInfoByNo" parameterType="com.hhit.basetrain.entity.BaseResearchBean">
+		update base
+		set research_num = #{research_num},education_num = #{education_num},research_funding = #{research_funding},
+		scientific_research = #{scientific_research},typical_research = #{typical_research},
+		develop_project_num = #{develop_project_num},develop_project_funding = #{develop_project_funding},
+		develop_project_staff = #{develop_project_staff},
+		develop_project_student = #{develop_project_student},typical_project = #{typical_project} 
+		where base_no = #{base_no} 
+	</update>
+	
+	<!-- 根据基地号修改基地实践效果与能力开发-->
+	<update id="updateEffectInfoByNo" parameterType="com.hhit.basetrain.entity.BaseTrainEffectBean">
+		update base
+		set project_inuse = #{project_inuse},good_project = #{good_project},company_project = #{company_project},
+		selfdevelop_project = #{selfdevelop_project},evaluation_rule = #{evaluation_rule},
+		postgraduate_proportion = #{postgraduate_proportion},undergraduate_proportion = #{undergraduate_proportion},
+		specialist_proportion = #{specialist_proportion},school_source = #{school_source},
+		trainee_source = #{trainee_source},train_finish_num = #{train_finish_num},train_employed_num = #{train_employed_num},
+		large_enterprise = #{large_enterprise},middle_enterprise = #{middle_enterprise},small_enterprise = #{small_enterprise}, 
+		salary_range = #{salary_range},base_recommend = #{base_recommend},student_selfask = #{student_selfask} 
+		where base_no = #{base_no} 
+	</update>
+	
+	<!-- 根据基地号修改基地企业联盟-->
+	<update id="updateAllianceInfoByNo" parameterType="com.hhit.basetrain.entity.BaseAllianceBean">
+		update base
+		set cooperation_enterprise_num = #{cooperation_enterprise_num},cooperation_project_num = #{cooperation_project_num},
+		employment_alliance_num = #{employment_alliance_num},actual_employment_num = #{actual_employment_num},
+		employment_alliance_proportion = #{employment_alliance_proportion},
+		cooperation_enterprise_name = #{cooperation_enterprise_name}
+		where base_no = #{base_no} 
+	</update>
+	
+	<!-- 根据基地号修改基地特色-->
+	<update id="updateAdvantageInfoByNo" parameterType="com.hhit.basetrain.entity.BaseAdvantageBean">
+		update base
+		set base_advantage = #{base_advantage}
+		where base_no = #{base_no} 
+	</update>
 </mapper>

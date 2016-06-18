@@ -1,9 +1,11 @@
 <!DOCTYPE HTML>
-<html>
+<html style="overflow:hidden;">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>高校实训学生管理系统</title>  
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
     <link rel="stylesheet" type="text/css" href="../css/main.css">
+   
     <script type="text/javascript" src="../js/cookie_util.js"></script>
    <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
    <script type="text/javascript" src="../js/menu.js"></script>
@@ -12,10 +14,14 @@
    		var height=$(document).height();
    		var cHeight = height-140;
    		$(".kuangjia").css("height",cHeight);
-   	})
+   	});
      function startup() {
 		$("#user_show").show();
 	}
+	
+	function closeCurrentWindow(){
+		window.location.href="../index.jsp";
+}
    	
    </script>
   
@@ -24,9 +30,9 @@
   <body>
   <div id="header">
   	<div class="btnList">
-  	  <a id="front" href="../html/jdteachermain.html">首页</a>
-  	  <a  id="flush" href="../html/studentLogin.jsp">登录</a>
-      <a id="end" onclick="window.close();">退出</a>
+  	  <a id="front" href="../html/jdteachermain.html"><span>首页</span></a>
+  	  <a  id="flush" href="../html/studentLogin1.jsp"><span>登录</span></a>
+      <a id="end" onclick="closeCurrentWindow();"><span>退出</span></a>
   	</div>
   </div>
   	<div class="navigation">
@@ -44,18 +50,17 @@
   				<td style="POSITION: relative;" id=LeftPart class=LeftPart>
 								
 									<DIV style="POSITION: absolute; BOTTOM: 5px; LEFT: 2px;border-radius:4px;box-shadow:2px 2px 0 #ccc;"
-									><a href="http://jwc.hhit.edu.cn">
+									><!-- <a href="http://jwc.hhit.edu.cn">
 									<IMG
-										src="../image/link.jpg"></a>
+										src="../image/link.jpg"></a> -->
 										</div>
   				    <DIV id=menuleft>
   				    	
-									<TABLE style="border:none;" id=user_show class=user_1 border=0
-										>
+									<TABLE style="border:none;" id=user_show class=user_1 border=0>
 										<TBODY>
 											<TR>
 												<TD class=portrait><IMG
-													src="../image/portrait_s.gif"></TD>
+													src="../image/portrait_s.gif" style="margin-top:10px;"></TD>
 												<TD><b><script type="text/javascript">
 												   	var Id=getCookie("username");
 												   	document.write(Id);
@@ -69,11 +74,11 @@
 													var hour=currentdate.getHours();//获取事件
 													var min=currentdate.getMinutes();//获取分钟
 													var mm=currentdate.getSeconds();//获取秒
-													if(min>0&&min<10){
-														min='0'+min
+													if(min>=0&&min<10){
+														min='0'+min;
 													}
-													if(mm>0&&mm<10){
-														mm='0'+mm
+													if(mm>=0&&mm<10){
+														mm='0'+mm;
 													}
 													document.writeln(hour+":"+min+":"+mm);
 												
@@ -84,10 +89,9 @@
 										</TBODY>
 									</TABLE>
 									<div style="DISPLAY: block" id=threeMenu1>
+									
 										<ul >
-										  <li class="redTitle" style=" width:220px;padding-left:20px;height:47px; color:#fff; font-size:18px; line-height:47px;background:url(../image/tittle.png) no-repeat">
-										实训成绩管理
-	                                    </li>
+										<li><h1 class="redTitle">实训成绩管理</h1></li>
 											<LI class=#><IMG class=icon
 												src="../image/icon_1.gif"><a
 												 onclick=upDownMenu(this) href="JDT_addGradeInfo.html" target="businessfrm">实训学生成绩录入</a>
@@ -111,27 +115,27 @@
 											</li>		
 										</ul>
 										<ul>
-										<li class="redTitle" style="background:url(../image/tittle.png) no-repeat; width:220px;padding-left:20px;height:47px; color:#fff; font-size:18px; line-height:47px;">
-										作业管理
-	                                    </li>
-											<LI class=# sizcache="4" sizset="0"><IMG class=icon
-												src="../image//icon_1.gif"><a
-													onclick=upDownMenu(this) href="#">上传作业</a>
+											<li><h1 class="redTitle">作业管理</h1></li>
+											<LI class=# ><IMG class=icon
+												src="../image/icon_1.gif"><a
+													onclick=upDownMenu(this) href="JDT_UploadWork.html" target="businessfrm">上传作业</a>
 												</li>
-
-											<li class=# sizcache="4" sizset="0"><IMG class=icon
+										    <li class=# ><IMG class=icon
 												src="../image/icon_1.gif"><a
-													onclick=upDownMenu(this) href="#">批改作业</a>
+													onclick=upDownMenu(this) href="ShowWork.html" target="businessfrm">删除作业</a>
 											</li>
-											<li class=# sizcache="4" sizset="0"><IMG class=icon
+											<li class=# ><IMG class=icon
 												src="../image/icon_1.gif"><a
-													onclick=upDownMenu(this) href="#">查询作业上交情况</a>
+													onclick=upDownMenu(this) href="JDT_pigaiWork.html" target="businessfrm">批改作业</a>
+											</li>
+											<li class=# ><IMG class=icon
+												src="../image/icon_1.gif"><a
+													onclick=upDownMenu(this) href="JDT_searchWork.html" target="businessfrm">查询作业上交情况</a>
 											</li>
 										</ul>
 										<ul>
-										<li class="redTitle" style="background:url(../image/tittle.png) no-repeat;width:220px;padding-left:20px;height:47px; color:#fff; font-size:18px; line-height:47px;">
-										课程管理
-	                                    </li>
+										<li><h1 class="redTitle">课程管理</h1></li>
+										
 											<LI class=#><IMG class=icon
 												src="../image//icon_1.gif"><a
 													onclick=upDownMenu(this) href="#">学习计划</a>
@@ -140,7 +144,7 @@
 															target="businessfrm">上传学习计划</a></li>
 														<li><a href="JDT_studyplan.html"
 															target="businessfrm">查看学习计划</a></li>
-														<li><a href="dianziduizhang/yinqiduizhang/yqdzcx.html"
+														<li><a href="JDT_UpdateStudyPlan.html"
 															target="businessfrm">删除学习计划</a></li>
 													</ul>
 												</li>
@@ -153,7 +157,7 @@
 															target="businessfrm">上传课程考勤</a></li>
 														<li><a href="JDT_studycheck.html"
 															target="businessfrm">查看课程考勤</a></li>
-														<li><a href="dianziduizhang/yinqiduizhang/yqdzcx.html"
+														<li><a href="JDT_UpdateStudyCheck.html"
 															target="businessfrm">删除课程考勤</a></li>
 													</ul>
 											</li>
@@ -163,22 +167,20 @@
 													<ul>
 														<li><a href="JDT_studydata.html"
 															target="businessfrm">上传课程资料</a></li>
-														<li><a href="JDT_studydata.html"
+														<li><a href="JDT_modifyStudyData.html"
 															target="businessfrm">查看课程资料</a></li>
-														<li><a href="dianziduizhang/yinqiduizhang/yqdzcx.html"
+														<li><a href="JDT_modifyStudyData.html"
 															target="businessfrm">删除课程资料</a></li>
 													</ul></li>
 										</ul>
 										<ul>
-										<li class="redTitle" style="background:url(../image/tittle.png) no-repeat; width:220px;padding-left:20px;height:47px; color:#fff; font-size:18px; line-height:47px;">
-									个人信息管理
-	                                    </li>
+										<li><h1 class="redTitle">个人信息管理</h1></li>
 											<LI class=#><IMG class=icon
 												src="../image//icon_1.gif"><a
 													onclick=upDownMenu(this) href="modify_password.html" target="businessfrm">修改密码</a>
 												</li>
 
-											<li class=# sizcache="4" sizset="0"><IMG class=icon
+											<li class=#><IMG class=icon
 												src="../image/icon_1.gif"><a
 													onclick=upDownMenu(this) href="JDT_modifyInfo.html" target="businessfrm">修改个人信息</a>
 											</li>
@@ -190,7 +192,7 @@
   				</td>
   				<td class=ContentPart>
   				  <iframe id="businessfrm" src="welcome.html"
-						frameborder="0" width="100%" name="businessfrm" scrolling="no";height="510px";></iframe>
+						frameborder="1" width="100%" name="businessfrm" scrolling="no";height="510px";></iframe>
   				</td>
   			</tr>
   			<tr>

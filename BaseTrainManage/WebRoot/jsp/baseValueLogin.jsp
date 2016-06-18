@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<title>淮海工学院计算机工程学院实训教务</title>
   	<script type="text/javascript" src="../js/jquery.min.js"></script>
   	<script type="text/javascript" src="../js/baseValueLogin.js"></script>
- <link rel="stylesheet" href="../css/index.css"/>
+
 <STYLE>
 body {
 	background: #ebebeb;
@@ -195,7 +195,7 @@ a {
 				<INPUT class="ipt" id="pwd"
 					type="password" placeholder="请输入密码" >
 			</P>
-<p class="pp" id="uploadresult"></p>
+
 			<DIV
 				style="height: 50px; line-height: 50px; margin-top: 30px; border-top-color: rgb(231, 231, 231); border-top-width: 1px; border-top-style: solid;">
 				<P style="margin: 0px 35px 20px 45px;">

@@ -38,7 +38,7 @@
 	<select id="findQuestionByPlacardNo" parameterType="string" resultType="com.hhit.basetrain.entity.PlacardBean">
 	  select a.placard_no as placard_no,a.placard_title as placard_title,date_format(a.publish_time,'%Y-%m-%d') as publish_time,
 	  a.placard_content as placard_content,b.base_name as base_name from placard a,baserelation b 
-	  where a.placard_type='3' and a.placard_no = #{placard_no} and b.manager_no = a.publish_author
+	  where a.placard_type='3' and a.placard_no = #{placard_no} and  a.publish_author = b.manager_no
 	</select>
 	
 	<!-- 查询所有学校公告 -->
@@ -90,4 +90,60 @@
 	  delete from placard where placard_type ='2' and placard_no = #{placard_no} 
 	</delete>
 
+<!-- 根据基地管理员查询所有该基地的公告 -->
+	<select id="findAllBasePlacard" parameterType="string" resultType="com.hhit.basetrain.entity.PlacardBean">
+	  select placard_no,placard_title,date_format(publish_time,'%Y-%m-%d') as publish_time,
+	  placard_content,placard_type from placard 
+	  where (placard_type ='1' or placard_type ='3') and publish_author = #{publish_author}
+	  order by publish_time desc
+	</select>
+	
+	<!-- 通过公告号查询基地公告 -->
+	<select id="findBasePlacardByPlacardNo" parameterType="string" resultType="com.hhit.basetrain.entity.PlacardBean">
+	  select placard_no,placard_title,date_format(publish_time,'%Y-%m-%d') as publish_time,
+	  placard_content,placard_type from placard 
+	  where placard_type !='2' and placard_no = #{placard_no} 
+	</select>
+	
+	<!-- 添加基地公告 -->
+	<insert id="saveBasePlacard" parameterType="map">
+	  insert into placard(placard_type,placard_title,publish_time,placard_content,publish_author)
+	 	values
+	 	(#{placard_type},#{placard_title},str_to_date(#{publish_time},'%Y-%m-%d'),#{placard_content},#{publish_author})
+	</insert>
+	
+	<!-- 通过公告标题、基地管理员准确查询该基地公告 -->
+	<select id="findBasePlacardByTitle" parameterType="map" resultType="com.hhit.basetrain.entity.PlacardBean">
+	  select placard_no,placard_title,date_format(publish_time,'%Y-%m-%d') as publish_time,
+	  placard_content,placard_type from placard 
+	  where placard_type !='2' and placard_title = #{placard_title}
+	  and publish_author = #{publish_author} 
+	</select>
+	
+	<!-- 通过公告标题、基地管理员模糊查询该基地公告 -->
+	<select id="searchBasePlacardByTitle" parameterType="map" resultType="com.hhit.basetrain.entity.PlacardBean">
+	  select placard_no,placard_title,date_format(publish_time,'%Y-%m-%d') as publish_time,
+	  placard_content,placard_type from placard 
+	  <where>  
+			placard_type !='2' and publish_author = #{publish_author} 
+			and placard_title like #{placard_title}
+			<if test="placard_type != null and placard_type !=''">
+				and placard_type = #{placard_type}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 通过公告号修改基地公告 -->
+	<update id="updateBasePlacardByNo" parameterType="map">
+	  update placard 
+	  set placard_title = #{placard_title},placard_type = #{placard_type},
+	  publish_time = str_to_date(#{publish_time},'%Y-%m-%d'),
+	  placard_content = #{placard_content}
+	  where placard_type !='2' and placard_no = #{placard_no} 
+	</update>
+	
+	<!-- 通过公告号删除基地公告 -->
+	<delete id="deleteBasePlacardByNo" parameterType="string">
+	  delete from placard where placard_type !='2' and placard_no = #{placard_no} 
+	</delete>
 </mapper>

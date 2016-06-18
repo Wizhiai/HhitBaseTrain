@@ -68,5 +68,79 @@ public interface TrainStudentService {
      * 学校教师查询成绩信息
      */
     public Result findGardeInfo(String stuno,String stuclass,String major,Integer page,Integer pageSize,String month,String week);
+    /**
+     * 插入实训学生
+     * @param stuno
+     * @param stu_name
+     * @param stu_sex
+     * @param stu_class
+     * @param major
+     * @param phone
+     * @param enter_year
+     * @param birthday
+     * @param base_no
+     * @param base_class
+     * @param cno
+     * @param address
+     * @param train_date
+     * @return
+     */
+    public Result InputTrainStudent(String stuno,String stu_name,String stu_sex,String stu_class,String major,
+			String phone,Integer enter_year,String birthday,Integer base_no,String base_class,String cno,String address,
+			String train_date);
+    /**
+     * 统计课程号
+     * @param manager_no
+     * @return
+     */
+    public Result countTrainStudentByCno(String manager_no);
+    /**
+     * 实训程号相同的详细信息
+     * @param base_no
+     * @param cno
+     * @return
+     */
+    public Result TrainStudentByCnoDetail(Integer base_no,String cno);
+    /**
+     * 统计班级
+     * @param manager_no
+     * @return
+     */
+    public Result countTrainStudentByClass(String manager_no);
+    /**
+     * 班级相同的实训信息
+     */
+    public Result TrainStudentByClassDetail(Integer base_no,String base_class);
+    
+    public Result loadBaseClass(String manager_no);
+    /**
+     * 学号模糊查询
+     * @param stuno
+     * @return
+     */
+    public Result searchStudentInfo(String stuno);
+    /**
+     * 基地管理员修改信息
+     * @param stuno
+     * @param train_date
+     * @param base_class
+     * @param phone
+     * @param cno
+     * @return
+     */
+	public Result baseadminModifyInfo(String stuno,String train_date,String base_class,String phone,String cno);
+	/**
+	 * 查询基地学生通过班级
+	 * @param manager_no
+	 * @param base_class
+	 * @return
+	 */
+	public Result baseadminSearchTrainStudentByClass(String manager_no,String base_class);
+	/**
+	 * 删除学生
+	 * @param stuno
+	 * @return
+	 */
+	public Result deleteStudentInfo(String stuno);
     
 }

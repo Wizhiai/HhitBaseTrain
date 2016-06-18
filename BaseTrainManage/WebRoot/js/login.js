@@ -1,10 +1,6 @@
  $(function(){
-	
       $("#login1").click(function(){
       //清空原来的消息
-       $("#name_msg").html("");
-       $("#password_msg").html("");
-       
        //获取登录信息
     	var username=$("#username").val();
     	var password=$("#password").val();
@@ -20,7 +16,7 @@
     	if(ok){
     		//发送ajax
     		$.ajax({
-    			url:"/BaseTrainManage/login.do",
+    			url:"http://localhost:8080/BaseTrainManage/login.do",
     			type:"post",
     			data:{"username":username,"password":password},
 			    dataType:"json",

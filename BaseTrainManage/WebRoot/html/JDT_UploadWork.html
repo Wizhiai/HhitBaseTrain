@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>高校实训学生管理系统</title>
+  <link rel="stylesheet" type="text/css" href="../css/common.css">
+ <link rel="stylesheet" type="text/css" href="../css/input.css"/>
+ 
+ <style type="text/css">
+ 	body{
+ 	 position:relative;
+
+ 	}
+ 	td{
+ 	border:0px ;
+ 	}
+ 	input{
+ 	width:150px;
+ 	}
+ 	#upload{
+ 	width:50px;
+ 	margin-left:10px;
+ 	}
+ 	#studyplan{
+       width:215px; 	
+ 	}
+ 	table{
+ 		margin:0 auto;
+ 	}
+ </style>
+ <script type="text/javascript" src="../js/cookie_util.js"></script>
+ <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+ <script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script>
+ <script type="text/javascript">
+ var t_no=getCookie("username");
+  if(t_no==null){
+ 		alert("由于您长时间没有登录，请重新登录!");
+ 		window.open("studentLogin1.jsp");
+ 	}
+ var cno;
+ var cname;
+ //alert(t_no);
+ var base_no;
+ var base_class;
+ 
+ $(function(){
+
+ 
+ $("#tno").val(t_no);
+    $.ajax({
+ 		url:"http://localhost:8080/BaseTrainManage/traincourse/loadTrainCourse.do",
+ 		type:"post",
+ 		data:{"t_no":t_no},
+ 		dataType:"json",
+ 		success:function(result){
+ 			if(result.status==1){
+ 				var data=result.data;
+ 				cname=data.cname;
+ 				cno=data.cno;
+ 			    $("#cno").val(cno);
+ 	            $("#cname").val(cname);
+ 	            $.ajax({
+ 	            	url:"http://localhost:8080/BaseTrainManage/teaching/showbaseinfo.do",
+ 		            type:"post",
+ 		            data:{"t_no":t_no},
+ 		            dataType:"json",
+ 		            success:function(result){
+ 		            	if(result.status==1){
+ 		            	    var data=result.data;
+ 		            		base_no=data.base_no;
+ 		            		base_class=data.base_class;
+ 		            		$("#baseno").val(base_no);
+ 		            		$("#baseclass").val(base_class);
+ 		            	}
+ 		            }
+ 	            
+ 	            });
+ 	            }
+ 		},
+ 		error:function(){
+ 			alert("程序出错");
+ 		}
+ });
+ 
+ });
+   function uploadSucced(){
+   		alert("上传成功");
+   		 $("#title").val("");
+   $("#content").val("");
+   		$("#endDate").val("");
+   		$("#studywork").val("");
+   		
+   }
+   function uploadFailed(){
+   		alert("上传失败");
+   		/* $("#firstUploadFailed").show();
+   		$("#firstUploadSucceed").hide(); */
+   }
+ </script>
+ 
+</head>
+<body>
+	<div id="head1"><img  src="../image/info.png"/></div>
+    <div id="head2">当前位置：首页&nbsp;>>&nbsp;作业管理&nbsp;>><b>上传作业</b></div>
+    <div id="person"><img  src="../image/person.png"/></div>
+   <div id="welcome">您好：<b id="name"></b>欢迎登录外实训学生管理系统--基地教师管理子系统</div>
+   <div id="time"><img  src="../image/time.png"/>
+    <script type="text/javascript"> 
+var today=new Date(); 
+var strDate=(" "+today.getFullYear()+"年"+(today.getMonth()+1)+"月"+today.getDate()+"日"); 
+var n_day=today.getDay(); 
+switch(n_day){ 
+case 0: 
+{strDate=strDate+" 星期日 ";}break; 
+case 1: 
+{strDate=strDate+" 星期一 ";}break; 
+case 2: 
+{strDate=strDate+" 星期二 ";}break; 
+case 3: 
+{strDate=strDate+" 星期三 ";}break; 
+case 4: 
+{strDate=strDate+" 星期四 ";}break; 
+case 5: 
+{strDate=strDate+" 星期五 ";}break; 
+case 6: 
+{strDate=strDate+" 星期六 ";}break; 
+case 7: 
+{strDate=strDate+" 星期日 ";}break; 
+} 
+document.write(strDate); 
+</script> 
+ </div>
+ <div id="information" class="WorkInfo">
+ <form action="../uploadfilework.do" enctype="multipart/form-data" method="post" target="hidden_frame">
+ 	<table cellpadding="10" cellspacing="5" align="center">
+ 		<tr>
+ 			<td><div id="d1" align="left">课&nbsp;&nbsp;&nbsp;程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:&nbsp;<input type="text" id="cno" name="cno"/></div></td>
+           
+           </tr>
+           <tr>
+           	<td><div id="d2" align="left">课&nbsp;&nbsp;&nbsp;程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:&nbsp;<input type="text" id="cname" name="cname"/><input type="hidden" id="tno" name="tno"/></div></td>
+           </tr>
+           <tr>
+            <td><div align="left">作&nbsp;&nbsp;业&nbsp;标&nbsp;&nbsp;题:&nbsp;<input type="text" id="title" name="title" class="inputInfo"/><input type="hidden" id="baseno" name="baseno"/></div></td>
+           
+           </tr>
+            <tr>
+            <td><div align="left">作&nbsp;&nbsp;业&nbsp;描&nbsp;&nbsp;述:&nbsp;<textArea cols="20" rows="5" name="content" id="content" style="border:1px solid #ccc"></textArea></div></td>
+           </tr>
+           <tr>
+            <td><div align="left">结&nbsp;&nbsp;止&nbsp;日&nbsp;&nbsp;期:&nbsp;<input type="text" id="endDate" name="endDate" class="inputInfo" onfocus="WdatePicker({skin:'blue',dateFmt:'yyyy-MM-dd'})"/><input type="hidden" id="baseclass" name="baseclass"/></div></td>
+           
+           </tr>
+           <tr>
+          <td><div align="left">  
+          
+                    文&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;件:&nbsp;<input type="file" name="studywork" id="studywork"/>
+           <input type="submit" value="上传" id="upload" class="editBtn"/>
+           </div></td>
+          </tr>
+ 		
+ 	</table>
+ 	</form>
+ 	<iframe name='hidden_frame' id="hidden_frame" style='display:none'></iframe>
+ </div>
+ </body>
+ </html>

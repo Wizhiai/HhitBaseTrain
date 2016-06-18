@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/common.css"/>
+<link rel="stylesheet" href="../css/index.css"/>
+<style type="text/css">
+.topContent .inputinfo{
+	width:150px;
+	height:30px;
+	magin-top:50px;
+}
+.searchResultInfo{
+	margin-top:30px;
+}
+
+</style>
+<script type="text/javascript" src="../js/cookie_util.js"></script>
+ <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+ <script type="text/javascript" src="../js/trainstudent/choose.js"></script>
+ <script type="text/javascript" src="../js/page_util.js"></script><!--
+ <script type="text/javascript" src="../js/userManage.js"></script>
+ --><script type="text/javascript">
+var bno=getCookie("username");
+ var base_no=null;
+ var cno=null;
+ var delResult=parseInt(0);
+var deleteResult = parseInt(0);
+ var tno=null;
+ var base_class=null;
+ var train_date=null;
+ var stuno=null;
+ var pageSize = 1;
+var resultdata = new Object();
+ $(function(){
+    hide();
+    $("#firstPage").click(function(){//首页
+		firstPage(resultdata,pageSize);
+	});
+	$("#prePage").click(function(){//上一页
+		prePage(resultdata,pageSize);
+	});
+	$("#nextPage").click(function(){//下一页
+		nextPage(resultdata,pageSize);
+	});
+ 	$("#operateType").change(function(){
+ 		var type=$("#operateType option:selected").val();
+ 		//alert(type);
+ 		if(type=="0"){
+ 			hide();
+ 		}else if(type=="1"){
+ 			hide();
+ 			$("#stuno").show();
+ 			
+ 		}else if(type=="2"){
+ 			hide();
+ 			addClass();
+ 		}
+ 	
+ });
+ $("#stuno").focus(function(){
+ 	$("#stuno").val("");
+ });
+ $("#search").click(function(){
+ 	var type=$("#operateType option:selected").val();
+ 	if(type=="1"){
+ 	    stuno=$("#stuno").val();
+ 	    alert(stuno);
+ 	    if(stuno==""){
+ 	    	alert("请输入学号");
+ 	    }
+ 	   else{
+ 	   	searchTrainStudentByNo();
+ 	   }
+ 		
+ 	}else if(type==2){
+ 		base_class=$("#baseclass option:selected").val();
+ 		if(base_class=="1"){
+ 			alert("请选择班级");
+ 		    $("#searchResult").empty();
+ 		}else{
+ 		loadStudentByClass();
+ 		}
+ 		
+ 	}
+ });
+ 
+ $("#deleteUser").click(function(){
+ 	deleteUser1();
+ 	
+ });
+ $("#rightMove").click(function(){
+		resultRightMove();
+});
+$("#rightAllMove").click(function(){//全部右移
+		resultAllRightMove();
+});
+$("#leftMove").click(function(){//左移
+		insertLeftMove();
+});
+$("#leftAllMove").click(function(){//全部左移
+		resultAllLeftMove();
+});
+ 
+ });
+ function gotoPage(pageSize,pageIndex,data){
+ 					var tr="";
+					for(var i=(pageIndex-1)*pageSize;i<=parseInt(pageIndex)*parseInt(pageSize)-1&& i<data.length;i++){
+					    var stu=data[i].stuno;
+						tr += "<tr><td>"+(i+1)+"</td><td>"+data[i].stuno+"</td><td>"+data[i].stu_name+"</td><td>"+data[i].stu_sex+"</td><td>"+data[i].stu_class+"</td>";
+						tr +="<td>"+data[i].base_class+"</td><td>"+data[i].cno+"</td><td>"+data[i].train_date+"</td>";
+						tr += "<td><a href='JDTManagerModifyInfo.html?stuno="+stu+"'>修改</a></td></tr>";
+					}
+				clearTableContent();
+				addTableContent(tr);
+			}
+ </script>
+</head>
+<body>
+	<div class="list">
+   		<div class="topContent">
+	  		<h1>编辑实训学生 </h1>
+	  		           选择操作类型:
+	  		<select id="operateType"> 
+	  			<option value="0" selected>请选择操作类型</option>
+	  			<option value="1">修改学生信息</option>
+	  			<option value="2">删除学生信息</option>
+	  		</select>
+	  		<input type="text" id="stuno" placeholder="请输入学号">
+	  		<select id="baseclass">
+	  			<option value="1">请输入班级</option>
+	  		</select>
+	  		<input type="button" id="search"  class="editBtn" value="查询"/>
+	  		</div>
+  		<div class="searchResultInfo">
+	  		<section class="tableShow">
+	  			<table id="searchResult" class="appendStu">
+	  			</table>
+	  		</section>
+  			<section class="btnLists">
+	  			<input type="button" id="rightMove" value="&gt;"/><br/>
+	  			<input type="button" id="rightAllMove" value="&gt;&gt;"/><br/>
+	  			<input type="button" id="leftMove" value="&lt;"/><br/>
+	  			<input type="button" id="leftAllMove" value="&lt;&lt;"/><br/>
+	  			<input type="button" value="删除" id="deleteUser"/>
+	  		</section>
+	  		<section class="tableShow">
+  				<table id="insertResult" class="appendStu"></table>
+  			</section>
+  		
+  		</div>
+  				<div id="studnetRegistCountInform">
+		    <table id="showInform" >
+		    	<thead>
+		    	</thead>
+		    	<tbody></tbody>
+		     </table>
+		     <div class="pageInfo">
+					<span>共计</span><span id="totalRecords"></span><span>条数据</span>
+					<input type="button" id="firstPage" class="btn" value = "首页">
+					<input type="button" id="prePage"  class="btn" value="上一页">
+					<span>第</span><span id="currentPage"></span><span>页/共</span>
+					<span id="totalPage"></span><span>页</span>
+					<input type="button" id="nextPage" class="btn" value="下一页">
+				 </div>
+   	</div>
+		</div>
+</body>
+</html>

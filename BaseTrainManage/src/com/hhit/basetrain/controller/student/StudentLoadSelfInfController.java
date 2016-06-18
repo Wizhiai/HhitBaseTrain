@@ -67,5 +67,30 @@ public class StudentLoadSelfInfController {
 		Result result = studentService.studentRegistCountInfo();
 		return result;
 	}
+	@RequestMapping("/student/searchEnteryear")
+	@ResponseBody
+	public Result searchEnteryearInfo(){
+		Result result = studentService.studentEnterYearInfo();
+		return result;
+	}
+	@RequestMapping("/student/searchMajor")
+	@ResponseBody
+	public Result searchMajorInfo(){
+		Result result = studentService.studentMajorInfo();
+		return result;
+	}
+	@RequestMapping("/student/searchClass")
+	@ResponseBody
+	public Result searchClassInfo(String major){
+		Result result = studentService.searchClassInfo(major);
+		return result;
+	}
+	
+	@RequestMapping("/student/searchStudentUser")
+	@ResponseBody
+	public Result searchStudentUser(int enter_year,String major,String stu_class){
+		Result result = studentService.searchStudentInfoAsUser(enter_year, major, stu_class);
+		return result;
+	}
 	
 }

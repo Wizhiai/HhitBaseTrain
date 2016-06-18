@@ -1,6 +1,6 @@
 function loadCno(){
 	$.ajax({
- 		     url:"/BaseTrainManage/trainstudnet/load.do",	
+ 		     url:"http://localhost:8080/BaseTrainManage/trainstudnet/load.do",	
  		     type:"post",
  		     data:{"sno":userId},
  		     dataType:"json",
