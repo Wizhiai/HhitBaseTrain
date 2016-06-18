@@ -1,6 +1,6 @@
 function loadTrainStudentSelfInfo(){
 	 $.ajax({
- 			url:"http://localhost:8080/BaseTrainManage/trainstudnet/load.do",
+ 			url:"/BaseTrainManage/trainstudnet/load.do",
  			type:"post",
  			data:{"sno":stuno},
  			dataType:"json",
@@ -26,7 +26,7 @@ function loadTrainStudentSelfInfo(){
 }
 function loadTrainStudentBaseName(){
 	$.ajax({
- 			url:"http://localhost:8080/BaseTrainManage/trainstudnet/loadBaseName.do",
+ 			url:"/BaseTrainManage/trainstudnet/loadBaseName.do",
  			type:"post",
  			data:{"sno":stuno},
  			dataType:"json",

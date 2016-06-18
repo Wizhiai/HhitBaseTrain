@@ -1,0 +1,40 @@
+﻿<span class="comments">/**</span><br />
+			<span class="space"/><span class="comments">*I am always here to wait for you.</span><br />
+			<span class="space"/><span class="comments">*And now,please listen to me...</span><br />
+			<span class="space"/><span class="comments">*/</span><br />
+			Boy I = <span class="keyword">new</span> Boy(<span class="string">"YourName"</span>);<br />
+			Girl U = <span class="keyword">new</span> Girl(<span class="string">"toWho"</span>);<br />
+			<span class="comments">//My heart wanders in the world until ...</span><br />
+			 I.love(U);<span class="comments">//the day I meet you.</span>
+			<br/>
+		  <span class="comments">//This is what I want to say for you... </span><br />
+		  
+		  Since the day I met you,I know  you are the girl in my dream.<br/>
+		  Fall in love with you and miss you.<br/>
+		  Please to be my girlfriend and then my wife.</br/>
+		  Give me a chance to:<br/>
+			　　Bring happy to your life<br/>
+			　　Take care of you<br/>
+			　　Together through the life<br/>
+			　　...<br/>
+		  <span class="keyword">If </span> YOU ARE IN <span class="keyword">HESITATION</span>;<br/>
+		  <span class="keyword">　　I goto Wait;</span> <br/>else <span class="keyword"><br/>　　I goto Love;</span><br />
+		  
+		  <br/>:Wait<br/>
+		  do<br/>
+		  {<br/>
+		  　　if(true==you.response) goto:Love;<br/>
+		  }while(time_goes);<br/>
+		  
+		  <br/>
+		  :Love<br/>
+		  bool love = true;<br/>
+		  while(love)<br/>
+		  {<br/>
+			　　for(everyday in every year)<br/>
+			　　{<br/>
+			　　　　Guard my sweetheart toWho in all my efforts</br/>
+			　　}<br/>
+		  <br/>}<br/>		  
+	    I hope, forever!<br />
+			

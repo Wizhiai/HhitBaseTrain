@@ -14,7 +14,7 @@
  <!-- 查找信息 -->
  
  <select id="findInfoByNo" parameterType="string" resultType="com.hhit.basetrain.entity.TrainStudent">
- 	select stu_name,stu_sex,stu_class,major,phone,date_format(birthday,'%Y-%c-%d') as birthday,
+ 	select stu_name,stu_sex,stu_class,major,phone,date_format(birthday,'%y-%c-%d') as birthday,
  	address,base_no,base_class,cno,date_format(train_date,'%Y-%m-%d') as train_date
  	 from trainstudent where stuno=#{stuno}
  
@@ -23,6 +23,7 @@
  <!-- 查找实训单位 -->
  <select id="findBaseNameByNo" parameterType="string" resultType="string">
  	select base_name from baserelation where base_no=(select base_no from trainstudent where stuno=#{stuno})
+ 
  </select>
 
 <!-- 查询实训学生信息 -->
@@ -234,67 +235,5 @@ s.base_no=(select base_no from trainstudent  where stuno=#{stuno})limit ${page},
 		 </if>
 		  limit ${page}, ${pagesize}
 	</select>
-	
-	<!-- 录入基地学生 -->
-	<insert id="insertTrainStudent" parameterType="com.hhit.basetrain.entity.TrainStudent">
-		insert into trainstudent(stuno,stu_name,stu_sex,stu_class,major,phone,
-		enter_year,birthday,base_no,base_class,cno,address,train_date) values
-		(#{stuno},#{stu_name},#{stu_sex},#{stu_class},#{major},#{phone},
-		#{enter_year},#{birthday},#{base_no},#{base_class},#{cno},#{address},#{train_date})
-	</insert>
-	
-	<!-- 按课程查询人数 -->
-	<select id="findCountByCourse" parameterType="string" resultType="map">
-		SELECT c.*,count(*) as count from(SELECT t.cno,tc.cname,t.base_no,r.base_name from trainstudent t,traincourse tc,
-       baserelation r where t.base_no=r.base_no and  tc.cno=t.cno and 
-       t.base_no=(select base_no from baserelation r where manager_no=#{manager_no}))c 
-       group by cno
-	</select>
-	
-	<!--通过课程号查询实训学生 -->
-	<select id="findTrainStudentByCno" parameterType="com.hhit.basetrain.entity.TrainStudent" resultType="com.hhit.basetrain.entity.TrainStudentBean">
-		select s.stuno,s.stu_name,s.base_class,s.cno,tc.cname,s.train_date from trainstudent s,traincourse tc where s.cno=tc.cno and s.base_no=#{base_no} and s.cno=#{cno}
-	</select>
-	<!-- 通过班级进行统计 -->
-	<select id="findCountByBaseClass" parameterType="string" resultType="map">
-		SELECT c.*,count(*) as count from(SELECT t.cno,tc.cname,t.base_no,r.base_name ,t.base_class from trainstudent t,traincourse tc,
-       baserelation r where t.base_no=r.base_no and  tc.cno=t.cno and 
-       t.base_no=(select base_no from baserelation r where manager_no=#{manager_no}))c 
-       group by base_class
-	</select>
-	<!--通过班级查询实训学生 -->
-	<select id="findTrainStudentByClass" parameterType="com.hhit.basetrain.entity.TrainStudent" resultType="com.hhit.basetrain.entity.TrainStudentBean">
-		select s.stuno,s.stu_name,s.base_class,s.cno,tc.cname,s.train_date from trainstudent s,traincourse tc where s.cno=tc.cno and s.base_no=#{base_no} and s.base_class=#{base_class}
-	</select>
-	
-	<!-- 查询班级 -->
-	<select id="findBaseClass" parameterType="string" resultType="string">
-		select DISTINCT base_class from trainstudent where base_no=(select base_no from baserelation 
-		where manager_no=#{manager_no}) 
-	</select>
-	
-	<select id="findInfoList" parameterType="string" resultType="com.hhit.basetrain.entity.TrainStudent">
- 	select stuno,stu_name,stu_sex,stu_class,major,phone,date_format(birthday,'%y-%c-%d') as birthday,
- 	address,base_no,base_class,cno,date_format(train_date,'%Y-%m-%d') as train_date
- 	 from trainstudent where stuno like CONCAT(CONCAT('%', #{stuno}),'%')
- 
- </select>
- <!-- 更新信息 -->
- <update id="updateTrainStudentInfo" parameterType="com.hhit.basetrain.entity.TrainStudent">
- 	update trainstudent set cno=#{cno},train_date=#{train_date},base_class=#{base_class},
- 	phone=#{phone} where stuno=#{stuno}
- </update>
- 
- <!--通过班级查询信息 -->
- <select id="findStudentByClass" parameterType="map" resultType="com.hhit.basetrain.entity.TrainStudent">
- 	select stuno,stu_name from trainstudent where base_class=#{base_class} 
- 	and base_no=(select base_no from baserelation where manager_no=#{manager_no})
- </select>
- 
- <!-- 删除学生 -->
- <delete id="deleteStudent" parameterType="string">
- 	delete from trainstudent where stuno=#{stuno}
- 
- </delete>
 	
 </mapper>

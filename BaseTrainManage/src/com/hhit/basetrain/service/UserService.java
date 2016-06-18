@@ -3,6 +3,9 @@
  */
 package com.hhit.basetrain.service;
 
+import java.util.List;
+
+import com.hhit.basetrain.entity.BaseBean;
 import com.hhit.basetrain.entity.Result;
 
 /**
@@ -26,36 +29,13 @@ public interface UserService {
 	 * @return
 	 */
 	public Result modifyPwd(String username,String oldPwd,String newPwd);
-	 
-	/** 添加用户
-	 * @param username
-	 * @param identity
-	 * @return
-	 */
-	public Result insertUser(String username,String identity);
-	/**
-	 * 删除用户
-	 * @param username
-	 * @return
-	 */
-	public Result deleteUser(String username);
-	/**
-	 * 通过用户名查看学生信息
-	 * @param username
-	 * @return
-	 */
-	public Result showStudentUserInfoByNo(String username);
-	/**
-	 * 通过用户名查看教师信息
-	 * @param username
-	 * @return
-	 */
-	public Result showCollegeTeacherUserInfoByNo(String username);
-	/**
-	 * 重置密码
-	 * @param username
-	 * @return
-	 */
-	public Result resetUserPwdByNo(String username);
 	
+	public Result findAllUser() ;
+	public Result findByNames(String userName) ;
+	
+	/**
+	 * @param type
+	 * @return
+	 */
+	public Result findByType(String type);
 }

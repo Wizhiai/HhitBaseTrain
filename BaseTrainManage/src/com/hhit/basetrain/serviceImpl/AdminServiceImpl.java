@@ -68,7 +68,6 @@ public class AdminServiceImpl implements AdminService{
 	public Result showName(String no) {
 		
 		Result result = new Result();
-		
 		if(adminDao.findByNo(no)==null){
 			
 			result.setStatus(0);

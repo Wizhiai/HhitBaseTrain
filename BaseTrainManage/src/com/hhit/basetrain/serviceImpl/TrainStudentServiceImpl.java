@@ -3,7 +3,6 @@
  */
 package com.hhit.basetrain.serviceImpl;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,14 +10,10 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.hhit.basetrain.dao.StudentDao;
 import com.hhit.basetrain.dao.TrainStudentDao;
 import com.hhit.basetrain.entity.Result;
-import com.hhit.basetrain.entity.Student;
 import com.hhit.basetrain.entity.TrainStudent;
-import com.hhit.basetrain.entity.TrainStudentBean;
 import com.hhit.basetrain.service.TrainStudentService;
 
 /**
@@ -30,9 +25,6 @@ import com.hhit.basetrain.service.TrainStudentService;
 public class TrainStudentServiceImpl implements TrainStudentService{
 	@Resource
 	private TrainStudentDao trainstudentDao;
-	
-	@Resource
-	private StudentDao studentDao;
 
 	/* (non-Javadoc)
 	 * @see com.hhit.basetrain.service.TrainStudentService#showInfo(java.lang.String)
@@ -98,6 +90,60 @@ public class TrainStudentServiceImpl implements TrainStudentService{
 		}
 		return result;
 	}
+
+
+
+
+/*	 (non-Javadoc)
+	 * @see com.hhit.basetrain.service.TrainStudentService#showGradeInfoByNo(java.lang.String)
+	 
+	public Result showGradeInfoByNo(String stuno) {
+		Result result =new Result();
+		Map<String,String> map=new HashMap<String,String>();
+		map.put("stuno",stuno);
+		List<Map> grades=trainstudentDao.findScoreInfoByNo(map);
+		if(grades.size()==0){
+			result.setMsg("对不起，没有成绩信息，请重新输入");
+			result.setStatus(0);
+		}else{
+			result.setMsg("查找成功");
+			result.setData(grades);
+			result.setStatus(1);
+		}
+		return result;
+	}
+*/
+	/* (non-Javadoc)
+	 * @see com.hhit.basetrain.service.TrainStudentService#showGradeInfoByPage(java.lang.String, int, int)
+	 
+	public Result showGradeInfo(String stuno,Integer page, Integer pageSize,String week,String month) {
+		Result result =new Result();
+		Map<String,Object> map=new HashMap<String,Object>();
+		Map<String,String> map1=new HashMap<String,String>();
+		map.put("stuno",stuno);
+		map.put("page", page);
+		map.put("pagesize", pageSize);
+		map.put("week", week);
+		map.put("month", month);
+		map1.put("stuno",stuno);
+		map1.put("week", week);
+		map1.put("month", month);
+		List<Map> grades=trainstudentDao.findScoreInfoByPage(map);
+		List<Map> grade=trainstudentDao.findScoreInfoByNo(map1);
+		System.out.println(map1);
+		System.out.println(map);
+		System.out.println(2);
+		if(grades.size()==0 || grade.size()==0){
+			result.setMsg("对不起，没有成绩信息，请重新输入");
+			result.setStatus(0);
+		}else if(grades.size()!=0 && grade.size()!=0 ){
+			result.setMsg("查找成功");
+			result.setData(grades);
+			result.setStatus(grade.size());
+		}
+		return result;
+	}
+*/
 
 
 	/* (non-Javadoc)
@@ -346,218 +392,6 @@ public class TrainStudentServiceImpl implements TrainStudentService{
 		return result;
 	}
 
-	@Transactional(rollbackFor=Exception.class)
-	public Result InputTrainStudent(String stuno, String stu_name,
-			String stu_sex, String stu_class, String major, String phone,
-			Integer enter_year, String birthday, Integer base_no,
-			String base_class, String cno, String address, String train_date){
-		Result result=new Result();
-		TrainStudent trainStudent=new TrainStudent();
-		trainStudent=trainstudentDao.findInfoByNo(stuno);
-		if(trainStudent!=null){
-			result.setStatus(0);
-			result.setMsg("学生录入重复");
-		}else{//插入学生
-			TrainStudent student=new TrainStudent();
-			student.setAddress(address);
-			student.setBase_class(base_class);
-			student.setBase_no(base_no);
-			student.setBirthday(birthday);
-			student.setEnter_year(enter_year);
-			student.setMarjor(major);
-			student.setPhone(phone);
-			student.setStu_class(stu_class);
-			student.setStu_name(stu_name);
-			student.setStu_sex(stu_sex);
-			student.setStuno(stuno);
-			student.setTrain_date(train_date);
-			student.setCno(cno);
-			int count=trainstudentDao.insertTrainStudent(student);
-			if(count==0){
-				result.setStatus(0);
-				result.setMsg("学生录入失败");
-				throw new RuntimeException("学生录入失败");
-			}else{
-				/*int delcount=studentDao.deleteRegister(stuno);
-				if(delcount==0){
-					result.setStatus(0);
-					result.setMsg("报名表删除失败");
-					throw new RuntimeException("报名表删除失败");
-				}else{*/
-					result.setStatus(1);
-					result.setMsg("录入成功");
-				/*}*/
-			}
-			
-			
-		}
-		return result;
-	}
-
-	public Result countTrainStudentByCno(String manager_no) {
-		Result result =new Result();
-		List<Map> map=new ArrayList<Map>();
-		map=trainstudentDao.findCountByCourse(manager_no);
-		if(map==null){
-			result.setMsg("查找成功");
-			result.setStatus(0);
-		}else{
-			result.setData(map);
-			result.setMsg("查找失败");
-			result.setStatus(1);
-		}
-		return result;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.hhit.basetrain.service.TrainStudentService#TrainStudentByCnoDetail(java.lang.Integer, java.lang.String)
-	 */
-	public Result TrainStudentByCnoDetail(Integer baseNo, String cno) {
-		Result result=new Result();
-		TrainStudent trainstudent=new TrainStudent();
-		trainstudent.setBase_no(baseNo);
-		trainstudent.setCno(cno);
-		List<TrainStudentBean> trainStudentBean=new ArrayList<TrainStudentBean>();
-		trainStudentBean=trainstudentDao.findTrainStudentByCno(trainstudent);
-		if(trainStudentBean!=null){
-			result.setData(trainStudentBean);
-			result.setMsg("查询成功");
-			result.setStatus(1);
-		}else{
-			result.setMsg("查询失败");
-			result.setStatus(0);
-		}
-		return result;
-	}
-
-	public Result countTrainStudentByClass(String manager_no) {
-		Result result =new Result();
-		List<Map> map=new ArrayList<Map>();
-		map=trainstudentDao.findCountByBaseClass(manager_no);
-		if(map==null){
-			result.setMsg("查找成功");
-			result.setStatus(0);
-		}else{
-			result.setData(map);
-			result.setMsg("查找失败");
-			result.setStatus(1);
-		}
-		return result;
-	}
-
-	public Result TrainStudentByClassDetail(Integer base_no, String base_class) {
-		Result result=new Result();
-		TrainStudent trainstudent=new TrainStudent();
-		trainstudent.setBase_no(base_no);
-		trainstudent.setBase_class(base_class);
-		List<TrainStudentBean> trainStudentBean=new ArrayList<TrainStudentBean>();
-		trainStudentBean=trainstudentDao.findTrainStudentByClass(trainstudent);
-		if(trainStudentBean!=null){
-			result.setData(trainStudentBean);
-			result.setMsg("查询成功");
-			result.setStatus(1);
-		}else{
-			result.setMsg("查询失败");
-			result.setStatus(0);
-		}
-		return result;
-	}
-
-	public Result loadBaseClass(String manager_no) {
-		Result result=new Result();
-		List<String> classes= trainstudentDao.findBaseClass(manager_no);
-		if(classes==null){
-			result.setMsg("基地还没有开班级!");
-			result.setStatus(0);
-		}else{
-			result.setMsg("查找成功！");
-			result.setStatus(1);
-			result.setData(classes);
-		}
-		return result;
-	}
-
-	public Result searchStudentInfo(String stuno) {
-		Result result=new Result();
-		List<TrainStudent> student=trainstudentDao.findInfoList(stuno);
-		if(student==null){
-			result.setStatus(0);
-			result.setMsg("查找失败");
-			
-		}else{
-			result.setStatus(1);
-			result.setMsg("查找成功");
-			result.setData(student);
-		}
-		return result;
-	}
-
-	@Transactional(rollbackFor=Exception.class)
-	public Result baseadminModifyInfo(String stuno, String train_date,
-			String base_class, String phone, String cno) {
-
-		Result result=new Result();
-		TrainStudent trainstudent=new TrainStudent();
-		trainstudent.setPhone(phone);
-		trainstudent.setBase_class(base_class);
-		trainstudent.setCno(cno);
-		trainstudent.setStuno(stuno);
-		trainstudent.setTrain_date(train_date);
-		int count=trainstudentDao.updateTrainStudentInfo(trainstudent);
-		if(count==0){
-			result.setStatus(0);
-			result.setMsg("修改失败");
-			throw new RuntimeException("修改失败");
-		}else{
-			Student student=new Student();
-			student.setPhone(phone);
-			student.setStuno(stuno);
-			int stucount=studentDao.updateStudentInfo(student);
-			System.out.println(stucount);
-			if(stucount==0){
-				result.setStatus(0);
-				result.setMsg("修改失败");
-				throw new RuntimeException("修改失败");
-			}else{
-				result.setStatus(1);
-				result.setMsg("修改成功");
-			}
-		}
-		
-		return result;
-		
-	}
-
-	public Result baseadminSearchTrainStudentByClass(String manager_no,
-			String base_class) {
-		Result result=new Result();
-		Map<String,Object> map=new HashMap<String,Object>();
-		map.put("base_class", base_class);
-		map.put("manager_no", manager_no);
-		List<TrainStudent> trainstudents=trainstudentDao.findStudentByClass(map);
-		if(trainstudents==null){
-			result.setMsg("查找失败!");
-			result.setStatus(0);
-		}else{
-			result.setMsg("查找成功!");
-			result.setStatus(1);
-			result.setData(trainstudents);
-		}
-		return result;
-	}
-
-	public Result deleteStudentInfo(String stuno) {
-		Result result=new Result();
-		int count=trainstudentDao.deleteStudent(stuno);
-		if(count==0){
-			result.setMsg("删除失败");
-			result.setStatus(0);
-		}else{
-			result.setMsg("删除成功");
-			result.setStatus(1);
-		}
-		return result;
-	}
 	
 
 	

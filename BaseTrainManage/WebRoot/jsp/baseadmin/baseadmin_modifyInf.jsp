@@ -1,23 +1,22 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
   	<meta content="">
-    <title>基地管理员修改个人信息</title>
-     <link rel="stylesheet" href="../../css/common.css"/>
-    <link rel="stylesheet" href="../../css/index.css"/>
+    <title>My JSP 'admin_modifyInf.jsp' starting page</title>
     <script type="text/javascript" src="../../js/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/cookie_util.js"></script>
+		<!--<link rel="stylesheet" type="text/css" href="../css/index.css">-->
 		<script type="text/javascript" src="../../js/baseadmin/baseadmin_modifyInf.js"></script>
   </head>
   <body>
-  	<div class="list">
-	 	 <div  class="modifyInfo" >
-	    	<span>姓&nbsp;&nbsp;&nbsp;名：&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="name"/></span><br/>
-	    	<span>联系方式：<input type="tel" id="telephone"/></span><br/>
-	    	<input type="button" value="修改" id="modify" class="editBtn">
-	    	<input type="button" value="保存" id="update" class="editBtn"/>
-	   </div>
-  	</div>
+    	姓名：<input type="text" id="name"/>
+    	联系方式：<input type="text" id="telephone"/>
+    	<input class="modify" type="button" value="修改" id="modify">
+    	<input class="back" type="button" value="返回" id="back">
   </body>
 </html>

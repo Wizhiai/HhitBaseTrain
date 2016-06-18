@@ -29,14 +29,4 @@ public interface CollegeTeacherService {
 	 * @return
 	 */
 	public Result modifySelfInf(String ct_no,String ct_name,String ct_birthday,String ct_sex,String academy_no,String ct_phone,String ct_profession);
-	/**
-	 * 查看学院
-	 * @return
-	 */
-	public Result showAcademyInf();
-	/**
-	 * 通过学院号查看教师
-	 * @return
-	 */
-	public Result showCollegeTeacherByAcademyNo(String academy_no);
 }

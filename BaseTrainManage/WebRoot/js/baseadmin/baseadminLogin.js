@@ -3,11 +3,12 @@ $(function(){
 		
 		var username = $("#username").val();
 		var password = $("#password").val();
+		
 		if(username == "" || password == ""){
 			alert("用户名或密码不能为空");
 		}else{
 			$.ajax({
-				url:"http://localhost:8080/BaseTrainManage/login.do",
+				url:"/BaseTrainManage/login.do",
 				type:"post",
 				data:{"username":username,"password":password},
 				dataType:"json",

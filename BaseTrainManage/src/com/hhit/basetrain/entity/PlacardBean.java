@@ -20,16 +20,6 @@ public class PlacardBean {
 	private String placard_content;
 	/** 所属基地 */
 	private String base_name;
-	/** 公告类别 */
-	private String placard_type;
-
-	public String getPlacard_type() {
-		return placard_type;
-	}
-
-	public void setPlacard_type(String placardType) {
-		placard_type = placardType;
-	}
 
 	public Integer getPlacard_no() {
 		return placard_no;
@@ -75,8 +65,8 @@ public class PlacardBean {
 	public String toString() {
 		return "PlacardBean [base_name=" + base_name + ", placard_content="
 				+ placard_content + ", placard_no=" + placard_no
-				+ ", placard_title=" + placard_title + ", placard_type="
-				+ placard_type + ", publish_time=" + publish_time + "]";
+				+ ", placard_title=" + placard_title + ", publish_time="
+				+ publish_time + "]";
 	}
 
 }

@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class downloadFileController {
-	
 	   @RequestMapping("/download")
 	   @ResponseBody
 	    public String download(String fileName, HttpServletRequest request,
@@ -34,23 +33,27 @@ public class downloadFileController {
 	        response.setHeader("Content-Disposition", "attachment;fileName="
 	                + fileName);
 	        try {
-	       
-	        		  String path=Thread.currentThread()
-	        	      .getContextClassLoader().getResource("").getPath();
-	        		     //Thread.currentThread().getContextClassLoader()
-	        		     //  .getResource("").getPath()
-	        		      //  + "download";//这个download目录为啥建立在classes下的
-	        		  InputStream inputStream = new FileInputStream(new File(path
-	        		                  + File.separator + fileName));
-	        		  OutputStream os = response.getOutputStream();
-	        		  byte[] b = new byte[2048];
-	        		  int length;
-	        		  while ((length = inputStream.read(b)) > 0) {
-	        		      os.write(b, 0, length);
-	        		   }
-	        		    // 这里主要关闭。
-	        		       os.close();
-	          
+	            String path=Thread.currentThread()
+                .getContextClassLoader().getResource("").getPath()
+                + "download" ;
+	            	
+	            	//Thread.currentThread().getContextClassLoader()
+	                  //  .getResource("").getPath()
+	                  //  + "download";//这个download目录为啥建立在classes下的
+	            InputStream inputStream = new FileInputStream(new File(path
+	                    + File.separator + fileName));
+	           System.out.println(1);
+	            OutputStream os = response.getOutputStream();
+	            byte[] b = new byte[2048];
+	            int length;
+	            while ((length = inputStream.read(b)) > 0) {
+	                os.write(b, 0, length);
+	            }
+	 
+	             // 这里主要关闭。
+	            os.close();
+	 
+	            inputStream.close();
 	        } catch (FileNotFoundException e) {
 	            e.printStackTrace();
 	        } catch (IOException e) {

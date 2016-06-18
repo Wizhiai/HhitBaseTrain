@@ -38,11 +38,4 @@ public class BaseAdminLoadSelfInfController {
 		return result;
 	}
 	
-	@RequestMapping("/baseadmin/findBaseNoBymanagerNo")
-	@ResponseBody
-	public Result findBaseNoBymanagerNo(String manager_no){
-		Result result = baseAdminService.showBaseNoByManagerNo(manager_no);
-		return result;
-	}
-	
 }

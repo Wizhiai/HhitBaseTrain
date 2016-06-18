@@ -81,40 +81,4 @@ public interface PlacardDao {
 	 */
 	public int deleteSchoolPlacardByNo(String placard_no);
 	
-	/**
-	 * 分页显示基地公告
-	 * @return
-	 */
-	public List<PlacardBean> findAllBasePlacard(String pulish_author);
-	/**
-	 * 通过公告号查询基地公告 
-	 * @return
-	 */
-	public PlacardBean findBasePlacardByPlacardNo(String placard_no);
-	/**
-	 * 添加基地公告 
-	 * @return
-	 */
-	public int saveBasePlacard(Map<String,Object> map);
-	/**
-	 * 通过公告标题、基地管理员精确查询基地公告 
-	 * @return
-	 */
-	public PlacardBean findBasePlacardByTitle(Map<String,Object> map);
-	/**
-	 * 通过公告标题、基地管理员模糊查询学校公告 
-	 * @return
-	 */
-	public List<PlacardBean> searchBasePlacardByTitle(Map<String,Object> map);
-	/**
-	 * 通过公告号修改基地公告
-	 * @return
-	 */
-	public int updateBasePlacardByNo(Map<String,Object> map);
-	/**
-	 * 通过公告号删除基地公告
-	 * @return
-	 */
-	public int deleteBasePlacardByNo(String placard_no);
-	
 }

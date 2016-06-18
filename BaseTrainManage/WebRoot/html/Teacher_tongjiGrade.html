@@ -3,32 +3,63 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>高校实训学生管理系统</title>
- <link rel="stylesheet" type="text/css" href="../css/common.css">
  <link rel="stylesheet" type="text/css" href="../css/input.css">
- 
  <style type="text/css">
  	body{
  	 position:relative;
+ 	}
+ 	.condition{
+ 		float:left;
+ 		margin-left:20px;
+ 	}
+ 	.condition input{
+ 	  width:120px;
+ 	}
+ 	.search{
+ 	   float:left;
+       margin-left:35px;
+ 	}
+ 	.search input{
+ 		width:50px;
  	}
  	#id4{
  		position:absolute;
  		margin-top:160px;
  		margin-left:80px;
  	}
-     a{
-     	text-decoration: none;
+ 	#page{
+      text-align:center;
+      position:absolute;
+       top:450px; 
+       left:335px; 
+     }
+     #page a{
+      text-decoration:none;
+      color:#000;
+      border:1px solid #e8f3f8;
+      margin:0;
+      padding:5px 10px;
+     }
+     #page a:hover{
+      border:1px solid #97B9C9;
+      background-color:#CDDDE4;
+      color:#067DB5;
+     }
+  
+     #page input{
+     	width:20px;
+     }
+     .dianji{
+      border:1px solid #97B9C9;
+      background-color:#CDDDE4;
+      color:#067DB5;
      }
    
  </style>
   <script type="text/javascript" src="../js/cookie_util.js"></script>
  <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
- <script type="text/javascript" src="../js/grade/teacherTongjiStudentGrade.js"></script>
+ <script type="text/javascript" src="../js/teacherTongjiStudentGrade.js"></script>
  <script type="text/javascript">
- 	var userId=getCookie("username");
- 	  if(userId==null){
- 		alert("由于您长时间没有登录，请重新登录!");
- 		window.open("studentLogin1.jsp");
- 	}
  var count;
   var pagesize=1;
   var page;
@@ -44,18 +75,18 @@
  		stuno=$("#sno").val();
  		stuclass=$("#sclass").val();
  		major=$("#major option:selected").text();
- 	 toHomePage();
+ 		toHomePage();
  	});
  	$("#pagesizes").change(setpageSize);
  	 $("#set").click(setPages);
  	 $("table tbody").on("mouseover","tr",function(){
-	       $(this).css("background-color","#f0f0f0");
+	       $(this).css("background-color","#E7FDFE");
 	   });
 	    $("table tbody").on("mouseout","tr",function(){
 	       $(this).css("background-color","#fff");
 	   });
  
- });
+ })
  
  </script>
 </head>
@@ -63,53 +94,63 @@
 	<div id="head1"><img  src="../image/info.png"/></div>
     <div id="head2">当前位置：首页&nbsp;>>&nbsp;学生实训信息管理&nbsp;>>&nbsp;<b>统计学生成绩查询</b></div>
     <div id="person"><img  src="../image/person.png"/></div>
-   <div id="welcome">您好：<b id="name"></b>欢迎登录外实训学生管理系统--学校教师管理子系统</div>
+   <div id="welcome">您好：<b id="name"></b>,欢迎登录外实训学生管理系统--学校教师管理子系统</div>
    <div id="time"><img  src="../image/time.png"/>
-    <script type="text/javascript"> 
+    <script language="JavaScript" type="text/javascript"> 
 var today=new Date(); 
 var strDate=(" "+today.getFullYear()+"年"+(today.getMonth()+1)+"月"+today.getDate()+"日"); 
 var n_day=today.getDay(); 
 switch(n_day){ 
 case 0: 
-{strDate=strDate+" 星期日 ";}break; 
+{strDate=strDate+" 星期日 "}break; 
 case 1: 
-{strDate=strDate+" 星期一 ";}break; 
+{strDate=strDate+" 星期一 "}break; 
 case 2: 
-{strDate=strDate+" 星期二 ";}break; 
+{strDate=strDate+" 星期二 "}break; 
 case 3: 
-{strDate=strDate+" 星期三 ";}break; 
+{strDate=strDate+" 星期三 "}break; 
 case 4: 
-{strDate=strDate+" 星期四 ";}break; 
+{strDate=strDate+" 星期四 "}break; 
 case 5: 
-{strDate=strDate+" 星期五 ";}break; 
+{strDate=strDate+" 星期五 "}break; 
 case 6: 
-{strDate=strDate+" 星期六 ";}break; 
+{strDate=strDate+" 星期六 "}break; 
 case 7: 
-{strDate=strDate+" 星期日 ";}break; 
+{strDate=strDate+" 星期日 "}break; 
 } 
 document.write(strDate); 
 </script> 
  </div>
     <div id="information">
-    	<div class="topContent">
-    		学号<input type="text" name="sno" id="sno" class="inputInfo"/>
-    		班级<input type="text" name="sclass" id="sclass" class="inputInfo"/>
+    	<form>
+    	<div id="choose">
+    		<div class="condition">学&nbsp;&nbsp;号&nbsp;<input type="text" name="sno" id="sno"/></div>
+    		<div class="condition">班&nbsp;级&nbsp;<input type="text" name="sclass" id="sclass"/></div>
 
-	     专业
-	     <select id="major" class="selectInfo">
+	  <div class="condition">
+	     专&nbsp;业&nbsp;
+	     <select id="major">
 	        <option value ="1">计算机科学与技术</option>  
             <option value ="2">软件工程</option>  
             <option value="3">网络工程</option>  
 		    <option value="4">软嵌工程</option>
 	     </select>
-	  <input type="button" value="查询" id="query" class="editBtn"/>
 	  </div>
-    	</div>
-       <div id="id4">
+	  <div class="search"><input type="button" value="查询" id="query"/></div>
+	  </div>
+    	</form>
+     
+    
+    </div>
+    <div id="id4">
     <form name="form2">
-     <table width="950px" border="0" cellpadding="0" cellspacing="0" bgcolor="b5d6e6" align="center" class="tableInfo">
+     <table width="950px" border="0" cellpadding="0" cellspacing="0" bgcolor="b5d6e6" align="center">
       <thead>
-       <tr align="center" bgcolor="#E7FDFE" height="30" class="titleInfo">
+      <tr>
+         <td height="24"  colspan="9" align="left"><b>学生实训信息</b></td>
+      </tr>
+	   
+       <tr align="center" bgcolor="#E7FDFE" height="22">
 	      <th width="10%"><b>学号</b></th>
 	      <th width="10%"><b>姓名</b></th>
 	      <th width="15%"><b>学校班级</b></th>
@@ -125,7 +166,7 @@ document.write(strDate);
 		</tbody>
 		<tfoot>
       <tr>
-         <td height="24"  colspan="9" align="right" style="border:0px">
+         <td height="24"  colspan="9" align="right">
                                           总共&nbsp;<b>0</b>条记录</td>
      </tr>
      </tfoot>

@@ -15,7 +15,7 @@ import com.hhit.basetrain.service.TrainStudentService;
 /**
  * @author Mayu
  * @date 2016-4-25t下午12:51:02
- * 
+ * TODO
  */
 @Controller
 public class TrainStudentLoadInfoController {
@@ -33,13 +33,6 @@ public class TrainStudentLoadInfoController {
 	@ResponseBody
 	public Result execute1(String sno){
 		Result result=studentservice.showBaseName(sno);
-		return result;
-	}
-	
-	@RequestMapping("/trainstudentlist/load")
-	@ResponseBody
-	public Result execute2(String sno){
-		Result result=studentservice.searchStudentInfo(sno);
 		return result;
 	}
 	
