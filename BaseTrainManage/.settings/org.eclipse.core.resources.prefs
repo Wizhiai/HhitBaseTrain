@@ -1,12 +1,9 @@
-#Tue May 31 21:34:48 CST 2016
-=\=\=\=\=\=\=
-<<<<<<<=HEAD
->>>>>>>=ecb39c985cd60b39d06e28deb8b5783e9b248f5f
+<<<<<<< HEAD
+#Fri Apr 29 17:08:23 CST 2016
+=======
+#Tue May 10 21:03:43 CST 2016
+>>>>>>> ecb39c985cd60b39d06e28deb8b5783e9b248f5f
 eclipse.preferences.version=1
-encoding//WebRoot/html/ClearInfoCountByCon.html=UTF-8
-encoding//WebRoot/html/JDTManager_addBaseTeacher.html=UTF-8
-encoding//WebRoot/html/JDTManager_modify.html=UTF-8
-encoding//WebRoot/html/JDTManager_tongjiTrainStudent.html=UTF-8
 encoding//WebRoot/html/JDT_modifyInfo.html=UTF-8
 encoding//WebRoot/html/JDT_studyplan.html=UTF-8
 encoding//WebRoot/html/JDT_uploadStudyplan.html=UTF-8

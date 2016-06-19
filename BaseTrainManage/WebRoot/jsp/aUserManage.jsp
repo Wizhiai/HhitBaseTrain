@@ -16,15 +16,59 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="../js/asSystemmenu.js"></script>
 <script type="text/javascript" src="../js/js.js"></script>
+<link type="text/css" rel="stylesheet" href="../css/index.css" />
 <script type="text/javascript">
+$(function(){
+
+baseNameShow();
+});
+//基地评价名称显示
+function baseNameShow(){
+
+ var p = document.getElementById("baseName");
+var strCookie=document.cookie; 
+var arrCookie=strCookie.split("; "); 
+
+for(var i=0;i<arrCookie.length;i++){ 
+var arr=arrCookie[i].split("="); 
 
 
+
+if(arr[0]=="base_no")
+
+   
+    
+    
+   	$.ajax({
+				url:"/BaseTrainManage/base/searchByBaseNo.do",
+				type:"post",
+				data:{"base_no": arr[1]},
+				dataType:"json",
+				success:function(result){
+					if(result.status == 1){//查询成功，显示基地基本信息
+					/*	$("#base_name").val(result.data.base_name);
+						$("#base_address").val(result.data.base_address);
+						$("#establish_time").val(result.data.establish_time);*/
+						 p.innerHTML = result.data.base_name;
+    
+					}else{
+						alert(result.msg);
+					}
+				},
+				error:function(){
+						alert("程序出错");
+				}
+			});
+
+} 
+}
 </script>
 
   </head> 
   <body>
  
 <style type="text/css">
+
 table.hovertable {
 	font-family: verdana,arial,sans-serif;
 	font-size:11px;
@@ -56,8 +100,8 @@ table.hovertable td {
 
 <table class="hovertable" width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
-<th nowrap>被评单位: <label id="baseId">高博应诺</label></th>
-	<th colspan="7">实践性教学质量评估指标体系</th>
+<th nowrap><h4>被评单位: <a  href="#" id="baseName">最新公告</a></h4></th>
+	<th colspan="7"><h4>实践性教学质量评估指标体系</h4></th>
 </tr>
 
 <td width="12.5%" rowspan="3">实践教学体系</td>

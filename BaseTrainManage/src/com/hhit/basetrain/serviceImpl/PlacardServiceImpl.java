@@ -232,6 +232,7 @@ public class PlacardServiceImpl implements PlacardService{
 		
 		Result result=new Result();
 		Map<String,Object> map = new HashMap<String,Object>();
+		
 		map.put("placard_no", placardNo);
 		map.put("placard_title", placardTitle);
 		map.put("placard_content", placardContent);
@@ -251,166 +252,16 @@ public class PlacardServiceImpl implements PlacardService{
 	public Result searchSchoolPlacardByTitle(String placardTitle) {
 		
 		Result result=new Result();
-		List<PlacardBean> list = placardDao.searchSchoolPlacardByTitle("%"+placardTitle+"%");
+		List<PlacardBean> list = placardDao.searchSchoolPlacardByTitle(placardTitle);
 		
 		if(list.size() == 0){
 			result.setStatus(0);
-			result.setMsg("未查找到相关数据");
+			result.setMsg("w未查找到相关数据");
 		}else{
 			result.setStatus(1);
 			result.setData(list);
 			result.setMsg("查询成功！");
 		}
-		return result;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.hhit.basetrain.service.PlacardService#addBasePlacard(java.lang.String, java.lang.String, java.lang.String, java.lang.String)
-	 */
-	public Result addBasePlacard(String placardTitle, String placardContent,
-			String publishAuthor, String placardType) {
-		
-		Result result=new Result();
-		Map<String,Object> map = new HashMap<String,Object>();
-		
-		map.put("placard_title", placardTitle);
-		map.put("placard_content", placardContent);
-		map.put("publish_author", publishAuthor);
-		map.put("publish_time", TimeUtil.getFormatCurrentTime());
-		map.put("placard_type", placardType);
-		
-		int num = placardDao.saveBasePlacard(map);
-		result.setStatus(num);
-		result.setMsg("添加成功！");
-		
-		return result;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.hhit.basetrain.service.PlacardService#deleteBasePlacard(java.lang.String)
-	 */
-	public Result deleteBasePlacard(String placardNo) {
-		
-		Result result=new Result();
-		int num =  placardDao.deleteBasePlacardByNo(placardNo);
-		result.setStatus(num);
-		result.setMsg("删除成功!");
-		
-		return result;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.hhit.basetrain.service.PlacardService#isBasePlacardExit(java.lang.String, java.lang.String)
-	 */
-	public Result isBasePlacardExit(String placardTitle, String publishAuthor) {
-		
-		Result result=new Result();
-		Map<String,Object> map = new HashMap<String,Object>();
-		map.put("placard_title", placardTitle);
-		map.put("publish_author", publishAuthor);
-		
-		PlacardBean placardBean = placardDao.findBasePlacardByTitle(map);
-		
-		if(placardBean != null){
-			result.setStatus(0);
-			result.setMsg("该公告标题已存在");
-		}else{
-			result.setStatus(1);
-		}
-		
-		return result;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.hhit.basetrain.service.PlacardService#modifyBasePlacard(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)
-	 */
-	public Result modifyBasePlacard(String placardNo, String placardTitle,
-			String placardContent, String placardType, String publishAuthor) {
-		
-		Result result=new Result();
-		Map<String,Object> map = new HashMap<String,Object>();
-		
-		map.put("placard_no", placardNo);
-		map.put("placard_title", placardTitle);
-		map.put("placard_content", placardContent);
-		map.put("publish_author", publishAuthor);
-		map.put("placard_type", placardType);
-		map.put("publish_time", TimeUtil.getFormatCurrentTime());
-		
-		int num = placardDao.updateBasePlacardByNo(map);
-		result.setStatus(num);
-		result.setMsg("修改成功！");
-		
-		return result;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.hhit.basetrain.service.PlacardService#searchBasePlacardByTitle(java.lang.String, java.lang.String, java.lang.String)
-	 */
-	public Result searchBasePlacardByTitle(String placardTitle,
-			String placardType, String publishAuthor) {
-		
-		Result result=new Result();
-		Map<String,Object> map = new HashMap<String,Object>();
-		
-		map.put("placard_title", "%"+placardTitle+"%");
-		map.put("publish_author", publishAuthor);
-		map.put("placard_type", placardType);
-		
-		List<PlacardBean> list = placardDao.searchBasePlacardByTitle(map);
-		
-		if(list.size() == 0){
-			result.setStatus(0);
-			result.setMsg("未查找到相关数据");
-		}else{
-			result.setStatus(1);
-			result.setData(list);
-			result.setMsg("基地公告信息查询成功！");
-		}
-		return result;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.hhit.basetrain.service.PlacardService#showAllBaseInf()
-	 */
-	public Result showAllBaseInf(String pulish_author) {
-		
-		Result result=new Result();
-		List<PlacardBean> list = placardDao.findAllBasePlacard(pulish_author);
-		
-		if(list.size() == 0){
-			
-			result.setStatus(0);
-			result.setMsg("没有基地公告信息！");
-		}else{
-			
-			result.setStatus(1);
-			result.setData(list);
-			result.setMsg("基地公告查询成功！");
-		}
-		
-		return result;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.hhit.basetrain.service.PlacardService#showBasePlacardInfByPlacardNo(java.lang.String)
-	 */
-	public Result showBasePlacardInfByPlacardNo(String placardNo) {
-		
-		Result result=new Result();
-		PlacardBean placard = placardDao.findBasePlacardByPlacardNo(placardNo);
-		
-		if(placard == null){
-			
-			result.setStatus(0);
-			result.setMsg("对不起，基地公告信息查询失败！");
-		}else{
-			
-			result.setStatus(1);
-			result.setData(placard);
-			result.setMsg("基地公告查询成功！");
-		}
-		
 		return result;
 	}
 

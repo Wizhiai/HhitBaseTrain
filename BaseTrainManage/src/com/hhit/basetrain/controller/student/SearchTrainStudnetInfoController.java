@@ -24,9 +24,12 @@ public class SearchTrainStudnetInfoController {
 	
 	@RequestMapping("/trainstudent/loadTrainInfo")
 	@ResponseBody
+
+
 	public Result execute(String stno,String stuno,Integer page,Integer pageSize){
 		Result result=trainStudentService.showBaseInfo(stno, stuno, page, pageSize);
 		System.out.println(result.getData());
+
 		
 		return result;
 		

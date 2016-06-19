@@ -2,7 +2,7 @@ $(function(){
 	var ct_no = getCookie("username");
     $("#tno").val(ct_no);
 	$.ajax({
-		url:"http://localhost:8080/BaseTrainManage/collegeteacher/loadSelfInf.do",
+		url:"/BaseTrainManage/collegeteacher/loadSelfInf.do",
 		type:"post",
 		data:{"ct_no":ct_no},
 		dataType:"json",
@@ -33,7 +33,7 @@ $(function(){
 		var phone = $("#telephone").val();
 		
 		$.ajax({
-			url:"http://localhost:8080/BaseTrainManage/collegeteacher/modifySelfInf.do",
+			url:"/BaseTrainManage/collegeteacher/modifySelfInf.do",
 			type:"post",
 			data:{"ct_no":ct_no,"ct_name":name,"ct_sex":sex,"academy_no":academy,
 			"ct_profession":profession,"ct_birthday":birthday,"ct_phone":phone},

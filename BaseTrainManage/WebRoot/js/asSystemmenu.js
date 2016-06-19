@@ -48,34 +48,51 @@ window.onload=function(){
 	};
 };
 function changeSrcaUserManage(){
+	var userIdString = document.getElementById("userId").innerHTML;
 
-$("#frameBord").attr("src","http://localhost:8080/BaseTrainManage/jsp/baseInfromList.jsp");
+$("#frameBord").attr("src","/BaseTrainManage/jsp/base/assessbaseInfromList.jsp?userId="+userIdString);
  var p = document.getElementById("p");
-    p.innerHTML =      document.getElementById('changeSrcaUserManage').value;;
+    p.innerHTML =      document.getElementById("changeSrcaUserManage").innerHTML;
 }
 
 function changeSrcaExpertManage(){
+	
+	$("#frameBord").attr("src","/BaseTrainManage/jsp/aExpertManage.jsp");
  var p = document.getElementById("p");
-  p.innerHTML =      document.getElementById('changeSrcaExpertManage').value;;
-$("#frameBord").attr("src","http://localhost:8080/BaseTrainManage/jsp/aExpertManage.jsp");
+ 
+  p.innerHTML =      document.getElementById("changeSrcaExpertManage").innerHTML;
+
 
 }
 
 function changeSrcaEvaluationResultManagement(){
-
+$("#frameBord").attr("src","/BaseTrainManage/jsp/aEvaluationResultManagement.jsp");
  var p = document.getElementById("p");
-    p.innerHTML =      document.getElementById('changeSrcaEvaluationResultManagement').value;;
+    p.innerHTML =      document.getElementById('changeSrcaEvaluationResultManagement').innerHTML;
 
-$("#frameBord").attr("src","http://localhost:8080/BaseTrainManage/jsp/aEvaluationResultManagement.jsp");
+
 
 }
 function changeSrcaExpertCommitteeManagement(){
  var p = document.getElementById("p");
-    p.innerHTML =      document.getElementById('changeSrcaExpertCommitteeManagement').value;;
-$("#frameBord").attr("src","http://localhost:8080/BaseTrainManage/jsp/aExpertCommitteeManagement.jsp");
+    p.innerHTML =      document.getElementById('changeSrcaExpertCommitteeManagement').innerHTML;
+$("#frameBord").attr("src","/BaseTrainManage/jsp/aExpertCommitteeManagement.jsp");
 
 }
+function announcementManage(){
+ var p = document.getElementById("p");
+    p.innerHTML =      document.getElementById('announcementManage').innerHTML;
+$("#frameBord").attr("src","/BaseTrainManage/jsp/assess/Announcement .jsp");
 
+}
+function turnToInsertVideo(){
+ var p = document.getElementById("p");
+    p.innerHTML =      document.getElementById('turnToInsertVideo').innerHTML;
+ 
+    var userName = document.getElementById('userId').innerHTML;
+$("#frameBord").attr("src","/BaseTrainManage/jsp/assess/InsertVideo.jsp?userId="+userName);
+
+}
 function check(a)
 {
 if(parseInt(a)<=100&&parseInt(a)>=0&&parseInt(a)==a){
@@ -85,10 +102,12 @@ alert("请输入0-100的分数值！");}
 }
 function disp_confirm()
   {
+
   var r=confirm("确定提交？")
   if (r==true)
     {
-	
+	  
+
    var inputs=document.getElementsByTagName("input");
    var i = 1;
      $("input[type=number]").each(function(){
@@ -113,10 +132,46 @@ function disp_confirm()
        
           i++;
      });
+       
+	//计算总分
+	  
+	  var allScore =( document.getElementById('11').value*0.35 + document.getElementById('12').value*0.35+
+	   document.getElementById('13').value*0.3)*0.1 + 
+	   ( document.getElementById('21').value*0.15 + document.getElementById('22').value*0.1 +
+		document.getElementById('23').value*0.1 + document.getElementById('24').value*0.2 +document.getElementById('25').value*0.2+
+		document.getElementById('26').value*0.1 +document.getElementById('27').value*0.15 )*0.2 +
+	(document.getElementById('31').value*0.2 +document.getElementById('32').value*0.2 +document.getElementById('33').value*0.2 +document.getElementById('34').value*0.15 +document.getElementById('35').value*0.15 +document.getElementById('36').value*0.1)*0.2+
+	(document.getElementById('41').value*0.2 +document.getElementById('42').value*0.15 +document.getElementById('43').value*0.2 +document.getElementById('44').value*0.25 +document.getElementById('45').value*0.2 )*0.15+
+	(document.getElementById('51').value*0.25 +document.getElementById('52').value*0.15 +document.getElementById('53').value*0.2+document.getElementById('54').value*0.15+document.getElementById('55').value*0.25)*0.15+
+	(document.getElementById('61').value*0.2+document.getElementById('62').value*0.15+document.getElementById('63').value*0.2+document.getElementById('64').value*0.1+	document.getElementById('65').value*0.15+document.getElementById('66').value*0.2)*0.2;
+	  
+	 
+	  
+	  
      
      
-     $.ajax({
-	  			url:"http://localhost:8080/BaseTrainManage/assess/insertAssessScore.do",
+     var strCookie=document.cookie; 
+var arrCookie=strCookie.split("; "); 
+	var userId;
+for(var i=0;i<arrCookie.length;i++){ 
+var arrl=arrCookie[i].split("="); 
+
+if(arrl[0]=="userId") {
+	userId = arrl[1];
+}
+}
+for(var i=0;i<arrCookie.length;i++){ 
+var arr=arrCookie[i].split("="); 
+if(arr[0]=="base_no"){
+		  var strCookie=document.cookie; 
+var arrCookie=strCookie.split("; "); 
+
+
+
+	  
+
+	   $.ajax({
+	  			url:"/BaseTrainManage/assess/insertAssessScore.do",
 					type:"post",
 					data:{
     	 
@@ -151,8 +206,13 @@ function disp_confirm()
     	 "s63":parseFloat($("#63").val()),
     	 "s64":parseFloat($("#64").val()),
     	 "s65":parseFloat($("#65").val()),  
-    	 "s66":parseFloat($("#66").val())
+    	 "s66":parseFloat($("#66").val()),
+    	 "basetypeid": arr[1],
+    	 "userId": userId,
+    	 "allScore":allScore,
+    	
      },
+
 					dataType:"json",
 					success:function(result){
 						if(result.status == 1){
@@ -166,7 +226,15 @@ function disp_confirm()
 							alert("程序出错");
 					}
 				});
+	   
 
+}
+}
+
+   
+    
+     
+  
      
      
        alert("您已提交。");
@@ -180,4 +248,60 @@ function disp_confirm()
     
     }
   }
+
+
+//基地评价名称显示
+function baseNameShow(){
+	  alert("您取消了提交!");
+var base_no =  getCookie("base_no");
+alert(base_no);
+ var p = document.getElementById("baseName");
+    p.innerHTML =     base_no;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function aquery(){
+	alert("11");
+	   $.ajax({
+	  			url:"/BaseTrainManage/assess/queryUser.do",
+					type:"post",
+					data:{
+    	 
+
+    	
+     },
+
+					dataType:"json",
+					success:function(result){
+						if(result.status == 1){
+							
+							alert(result.msg);
+						}else{
+							alert(result.msg);
+						}
+					},
+					error:function(){
+							alert("程序出错");
+					}
+				});
+	   
+
+}
+
+	
+
 

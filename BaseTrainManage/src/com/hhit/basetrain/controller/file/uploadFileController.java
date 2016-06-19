@@ -4,21 +4,34 @@
 package com.hhit.basetrain.controller.file;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUpload;
+import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.fileupload.servlet.ServletRequestContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.support.RequestContext;
 
 import com.hhit.basetrain.entity.Result;
 import com.hhit.basetrain.service.ScoreService;
@@ -92,18 +105,18 @@ public class uploadFileController {
 	
 	@RequestMapping("/uploadfile.do")
 	@ResponseBody
-	 public Object uploadFile(HttpServletRequest request,HttpServletResponse response) throws Exception {  
+	 public void uploadFile(HttpServletRequest request,HttpServletResponse response) throws Exception {  
 		//ModelAndView mav=new ModelAndView();
 		Map<String,String> map=new HashMap<String,String>();
 	        String path = Thread.currentThread()
-            .getContextClassLoader().getResource("").getPath(); 
+            .getContextClassLoader().getResource("").getPath()
+            + "download"; 
 	        File file = new File(path);  
 	        if (!file.exists()) {  
 	            file.mkdirs();  
 	        }  
 	        //获取图片url地址  
-	        String fileName = "";// 文件名称 
-	        Result result = null;
+	        String fileName = "";// 文件名称  
 	        /**上传文件处理内容**/  
 	        DiskFileItemFactory factory = new DiskFileItemFactory();  
 	        ServletFileUpload sfu = new ServletFileUpload(factory);  
@@ -113,12 +126,12 @@ public class uploadFileController {
 	            List<FileItem> fileItems = sfu.parseRequest(request); // 解码请求  
 	            for (FileItem fi : fileItems) {  
 	            	if(fi.isFormField()){
-	            		map.put(fi.getFieldName(),fi.getString("utf-8") );
+	            		map.put(fi.getFieldName(),fi.getString() );
 	            		/*System.out.println(fi.getFieldName());
 	            		System.out.println(fi.getString());*/
 	            	}
 	            	else{
-	            		fileName = "download"+File.separator+UUID.randomUUID() + fi.getName().substring(fi.getName().lastIndexOf("."), fi.getName().length());  
+	            		fileName = UUID.randomUUID() + fi.getName().substring(fi.getName().lastIndexOf("."), fi.getName().length());  
 	            		fi.write(new File(path, fileName));  
 	            	}
 	            	
@@ -127,20 +140,13 @@ public class uploadFileController {
 	            String week=map.get("week");
 	            String month=map.get("month");
 	            String exampaper=fileName;
-	            result=scoreService.saveExampper(stuno, week, month, exampaper);
-	           // response.sendRedirect("html/JDT_uploadexampper.jsp");
+	            scoreService.saveExampper(stuno, week, month, exampaper);
+	            request.setAttribute("result", "上传成功");
+	            response.sendRedirect("html/JDT_uploadexampper.jsp");
 	        } catch (Exception e) {  
 	            e.printStackTrace(); 
 	            System.out.println("文件上传出错");
 	        }  
-	        if(result.getStatus()==1){
-	              return "<script>window.parent.uploadSucced();</script>";
-	              
-        }else{
-	             return "<script>window.parent.uploadFailed();</script>";
-	            //response.sendRedirect("html/JDT_uploadStudycheck2.html");
-        }
-	      
 	      
 	    }  
 }

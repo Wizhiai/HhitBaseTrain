@@ -1,28 +1,19 @@
-function indexMenuManage(){  
-	/*$("body").css("background","#dbecfb");
-	$("body").css("height","100%");
-	$("body").css("overflow","hidden");*/
-	$(".secondMenu").css("display","none");
-	/* 二级菜单的显示与隐藏  */
-	$(".personInfo").click(function(){
-		$(this).next(".secondMenu").slideToggle(1);
-		$(this).siblings().next(".secondMenu").css("display","none");
-	});
-	$(".secondMenu li a").click(function(){
-		$(this).addClass("changeColor").parent().siblings().children("a").removeClass("changeColor");
-		$(this).parent().parent().siblings("ul").find("a").removeClass("changeColor");
-	});
-	$(".personInfo li a").click(function(){
-		$(this).addClass("changeColor");
-		$(this).parent().parent().siblings("ul").find("a").removeClass("changeColor");
-	
-	});
-}
-function isPageValid(obj){
-	var username = getCookie("username");
-	if(username == "" || username == null){
-		alert("页面已失效，请从新登陆！");
-		$(obj).removeAttr("href");
+function upDownMenu(obj){  
+	$(obj).parent().find("ul li").css("background","url(../../images/dict.png) no-repeat 0px 50%");//a连接的底色问题
+	$(obj).parent().find("ul li a").css("padding-left","20px");
+	if(!$(obj).parent().find("ul")){
+		return false;
+	}
+	if($(obj).parent().find("ul").css("display")=='block'){
+		$(obj).parent().find("ul").hide();
+		$(obj).parent().removeClass().addClass("up");
+	}else{
+		$(obj).parent().find("ul").show();
+		$(obj).parent().removeClass().addClass("down");//点击处添加css样式
+		$(obj).parent().prevAll().find("ul").hide();
+		$(obj).parent().prevAll().removeClass().addClass("up");//其他兄弟节点改变样式
+		$(obj).parent().nextAll().find("ul").hide();
+		$(obj).parent().nextAll().removeClass().addClass("up");
 	}
 }
 function promptName(){
@@ -30,7 +21,7 @@ function promptName(){
 	var identity = getCookie("identity");
 	if(identity == 0){//管理员
 		$.ajax({
-			url:"http://localhost:8080/BaseTrainManage/admin/findName.do",
+			url:"/BaseTrainManage/admin/findName.do",
 			type:"post",
 			data:{"no":no},
 			dataType:"json",
@@ -47,7 +38,7 @@ function promptName(){
 		});
 	}else if(identity == 1){//基地管理员
 		$.ajax({
-			url:"http://localhost:8080/BaseTrainManage/baseadmin/findName.do",
+			url:"/BaseTrainManage/baseadmin/findName.do",
 			type:"post",
 			data:{"manager_no":no},
 			dataType:"json",
@@ -64,7 +55,7 @@ function promptName(){
 		});
 	}else if(identity == 2){//学校教师
 		$.ajax({
-			url:"http://localhost:8080/BaseTrainManage/collegeteacher/findName.do",
+			url:"/BaseTrainManage/collegeteacher/findName.do",
 			type:"post",
 			data:{"ct_no":no},
 			dataType:"json",
@@ -81,7 +72,7 @@ function promptName(){
 		});
 	}else if(identity == 4){//学生
 		$.ajax({
-			url:"http://localhost:8080/BaseTrainManage/student/findName.do",
+			url:"/BaseTrainManage/student/findName.do",
 			type:"post",
 			data:{"stuno":no},
 			dataType:"json",

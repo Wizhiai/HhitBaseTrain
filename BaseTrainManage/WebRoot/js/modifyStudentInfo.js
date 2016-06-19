@@ -8,7 +8,7 @@ function modifySelfInfo(){
  		var stuclass=$("#class").val();
  		var address=$("#address").val();
  		$.ajax({
- 			url:"http://localhost:8080/BaseTrainManage/student/modifySelfInfo.do",
+ 			url:"/BaseTrainManage/student/modifySelfInfo.do",
  			type:"post",
  			data:{"stuno":stuno,"stu_name":name,"stu_sex":sex,"phone":phone,"birthday":age,
  		     "major":major,"stu_class":stuclass,"address":address},

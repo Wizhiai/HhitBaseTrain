@@ -10,7 +10,7 @@
  		  	pagecounts=parseInt(count/pagesize)+1;
  		  }
  		$.ajax({
- 		        url:"http://localhost:8080/BaseTrainManage/baseteacher/search.do",
+ 		        url:"/BaseTrainManage/baseteacher/search.do",
  			    type:"post",
  			    data:{"t_name":t_name,"stuno":stuno,"page":page,"pageSize":pagesize},
  			    dataType:"json",
@@ -18,7 +18,6 @@
  			    	if(result.status!=0){
  			    	    $("table tbody").html("");
  			    	   var datas=result.data;
- 			    	  if(currentpage==pagecounts){
  			for(var i=0;i<datas.length;i++){
  				var tr='<tr align="center" bgcolor="#FFFFFF" height="22"><td>'+datas[i].t_no+'</td>';
  				tr+='<td>'+datas[i].t_name+'</td>';
@@ -30,7 +29,7 @@
  			    	      }
  			    	        $("table tfoot td b").html(datas.length);
  			    			$("#page a").remove();
- 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>";
+ 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>"
  			    	         $a=$(a);
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
@@ -50,14 +49,14 @@
  			    	 $a.insertAfter("#number");
  			        }		
  			    	}
- 			  }
- });
+ 			    }
+ 	);
  }
  function setPages(){
  		currentpage=parseInt($("#pages").val());
  		page=(currentpage-1)*pagesize;
  		$.ajax({
- 		        url:"http://localhost:8080/BaseTrainManage/baseteacher/search.do",
+ 		        url:"/BaseTrainManage/baseteacher/search.do",
  			    type:"post",
  			    data:{"t_name":t_name,"stuno":stuno,"page":page,"pageSize":pagesize},
  			    dataType:"json",
@@ -105,7 +104,7 @@
  			    	 			$tr=$(tr);
  			    	 			$("table tbody").append($tr);
  			    	 }
- 			    	 $("table tfoot td b").html(datas.length);
+ 			    	 $("table tfoot td b").html(pagesize);
  			    	 	$("#page a").remove();
  			    	   a='<a id="head" onclick="toHomePage()">首页</a><a id="lastpage" onclick="frontpage()">上一页</a><a id="end" class="dianji" onclick="toEndpage()">尾页</a>';
  			    	   $a=$(a);
@@ -121,13 +120,11 @@
  			    	 			$("table tbody").append($tr);
  			    	 			//$("#lastpage").remove();
  			    	 }
- 			    	 $("table tfoot td b").html(datas.length);
+ 			    	 $("table tfoot td b").html(pagesize);
  			    	 	$("#page a").remove();
  			    	     a='<a id="head" class="dianji" onclick="toHomePage()">首页</a>';
  			    	     $a=$(a);
  			    	    $a.insertAfter("#number");
- 			        }else if( currentpage>pagecounts){
- 			        	 alert("你输入的页码超过最大页数，请重新输入");
  			        }
  			    	}
  			    }
@@ -137,7 +134,7 @@
  	    currentpage=currentpage+1;
  		page=(currentpage-1)*pagesize;
  		$.ajax({
- 		        url:"http://localhost:8080/BaseTrainManage/baseteacher/search.do",
+ 		        url:"/BaseTrainManage/baseteacher/search.do",
  			    type:"post",
  			     data:{"t_name":t_name,"stuno":stuno,"page":page,"pageSize":pagesize},
  			    dataType:"json",
@@ -185,7 +182,7 @@
  		currentpage=currentpage-1;
  		page=(currentpage-1)*pagesize;
  	    $.ajax({
- 		        url:"http://localhost:8080/BaseTrainManage/baseteacher/search.do",
+ 		        url:"/BaseTrainManage/baseteacher/search.do",
  			    type:"post",
  			    data:{"t_name":t_name,"stuno":stuno,"page":page,"pageSize":pagesize},
  			    dataType:"json",
@@ -234,7 +231,7 @@
  		page=0;
  		currentpage=1;
  		$.ajax({
- 		        url:"http://localhost:8080/BaseTrainManage/baseteacher/search.do",
+ 		        url:"/BaseTrainManage/baseteacher/search.do",
  			    type:"post",
  			    data:{"t_name":t_name,"stuno":stuno,"page":page,"pageSize":pagesize},
  			    dataType:"json",
@@ -260,7 +257,7 @@
  			    	      }
  			    	        $("table tfoot td b").html(datas.length);
  			    	         $("#page a").remove();
- 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>";
+ 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>"
  			    	         $a=$(a);
  			    	         $a.insertAfter("#number");
  			            }else if(currentpage<pagecounts){
@@ -294,7 +291,7 @@
  		currentpage=pagecounts;
  		page=(currentpage-1)*pagesize;
  		$.ajax({
- 		        url:"http://localhost:8080/BaseTrainManage/baseteacher/search.do",
+ 		        url:"/BaseTrainManage/baseteacher/search.do",
  			    type:"post",
  			     data:{"t_name":t_name,"stuno":stuno,"page":page,"pageSize":pagesize},
  			    dataType:"json",
@@ -314,7 +311,7 @@
  			    	 	     $("table tbody").append($tr);
  			    	      }
  			    	        $("table tfoot td b").html(datas.length);
- 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>";
+ 			    	         a="<a id='head' class='dianji' onclick='toHomePage()'>首页</a>"
  			    	         $a=$(a);
  			    	         $a.insertAfter("#number");
  			            }else{

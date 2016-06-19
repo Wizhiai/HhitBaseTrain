@@ -1,48 +1,39 @@
 <!DOCTYPE HTML>
-<html style="overflow:hidden;">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>高校实训学生管理系统</title>  
-    <link rel="stylesheet" type="text/css" href="../css/common.css">
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
+   <meta content="text/html; charset=UTF-8">
+    <title>高校实训学生管理系统</title>
    
-    <script type="text/javascript" src="../js/cookie_util.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
    <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
    <script type="text/javascript" src="../js/menu.js"></script>
+    <script type="text/javascript" src="../js/cookie_util.js"></script>
    <script type="text/javascript">
-   	$(function(){
-   		var height=$(document).height();
-   		var cHeight = height-140;
-   		$(".kuangjia").css("height",cHeight);
-   	});
-     function startup() {
+  
+   function startup() {
 		$("#user_show").show();
 	}
-		
-	function closeCurrentWindow(){
-		window.location.href="../index.jsp";
-}
   
    </script>
   </head>
   
   <body>
-  <div id="header">
+   <div id="header">
   	<div class="btnList">
-  	  <a id="front" href="../html/studentmain.html"><span>首页</span></a>
-  	  <a  id="flush" href="../html/studentLogin1.jsp"><span>登录</span></a>
-      <a id="end" onclick=" closeCurrentWindow();"><span>退出</span></a>
+  	  <a id="front" href="../html/jdteachermain.html">首页</a>
+  	  <a  id="flush" href="../html/studentLogin.jsp">登录</a>
+      <a id="end" onclick="window.close();">退出</a>
   	</div>
-  </div>
   	<div class="navigation">
   		<ul class="menu">
-  		  <li><a onclick="showtow(0,0,this)">信息查询</a></li>
+  		  <li><a onclick="showtow(0,0,this)";>查询信息</a></li>
   		  <li><a onclick="showtow(0,1,this)">课程信息管理</a></li>
   		  <li><a onclick="showtow(0,2,this)">作业管理</a></li>
   		  <li><a onclick="showtow(0,3,this)">个人信息管理</a></li>
   		</ul>
   	</div>
-  		<table class=kuangjia border=0 cellSpacing=10 cellPadding=0
+  	<table class=kuangjia border=0 cellSpacing=10 cellPadding=0
 					width="100%" onload="startup();">
   		<tbody>
   			<tr>
@@ -50,13 +41,14 @@
 								<DIV
 									style="POSITION: absolute; BOTTOM: 100px; CURSOR: pointer; LEFT: 25px"></DIV>
 									<DIV style="POSITION: absolute; BOTTOM: 5px; LEFT: 2px"
-									><!-- <a href="http://jwc.hhit.edu.cn">
+									><a href="http://jwc.hhit.edu.cn">
 									<IMG
-										src="../image/link.jpg"></a> -->
+										src="../image/link.jpg"></a>
 										</div>
   				    <DIV id=menuleft>
   				    	
-									<TABLE style="border:none;" id=user_show class=user_1 border=0>
+									<TABLE style="border:none;" id=user_show class=user_1 border=0
+										>
 										<TBODY>
 											<TR>
 												<TD class=portrait><IMG
@@ -73,10 +65,10 @@
 													var hour=currentdate.getHours();//获取事件
 													var min=currentdate.getMinutes();//获取分钟
 													var mm=currentdate.getSeconds();//获取秒
-													if(min>=0&&min<10){
+													if(min>0&&min<10){
 														min='0'+min;
 													}
-													if(mm>=0&&mm<10){
+													if(mm>0&&mm<10){
 														mm='0'+mm;
 													}
 													document.writeln(hour+":"+min+":"+mm);
@@ -87,66 +79,74 @@
 											</TR>
 										</TBODY>
 									</TABLE>
-								<div style="DISPLAY: block" id=threeMenu1>
+									<div style="DISPLAY: block" id=threeMenu1>
 										<ul >
-										<li><h1 class="redTitle">信息查询</h1></li>
+										  <li class="redTitle" style=" width:220px;padding-left:20px;height:47px; color:#fff; font-size:18px; line-height:47px;background:url(../image/tittle.png) no-repeat">
+										查询信息
+	                                    </li>
 											<LI class=#><IMG class=icon
 												src="../image/icon_1.gif"><a
-													 onclick=upDownMenu(this) href="Student_searchTrainInfo.html" target="businessfrm">查询实训信息</a>
+													 href="Student_searchTrainInfo.html" target="businessfrm">查询实训信息</a>
 												</li>
 
 											<li class=#><IMG class=icon
 												src="../image/icon_1.gif"><a
-													 onclick=upDownMenu(this) href="Student_searchBaseTeacherInfo.html" target="businessfrm">查询基地教师信息</a>
+													href="Student_searchBaseTeacherInfo.html" target="businessfrm">查询基地教师信息</a>
 											</li>
 											<li class=#><IMG class=icon
 												src="../image/icon_1.gif"><a
-													 onclick=upDownMenu(this) href="Student_searchGrade.html" target="businessfrm">查询实训成绩</a>
+													href="Student_searchGrade.html" target="businessfrm">查询实训成绩</a>
 											</li>	
 										</ul>
 										<ul>
-									     <li><h1 class="redTitle">课程信息管理</h1></li>
-											<LI class=# ><IMG class=icon
+										<li class="redTitle" style="background:url(../image/tittle.png) no-repeat; width:220px;padding-left:20px;height:47px; color:#fff; font-size:18px; line-height:47px;">
+										课程信息管理
+	                                    </li>
+											<LI class=# sizcache="4" sizset="0"><IMG class=icon
 												src="../image//icon_1.gif"><a
 													href="Student_studyplan.html" target="businessfrm">查询学习计划</a>
 												</li>
 
-											<li class=#><IMG class=icon
+											<li class=# sizcache="4" sizset="0"><IMG class=icon
 												src="../image/icon_1.gif"><a
 													href="Student_data.html" target="businessfrm">下载课程资料</a>
 											</li>
-											<li class=#><IMG class=icon
+											<li class=# sizcache="4" sizset="0"><IMG class=icon
 												src="../image/icon_1.gif"><a
 													href="Student_check.html" target="businessfrm">查询课程考勤</a>
 											</li>
 										</ul>
 										<ul>
-										 <li><h1 class="redTitle">作业管理</h1></li>
+										<li class="redTitle" style="background:url(../image/tittle.png) no-repeat;width:220px;padding-left:20px;height:47px; color:#fff; font-size:18px; line-height:47px;">
+										作业管理
+	                                    </li>
 											<LI class=#><IMG class=icon
-												src="../image/icon_1.gif"><a
-													onclick=upDownMenu(this) href="Student_showWork.html" target="businessfrm">最新作业</a>
+												src="../image//icon_1.gif"><a
+													onclick=upDownMenu(this) href="#">最新作业</a>
 												</li>
 
 											<li class=#><IMG class=icon
 												src="../image/icon_1.gif"><a
-													onclick=upDownMenu(this) href="Student_unfinishedWork.html" target="businessfrm">未交作业</a>
+													onclick=upDownMenu(this) href="#">未交作业</a>
 											</li>
 											<li class=#><IMG class=icon
 												src="../image/icon_1.gif"><a
-													onclick=upDownMenu(this) href="Student_showuploadedWork.html" target="businessfrm">已交作业</a>
+													onclick=upDownMenu(this) href="#">已交作业</a>
 													</li>
 											<li class=#><IMG class=icon
 												src="../image/icon_1.gif"><a
-													onclick=upDownMenu(this) href="Student_showMarkedWork.html" target="businessfrm">已批作业</a>
+													onclick=upDownMenu(this) href="#">已批作业</a>
 													</li>
 										</ul>
 										<ul>
-										 <li><h1 class="redTitle">个人信息管理</h1></li>
+										<li class="redTitle" style="background:url(../image/tittle.png) no-repeat; width:220px;padding-left:20px;height:47px; color:#fff; font-size:18px; line-height:47px;">
+									个人信息管理
+	                                    </li>
 											<LI class=#><IMG class=icon
 												src="../image//icon_1.gif"><a
 													onclick=upDownMenu(this) href="Student_modifyPassword.html" target="businessfrm">修改密码</a>
 												</li>
-											
+
 											<li class=# ><IMG class=icon
 												src="../image/icon_1.gif"><a
 													onclick=upDownMenu(this) href="Student_modifyInfo.html" target="businessfrm">修改个人信息</a>
@@ -161,6 +161,13 @@
   				  <iframe id="businessfrm" src="welcome.html"
 						frameborder="0" width="100%" name="businessfrm" scrolling="no";height="510px";></iframe>
   				</td>
+  			</tr>
+  			<tr>
+  			<td colspan="2">
+  			<div class="foot">
+  			    江苏省连云港市淮海工学院版权所有 联系电话：0518-87695328
+  			</div>
+  			</td>
   			</tr>
   		</tbody>
   	</table>

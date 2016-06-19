@@ -26,7 +26,6 @@ public class BaseTeacherLoadSelInfoController {
 	@ResponseBody
 	 public Result execute(String tno){
 		 Result result=baseTeacherService.loadSelInfo(tno);
-		 System.out.println(result.getData());
 		 return result;
 		 
 	 }

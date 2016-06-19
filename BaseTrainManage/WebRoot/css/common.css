@@ -29,7 +29,7 @@ del, dfn, em, img, ins, kbd, q, samp,
      border:0;
      outline:0;
      font-size:100%;
-     vertical-align:baseline;
+     
      background:transparent;
       list-style: none;
 }
@@ -97,10 +97,11 @@ abbr[title], dfn[title] {
      border-bottom:1px dotted;
      cursor:help;
 }
-/*  table {
+ table {
      border-collapse:collapse;
      border-spacing:0;
-} */
+     margin-top:20;
+}
  hr {
      display:block;
      height:1px;
@@ -111,11 +112,12 @@ abbr[title], dfn[title] {
 }
  input, select {
      vertical-align:middle;
-     background-color: none !important;
-     border:1px solid #ccc;
-     border-radius:5px;
+     background-color: #fff;
+     border:none;
 }
-
+/*{
+	cursor:pointer;
+	}*/
 .clearfix{
 	clear:both;
 }

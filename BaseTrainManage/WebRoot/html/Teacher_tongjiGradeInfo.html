@@ -3,9 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>高校实训学生管理系统</title>
-  <link rel="stylesheet" type="text/css" href="../css/common.css">
  <link rel="stylesheet" type="text/css" href="../css/input.css">
-
  <style type="text/css">
  	body{
  	 position:relative;
@@ -69,24 +67,12 @@
  	 	float:left;
  	 	width:20%;
  	}	
- 		.result{
- 		text-align:left;
- 		margin-top:15px;
- 		letter-spacing: 2px;
- 		margin-left:19px;
- 	}	
 
  </style>
  <script type="text/javascript" src="../js/cookie_util.js"></script>
  <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
- <script type="text/javascript" src="../js/grade/tongjiTrainStudentGrade.js"></script>
- <script type="text/javascript" src="../js/getParameter.js"></script>
+ <script type="text/javascript" src="../js/tongjiTrainStudentGrade.js"></script>
  <script type="text/javascript">
- 	var userId=getCookie("username");
- 	  if(userId==null){
- 		alert("由于您长时间没有登录，请重新登录!");
- 		window.open("studentLogin1.jsp");
- 	}
  var stuno;
  var cno;
  var week="";
@@ -97,39 +83,41 @@
 	<div id="head1"><img  src="../image/info.png"/></div>
     <div id="head2">当前位置：首页&nbsp;>>&nbsp;学生实训信息管理&nbsp;>>&nbsp;<b>实训学生成绩统计</b></div>
     <div id="person"><img  src="../image/person.png"/></div>
-   <div id="welcome">您好：<b id="name"></b>欢迎登录外实训学生管理系统--学校教师管理子系统</div>
+   <div id="welcome">您好：<b id="name"></b>,欢迎登录外实训学生管理系统--学校教师管理子系统</div>
    <div id="time"><img  src="../image/time.png"/>
-    <script  type="text/javascript"> 
+    <script language="JavaScript" type="text/javascript"> 
 var today=new Date(); 
 var strDate=(" "+today.getFullYear()+"年"+(today.getMonth()+1)+"月"+today.getDate()+"日"); 
 var n_day=today.getDay(); 
 switch(n_day){ 
 case 0: 
-{strDate=strDate+" 星期日 ";}break; 
+{strDate=strDate+" 星期日 "}break; 
 case 1: 
-{strDate=strDate+" 星期一 ";}break; 
+{strDate=strDate+" 星期一 "}break; 
 case 2: 
-{strDate=strDate+" 星期二 ";}break; 
+{strDate=strDate+" 星期二 "}break; 
 case 3: 
-{strDate=strDate+" 星期三 ";}break; 
+{strDate=strDate+" 星期三 "}break; 
 case 4: 
-{strDate=strDate+" 星期四 ";}break; 
+{strDate=strDate+" 星期四 "}break; 
 case 5: 
-{strDate=strDate+" 星期五 ";}break; 
+{strDate=strDate+" 星期五 "}break; 
 case 6: 
-{strDate=strDate+" 星期六 ";}break; 
+{strDate=strDate+" 星期六 "}break; 
 case 7: 
-{strDate=strDate+" 星期日 ";}break; 
+{strDate=strDate+" 星期日 "}break; 
 } 
 document.write(strDate); 
 </script> 
  </div>
-  <div id="information">
-    	<div class="topContent">
-    		学号<input type="text" name="sno" disabled="disabled" id="stuno" class="inputInfo"/>
-    		课程号<input type="text" disabled="disabled" id="cno" class="inputInfo"/>
-	     月份
-	     <select id="month" class="selectInfo">
+   <div id="information">
+    	<form action="" method="post">
+    		<div id="id1">学&nbsp;&nbsp;&nbsp;号&nbsp;<input type="text" name="sno" disabled="disabled" id="stuno"/></div>
+    		<div class="course">课&nbsp;程&nbsp;号&nbsp;<input type="text" disabled="disabled" id="cno"/>
+	  </div>
+	  <div class="course">
+	     月&nbsp;份&nbsp;
+	     <select id="month">
 	        <option value ="1"></option>  
 	        <option value ="1">1</option>  
             <option value ="2">2</option>  
@@ -138,15 +126,15 @@ document.write(strDate);
 		    <option value="5">5</option>
 	     </select>
 	  </div>
-	  <div class="result">
-	  平均分<input type="text" disabled="disabled" id="avgresult" class="inputInfo"/>
-	 <input type="button" value="平均分" id="agrade" class="editBtn"/></div>
-	   <div class="result">最高分<input type="text" disabled="disabled" id="maxresult" class="inputInfo"/>
-	  <input type="button" value="最高分" id="mgrade" class="editBtn"/></div>
-	   <div class="result">最低分<input type="text" disabled="disabled" id="minresult" class="inputInfo"/>
-	   <input type="button" value="最低分" id="mingrade" class="editBtn"/></div>
-	   <div class="result">及格率<input type="text" disabled="disabled" id="passresult" class="inputInfo"/>
-	 <input type="button" value="及格率" id="passgrade" class="editBtn"/></div>
-  </div> 
+	  <div id="avg">平&nbsp;均&nbsp;分&nbsp;<input type="text" disabled="disabled" id="avgresult"/></div>
+	  <div id="avg1"><input type="button" value="平均分" id="agrade"/></div>
+	   <div id="max">最&nbsp;高&nbsp;分&nbsp;<input type="text" disabled="disabled" id="maxresult"/></div>
+	  <div id="max1"><input type="button" value="最高分" id="mgrade"/></div>
+	   <div id="min">最&nbsp;低&nbsp;分&nbsp;<input type="text" disabled="disabled" id="minresult"/></div>
+	  <div id="min1"><input type="button" value="最低分" id="mingrade"/></div>
+	   <div id="pass">及&nbsp;格&nbsp;率&nbsp;<input type="text" disabled="disabled" id="passresult"/></div>
+	  <div id="pass1"><input type="button" value="及格率" id="passgrade"/></div>
+  </form> 
+    </div>
  </body>
 </html>

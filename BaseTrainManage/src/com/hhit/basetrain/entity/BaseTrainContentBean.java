@@ -16,7 +16,7 @@ public class BaseTrainContentBean {
 	private String outline_plan;
 	/** 制定好的计划 */
 	private String train_plan;
-	/** 拟制定的计划 */
+	/** 拟指定的实训大纲 */
 	private String new_plan;
 	/** 制定好的指导书 */
 	private String guide_book;

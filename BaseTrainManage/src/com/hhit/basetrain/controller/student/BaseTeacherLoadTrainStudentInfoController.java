@@ -24,8 +24,8 @@ public class BaseTeacherLoadTrainStudentInfoController {
 	
 	@RequestMapping("baseteacher/loadInfo")
 	@ResponseBody
-	public Result execute(String stuname,String tno,Integer page,Integer pageSize){
-		Result result =trainStudentService.loadTrainStudnetInfoByPage(stuname,tno, page, pageSize);
+	public Result execute(String stuname,Integer page,Integer pageSize){
+		Result result =trainStudentService.loadTrainStudnetInfoByPage(stuname, page, pageSize);
 		System.out.println(result.getData());
 		return result;
 	}
